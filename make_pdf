@@ -1,0 +1,9 @@
+#!/bin/sh
+
+rm intro.pdf
+Sweave.sh intro.Rnw
+pdflatex intro.tex
+pdflatex intro.tex
+makeindex intro.idx
+pdflatex intro.tex
+pdflatex intro.tex
