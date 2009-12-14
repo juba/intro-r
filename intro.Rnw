@@ -157,7 +157,7 @@
 
 \title{\includegraphics[width=1.4cm]{img/Rlogo.jpg} pour les sociologues\\(et assimilés)}
 \author{Julien Barnier\\ Groupe de Recherche sur la Socialisation\\
-  CNRS -- UMR 5040\\ \href{mailto:julien.barnier@ens-lsh.fr}{\texttt{julien.barnier@ens-lsh.fr}}}
+  CNRS -- UMR 5040\\ \href{mailto:julien.barnier@ens-lyon.fr}{\texttt{julien.barnier@ens-lyon.fr}}}
 \date{\today{}}
 %\abstract{}
 
