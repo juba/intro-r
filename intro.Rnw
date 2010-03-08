@@ -1830,12 +1830,21 @@ sa machine (il s'agit des fonctions \rfunc{read.ssd} de l'extension
 Si on ne dispose que des fichiers au format \textsf{SAS} natif, le
 plus simple est d'utiliser l'application \textsf{SAS System Viewer},
 qui permet de lire des fichiers \textsf{SAS} natif, de les visualiser
-et de les enregistrer au format export ou dans un format texte. Cette
-application est téléchargeable gratuitement, mais ne fonctionne que
-sous \textsf{Windows}\footnote{Ou sous \textsf{Linux} et \textsf{Mac
-    OS X} avec \textsf{wine}.}~:
+et de les enregistrer dans un format texte. Cette application est
+téléchargeable gratuitement, mais ne fonctionne que sous
+\textsf{Windows}\footnote{Ou sous \textsf{Linux} et \textsf{Mac OS X}
+  avec \textsf{wine}.}~:
 
-\url{http://www.umass.edu/statdata/software/downloads/SASViewer/}
+\url{http://www.sas.com/apps/demosdownloads/setupcat.jsp?cat=SAS+System+Viewer}
+
+Une fois le fichier de données au format \textsf{SAS} natif ouvert on
+peut l'enregistrer au format texte tabulé. L'import dans \R se fait
+alors avec la commande suivante :
+
+@ 
+<<eval=FALSE>>=
+donnees <- read.delim("fichier.txt", na.strings=".")
+@  %def
 
 
 \subsection{\textsf{SPSS}}
