@@ -2199,13 +2199,13 @@ table(d$qualif)
 
 Par défaut, les valeurs manquantes ne sont pas considérées comme un
 niveau de facteur. On peut cependant les transformer en niveau en
-utilisant l'option \texttt{exclude=NULL}. Ceci signifie cependant
+utilisant la fonction \rfunc{addNA}. Ceci signifie cependant
 qu'elle ne seront plus considérées comme manquantes par \R~:
 
 @ 
 <<>>=
 summary(d$trav.satisf)
-summary(factor(d$trav.satisf, exclude=NULL))
+summary(addNA(d$trav.satisf))
 @ %def 
 
 
