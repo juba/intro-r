@@ -1402,9 +1402,30 @@ sort(table(d$occup))
 sort(table(d$occup), decreasing=TRUE)
 @ %def 
 
+
+
 À noter que la fonction \rfunc{table} exclut par défaut les
-non-réponses du tableau résultat. L'utilisation de \rfunc{summary}
-permet l'affichage du tri à plat et du nombre de non-réponses~:
+non-réponses du tableau résultat. L'argument \texttt{useNA} de cette fonction
+permet de modifier ce comportement~:
+
+\begin{itemize}
+\item avec \texttt{useNA="no"} (valeur par défaut), les valeurs manquantes ne sont
+  jamais incluses dans le tri à plat~;
+\item avec \texttt{useNA="ifany"}, une colonne \texttt{NA} est ajoutée si des
+  valeurs manquantes sont présentes dans les données~;
+\item avec \texttt{useNA="always"}, une colonne \texttt{NA} est toujours
+  ajoutée, même s'il n'y a pas de valeurs manquantes dans les données.
+\end{itemize}
+
+On peut donc utiliser~:
+
+@ 
+<<>>=
+table(d$trav.satisf, useNA="ifany")
+@ %def 
+
+L'utilisation de \rfunc{summary} permet également l'affichage du tri à plat et
+du nombre de non-réponses~:
 
 @ 
 <<>>=
