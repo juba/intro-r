@@ -4985,6 +4985,7 @@ appliquer la fonction \rfunc{unionSpatialPolygons}, ce qui donne~:
 @ 
 <<results=hide>>=
 library(maptools)
+gpclibPermit()
 fusion <- rep(1, nrow(lyon@data))
 lyon.contour <- unionSpatialPolygons(lyon, fusion)
 @ %def 
