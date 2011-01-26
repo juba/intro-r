@@ -210,7 +210,7 @@ cat(R.Version()$version.string)
 La page Web <<~officielle~>> sur laquelle on pourra trouver la
 dernière version de ce document se trouve à l'adresse~:
 
-\url{http://alea.fr.eu.org/j/intro_R.html}
+\url{http://alea.fr.eu.org/pages/intro-R}
 
 Ce document est diffusé sous licence \textit{Creative Commons
   Paternité -- Non commercial}~:
@@ -1899,7 +1899,7 @@ ASCII et s'appuie sur la fonction \rfunc{mls.import}.
 
 On trouvera davantage d'informations à l'adresse suivante~:
 
-\url{http://alea.fr.eu.org/j/rgrs_modalisa.html}
+\url{http://alea.fr.eu.org/pages/R-et-Modalisa}
 
 
 \subsection{Fichiers \texttt{dbf}}
@@ -4196,7 +4196,7 @@ $\chi^2$\footnote{On ne donnera pas plus d'indications sur le test du
   $\chi^2$ ici. Les personnes désirant une présentation plus détaillée
   pourront se reporter (attention, séance d'autopromotion~!) à la page
   suivante~:
-  \url{http://alea.fr.eu.org/j/test_khi2.html}.}. Celui-ci
+  \url{http://alea.fr.eu.org/pages/khi2}.}. Celui-ci
 s'obtient grâce à la fonction \rfunc{chisq.test}, appliquée au
 tableau croisé obtenu avec \rfunc{table}\footnote{On peut aussi
   appliquer directement le test en spécifiant les deux variables à
@@ -5336,7 +5336,7 @@ compresser et décompresser des fichiers au format \texttt{zip}. Or
 ceci n'est pas le cas par défaut sous \textsf{Windows}. Pour les
 récupérer, téléchargez l'archive à l'adresse suivante~:
 
-\url{http://alea.fr.eu.org/j/files/zip.zip}
+\url{http://alea.fr.eu.org/public/files/zip.zip}
 
 Décompressez-là et placez les deux fichiers qu'elle contient
 (\texttt{zip.exe} et \texttt{unzip.exe}) dans votre répertoire
@@ -6337,7 +6337,7 @@ library(rgrs)
 Pour plus de détails sur la liste des fonctions de l'extension et son
 utilisation, on pourra se reporter aux pages Web suivantes~:
 
-\url{http://alea.fr.eu.org/j/rgrs.html}
+\url{http://alea.fr.eu.org/pages/rgrs}
 
 Un document PDF regroupant les pages d'aide en ligne de l'extension
 est notamment disponible~:
@@ -6348,7 +6348,7 @@ Ainsi qu'une page décrivant plus particulièrement l'utilisation des
 fonctions facilitant l'importation et le traitement de données issues
 de \textsf{Modalisa}~:
 
-\url{http://alea.fr.eu.org/j/rgrs_modalisa.html}
+\url{http://alea.fr.eu.org/pages/R-et-Modalisa}
 
 
 \subsection{Le jeu de données \texttt{hdv2003}}
