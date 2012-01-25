@@ -156,8 +156,8 @@
 %\definecolor{grisclair}{gray}{0.97}
 
 \title{\includegraphics[width=1.4cm]{img/Rlogo.jpg} pour les sociologues\\(et assimilés)}
-\author{Julien Barnier\\ Groupe de Recherche sur la Socialisation\\
-  CNRS -- UMR 5040\\ \href{mailto:julien.barnier@ens-lyon.fr}{\texttt{julien.barnier@ens-lyon.fr}}}
+\author{Julien Barnier\\ Centre Max Weber\\
+  CNRS -- UMR 5283\\ \href{mailto:julien.barnier@ens-lyon.fr}{\texttt{julien.barnier@ens-lyon.fr}}}
 \date{\today{}}
 %\abstract{}
 
@@ -203,6 +203,7 @@ Il se veut le plus accessible possible, y compris pour ceux qui ne
 sont pas particulièrement familiers avec l'informatique.
 
 Ce document est basé sur 
+
 <<Rversion,results=tex,echo=FALSE>>=
 cat(R.Version()$version.string)
 @ .
@@ -258,8 +259,8 @@ coo <- scatterutil.base(dfxy = dfxy, xax = xax, yax = yax, xlim = xlim, ylim = y
 \section{Présentation de \R}
 
 \R est un langage orienté vers le traitement de données et l'analyse
-statistique dérivé du langage \textsf{S}. Il est développé depuis plus
-de 10 ans par un groupe de volontaires de différents pays. C'est un
+statistique dérivé du langage \textsf{S}. Il est développé depuis une
+vingtaine d'années par un groupe de volontaires de différents pays. C'est un
 logiciel libre\footnotemark, publié sous licence GNU GPL.
 
 \footnotetext{Pour plus d'informations sur ce qu'est un logiciel libre,
@@ -280,7 +281,7 @@ L'utilisation de \R présente plusieurs avantages~:
 \item c'est un logiciel avec d'excellentes capacités graphiques.
 \end{itemize}
 
-\footnotetext{Il en existe actuellement plus de 1500, disponibles sur le
+\footnotetext{Il en existe actuellement plus de 3500, disponibles sur le
   \textit{Comprehensive R Archive Network} (CRAN)~: \url{http://cran.r-project.org/}}
 
 Comme rien n'est parfait, on peut également trouver quelques inconvénients~:
@@ -6538,14 +6539,15 @@ plot(table(df$age), main="Répartition des âges", xlab="Âge", ylab="Effectif")
 \begin{solution}{varquali}
 
 @ 
-<<eval=FALSe>>=
+<<eval=FALSE>>=
 table(df$trav.imp)
 summary(df$trav.imp)
 freq(df$trav.imp)
 dotchart(table(df$trav.imp))
 
 @ %def 
- 
+
+\end{solution}
 
 \begin{solution}{import_tableur}
   Utilisez la fonction \texttt{read.table} ou l'un de ses dérivés, en
@@ -6701,11 +6703,6 @@ head(d.ord,10)
   
 \end{solution}
 
-
-
-
-
-\end{solution}
 
 \listoffigures
 
