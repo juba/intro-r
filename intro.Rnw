@@ -5566,6 +5566,19 @@ Pour plus d'informations :
 \url{http://dir.gmane.org/gmane.comp.lang.r.user.french}
 
 
+\subsection{StackOverflow}
+
+Le site \textit{StackOverflow} (qui fait partie de la famille des sites
+\textit{StackExchange}) comprend une section (anglophone) dédiée à \R qui
+permet de poser des questions et en général d'obtenir des réponses assez
+rapidement :
+
+\url{http://stackoverflow.com/questions/tagged/r}
+
+La première chose à faire, évidemment, est de vérifier que sa question n'a pas
+déjà été posée.
+
+
 \subsection{Forum Web en français}
 
 Le Cirad a mis en ligne un forum dédié aux utilisateurs de \R, très
@@ -5586,9 +5599,8 @@ trouverait pas déjà.
 \subsection{Canaux IRC (chat)}
 
 L'IRC, ou \textit{Internet Relay Chat} est le vénérable ancêtre
-toujours très actif des messageries instantanées actuelles. Deux
-canaux sont dédiés aux échanges autour de \R, l'un en anglais
-(\texttt{\#R}) et l'autre en français (\texttt{\#Rfr}).
+toujours très actif des messageries instantanées actuelles. Un canal (en
+anglais) est notamment dédié aux échanges autour de \R (\texttt{\#R}).
 
 Si vous avez déjà l'habitude d'utiliser IRC, il vous suffit de pointer
 votre client préféré sur \textsf{Freenode} (\texttt{irc.freenode.net})
@@ -5599,19 +5611,16 @@ Mibbit, accessible à l'adresse~:
 
 \url{http://www.mibbit.com/}
 
-Dans le champ \textit{Connect to IRC}, sélectionnez
-\textit{Freenode.net}, puis saisissez un pseudonyme dans le champ
-\textit{Nick} et le nom du canal dans le champ \textit{Channel}
-(\texttt{\#R} ou \texttt{\#Rfr}). Vous pourrez alors discuter
-directement avec les personnes présentes.
+Dans le champ \textit{Connect to IRC}, sélectionnez \textit{Freenode.net},
+puis saisissez un pseudonyme dans le champ \textit{Nick} et \texttt{\#R} dans
+le champ \textit{Channel}. Vous pourrez alors discuter directement avec les
+personnes présentes.
 
-Les deux canaux IRC dédiés à \R sont normalement peuplés de personnes
-qui seront très heureuses de répondre à toutes les questions, et en
-général l'ambiance y est très bonne. Une fois votre question posée,
-n'hésitez pas à être patient et à attendre quelques minutes, voire
-quelques heures, le temps qu'un des habitués vienne y faire un
-tour. Le canal \texttt{\#Rfr}, en particulier, n'est pour le moment
-pas extrêmement actif.
+Le canal \texttt{\#R} est normalement peuplé de personnes qui seront très
+heureuses de répondre à toutes les questions, et en général l'ambiance y est
+très bonne. Une fois votre question posée, n'hésitez pas à être patient et à
+attendre quelques minutes, voire quelques heures, le temps qu'un des habitués
+vienne y faire un tour.
 
 \subsection{Listes de discussion officielles}
 
@@ -5679,14 +5688,6 @@ entrée \R dans les programmes de votre menu \textit{Démarrer}. Il ne
 vous reste donc plus qu'à lancer le logiciel pour voir à quoi il
 ressemble.
 
-Enfin signalons l'existence, grâce au travail de Mayeul Kauffmann,
-d'une version portable de \R pour \textsf{Windows} permettant
-notamment d'installer facilement sur une clé USB \R, l'éditeur
-\textsf{Tinn-R} ainsi que plusieurs extensions. On peut donc avoir en
-permanence sur soi un environnement de travail complet~:
-
-\url{http://otan.ecoledelapaix.org/spip.php?article102}
-
 
 \section{Installation de \R sous \textsf{Mac OS X}}
 
@@ -5741,175 +5742,44 @@ sur la page suivante~:
 
 \url{http://www.sciviews.org/_rgui/} (en anglais)
 
-L'une des alternatives les plus simples sous \textsf{Windows} est sans
-doute l'éditeur de texte \textsf{Tinn-R}. Son installation est décrite
-section~\pageref{sec_tinnr}~\vpageref{sec_tinnr}.
-
-
-La version de \R pour \textsf{Mac OS X} est fournie avec une interface
-graphique beaucoup plus ergonomique et comprenant un éditeur de texte
-assez complet. Sous Linux et Unix, plusieurs alternatives
-existent. Pour ceux qui maîtrisent \textsf{Emacs}, le mode
-\textsf{ESS} comprend une interface complète pour \R. Pour des
-interfaces plus graphiques, on pourra aussi jeter un \oe{}il du côté
-du projet \textsf{Rkward}~:
-
-\url{http://rkward.sourceforge.net/?content=home&lang=fr}
+Le projet \textsf{RStudio} tend à s'imposer l'environnement de développement
+de référence pour \textsf{R}, d'autant qu'il a l'avantage d'être libre,
+gratuit et multiplateforme. Son installation est décrite
+section~\ref{sec_rstudio} \vpageref{sec_rstudio}.
 
 Au final, ce document se basant toujours sur une utilisation de \R
 basée sur la saisie de commandes textuelles, l'interface choisie
 importe peu. Celles-ci ne diffèrent que par le niveau de confort ou
 d'efficacité supplémentaires qu'elles apportent.
 
-\subsection{\textsf{RStudio}}
+\section{\textsf{RStudio}}
 \label{sec_rstudio}
 
+\textsf{RStudio} est un environnement de développement intégré libre, gratuit,
+et qui fonctionne sour \textsf{Windows}, \textsf{Mac OS X} et \textsf{Linux}.
+Il fournit un éditeur de script avec coloration syntaxique, des
+fonctionnalités pratiques d'édition et d'exécution du code, un affichage
+simultané du code, de la console \R, des fichiers, graphiques et pages d'aide,
+une gestion des extensions, une intégration avec des systèmes de contrôle de
+versions comme \textsf{git}, etc.
+
+Il est en développement actif et de nouvelles fonctionnalités sont ajoutées
+régulièrement. Son seul défaut est d'avoir une interface uniquement anglophone.
+
+Pour avoir un aperçu de l'interface de \textsf{RStudio}, on pourra se référer
+à la page \textit{Screenshots} du site du projet~:
+
+\url{http://www.rstudio.org/screenshots/}
+
+L'installation de \textsf{RStudio} est très simple, il suffit de se rendre sur
+la page de téléchargement et de sélectionner el fichier correspondant à son
+système d'exploitation :
+
+\url{http://www.rstudio.org/download/desktop}
+
+L'installation s'effectue ensuite de manière tout à fait classique.
 
 
-
-\subsection{\textsf{Tinn-R}}
-\label{sec_tinnr}
-
-\textsf{Tinn-R} est une alternative à l'interface graphique installée
-par défaut avec \R sous \textsf{Windows}, et ne fonctionne que sur ce
-système. Il s'agit d'un éditeur de texte, mais qui propose la
-coloration syntaxique des scripts \R, la soumission de commandes
-directement depuis l'éditeur, et une aide en ligne efficace. Son
-interface n'est cependant disponible qu'en anglais.
-
-Il s'agit d'un logiciel libre et gratuit. Son installation est
-vivement recommandée en cas d'utilisation régulière de \R sous
-\textsf{Windows}.
-
-Le site officiel se trouve à l'adresse~:
-
-\url{http://www.sciviews.org/Tinn-R/}
-
-Le téléchargement peut s'effectuer directement depuis \textit{Sourceforge}~:
-
-\url{http://sourceforge.net/project/platformdownload.php?group_id=144024}
-
-en sélectionnant le fichier nommé \texttt{Tinn-R\_2.1.1.6\_setup.exe}
-(ou quelque chose y ressemblant). Une fois le fichier téléchargé il
-suffit de l'exécuter et de poursuivre l'installation en laissant les
-options par défaut.
-
-\begin{important}
-Il est nécessaire d'avoir installé \R sur votre système \textit{avant}
-d'installer \textsf{Tinn-R}. De même, si vous aviez déjà une version
-de \textsf{Tinn-R} plus ancienne sur votre système, il est conseillé
-de la désinstaller avant d'installer la nouvelle. Dans ce cas, si vous
-souhaitez conserver votre configuration, vous pouvez utiliser les
-outils \textit{Backup} et \textit{Restore} de menu \textit{Tools}.
-\end{important}
-
-Une fois \textsf{Tinn-R} installé, vous pouvez le lancer \textit{via}
-le menu \textit{Démarrer}. Plusieurs étapes de configuration restent à
-effectuer avant de pouvoir réellement commencer à travailler.
-
-Tout d'abord, sélectionnez le menu \textit{R}, puis
-\textit{Customize}, puis \textit{Rconfigure.r}. Un nouveau fichier
-apparaît. Ajoutez alors les ligness suivantes à un endroit quelconque,
-comme indiqué figure~\ref{tinnr_config} \vpageref{tinnr_config}~:
-
-\begin{Scode}
-  options(max.print=150)
-  options(repos="http://cran.fr.r-project.org/")
-\end{Scode}
-
-\begin{figure}
-  \begin{center}
-    \includegraphics{img/tinnr_config.png}
-  \end{center}
-  \caption{Configuration de \textsf{Tinn-R}}
-  \label{tinnr_config}
-\end{figure}
-
-
-Enregistrez le fichier (\textit{File} puis \textit{Save} ou bien
-\texttt{Ctrl+S}) et fermez sa fenêtre (\textit{File} puis
-\textit{Close} ou \texttt{Ctrl+W}).
-
-Sélectionnez ensuite le menu \textit{R}, puis \textit{Configure}, puis
-\textit{Permanent}. Un nouveau fichier devrait s'ouvrir, et une boîte
-de dialogue s'afficher en vous proposant de lancer \R. Choisissez
-\textit{Non}.
-
-Sélectionnez ensuite le menu \textit{R}, \textit{Start/close and
-  connections}, puis \textit{Rterm}. Vous devriez voir une nouvelle
-fenêtre apparaître dans laquelle devrait se lancer \R. Vous pouvez
-désormais utiliser la fenêtre \R comme la console dans l'interface par
-défaut, saisir directement des commandes et naviguer dans l'historique
-à l'aide des touches \texttt{Alt+Flèche haut} et \texttt{Alt+Flèche
-  bas}.
-
-Vous pouvez également créer un nouveau script en choisissant
-\textit{File} puis \textit{New}. Si vous saisissez des commandes \R
-dans ce fichier, vous pouvez les exécuter directement en choisissant
-le menu \textit{R}, puis \textit{Send} puis soit \textit{Line},
-\textit{Selection}, \textit{File}\ldots ou en utilisant les icônes de
-la barre d'outil équivalentes.
-
-À noter que par défaut la console \R de \textsf{Tinn-R} comporte deux
-onglets, l'un nommé \texttt{IO} et l'autre \texttt{Log}. C'est dans ce
-deuxième onglet que s'affichent les messages d'erreur et
-d'avertissement (par défaut un bip est émis lorsqu'une erreur
-survient). Ce comportement par défaut n'étant pas pratique du tout,
-vous pouvez le modifier en choisissant le menu \textit{R}, puis
-\textit{Rterm}, puis \textit{Split} et enfin \textit{Horizontal
-  split}. Au final, vous devriez obtenir une interface ressemblant
-quelque peu à la figure~\ref{tinnr_interface}
-\vpageref{tinnr_interface}.
-
-\begin{figure}
-  \begin{center}
-    \includegraphics{img/tinnr_interface.png}
-  \end{center}
-  \caption{Interface de \textsf{Tinn-R}}
-  \label{tinnr_interface}
-\end{figure}
-
-De nombreuses options de configuration existent. Les principales se
-trouvent dans le menu \textit{Options}, \textit{Application} sous
-l'onglet \textit{R}. Mais les options les plus importantes sont sans
-doute celles permettant de modifier les raccourcis claviers pour
-envoyer du code à \R depuis un script. 
-
-Par exemple, si vous souhaitez pouvoir exécuter une ligne en utilisant
-\texttt{Ctrl+Entrée}~:
-\begin{enumerate}
-\item Sélectionnez le menu \textit{R} puis \textit{Hotkeys}.
-\item Une boîte de dialogue s'ouvre. Dans le champ \textit{Sending and
-  controlling}, sélectionnez la ligne \textit{Send: line}.
-\item Dans le champ \textit{Set (hotkey method)}, cochez la case
-  \texttt{Ctrl} et choisissez \texttt{ENTRÉE} dans la liste
-  déroulante, puis cliquez sur \textit{Add}.
-\item Vérifiez qu'en bas de la boîte de dialogue le champ
-  \textit{Option} est bien positionné sur \textit{Active}. au final
-  vous devriez avoir quelque chose ressemblant à la
-  figure~\ref{tinnr_raccourci} \vpageref{tinnr_raccourci}.
-\item Cliquez sur \texttt{OK}.
-\end{enumerate}
-
-\begin{figure}
-  \begin{center}
-    \includegraphics{img/tinnr_raccourci.png}
-  \end{center}
-  \caption{Création d'un raccourci clavier dans \textsf{Tinn-R}}
-  \label{tinnr_raccourci}
-\end{figure}
-
-
-Vous devriez maintenant pouvoir exécuter une ligne directement depuis
-votre script en utilisant \texttt{Ctrl+Entrée}. Vous pouvez faire de
-même pour \textit{Send: selection} ou \textit{Send: file}\ldots
-
-De nombreuses autres fonctionnalités sont disponibles dans
-\textsf{Tinn-R}, comme l'aide en ligne, l'affichage et la manipulation
-des objets en mémoire, etc. Pour plus d'informations on pourra se
-reporter à l'aide du logiciel, disponible \textit{via} le menu
-\textit{Help}, et notamment l'entrée \textit{French},
-\textit{Lisezmoi}, \textit{HTML}.
 
 
 \chapter{Extensions}
