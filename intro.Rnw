@@ -20,10 +20,11 @@
 \usepackage[sf,bf]{titlesec}
 \usepackage{listings}
 \usepackage{calc}
+\usepackage{xcolor}
 \usepackage[hyperref,colorlinks=true,urlcolor=blue,pdfpagelabels]{hyperref}
 \usepackage{ctable}
-\usepackage{etex}
-\usepackage{tikz}
+%\usepackage{etex}
+%\usepackage{tikz}
 \usepackage{amsmath}
 \usepackage{pifont}
 \usepackage{Sweave}
@@ -127,23 +128,20 @@
 \date{\today{}}
 %\abstract{}
 
+
 \begin{document}
 
 %%%% SWEAVEOPTS
 
-\SweaveOpts{fig.path=tmp/,dev=tikz,sanitize=TRUE,cache=FALSE,cache.path=cache/,external=TRUE,prompt=TRUE,comment=NA,background=.9;.9;.9,fig.align=center,out.width=.8\textwidth,par=TRUE}
+\SweaveOpts{fig.path=tmp/,dev=pdf,sanitize=TRUE,cache=TRUE,cache.path=cache/,external=TRUE,prompt=TRUE,comment=NA,background=.95;.95;.95,fig.align=center,out.width=.8\textwidth}
 
-<<initialize,echo=FALSE,results=none>>=
+<<initialize,echo=FALSE,results=none,cache=FALSE>>=
 options(width=85)
+options(max.print="70")
+options(prompt="R> ")									 
 options(device = function(...) {
     .Call("R_GD_nullDevice", PACKAGE = "grDevices")
 })
-options(tikzDocumentDeclaration="\\documentclass[12pt,francais]{article}")
-#options(tikzLatexPackages=c(
-#	getOption("tikzLatexPackages"), "\\usepackage{sansmath}"
-#))
-options(max.print="70")
-options(prompt="R> ")									 
 @
 
 
@@ -183,12 +181,7 @@ du logiciel libre de traitement de données et d'analyse statistiques \R.
 Il se veut le plus accessible possible, y compris pour ceux qui ne
 sont pas particulièrement familiers avec l'informatique.
 
-Ce document est basé sur 
-
-<<Rversion,results=tex,echo=FALSE>>=
-cat(R.Version()$version.string)
-@ 
-.
+Ce document est basé sur \Sexpr{R.Version()[["version.string"]]}.
 
 La page Web <<~officielle~>> sur laquelle on pourra trouver la
 dernière version de ce document se trouve à l'adresse~:
@@ -214,16 +207,16 @@ noms de fichiers sont imprimés avec une police à chasse fixe
 (\texttt{test.R}, \texttt{data.txt}\ldots), tout comme les fonctions
 \R (\rfunc{summary}, \rfunc{mean}, \rfunc{<-}\ldots).
 
-Lorsqu'on présente des commandes saisies sous \R et leur résultat, la
-commande saisie est indiquée avec une police à chasse fixe bleu
-foncé précédée de l'invite de commande \texttt{R>}~:
+Lorsqu'on présente des commandes saisies sous \R et leur résultat, la commande
+saisie est indiquée avec une police à chasse fixe et précédée de l'invite de
+commande \texttt{R>}~:
 
 <<eval=FALSE>>=
 summary(rnorm(100))
 @
 
-Le résultat de la commande tel qu'affiché par \R est indiqué dans une
-police à chasse fixe inclinée rouge foncé~:
+Le résultat de la commande tel qu'affiché par \R est également indiqué dans
+une police à chasse fixe~:
 
 <<echo=FALSE>>=
 summary(rnorm(100))
@@ -344,9 +337,10 @@ ressemblant à peu près à ce qui suit\footnotemark~:
 
 
 \begin{verbatim}
-R version 2.7.2 (2008-08-25)
-Copyright (C) 2008 The R Foundation for Statistical Computing
+R version 2.14.1 (2011-12-22)
+Copyright (C) 2011 The R Foundation for Statistical Computing
 ISBN 3-900051-07-0
+Platform: x86_64-pc-linux-gnu (64-bit)
 
 R est un logiciel libre livré sans AUCUNE GARANTIE.
 Vous pouvez le redistribuer sous certaines conditions.
@@ -425,11 +419,11 @@ lorsque l'on saisit les commandes dans \R. Les trois commandes
 suivantes sont donc équivalentes, mais on privilégie en général la
 deuxième pour des raisons de lisibilité du code.
 
-\begin{Scode}
+<<espaces,eval=FALSE,prompt=FALSE>>=  
 R> 10+2
 R> 10 + 2
 R> 10       +       2
-\end{Scode}
+@ 
 
 
 
@@ -1561,13 +1555,12 @@ donnees <- read.table("fichier.txt")
 @ 
 
 Cependant, ceci ne fonctionnera que si le fichier se trouve dans le
-\textit{répertoire de travail} de \R. De quoi s'agit-il~? Tout
-simplement du répertoire dans lequel \R est actuellement en train de
-s'exécuter. Pour savoir quel est le répertoire de travail actuel, on
-peut utiliser la fonction \rfunc{getwd}\footnote{Le résultat indiqué
-  ici correspond à système \textsf{Linux}, sous \textsf{Windows} vous
-  devriez avoir quelque chose de la forme 
-  \verb|C:/Documents and Settings/| \ldots}~:
+\textit{répertoire de travail} de \R. De quoi s'agit-il~? Tout simplement du
+répertoire dans lequel \R est actuellement en train de s'exécuter. Pour savoir
+quel est le répertoire de travail actuel, on peut utiliser la fonction
+\rfunc{getwd}\footnote{Le résultat indiqué ici correspond à un système
+  \textsf{Linux}, sous \textsf{Windows} vous devriez avoir quelque chose de la
+  forme \verb|C:/Documents and Settings/| \ldots}~:
 
 <<>>=
 getwd()
@@ -1642,11 +1635,17 @@ directement dans le répertoire de travail, et on n'indiquera donc que
 le nom du fichier, sans indication de chemin ou de répertoire
 supplémentaire.
 
+\begin{astuce}
+  Si vous utilisez l'environnement de développement \textsf{RStudio} (voir
+  section~\ref{sec_rstudio} \vpageref{sec_rstudio}), vous pouvez vous
+  débarasser du problème des répertoires de travail en utilisant sa
+  fonctionnalité de gestion de \textit{projets}.
+\end{astuce}
 
 \section{Import de données depuis un tableur}
 
 Il est assez courant de vouloir importer des données saisies ou
-traitées avec un tableur du type \textsf{OpenOffice} ou
+traitées avec un tableur du type \textsf{OpenOffice/LibreOffice} ou
 \textsf{Excel}. En général les données prennent alors la forme d'un
 tableau avec les variables en colonne et les individus en ligne.
 
@@ -1679,7 +1678,7 @@ Dans le second cas, on utilise \rfunc{read.csv2}, de la même manière~:
 donnees <- read.csv2("fichier.csv")
 @ 
 
-\subsection{Depuis \textsf{OpenOffice}}
+\subsection{Depuis \textsf{OpenOffice} ou \textsf{LibreOffice}}
 
 Depuis \textsf{OpenOffice} on procédera de la même manière, en
 sélectionnant le type de fichier \textit{Texte CSV}.
@@ -3418,7 +3417,7 @@ travail à l'aide de \rfunc{setwd}, à importer les données, à effectuer
 manipulations, traitements et recodages, puis à mettre en oeuvre les
 analyses. Prenons le fichier fictif suivant~:
 
-\begin{Scode}
+<<orga1,eval=FALSE,prompt=FALSE>>=
 library(rgrs)
 library(foreign)
 
@@ -3445,8 +3444,8 @@ d$age5cl <- cut(d$age, 5)
 tab <- table(d$tx.chomage, d$age5cl)
 tab
 chisq.test(tab)
+@
 
-\end{Scode}
 
 Une manière d'organiser notre script\footnote{Ceci n'est qu'une
   suggestion, la manière d'organiser (ou non) son travail étant bien
@@ -3457,7 +3456,7 @@ fichiers scripts séparés. Créons alors un fichier nommé
 lignes suivantes~:
 
 
-\begin{Scode}
+<<orga2,eval=FALSE,prompt=FALSE>>=  
 ## IMPORT DES DONNÉES
 
 d1 <- read.dbf("tab1.dbf")
@@ -3478,14 +3477,15 @@ d$pcs[d$pcs == "Ouvrier qualifie"] <- "Ouvrier"
 d$pcs[d$pcs == "Ouvrier specialise"] <- "Ouvrier"
 
 d$age5cl <- cut(d$age, 5)
-\end{Scode}
+@ 
 
 
 Dés lors, si nous rajoutons les appels à la fonction \rfunc{source}
 qui vont bien, le fichier suivant sera strictement équivalent à notre
 fichier de départ~:
 
-\begin{Scode}
+
+<<orga2,eval=FALSE,prompt=FALSE>>=  
 library(rgrs)
 library(foreign)
 
@@ -3499,8 +3499,8 @@ source("recodages.R")
 tab <- table(d$tx.chomage, d$age5cl)
 tab
 chisq.test(tab)
+@
 
-\end{Scode}
 
 Au fur et à mesure du travail sur les données, on placera les
 recodages que l'on souhaite conserver dans le fichier
@@ -4897,11 +4897,11 @@ et le coller dans \textsf{Word}~:
 \end{center}
 
 
-\subsection{Export vers \textsf{Word} ou \textsf{OpenOffice} \textit{via} un fichier}
+\subsection{Export vers \textsf{Word} ou \textsf{OpenOffice/LibreOffice} \textit{via} un fichier}
 
 L'autre possibilité ne nécessite pas de passer par \textsf{Excel}, et
-fonctionne sous \textsf{Word} et \textsf{OpenOffice} sur toutes les
-plateformes.
+fonctionne sous \textsf{Word}, \textsf{OpenOffice} et \textsf{LibreOffice }sur
+toutes les plateformes.
 
 Elle nécessite de passer à la fonction \rfunc{copie} l'option
 \texttt{file=TRUE} qui enregistre le contenu de l'objet dans un
@@ -5028,7 +5028,7 @@ dans le fichier de sortie (dans le cas contraire on se retrouve avec
 un fichier vide).
 
 
-\section{Génération automatique de rapports avec \textsf{OpenOffice}}
+\section{Génération automatique de rapports avec \textsf{OpenOffice} ou \textsf{LibreOffice}}
 
 Les méthodes précédentes permettent d'exporter tableaux et graphiques,
 mais cette opération reste manuelle, un peu laborieuse et répétitive,
@@ -5045,10 +5045,11 @@ de tableau ou de figure.
 \subsection{Prérequis}
 
 \textsf{odfWeave} ne fonctionne qu'avec des documents au format
-\texttt{ODF}, donc en particulier avec \textsf{OpenOffice} mais pas
-avec \textsf{Word}. L'utilisation d'\textsf{OpenOffice} est cependant
-très proche de celle de \textsf{Word}, et les documents générés
-peuvent être ensuite ouverts sous \textsf{Word} pour édition.
+\textsf{OpenDocument} (extension \texttt{.odf}), donc en particulier avec
+\textsf{OpenOffice} ou \textsf{LibreOffice} mais pas avec \textsf{Word}.
+L'utilisation d'\textsf{OpenOffice} est cependant très proche de celle de
+\textsf{Word}, et les documents générés peuvent être ensuite ouverts sous
+\textsf{Word} pour édition.
 
 L'installation de l'extension se fait de manière tout à fait
 classique~:
@@ -5266,13 +5267,14 @@ et notamment au document d'introduction en anglais~:
 \section{Génération automatique de rapports avec \LaTeX}
 
 Des fonctionnalités similaires à celles offertes par l'extension
-\textsf{odfWeave} sont fournies pour \LaTeX{} par l'extension
-\textsf{Sweave}, permettant de générer dynamiquement des documents
-contenant du code \R avec un rendu typographiquement de haute qualité.
+\textsf{odfWeave} sont fournies pour \LaTeX{} par des extensions comme
+\textsf{Sweave} ou \textsf{knitr}\footnote{C'est cet outil qui a permis de
+  générer le document que vous avez sous les yeux.}, permettant de générer
+dynamiquement des documents contenant du code \R avec un rendu typographique
+de haute qualité.
 
 Comme cette extension nécessite l'apprentissage de \LaTeX, elle
-dépasse le cadre de ce document\footnote{C'est cet outil qui a permis
-  de générer le document que vous avez sous les yeux.}. 
+dépasse le cadre de ce document. 
 
 
 \chapter{Où trouver de l'aide}
@@ -5298,15 +5300,11 @@ etc.
 Pour accéder à l'aide de la fonction \texttt{mean}, par exemple, il
 vous suffit de saisir directement~:
 
-<<eval=FALSE>>=
+<<help1,eval=FALSE>>=
 help("mean")
 @
 
-Ou sa forme abrégée~:
-
-\begin{Scode}
-?mean
-\end{Scode}
+Ou sa forme abrégée \texttt{?mean}.
 
 Chaque page d'aide comprend plusieurs sections, en particulier~:
 
@@ -5328,7 +5326,7 @@ Chaque page d'aide comprend plusieurs sections, en particulier~:
 Les exemples peuvent être directement exécutés en utilisant la
 fonction \rfunc{example}~:
 
-<<>>=
+<<helpexample>>=
 example(mean)
 @
 
@@ -5338,7 +5336,7 @@ La fonction \rfunc{help.start} permet d'afficher le contenu de l'aide
 en ligne au format HTML dans votre navigateur Web. Pour comprendre ce
 que cela signifie, saisissez simplement~:
 
-<<eval=FALSE>>=
+<<help3,eval=FALSE>>=
 help.start()
 @
 
@@ -5357,7 +5355,7 @@ directement dans la console, vous pouvez utiliser la fonction
 \rfunc{help.search}, qui renvoit une liste des pages d'aide contenant
 les termes recherchés. Par exemple~:
 
-<<eval=FALSE>>=
+<<help4,eval=FALSE>>=
 help.search("logistic")
 @
 
@@ -5762,6 +5760,11 @@ Au final, ce document se basant toujours sur une utilisation de \R
 basée sur la saisie de commandes textuelles, l'interface choisie
 importe peu. Celles-ci ne diffèrent que par le niveau de confort ou
 d'efficacité supplémentaires qu'elles apportent.
+
+\subsection{\textsf{RStudio}}
+\label{sec_rstudio}
+
+
 
 
 \subsection{\textsf{Tinn-R}}
