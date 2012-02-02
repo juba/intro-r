@@ -122,7 +122,7 @@
 %\setcounter{tocdepth}{2}
 %\definecolor{grisclair}{gray}{0.97}
 
-\title{\includegraphics[width=1.4cm]{img/Rlogo.jpg} pour les sociologues\\(et assimilés)}
+\title{Introduction à \includegraphics[width=1.4cm]{img/Rlogo.jpg}}
 \author{Julien Barnier\\ Centre Max Weber\\
   CNRS -- UMR 5283\\ \href{mailto:julien.barnier@ens-lyon.fr}{\texttt{julien.barnier@ens-lyon.fr}}}
 \date{\today{}}
@@ -5742,9 +5742,9 @@ sur la page suivante~:
 
 \url{http://www.sciviews.org/_rgui/} (en anglais)
 
-Le projet \textsf{RStudio} tend à s'imposer l'environnement de développement
-de référence pour \textsf{R}, d'autant qu'il a l'avantage d'être libre,
-gratuit et multiplateforme. Son installation est décrite
+Le projet \textsf{RStudio} tend à s'imposer comme l'environnement de
+développement de référence pour \textsf{R}, d'autant qu'il a l'avantage d'être
+libre, gratuit et multiplateforme. Son installation est décrite
 section~\ref{sec_rstudio} \vpageref{sec_rstudio}.
 
 Au final, ce document se basant toujours sur une utilisation de \R
@@ -5772,7 +5772,7 @@ Pour avoir un aperçu de l'interface de \textsf{RStudio}, on pourra se référer
 \url{http://www.rstudio.org/screenshots/}
 
 L'installation de \textsf{RStudio} est très simple, il suffit de se rendre sur
-la page de téléchargement et de sélectionner el fichier correspondant à son
+la page de téléchargement et de sélectionner le fichier correspondant à son
 système d'exploitation :
 
 \url{http://www.rstudio.org/download/desktop}
