@@ -319,7 +319,7 @@ ressemblant à peu près à ce qui suit\footnotemark~:
 
 \begin{figure}
   \begin{center}
-    \includegraphics{img/scr_RGui.png}
+    \includegraphics[width=0.8\textwidth]{img/scr_RGui.png}
   \end{center}
   \caption{L'interface de \R sous \textsf{Windows} au démarrage}
   \label{fig_RGui}
@@ -1638,7 +1638,7 @@ traitées avec un tableur du type \textsf{OpenOffice/LibreOffice} ou
 tableau avec les variables en colonne et les individus en ligne.
 
 \begin{center}
-  \includegraphics{img/donnees_tableur.png}
+  \includegraphics[width=0.8\textwidth]{img/donnees_tableur.png}
 \end{center}
 
 \subsection{Depuis \textsf{Excel}}
@@ -1650,7 +1650,7 @@ dans la zone \textit{Type de fichier} choisir soit \textit{Texte
   (séparateur tabulation)}, soit \textit{CSV (séparateur: point-virgule)}.
 
 \begin{center}
-  \includegraphics{img/selecteur_fichier_excel.png}
+  \includegraphics[width=0.8\textwidth]{img/selecteur_fichier_excel.png}
 \end{center}
 
 Dans le premier cas, on peut importer le fichier en utilisant la
@@ -1672,7 +1672,7 @@ Depuis \textsf{OpenOffice} on procédera de la même manière, en
 sélectionnant le type de fichier \textit{Texte CSV}.
 
 \begin{center}
-  \includegraphics{img/selecteur_fichier_ooo.png}
+  \includegraphics[width=0.8\textwidth]{img/selecteur_fichier_ooo.png}
 \end{center}
 
 On importe ensuite les données dans \R à l'aide de la fonction
