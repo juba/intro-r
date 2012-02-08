@@ -1,7 +1,6 @@
 \documentclass[a4paper,10pt,twoside,francais]{report}
 \usepackage{babel}
 \usepackage[T1]{fontenc}
-%\usepackage{ucs}
 \usepackage[utf8]{inputenc}
 \usepackage{varioref}
 \usepackage{fancybox}
@@ -23,8 +22,6 @@
 \usepackage{xcolor}
 \usepackage[hyperref,colorlinks=true,urlcolor=blue,pdfpagelabels]{hyperref}
 \usepackage{ctable}
-%\usepackage{etex}
-%\usepackage{tikz}
 \usepackage{amsmath}
 \usepackage{pifont}
 \usepackage{lmodern}
@@ -54,9 +51,6 @@
 \newcommand{\rfunc}[1]{\texttt{#1}\index{#1@\texttt{#1}}}
 
 %%%% ENVIRONNEMENTS
-
-%\CustomVerbatimEnvironment{code}{Verbatim}{numbers=left,frame=single,framesep=8pt,framerule=1pt}
-\CustomVerbatimEnvironment{code}{Verbatim}{numbers=left}
 
 %\newenvironment{astuce}{\paragraph{\large \ding{'355} \normalsize}}{}
 \newsavebox{\fcolbox}
@@ -113,19 +107,16 @@
   {\end{flushleft}}
 
 
-%\setmarginsrb{left}{top}{right}{bottom}{headheight}{headsep}{footheight}{footsep}
 \setpapersize[portrait]{A4}
+%\setmarginsrb{left}{top}{right}{bottom}{headheight}{headsep}{footheight}{footsep}
 \setmarginsrb{2.5cm}{1.5cm}{2.5cm}{2cm}{1cm}{1cm}{1cm}{1.5cm}
 \setlength\marginparwidth{40pt}
-%\setmarginsrb{2cm}{1.5cm}{2cm}{2cm}{0.5cm}{0.5cm}{0.5cm}{0.5cm}
 %\setcounter{tocdepth}{2}
-%\definecolor{grisclair}{gray}{0.97}
 
 \title{Introduction à \includegraphics[width=1.4cm]{img/Rlogo.jpg}}
 \author{Julien Barnier\\ Centre Max Weber\\
   CNRS -- UMR 5283\\ \href{mailto:julien.barnier@ens-lyon.fr}{\texttt{julien.barnier@ens-lyon.fr}}}
 \date{\today{}}
-%\abstract{}
 
 
 \begin{document}
@@ -138,7 +129,6 @@
 options(width=85)
 options(max.print="70")
 options(prompt="R> ")
-options(encoding="UTF-8")
 options(device = function(...) {
     .Call("R_GD_nullDevice", PACKAGE = "grDevices")
 })
