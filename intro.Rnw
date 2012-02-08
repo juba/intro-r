@@ -27,7 +27,6 @@
 %\usepackage{tikz}
 \usepackage{amsmath}
 \usepackage{pifont}
-\usepackage{Sweave}
 \usepackage{lmodern}
 
 
@@ -138,7 +137,8 @@
 <<initialize,echo=FALSE,results=none,cache=FALSE>>=
 options(width=85)
 options(max.print="70")
-options(prompt="R> ")									 
+options(prompt="R> ")
+options(encoding="UTF-8")
 options(device = function(...) {
     .Call("R_GD_nullDevice", PACKAGE = "grDevices")
 })
@@ -389,21 +389,18 @@ utilisant les signe \texttt{+}. Imaginons par exemple que nous avons
 malencontreusement tapé sur \texttt{Entrée} alors que nous souhaitions
 calculer \texttt{4*3}:
 
-\begin{Scode}
-R> 4 *
-+
-\end{Scode}
+\begin{verbatim}
+4 *
+\end{verbatim}
+
 
 On peut alors compléter la commande en saisissant simplement
 \texttt{3}~:
 
-\begin{Scode}
-R> 4 *
-+ 3
-\end{Scode}
-\begin{Soutput}
-[1] 12
-\end{Soutput}
+<<incomp2,eval=TRUE,prompt=TRUE,tidy=FALSE>>=    
+4 *
+3
+@ 
 
 \begin{astuce}
   Pour des commandes plus complexes, il arrive parfois qu'on se
@@ -419,10 +416,10 @@ lorsque l'on saisit les commandes dans \R. Les trois commandes
 suivantes sont donc équivalentes, mais on privilégie en général la
 deuxième pour des raisons de lisibilité du code.
 
-<<espaces,eval=FALSE,prompt=FALSE>>=  
-R> 10+2
-R> 10 + 2
-R> 10       +       2
+<<espaces,eval=FALSE,prompt=TRUE,tidy=FALSE>>=  
+10+2
+10 + 2
+10       +       2
 @ 
 
 
@@ -848,9 +845,9 @@ nouvelle fenêtre (vide) apparaît. Nous pouvons désormais y
 saisir des commandes. Par exemple, tapez sur la première ligne la
 commande suivante~:
 
-\begin{Scode}
+\begin{verbatim}
 2+2
-\end{Scode} 
+\end{verbatim} 
 
 \footnotetext{Les indications données ici concernent l'interface par
   défaut de \R sous \textsf{Windows}. Elles sont très semblables sous
@@ -861,7 +858,7 @@ Ensuite, allez dans le menu \textit{Éditon}, et choisissez
 mais si vous jetez un \oe{}il à la fenêtre de la console, les lignes
 suivantes ont dû faire leur apparition~:
 
-<<>>=
+<<exec,tidy=FALSE>>=
 2+2
 @ 
 
@@ -905,16 +902,17 @@ jusqu'à la fin de la ligne est considéré comme un commentaire. On peut
 créer une ligne entière de commentaire, par exemple en la faisant
 débuter par \texttt{\#\#}~:
 
-\begin{Scode}[label={Exemple de commentaire}]
+<<commentaire1,prompt=FALSE,eval=FALSE,tidy=FALSE>>=
 ## Tableau croisé de la CSP par le nombre de livres lus
 ## Attention au nombre de non réponses !
-\end{Scode}
+@ 
 
 On peut aussi créer des commentaires pour une ligne en cours~:
 
-\begin{Scode}
+
+<<commentaire2,prompt=FALSE,eval=FALSE,tidy=FALSE>>=
 x <- 2  # On met 2 dans x, parce qu'il le vaut bien
-\end{Scode}
+@
 
 \begin{important}
 Dans tous les cas, il est très important de documenter ses fichiers \R
@@ -989,14 +987,14 @@ premières lignes de notre fichier de travail sur les données de
 l'enquête \textit{Histoire de vie} pourraient donc ressembler à ceci~:
 
 
-\begin{Scode}
+<<resumtab,prompt=FALSE,eval=FALSE,tidy=FALSE>>=
 ## Chargement des extensions nécessaires
 library(rgrs)
 
 ## Jeu de données hdv2003
 data(hdv2003)
 d <- hdv2003
-\end{Scode}
+@ 
 
 
 \section{Inspecter les données}
@@ -1607,11 +1605,11 @@ sur \textit{Ok}\footnote{Sous \textsf{Windows}, si vous ne retrouvez
   \verb|C:\Documents and Settings\Administrateur\Mes Documents\|}.
 Vous devriez voir s'afficher le message suivant~:
 
-\begin{Soutput}
+\begin{verbatim}
 Nouveau repertoire de travail : C:/Documents and Settings/Bureau
 Pour automatiser ce changement dans un script, utilisez :
 setwd("C:/Documents and Settings/Bureau")
-\end{Soutput}
+\end{verbatim}
 
 Si vous travaillez en ligne de commande dans la console, le répertoire
 de travail a été mis à jour. Si vous travaillez dans un script, il
@@ -3463,12 +3461,12 @@ d1 <- read.dbf("tab1.dbf")
 d2 <- read.dbf("tab2.dbf")
 
 d <- merge(d1, d2, by="id")
+@ 
 
-\end{Scode}
 
 Créons également un fichier \texttt{recodages.R} avec le contenu suivant~:
 
-\begin{Scode}
+<<orga3,eval=FALSE,prompt=FALSE>>=  
 ## RECODAGES
 
 d$tx.chomage <- as.numeric(d$tx.chomage)
@@ -3485,7 +3483,7 @@ qui vont bien, le fichier suivant sera strictement équivalent à notre
 fichier de départ~:
 
 
-<<orga2,eval=FALSE,prompt=FALSE>>=  
+<<orga4,eval=FALSE,prompt=FALSE>>=  
 library(rgrs)
 library(foreign)
 
@@ -4404,7 +4402,7 @@ Ceci devrait vous générer trois fichiers portant le même nom mais avec
 les extensions \texttt{shp}, \texttt{shx} et \texttt{dbf}. L'import
 dans \R peut alors s'effectuer de la manière suivante~:
 
-\begin{Scode}
+<<importspat,eval=FALSE,prompt=FALSE>>=  
 library(maptools)
 library(rgdal)
 library(foreign)
@@ -4423,13 +4421,13 @@ rhone.iris <- readShapePoly("69_iris.shp", proj4string=CRS(proj.string))
 ## Transformation de la projection
 rhone.iris <- spTransform(rhone.iris, CRS(proj.string.geo))
 
-## Conversion des données en Unicode
+## Conversion en Unicode
 rhone.iris$Nom_Com <- iconv(rhone.iris$Nom_Com, from="latin1", to="utf8")
 rhone.iris$Nom_Iris <- iconv(rhone.iris$Nom_Iris, from="latin1", to="utf8")
 
 ## Sauvegarde
 save(rhone.iris, file="rhone_iris.rda")
-\end{Scode}
+@ 
 
 On peut ensuite charger le contenu du fichier \texttt{rhone\_iris.rda}
 à l'aide de la fonction \rfunc{load} dans un autre script.
@@ -4979,7 +4977,7 @@ existante à l'aide de la fonction \rfunc{dev.copy}. On doit fournir à
 celle-ci le format de l'export (option \texttt{device}) et le nom du
 fichier (option \texttt{file}). Par exemple~:
 
-<<eval=FALSE>>=
+<<devcopy,eval=FALSE>>=
 boxplot(rnorm(100))
 dev.copy(device=png, file="export.png")
 dev.off()
@@ -4991,9 +4989,9 @@ on retrouve partout les formats bitmap \textsf{bmp}, \textsf{jpeg},
 \textsf{postscript} ou \textsf{pdf}. La liste complète disponible pour
 votre installation de \R est disponible dans la page d'aide de \texttt{Devices}~:
 
-\begin{Scode}
-R> ?Devices
-\end{Scode}
+<<helpdevices,eval=FALSE,tidy=FALSE>>=
+?Devices
+@ 
 
 L'autre possibilité est de rediriger directement la sortie graphique
 dans un fichier, avant d'exécuter la commande générant la figure. On
@@ -5838,9 +5836,9 @@ L'installation d'une extension se fait par la fonction
 \rfunc{install.packages}, à qui on fournit le nom de l'extension. Ici
 on souhaite installer l'extension \textsf{ade4}~:
 
-\begin{Scode}
+<<instpack,eval=FALSE>>=  
 install.packages("ade4", dep=TRUE)
-\end{Scode}
+@ 
 
 L'option \texttt{dep=TRUE} indique à \R de télécharger et d'installer
 également toutes les extensions dont l'extension choisie dépend
@@ -5855,9 +5853,9 @@ trouvez\footnote{Ayant déjà rencontré des soucis avec le miroir
 Une fois l'extension installée, elle peut être appelée depuis la
 console ou un fichier script avec la commande~:
 
-\begin{Scode}
+<<library,eval=FALSE>>=
 library(ade4)
-\end{Scode}
+@ 
 
 À partir de là, on peut utiliser les fonctions de l'extension,
 consulter leur page d'aide en ligne, accéder aux jeux de données
@@ -5866,16 +5864,17 @@ qu'elle contient, etc.
 Pour mettre à jour l'ensemble des extensions installées, une seule
 commande suffit~:
 
-\begin{Scode}
+<<updatepack,eval=FALSE>>=
 update.packages()
-\end{Scode}
+@ 
+
 
 Si on souhaite désinstaller une extension précédemment installée, on
 peut utiliser la fonction \rfunc{remove.packages}~:
 
-\begin{Scode}
+<<removepack,eval=FALSE>>=
 remove.packages("ade4")
-\end{Scode}
+@ 
 
 
 \begin{important}
@@ -5909,16 +5908,16 @@ réseau officiel de diffusion des extensions de \R. Elle est donc
 installable de manière très simple, comme n'importe quelle autre
 extension, par un simple~:
 
-\begin{Scode}
+<<instrgrs,eval=FALSE>>=
 install.packages("rgrs",dep=TRUE)
-\end{Scode}
+@
 
 L'extension s'utilise alors de manière classique grâce à l'instruction
 \rfunc{library} en début de session ou de fichier \R~:
 
-\begin{Scode}
+<<librgrs,eval=FALSE>>=
 library(rgrs)
-\end{Scode}
+@ 
 
 \begin{remarque}
   À noter que l'extension n'est disponible que pour les versions les
