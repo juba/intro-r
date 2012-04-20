@@ -123,9 +123,9 @@
 
 %%%% SWEAVEOPTS
 
-\SweaveOpts{fig.path=tmp/,dev=pdf,sanitize=TRUE,cache=TRUE,cache.path=cache/,external=TRUE,prompt=TRUE,comment=NA,background=.95;.95;.95,fig.align=center,out.width=.8\textwidth}
+\SweaveOpts{fig.path="tmp/",dev="pdf",sanitize=TRUE,cache=TRUE,cache.path="cache/",external=TRUE,prompt=TRUE,comment=NA,background=".95;.95;.95",fig.align="center",out.width=".8\\textwidth"}
 
-<<initialize,echo=FALSE,results=none,cache=FALSE>>=
+<<initialize,echo=FALSE,results="none",cache=FALSE>>=
 options(width=85)
 options(max.print="70")
 options(prompt="R> ")
@@ -183,8 +183,8 @@ Ce document est diffusé sous licence \textit{Creative Commons
 
 \url{http://creativecommons.org/licenses/by-nc/2.0/fr/}
 
-L'auteur tient à remercier Mayeul Kauffmann, Julien Biaudet et Frédérique
-Giraud pour leurs corrections et suggestions.
+L'auteur tient à remercier Mayeul Kauffmann, Julien Biaudet, Frédérique
+Giraud et Joël Gombin pour leurs corrections et suggestions.
 
 
 \section{Conventions typographiques}
@@ -2018,7 +2018,7 @@ d <- renomme.variable(d, "bricol", "bricolage")
 table(d$bricolage)
 @ 
 
-<<echo=FALSE,results=hide>>=
+<<echo=FALSE,results="hide">>=
 d <- renomme.variable(d, "bricolage", "bricol")
 @ 
 
@@ -2048,7 +2048,7 @@ d$sexe[1] <- "Chihuahua"
 d$sexe[1]
 @ 
 
-<<results=hide,echo=FALSE>>=
+<<results="hide",echo=FALSE>>=
 d <- hdv2003
 @ 
 
@@ -2490,7 +2490,7 @@ d$age[is.na(d$age)] <- "Inconnu"
 
 \section{Sous-populations}
 
-<<echo=FALSE, results=hide>>=
+<<echo=FALSE, results="hide">>=
 d <- hdv2003
 @ 
 
@@ -3681,7 +3681,7 @@ fonctions \rfunc{image}, \rfunc{contour} ou
 figure~\ref{fig_filledcontour} \vpageref{fig_filledcontour}.
 
 \begin{figure}
-<<filled-contour,fig.keep=last>>=
+<<filled-contour,fig.keep="last">>=
 library(MASS)
 tmp <- d[,c("age","heures.tv")]
 tmp <- tmp[complete.cases(tmp),]
@@ -4397,16 +4397,11 @@ library(maptools)
 library(rgdal)
 library(foreign)
 
-## Projection d'origine
-proj.string <- "+init=epsg:27572 +proj=lcc +lat_1=45.90287723937 
-         +lat_2=47.69712276063 +lat_0=46.8 +lon_0=2.337229104484 
-         +x_0=600000 +y_0=2200000 +units=m +pm=greenwich"
-
 ## Projection d'arrivée
 proj.string.geo <- "+proj=longlat +datum=WGS84"
 
 ## Import du fichier
-rhone.iris <- readShapePoly("69_iris.shp", proj4string=CRS(proj.string))
+rhone.iris <- readOGR(".", "69_iris")
 
 ## Transformation de la projection
 rhone.iris <- spTransform(rhone.iris, CRS(proj.string.geo))
@@ -4733,7 +4728,7 @@ pouvons donc créer une variable artificielle (ici nommée
 \texttt{fusion}) contenant la même valeur pour toutes nos zones, puis
 appliquer la fonction \rfunc{unionSpatialPolygons}, ce qui donne~:
 
-<<results=hide>>=
+<<results="hide">>=
 library(maptools)
 gpclibPermit()
 fusion <- rep(1, nrow(lyon@data))
