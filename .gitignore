@@ -1,2 +1,15 @@
 tmp/
 .Rproj.user
+.Rhistory
+cache/
+intro.Rproj
+intro.aux
+intro.idx
+intro.ilg
+intro.ind
+intro.lof
+intro.log
+intro.out
+intro.tex
+intro.toc
+texput.log
