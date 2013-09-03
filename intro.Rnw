@@ -190,7 +190,9 @@ Ce document est diffusé sous licence \textit{Creative Commons
 \url{http://creativecommons.org/licenses/by-nc/2.0/fr/}
 
 L'auteur tient à remercier Mayeul Kauffmann, Julien Biaudet, Frédérique
-Giraud et Joël Gombin pour leurs corrections et suggestions.
+Giraud, et Joël Gombin pour leurs corrections et
+suggestions. Et un remerciement plus particulier à Milan Bouchet-Valat pour sa
+relecture très attentive et ses nombreuses et légitimes remarques.
 
 
 \section{Conventions typographiques}
@@ -252,7 +254,7 @@ L'utilisation de \R présente plusieurs avantages~:
 \item c'est un logiciel avec d'excellentes capacités graphiques.
 \end{itemize}
 
-\footnotetext{Il en existe actuellement plus de 3500, disponibles sur le
+\footnotetext{Il en existe actuellement plus de 4800, disponibles sur le
   \textit{Comprehensive R Archive Network} (CRAN)~: \url{http://cran.r-project.org/}}
 
 Comme rien n'est parfait, on peut également trouver quelques inconvénients~:
@@ -261,17 +263,17 @@ Comme rien n'est parfait, on peut également trouver quelques inconvénients~:
 \item le logiciel, la documentation de référence et les principales
   ressources sont en anglais. Il est toutefois parfaitement possible
   d'utiliser \R sans spécialement maîtriser cette langue~;
-\item par son mode de fonctionnement, \R charge normalement
-  l'intégralité des données traitées en mémoire. Il nécessite donc une
-  machine relativement puissante pour travailler sur des grosses
-  enquêtes de plusieurs milliers d'individus~;
 \item il n'existe pas encore d'interface graphique pour \R équivalente
   à celle d'autres logiciels comme \textsf{SPSS} ou
-  \textsf{Modalisa}. \R fonctionne à l'aide de scripts (des petits
+  \textsf{Modalisa}\footnotemark. \R fonctionne à l'aide de scripts (des petits
   programmes) édités et exécutés au fur et à mesure de l'analyse, et
   se rapprocherait davantage de \textsf{SAS} dans son utilisation
   (mais avec une syntaxe et une philosophie très différentes).
 \end{itemize}
+
+\footnotetext{Certaines extensions ou logiciels proposent cependant des
+  interfaces graphiques plus ou moins généralistes. Voir la
+  section~\ref{sec_guis}, \vpageref{sec_guis} }
 
 À noter que ce dernier point, qui peut apparaître comme un gros
 handicap, s'avère après un temps d'apprentissage être un mode
@@ -333,9 +335,8 @@ ressemblant à peu près à ce qui suit\footnotemark~:
 
 
 \begin{verbatim}
-R version 2.14.1 (2011-12-22)
-Copyright (C) 2011 The R Foundation for Statistical Computing
-ISBN 3-900051-07-0
+R version 3.0.1 (2013-05-16) -- "Good Sport"
+Copyright (C) 2013 The R Foundation for Statistical Computing
 Platform: x86_64-pc-linux-gnu (64-bit)
 
 R est un logiciel libre livré sans AUCUNE GARANTIE.
@@ -403,7 +404,7 @@ On peut alors compléter la commande en saisissant simplement
   retrouve coincé avec un invite \texttt{+} sans plus savoir comment
   compléter la saisie correctement. On peut alors annuler la commande
   en utilisant la touche \texttt{Echap} ou \texttt{Esc} sous
-  \textsf{Windows}. Sous \textsf{Linunx} on utilise le traditionnel
+  \textsf{Windows}. Sous \textsf{Linux} on utilise le traditionnel
   \texttt{Control + C}.
 \end{astuce}
 
@@ -656,7 +657,7 @@ mean(tailles)
 var(tailles)
 @
 
-Ici, la fonction \rfunc{length} nous renvoit le nombre d'éléments du
+Ici, la fonction \rfunc{length} nous renvoie le nombre d'éléments du
 vecteur, la fonction \rfunc{mean} nous donne la moyenne des éléments
 du vecteur, et la fonction \rfunc{var} sa variance.
 
@@ -688,7 +689,7 @@ Recalculons notre taille moyenne~:
 mean(tailles)
 @ 
 
-Et oui, par défaut, \R renvoit \texttt{NA} pour un grand nombre de
+Et oui, par défaut, \R renvoie \texttt{NA} pour un grand nombre de
 calculs (dont la moyenne) lorsque les données comportent une valeur
 manquante. On peut cependant modifier ce comportement en fournissant
 un paramètre supplémentaire à la fonction \rfunc{mean}, nommé \texttt{na.rm}~:
@@ -1908,7 +1909,7 @@ l'enquête \textit{Histoire de vie}, fourni avec l'extension \questionr et
 décrit dans l'annexe~\ref{sec_hdv2003}, page~\pageref{sec_hdv2003}.
 
 <<eval=FALSE>>=
-library(rgrs)
+library(questionr)
 data(hdv2003)
 d <- hdv2003
 @ 
@@ -2197,12 +2198,18 @@ d2 <- d[1:3, -c(2,6,8)]
 Un autre mode d'indexation consiste à fournir non pas un numéro mais
 un nom sous forme de chaîne de caractères. On l'utilise couramment
 pour sélectionner les variables d'un tableau de données. Ainsi, les
-deux fonctions suivantes sont équivalentes~:
+deux fonctions suivantes sont équivalentes\footnotemark~:
 
 <<>>=
 d$clso
 d[,"clso"]
 @ 
+
+\footnotetext{Une différence entre les deux est que \texttt{\$} admet une
+  correspondance partielle du nom de variable, si celle-ci est unique. Ainsi,
+  \texttt{d\$cls} renverra bien la variable \texttt{clso}, tandis que
+  \texttt{d\$c} renverra \texttt{NULL}, du fait que plusieurs variables de
+  \texttt{d} commencent par \texttt{c}.}
 
 Là aussi on peut utiliser un vecteur pour sélectionner plusieurs noms
 et récupérer un <<~sous-tableau~>> de données~:
@@ -2228,15 +2235,14 @@ On peut alors accéder directement aux communes en donnant leur nom~:
 rp99[c("VILLEURBANNE","OULLINS"),]
 @ 
 
-Par contre il n'est pas possible d'utiliser directement
-l'opérateur <<~\texttt{-}~>> comme pour l'indexation directe. On doit
-effectuer une pirouette un peu compliquée utilisant la fonction
-\rfunc{which}. Celle-ci renvoit les positions des éléments
-satisfaisant une condition. On peut ainsi faire~:
+Par contre il n'est pas possible d'utiliser directement l'opérateur
+<<~\texttt{-}~>> comme pour l'indexation directe. Pour exclure une colunne en
+fonction de son nom, on doit uiliser une autre forme d'indexation,
+\textit{l'indexation par condition}, expliquée dans la section suivante. On
+peut ainsi faire~:
 
 <<>>=
-which(names(d)=="qualif")
-d2 <- d[,-which(names(d)=="qualif")]
+d2 <- d[, names(d) != "qualif"]
 @ 
 
 Pour sélectionner toutes les colonnes sauf celle qui s'appelle
@@ -2406,7 +2412,7 @@ v
 v > 3
 @ 
 
-On voit que le test \texttt{NA > 3} ne renvoit ni vrai ni faux, mais
+On voit que le test \texttt{NA > 3} ne renvoie ni vrai ni faux, mais
 \texttt{NA}.
 
 Le résultat d'une condition peut donc comporter un grand nombre de
@@ -2430,9 +2436,9 @@ v == NA
 is.na(v)
 @ 
 
-Pour compliquer encore un peu le tout, lorsqu'on utilise une condition
-pour l'indexation, lorsque la condition renvoit \texttt{NA}, l'élément
-est sélectionné, comme s'il valait \texttt{TRUE}. Ceci aura donc des
+Pour compliquer encore un peu le tout, lorsqu'on utilise une condition pour
+l'indexation, si la condition renvoie \texttt{NA}, \R ne sélectionne pas
+l'élément mais retourne quand même la valeur \texttt{NA}. Ceci aura donc des
 conséquences pour l'extraction de sous-populations, comme indiqué
 section~\ref{sec_souspopNA} \vpageref{sec_souspopNA}.
 
@@ -2531,8 +2537,8 @@ dim(dh.25)
 Si on utilise directement l'indexation, il convient cependant d'être
 extrêmement prudent avec les valeurs manquantes. Comme indiqué
 précédemment, la présence d'une valeur manquante dans une condition
-fait que celle-ci est évaluée en \texttt{NA} et au final sélectionnée
-par l'indexation~:
+fait que celle-ci est évaluée en \texttt{NA} et qu'au final la ligne
+correspondante est conservée par l'indexation~:
 
 <<>>=
 summary(d$trav.satisf)
@@ -2693,11 +2699,10 @@ d$fs.char <- as.character(d$freres.soeurs)
 d$qualif.char <- as.character(d$qualif)
 @ 
 
-La conversion d'un facteur en caractères est fréquemment utilisé lors
-des recodages du fait qu'il est impossible d'ajouter de nouvelles
-modalités à un facteur. Par exemple, la première des commandes
-suivantes génère un message d'avertissement, tandis que les deux
-autres fonctionnent~:
+La conversion d'un facteur en caractères est fréquemment utilisé lors des
+recodages du fait qu'il est impossible d'ajouter de nouvelles modalités à un
+facteur de cette manière. Par exemple, la première des commandes suivantes
+génère un message d'avertissement, tandis que les deux autres fonctionnent~:
 
 <<eval=FALSE>>=
 d$qualif[d$qualif=="Ouvrier specialise"] <- "Ouvrier"
@@ -2952,7 +2957,7 @@ table(d$age.sexe)
 
 Les combinaisons de variables un peu complexes nécessitent parfois un
 petit travail de réflexion. En particulier, l'ordre des commandes de
-recodage ont parfois une influence dans le résultat final.
+recodage a parfois une influence dans le résultat final.
 
 
 \subsection{Variables scores}
@@ -3031,7 +3036,7 @@ On peut appliquer cette fonction à une variable, mais celle-ci ne
 permet que d'ordonner les valeurs de cette variable, et pas l'ensemble
 du tableau de données dont elle fait partie. Pour cela nous avons
 besoin d'une autre fonction, nommée \rfunc{order}. Celle-ci ne
-renvoit pas les valeurs du vecteur triées, mais les emplacements de
+renvoie pas les valeurs du vecteur triées, mais les emplacements de
 ces valeurs.
 
 Un exemple pour comprendre~:
@@ -3052,7 +3057,7 @@ devient intéressant\ldots
 order(d$age)
 @ 
 
-Ce que cette fonction renvoit, c'est l'ordre dans lequel on doit
+Ce que cette fonction renvoie, c'est l'ordre dans lequel on doit
 placer les éléments de \texttt{age}, et donc par extension les lignes
 de \texttt{d}, pour que la variable soit triée par ordre
 croissant. Par conséquent, si on fait~:
@@ -3410,7 +3415,7 @@ manipulations, traitements et recodages, puis à mettre en oeuvre les
 analyses. Prenons le fichier fictif suivant~:
 
 <<orga1,eval=FALSE,prompt=FALSE>>=
-library(rgrs)
+library(questionr)
 library(foreign)
 
 setwd("/home/julien/r/projet")
@@ -3441,7 +3446,7 @@ chisq.test(tab)
 
 Une manière d'organiser notre script\footnote{Ceci n'est qu'une
   suggestion, la manière d'organiser (ou non) son travail étant bien
-  évidemment très hautement subjectif.} pourrait être de placer les
+  évidemment très hautement subjective.} pourrait être de placer les
 opérations d'import des données et celles de recodage dans deux
 fichiers scripts séparés. Créons alors un fichier nommé
 \texttt{import.R} dans notre répertoire de travail et copions les
@@ -3472,13 +3477,13 @@ d$age5cl <- cut(d$age, 5)
 @ 
 
 
-Dés lors, si nous rajoutons les appels à la fonction \rfunc{source}
+Dès lors, si nous rajoutons les appels à la fonction \rfunc{source}
 qui vont bien, le fichier suivant sera strictement équivalent à notre
 fichier de départ~:
 
 
 <<orga4,eval=FALSE,prompt=FALSE>>=  
-library(rgrs)
+library(questionr)
 library(foreign)
 
 setwd("/home/julien/r/projet")
@@ -3913,7 +3918,6 @@ plat des deux variables~:
 d$qualreg <- as.character(d$qualif)
 d$qualreg[d$qualif %in% c("Ouvrier specialise", "Ouvrier qualifie")] <- "Ouvrier"
 d$qualreg[d$qualif %in% c("Profession intermediaire", "Technicien")] <- "Intermediaire"
-d$qualreg <- factor(d$qualreg)
 table(d$qualreg)
 table(d$sport)
 @ 
@@ -4128,7 +4132,7 @@ Ces fonctions admettent les deux options suivantes~:
 \begin{description}
 \item[\texttt{na.rm}] si \texttt{TRUE}, on ne conserve que les
   observations sans valeur manquante
-\item[\texttt{normwt}] si \texttt{TRUE}, on normalisate les poids pour
+\item[\texttt{normwt}] si \texttt{TRUE}, on normalise les poids pour
   que les effectifs totaux pondérés soient les mêmes que les effectifs
   initiaux. Il faut utiliser cette option, notamment si on souhaite
   appliquer un test sensible aux effectifs comme le $\chi^2$.
@@ -4224,10 +4228,10 @@ le réutiliser ensuite comme n'importe quel tableau croisé~:
 tab <- svytable(~sexe+clso, dw)
 tab
 lprop(tab)
-chisq.test(tab)
+svychisq(~sexe + clso, dw)
 @ 
 
-Les fonctions \rfunc{lprop}, \rfunc{cprop} et \rfunc{residus} de \questionr
+Les fonctions \rfunc{lprop} et \rfunc{cprop} de \questionr
 \marqr sont donc tout à fait compatibles avec l'utilisation de
 \textsf{survey}. La fonction \rfunc{freq} peut également être utilisée
 si on lui passe en argument non pas la variable elle-même, mais son
@@ -4236,6 +4240,16 @@ tri à plat obtenu avec \rfunc{svytable}~:
 <<>>=
 tab <- svytable(~peche.chasse, dw)
 freq(tab, total=TRUE)
+@ 
+
+Par contre, il \textbf{ne faut pas} utiliser \rfunc{chisq.test} sur un tableau
+généré par \rfunc{svytable}. Les effectifs étant extrapolés à partir de la
+pondération, les résultats du test seraient complètement faussés. Si on veut
+faire un test du $\chi^2$ sur un tableau croisé pondéré, il faut utiliser
+\rfunc{svychisq}~:
+
+<<>>=
+svychisq(~sexe + clso, dw)
 @ 
 
 Enfin, \textsf{survey} est également capable de produire des
@@ -4263,7 +4277,7 @@ quand même donner les conseils suivants~:
 
 \begin{itemize}
 \item utiliser les options de pondération des fonctions
-  usuelles ou les fonctions de l'extension \textsf{rgrs} pour les cas
+  usuelles ou les fonctions de l'extension \questionr pour les cas
   les plus simples~;
 \item si on utilise \textsf{survey}, effectuer tous les recodages et
   manipulations sur les données non pondérées autant que possible~;
@@ -4271,7 +4285,7 @@ quand même donner les conseils suivants~:
   et on fait les analyses en tenant compte de la pondération~;
 \item surtout ne jamais modifier les variables du
   \textit{design}. Toujours effectuer recodages et manipulations sur
-  les données pondérées, puis redéclarer le \textit{design} pour que
+  les données non pondérées, puis redéclarer le \textit{design} pour que
   les mises à jour effectuées soient disponibles pour l'analyse~;
 \end{itemize}
 
@@ -4311,7 +4325,7 @@ L'extension \questionr \marqr fournit un exemple d'objet de ce type, nommé
 cette commune. On peut le charger dans \R de la manière suivante~:
 
 <<>>=
-library(rgrs)
+library(questionr)
 data(lyon)
 @ 
 
@@ -4962,14 +4976,13 @@ la mise à jour du graphique exporté (on n'a qu'à relancer les
 commandes concernées pour que le fichier externe soit mis à jour).
 
 La première possibilité est d'exporter le contenu d'une fenêtre déjà
-existante à l'aide de la fonction \rfunc{dev.copy}. On doit fournir à
+existante à l'aide de la fonction \rfunc{dev.}. On doit fournir à
 celle-ci le format de l'export (option \texttt{device}) et le nom du
 fichier (option \texttt{file}). Par exemple~:
 
 <<devcopy,eval=FALSE>>=
 boxplot(rnorm(100))
-dev.copy(device=png, file="export.png")
-dev.off()
+dev.print(device=png, file="export.png", width=600)
 @ 
 
 Les formats de sortie possibles varient selon les plateformes, mais
@@ -4988,8 +5001,13 @@ doit pour cela faire appel à l'une des commandes permettant cette
 redirection. Les plus courantes sont \rfunc{bmp}, \rfunc{png},
 \rfunc{jpeg} et \rfunc{tiff} pour les formats bitmap,
 \rfunc{postscript}, \rfunc{pdf}, \rfunc{svg}\footnote{Ne fonctionne
-  pas sous \textsf{Windows}.} et \rfunc{win.metafile}\footnote{Ne
-  fonctionne que sous \textsf{Windows}.} pour les formats vectoriels.
+  pas sous \textsf{Word}.} et \rfunc{win.metafile}\footnote{Ne
+  fonctionne que sous \textsf{Word}.} pour les formats vectoriels.
+
+Les formats vectoriels ont l'avantage de pouvoir être redimensionnés à volonté
+sans perte de qualité, et produisent des fichiers en général de plus petite
+taille. On pourra donc privilégier le format SVG, par exemple, si on utilise
+\textsf{LibreOffice} ou \textsf{OpenOffice}.
 
 Ces fonctions prennent différentes options permettant de personnaliser
 la sortie graphique. Les plus courantes sont \texttt{width} et
@@ -5032,7 +5050,7 @@ de tableau ou de figure.
 \subsection{Prérequis}
 
 \textsf{odfWeave} ne fonctionne qu'avec des documents au format
-\textsf{OpenDocument} (extension \texttt{.odf}), donc en particulier avec
+\textsf{OpenDocument} (extension \texttt{.odt}), donc en particulier avec
 \textsf{OpenOffice} ou \textsf{LibreOffice} mais pas avec \textsf{Word}.
 L'utilisation d'\textsf{OpenOffice} est cependant très proche de celle de
 \textsf{Word}, et les documents générés peuvent être ensuite ouverts sous
@@ -5125,7 +5143,7 @@ Le premier bloc de code \R contient des options entre les séparateurs
 \texttt{<<} et \texttt{>>=}. L'option \texttt{echo=FALSE} supprime
 l'affichage du code \R (en bleu) dans le document résultat. L'option
 \texttt{results=hide} supprime l'affichage du résultat du code (en
-rouge). Au final, le code \texttt{library(rgrs)} est exécuté, mais
+rouge). Au final, le code \texttt{library(questionr)} est exécuté, mais
 caché dans le document final.
 
 Dans le deuxième bloc, l'option \texttt{results=xml} indique que le
@@ -5300,11 +5318,10 @@ Chaque page d'aide comprend plusieurs sections, en particulier~:
 \item[Usage] indique la ou les manières de l'utiliser
 \item[Arguments] détaille tous les arguments possibles et leur signification
 \item[Value] indique la forme du résultat renvoyé par la fonction
-\item[Details] apporte des précisions sur le fonctionnement interne de
-  la fonction
+\item[Details] apporte des précisions sur le fonctionnement de la fonction
 \item[Note] pour des remarques éventuelles
 \item[References] pour des références bibliographiques ou des URL associées
-\item[See Also] \textit{très utile}, renvoit vers d'autres fonctions
+\item[See Also] \textit{très utile}, renvoie vers d'autres fonctions
   semblables ou liées, ce qui peut être très utile pour découvrir ou
   retrouver une fonction dont on a oublié le nom
 \item[Examples] série d'exemples d'utilisation
@@ -5339,7 +5356,7 @@ votre navigateur.
 
 Si vous souhaitez rechercher quelque chose dans le contenu de l'aide
 directement dans la console, vous pouvez utiliser la fonction
-\rfunc{help.search}, qui renvoit une liste des pages d'aide contenant
+\rfunc{help.search}, qui renvoie une liste des pages d'aide contenant
 les termes recherchés. Par exemple~:
 
 <<help4,eval=FALSE>>=
@@ -5656,10 +5673,10 @@ installable par quiconque.
 La première chose à faire est de télécharger la dernière version du
 logiciel. Pour cela il suffit de se rendre à l'adresse suivante~:
 
-\url{http://cran.cict.fr/bin/windows/base/release.htm}
+\url{http://cran.r-project.org/bin/windows/base/release.htm}
 
 Vous allez alors vous voir proposer le téléchargement d'un fichier
-nommé \texttt{R-2.X.X-win32.exe} (les \texttt{X} étant remplacés par
+nommé \texttt{R-3.X.X-win.exe} (les \texttt{X} étant remplacés par
 les numéros de la dernière version disponible). Une fois ce fichier
 sauvegardé sur votre poste, exécutez-le et procédez à l'installation
 du logiciel~: celle-ci s'effectue de manière tout à fait classique,
@@ -5678,19 +5695,12 @@ ressemble.
 
 \section{Installation de \R sous \textsf{Mac OS X}}
 
-\R fonctionne pour les versions de \textsf{Mac OS X} 10.2
-ultérieures. Néanmoins l'installateur par défaut nécessite au minimum
-une version 10.4.4 (\textit{Tiger}).
-
 L'installation est très simple~:
 
 \begin{enumerate}
 \item Se rendre à la page suivante~: \url{http://cran.r-project.org/bin/macosx/}
-\item Télécharger le fichier nommé \texttt{R-2.X.Y.dmg}
-\item Double cliquer sur le fichier téléchargé. Une fenêtre devrait
-  s'ouvrir, contenant le programme d'installation.
-\item Il vous suffit alors de double cliquer sur le programme
-  d'installation et de suivre les instructions.
+\item Télécharger le fichier nommé \texttt{R-3.X.Y.pkg}
+\item Procéder à l'installation.
 \end{enumerate}
 
 
@@ -5709,16 +5719,17 @@ La méthode conseillée pour mettre à jour \R sur les plateformes
   \verb|C:\Program Files\R|. Sélectionner le répertoire de l'ancienne
   installation de \R et copier le contenu du dossier nommé
   \texttt{library} dans le dossier du même nom de la nouvelle
-  installation. En clair, si vous mettez à jour de \R 2.6.2 vers \R
-  2.7.1, copiez tout le contenu du répertoire
-  \verb|C:\Program Files\R\R-2.6.2\library| dans
-  \verb|C:\Program Files\R\R-2.7.1\library|.
+  installation. En clair, si vous mettez à jour de \R 3.0.0 vers \R
+  3.1.0, copiez tout le contenu du répertoire
+  \verb|C:\Program Files\R\R-3.0.0\library| dans
+  \verb|C:\Program Files\R\R-3.1.0\library|.
 \item Lancez la nouvelle version de \R et exécuter la commande
   \rfunc{update.packages} pour mettre à jour les extensions.
 \end{enumerate}
 
 
 \section{Interfaces graphiques}
+\label{sec_guis}
 
 L'interface par défaut sous \textsf{Windows} est celle présentée
 figure~\ref{fig_RGui} \vpageref{fig_RGui}. Il en existe d'autres,
@@ -5729,7 +5740,18 @@ sur la page suivante~:
 
 \url{http://www.sciviews.org/_rgui/} (en anglais)
 
-Le projet \textsf{RStudio} tend à s'imposer comme l'environnement de
+On pourra notamment regarder l'extension \textsf{R Commander}, qui propose une
+interface graphique intégrée à \R pour certaines fonctions de traitement et
+d'analyse de données~:
+
+\url{http://socserv.mcmaster.ca/jfox/Misc/Rcmdr/}
+
+Ou encore \textsf{RKWard}, un logiciel multiplateforme proposant une interface
+assez complète et des fonctions d'export de résultats~:
+
+\url{http://rkward.sf.net/}
+
+Par ailleurs, le projet \textsf{RStudio} tend à s'imposer comme l'environnement de
 développement de référence pour \textsf{R}, d'autant qu'il a l'avantage d'être
 libre, gratuit et multiplateforme. Son installation est décrite
 section~\ref{sec_rstudio} \vpageref{sec_rstudio}.
@@ -5834,10 +5856,9 @@ L'option \texttt{dep=TRUE} indique à \R de télécharger et d'installer
 pour son fonctionnement.
 
 En général \R va alors vous demander de choisir un \textit{miroir}
-depuis lequel récupérer les données nécessaires. Choisissez de
-préférence un miroir le plus proche possible de l'endroit où vous vous
-trouvez\footnote{Ayant déjà rencontré des soucis avec le miroir
-  lyonnais, j'ai tendance à utiliser celui de Toulouse.}.
+depuis lequel récupérer les données nécessaires. Le plus simple est de
+sélectionner le premier miroir de la liste, baptisé \texttt{0-cloud}, qui est
+une redirection automatique fournie par les éditeurs de \textsf{RStudio}.
 
 Une fois l'extension installée, elle peut être appelée depuis la
 console ou un fichier script avec la commande~:
@@ -5878,7 +5899,7 @@ remove.packages("ade4")
 
 
 \section{L'extension \questionr}
-\label{sec_rgrs}
+\label{sec_questionr}
 
 \questionr est une extension pour R comprenant quelques fonctions
 potentiellement utiles pour l'utilisation du logiciel en sciences
@@ -5897,15 +5918,15 @@ réseau officiel de diffusion des extensions de \R. Elle est donc
 installable de manière très simple, comme n'importe quelle autre
 extension, par un simple~:
 
-<<instrgrs,eval=FALSE>>=
-install.packages("rgrs",dep=TRUE)
+<<instquestionr,eval=FALSE>>=
+install.packages("questionr",dep=TRUE)
 @
 
 L'extension s'utilise alors de manière classique grâce à l'instruction
 \rfunc{library} en début de session ou de fichier \R~:
 
-<<librgrs,eval=FALSE>>=
-library(rgrs)
+<<libquestionr,eval=FALSE>>=
+library(questionr)
 @ 
 
 \begin{remarque}
@@ -6079,7 +6100,7 @@ max(chef.na, na.rm=TRUE)
 
 \begin{solution}{simplescript}
 <<>>=
-library(rgrs)
+library(questionr)
 data(hdv2003)
 df <- hdv2003
 str(df)
@@ -6145,7 +6166,7 @@ dotchart(table(df$trav.imp))
 
 \begin{solution}{manip_rename}
 <<>>=
-library(rgrs)
+library(questionr)
 data(hdv2003)
 d <- hdv2003
 d <- renomme.variable(d, "clso", "classes.sociales")
