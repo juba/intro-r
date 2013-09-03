@@ -20,7 +20,7 @@
 \usepackage{listings}
 \usepackage{calc}
 \usepackage{xcolor}
-\usepackage[hyperref,colorlinks=true,urlcolor=blue,pdfpagelabels]{hyperref}
+\usepackage[colorlinks=true,urlcolor=blue,pdfpagelabels]{hyperref}
 \usepackage{ctable}
 \usepackage{amsmath}
 \usepackage{pifont}
@@ -46,8 +46,10 @@
 
 \newcommand{\R}{\textsf{R}\xspace}
 \newcommand{\rgrs}{\textsf{rgrs}\xspace}
+\newcommand{\questionr}{\textsf{questionr}\xspace}
 \newcommand{\margpar}[1]{\mbox{}\marginpar{\raggedright \hspace{0pt}\small\textit{#1}}}
 \newcommand{\margrs}{\margpar{\rgrs}}
+\newcommand{\marqr}{\margpar{\questionr}}
 \newcommand{\rfunc}[1]{\texttt{#1}\index{#1@\texttt{#1}}}
 
 %%%% ENVIRONNEMENTS
@@ -121,17 +123,21 @@
 
 \begin{document}
 
-%%%% SWEAVEOPTS
-
-\SweaveOpts{fig.path="tmp/",dev="pdf",sanitize=TRUE,cache=TRUE,cache.path="cache/",external=TRUE,prompt=TRUE,comment=NA,background=".95;.95;.95",fig.align="center",out.width=".8\\textwidth"}
-
 <<initialize,echo=FALSE,results="none",cache=FALSE>>=
 options(width=85)
 options(max.print="70")
 options(prompt="R> ")
-options(device = function(...) {
-    .Call("R_GD_nullDevice", PACKAGE = "grDevices")
-})
+opts_chunk$set(fig.path="tmp/",
+               dev="pdf",
+               sanitize=TRUE,
+               cache=TRUE,
+               cache.path="cache/",
+               external=TRUE,
+               prompt=TRUE,
+               comment=NA,
+               background=".95;.95;.95",
+               fig.align="center",
+               out.width=".8\\textwidth")
 @
 
 
@@ -192,7 +198,7 @@ Giraud et Joël Gombin pour leurs corrections et suggestions.
 Ce document suit un certain nombre de conventions typographiques
 visant à en faciliter la lecture. Ainsi les noms de logiciel et
 d'extensions sont indiqués en caractères sans empattement (\textsf{R},
-\textsf{SAS}, \textsf{Linux}, \textsf{rgrs}, \textsf{ade4}\ldots). Les
+\textsf{SAS}, \textsf{Linux}, \textsf{questionr}, \textsf{ade4}\ldots). Les
 noms de fichiers sont imprimés avec une police à chasse fixe
 (\texttt{test.R}, \texttt{data.txt}\ldots), tout comme les fonctions
 \R (\rfunc{summary}, \rfunc{mean}, \rfunc{<-}\ldots).
@@ -915,11 +921,9 @@ tard.
 \section{Tableaux de données}
 
 Dans cette partie nous allons utiliser un jeu de données inclus dans
-l'extension \rgrs.\margrs{} Cette extension et son
-installation sont décrites dans la partie~\ref{sec_rgrs},
-page~\pageref{sec_rgrs}\footnote{À noter que les exemples de ce
-  document ne pourront être reproduits qu'avec une version de \rgrs
-  supérieure à 0.2-11.}.
+l'extension \questionr.\marqr{} Cette extension et son
+installation sont décrites dans la partie~\ref{sec_questionr},
+page~\pageref{sec_questionr}.
 
 Le jeu de données en question est un extrait de l'enquête
 \textit{Histoire de vie} réalisée par l'INSEE en 2003. Il contient
@@ -927,10 +931,10 @@ Le jeu de données en question est un extrait de l'enquête
 indiqué dans l'annexe~\ref{sec_hdv2003}, page~\pageref{sec_hdv2003}.
 
 Pour pouvoir utiliser ces données, il faut d'abord charger l'extension
-\rgrs (après l'avoir installée, bien entendu)~:
+\questionr (après l'avoir installée, bien entendu)~:
 
 <<>>=
-library(rgrs)
+library(questionr)
 @ 
 
 Puis indiquer à \R que nous souhaitons accéder au jeu de données à
@@ -979,7 +983,7 @@ l'enquête \textit{Histoire de vie} pourraient donc ressembler à ceci~:
 
 <<resumtab,prompt=FALSE,eval=FALSE,tidy=FALSE>>=
 ## Chargement des extensions nécessaires
-library(rgrs)
+library(questionr)
 
 ## Jeu de données hdv2003
 data(hdv2003)
@@ -1355,7 +1359,7 @@ summary(d$trav.satisf)
 @ 
 
 Pour obtenir un tableau avec la répartition en pourcentages, on peut
-utiliser la fonction \rfunc{freq} de \margrs l'extension \texttt{rgrs}.
+utiliser la fonction \rfunc{freq} de \marqr l'extension \texttt{questionr}.
 
 <<>>=
 freq(d$qualif)
@@ -1450,7 +1454,7 @@ dotchart(sort(table(d$qualif)), main="Niveau de qualification")
 \begin{exo}{simplescript}
   Créer un script qui effectue les actions suvantes et exécutez-le~:
 \begin{itemize}
-\item charger l'extension \rgrs
+\item charger l'extension \questionr
 \item charger le jeu de données \texttt{hdv2003}
 \item placer le jeu de données dans un objet nommé \texttt{df}
 \item afficher la liste des variables de \texttt{df} et leur type
@@ -1564,10 +1568,10 @@ setwd("/home/julien/projets/R")
 
 Sous \textsf{Windows} le chemin du répertoire est souvent un peu plus
 compliqué. Vous pouvez alors utiliser la fonction \rfunc{selectwd} de
-l'extension \rgrs\footnote{Sous \textsf{Windows}, si vous utilisez
+l'extension \questionr\footnote{Sous \textsf{Windows}, si vous utilisez
   l'interface graphique par défaut, vous pouvez aussi utiliser la
   fonction \textit{Changer le répertoire courant} du menu
-  \textit{Fichier} } \margrs en tapant simplement~:
+  \textit{Fichier} } \marqr en tapant simplement~:
 
 <<eval=FALSE>>=
 selectwd()
@@ -1795,7 +1799,7 @@ plus d'informations.
 
 \subsection{\textsf{Modalisa}}
 
-L'extension \rgrs fournit \margrs plusieurs fonctions pour l'import ou
+L'extension \questionr fournit \marqr plusieurs fonctions pour l'import ou
 l'export de données depuis ou vers \textsf{Modalisa} et pour leur
 traitement, en particulier concernant les questions à réponses multiples.
 
@@ -1852,7 +1856,7 @@ données vers des formats variés.
   \textsf{Stata}~;
 \item \rfunc{write.dbf}, de l'extension \texttt{foreign}, permet
   d'exporter des données au format \textsf{dBase}~;
-\item \margrs \rfunc{mls.export}, de l'extension \rgrs, permet
+\item \marqr \rfunc{mls.export}, de l'extension \questionr, permet
   d'exporter des données à destination de \textsf{Modalisa}~;
 \item \rfunc{save} permet d'enregistrer des objets \R sur le disque
   pour récupération ultérieure ou sur un autre système.
@@ -1900,7 +1904,7 @@ en ligne et des variables en colonnes. On accède aux variables d'un
 \textit{data frame} avec l'opérateur \rfunc{\$}.
 
 Dans ce qui suit on travaillera sur le jeu de données tiré de
-l'enquête \textit{Histoire de vie}, fourni avec l'extension \rgrs et
+l'enquête \textit{Histoire de vie}, fourni avec l'extension \questionr et
 décrit dans l'annexe~\ref{sec_hdv2003}, page~\pageref{sec_hdv2003}.
 
 <<eval=FALSE>>=
@@ -2007,8 +2011,8 @@ déclaré. On n'a plus alors qu'à copier/coller cette chaîne, rajouter
 \texttt{names(d) <- } devant, et modifier un à un les noms des variables.
 
 Si on souhaite seulement modifier le nom d'une variable, on peut
-utiliser la fonction \rfunc{renomme.variable} de \margrs l'extension
-\rgrs. Celle-ci prend en argument le tableau de données, le nom actuel
+utiliser la fonction \rfunc{renomme.variable} de \marqr l'extension
+\questionr. Celle-ci prend en argument le tableau de données, le nom actuel
 de la variable et le nouveau nom. Par exemple, si on veut renommer la
 variable \texttt{bricol} du tableau de données \texttt{d} en
 \texttt{bricolage}~:
@@ -2798,7 +2802,7 @@ d$age20 <- cut(d$age, c(17,20,40,60,80,93), include.lowest=TRUE, labels=c("<20an
 table(d$age20)
 @ 
 
-Enfin, l'extension \rgrs \margrs propose une fonction
+Enfin, l'extension \questionr \marqr propose une fonction
 \rfunc{quant.cut} permettant de découper une variable numérique en un
 nombre de classes donné ayant des efffectifs semblables. Il suffit de
 lui passer le nombre de classes en argument~:
@@ -3629,7 +3633,7 @@ On entend par statistique bivariée l'étude des relations entre deux
 variables, celles-ci pouvant être quantitatives ou qualitatives.
 
 Comme dans la partie précédente, on travaillera sur les jeux de données
-fournis avec l'extension \rgrs \margrs et tiré de l'enquête
+fournis avec l'extension \questionr \marqr et tiré de l'enquête
 \textit{Histoire de vie} et du recensement 1999~:
 
 <<>>=
@@ -3922,7 +3926,7 @@ table(d$sport, d$qualreg)
 @ 
 
 On n'a cependant que les effectifs, ce qui rend difficile les
-comparaisons. L'extension \rgrs \margrs fournit des fonctions
+comparaisons. L'extension \questionr \marqr fournit des fonctions
 permettant de calculer les pourcentages lignes, colonnes et totaux
 d'un tableau croisé. 
 
@@ -3996,7 +4000,7 @@ a indépendance entre les lignes et les colonnes du tableau.
 On peut affiner l'interprétation du test en déterminant dans quelle
 case l'écart à l'indépendance est le plus significatif en utilisant
 les \textit{résidus} du test. Ceux-ci sont notamment affichables avec
-la fonction \rfunc{residus} \margrs de \rgrs~:
+la fonction \rfunc{residus} \marqr de \questionr~:
 
 <<>>=
 residus(tab)
@@ -4011,7 +4015,7 @@ intermédiaires, tandis qu'elle est sous-représentée chez les ouvriers.
 Enfin, on peut calculer le c\oe{}fficient de contingence de Cramer du
 tableau, qui peut nous permettre de le comparer par la suite à
 d'autres tableaux croisés. On peut pour cela utiliser la fonction
-\rfunc{cramer.v}\margrs de \rgrs~:
+\rfunc{cramer.v}\marqr de \questionr~:
 
 <<>>=
 cramer.v(tab)
@@ -4084,9 +4088,9 @@ Par contre cette option n'est pas présente dans les fonctions de base
 comme \rfunc{mean}, \rfunc{var}, \rfunc{table} ou \rfunc{chisq.test}.
 
 
-\section{Fonctions de l'extension \rgrs}
+\section{Fonctions de l'extension \questionr}
 
-L'extension \rgrs propose quelques fonctions permettant de
+L'extension \questionr propose quelques fonctions permettant de
 calculer des statistiques simples pondérées\footnote{Les fonctions
   \rfunc{wtd.mean} et \rfunc{wtd.var} sont des copies conformes des
   fonctions du même nom de l'extension \textsf{Hmisc} de Frank
@@ -4223,8 +4227,8 @@ lprop(tab)
 chisq.test(tab)
 @ 
 
-Les fonctions \rfunc{lprop}, \rfunc{cprop} et \rfunc{residus} de \rgrs
-\margrs sont donc tout à fait compatibles avec l'utilisation de
+Les fonctions \rfunc{lprop}, \rfunc{cprop} et \rfunc{residus} de \questionr
+\marqr sont donc tout à fait compatibles avec l'utilisation de
 \textsf{survey}. La fonction \rfunc{freq} peut également être utilisée
 si on lui passe en argument non pas la variable elle-même, mais son
 tri à plat obtenu avec \rfunc{svytable}~:
@@ -4286,7 +4290,7 @@ Par ailleurs, le parti pris est ici de tout effectuer à l'intérieur de
 \textsf{Quantum GIS}, \textsf{gvSig} ou \textsf{GRASS}. 
 
 Les fonctions présentées ici font partie pour la plupart de
-l'extension \rgrs \margrs, mais elles ne sont que des interfaces
+l'extension \questionr \marqr, mais elles ne sont que des interfaces
 visant à faciliter l'utilisation de fonctions disponibles dans des
 extensions spécialisées, en particulier l'extension \textsf{sp}.
 
@@ -4302,7 +4306,7 @@ forme d'un tableau de données.
 
 \subsection{Exemple d'objet spatial}
 
-L'extension \rgrs \margrs fournit un exemple d'objet de ce type, nommé
+L'extension \questionr \marqr fournit un exemple d'objet de ce type, nommé
 \texttt{lyon}, et qui contient le contour des 9 arrondissements de
 cette commune. On peut le charger dans \R de la manière suivante~:
 
@@ -4360,7 +4364,7 @@ lyon@data$Nom_Com
 \begin{remarque}
   Cette section est relativement technique et peut-être sautée si l'on
   souhaite juste avoir un aperçu des fonctionnalités présentées en
-  utilisant les données incluses dans \rgrs.
+  utilisant les données incluses dans \questionr.
 \end{remarque}
 
 La conversion et l'import de données de type spatial sont des
@@ -4450,7 +4454,7 @@ arrondissement. Ce champ se nomme \texttt{DepCom} pour l'objet
 
 Nous avons dès lors tout ce qu'il nous faut pour afficher une première
 carte, en l'occurrence le taux de chômage par arrondissement en
-1999. On utilise pour cela la fonction \rfunc{carte.prop} de \rgrs. Le
+1999. On utilise pour cela la fonction \rfunc{carte.prop} de \questionr. Le
 code et le résultat sont indiqués figure~\ref{fig_propchom1} \vpageref{fig_propchom1}.
 
 <<echo=FALSE>>=
@@ -4834,8 +4838,8 @@ texte ou une application externe.
 
 Les tableaux générés par \R (et plus largement, tous les types
 d'objets) peuvent être exportés pour inclusion dans un traitement de
-texte à l'aide de la fonction \rfunc{copie} \margrs de l'extension
-\rgrs\footnote{Celle-ci nécessite que l'extension \texttt{R2HTML} soit
+texte à l'aide de la fonction \rfunc{copie} \marqr de l'extension
+\questionr\footnote{Celle-ci nécessite que l'extension \texttt{R2HTML} soit
   également installée sur le système \textit{via}
   \texttt{install.packages("R2HTML",dep=TRUE)}.}.
 
@@ -5128,7 +5132,7 @@ Dans le deuxième bloc, l'option \texttt{results=xml} indique que le
 résultat du code ne sera pas du simple texte mais un objet déjà au
 format \textsf{OpenOffice} (en l'occurrence un tableau). Le code
 lui-même est ensuite assez classique, sauf la dernière instruction
-\margrs \rfunc{genere.tableau}, qui, appliquée à un objet de type
+\marqr \rfunc{genere.tableau}, qui, appliquée à un objet de type
 \texttt{table}, produit le tableau mis en forme dans le document
 résultat.
 
@@ -5170,15 +5174,15 @@ chaîne ouvrante. Parmi les options possibles les plus importantes sont~:
 
 En résumé, si on souhaite utiliser un bloc pour charger des extensions
 sans que des traces apparaissent dans le document final, on utilise
-\texttt{<<echo=FALSE,results=hide>>=}. Si on veut afficher un tableau
+\texttt{<<echo=FALSE,results='hide'>>=}. Si on veut afficher un tableau
 généré par \rfunc{genere.tableau}, on utilise
 \texttt{<<echo=FALSE,results=xml>>=}. Si on souhaite insérer un
 graphique, on utilise \texttt{<<echo=FALSE,fig=TRUE>>=}. Si on
 souhaite afficher du code \R et son résultat <<~tel quel~>>, on
 utilise simplement \texttt{<<>>=}
 
-La fonction \rfunc{genere.tableau} fait partie de l'extension \rgrs
-\margrs. Elle transforme l'objet qu'on lui passe en paramètres dans un
+La fonction \rfunc{genere.tableau} fait partie de l'extension \questionr
+\marqr. Elle transforme l'objet qu'on lui passe en paramètres dans un
 format mis en forme lisible par \textsf{OpenOffice}\footnote{En fait
   la fonction \rfunc{genere.tableau} ne fait rien par elle-même, elle
 se contente de simplifier l'appel à la fonction \rfunc{odfTable} de
@@ -5215,7 +5219,7 @@ chargement des données et les recodages dans un fichier nommé
 document~:
 
 \begin{verbatim}
-  <<echo=FALSE,results=hide>>=
+  <<echo=FALSE,results='hide'>>=
   source("recodages.R")
   @ 
 \end{verbatim}
@@ -5873,10 +5877,10 @@ remove.packages("ade4")
 \end{important}
 
 
-\section{L'extension \rgrs}
+\section{L'extension \questionr}
 \label{sec_rgrs}
 
-\rgrs est une extension pour R comprenant quelques fonctions
+\questionr est une extension pour R comprenant quelques fonctions
 potentiellement utiles pour l'utilisation du logiciel en sciences
 sociales. Pour l'instant elle comporte essentiellement des fonctions
 pour les tableaux croisés, l'export de résultats et pour le travail
@@ -5935,7 +5939,7 @@ de \textsf{Modalisa}~:
 \subsection{Le jeu de données \texttt{hdv2003}}
 \label{sec_hdv2003}
 
-L'extension \rgrs contient plusieurs jeux de données
+L'extension \questionr contient plusieurs jeux de données
 (\textit{dataset}) destinés à l'apprentissage de \R. 
 
 \texttt{hdv2003} est un extrait comportant 2000 individus et 20
