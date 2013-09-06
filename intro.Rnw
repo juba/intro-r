@@ -123,16 +123,17 @@
 \begin{document}
 
 <<initialize,echo=FALSE,results="none",cache=FALSE>>=
-options(width=75)
+options(width=90)
 options(max.print="70")
 options(prompt="R> ")
 opts_chunk$set(fig.path="tmp/",
                dev="pdf",
-               sanitize=TRUE,
                cache=TRUE,
                cache.path="cache/",
-               external=TRUE,
                prompt=TRUE,
+               tidy=TRUE,
+               highlight=TRUE,
+               size="footnotesize",
                comment=NA,
                background=".95;.95;.95",
                fig.align="center",
@@ -4059,7 +4060,7 @@ calculer des statistiques simples pondérées\footnote{Les fonctions
 
 On les utilise de la manière suivante~:
 
-<<wtdmean,warning=FALSE,message=FALSE>>=
+<<wtdmean,warning=FALSE,message=FALSE,cache=FALSE>>=
 mean(d$age)
 wtd.mean(d$age, weights=d$poids)
 wtd.var(d$age, weights=d$poids)
@@ -4550,7 +4551,7 @@ Dans le deuxième bloc, l'option \texttt{results=xml} indique que le
 résultat du code ne sera pas du simple texte mais un objet déjà au
 format \textsf{OpenOffice} (en l'occurrence un tableau). Le code
 lui-même est ensuite assez classique, sauf la dernière instruction
-\marqr \rfunc{genere.tableau}, qui, appliquée à un objet de type
+\marqr \rfunc{odfTable.matrix}, qui, appliquée à un objet de type
 \texttt{table}, produit le tableau mis en forme dans le document
 résultat.
 
@@ -4584,7 +4585,7 @@ chaîne ouvrante. Parmi les options possibles les plus importantes sont~:
     de la commande est affiché tel quel (par défaut en rouge). Si elle
     vaut \texttt{xml}, le résultat attendu est un objet
     \textsf{OpenOffice}~: c'est l'option qu'on utilisera lorsqu'on
-    fait appel à la fonction \rfunc{genere.tableau}. Si l'option vaut
+    fait appel à la fonction \rfunc{odfTable}. Si l'option vaut
     \texttt{hide}, le résultat est masqué.
   \item[\texttt{fig}] si \texttt{TRUE}, indique que le résultat du code
     est une image.
@@ -4593,31 +4594,11 @@ chaîne ouvrante. Parmi les options possibles les plus importantes sont~:
 En résumé, si on souhaite utiliser un bloc pour charger des extensions
 sans que des traces apparaissent dans le document final, on utilise
 \texttt{<<echo=FALSE,results='hide'>>=}. Si on veut afficher un tableau
-généré par \rfunc{genere.tableau}, on utilise
+généré par \rfunc{odfTable}, on utilise
 \texttt{<<echo=FALSE,results=xml>>=}. Si on souhaite insérer un
 graphique, on utilise \texttt{<<echo=FALSE,fig=TRUE>>=}. Si on
 souhaite afficher du code \R et son résultat <<~tel quel~>>, on
 utilise simplement \texttt{<<>>=}
-
-La fonction \rfunc{genere.tableau} fait partie de l'extension \questionr
-\marqr. Elle transforme l'objet qu'on lui passe en paramètres dans un
-format mis en forme lisible par \textsf{OpenOffice}\footnote{En fait
-  la fonction \rfunc{genere.tableau} ne fait rien par elle-même, elle
-se contente de simplifier l'appel à la fonction \rfunc{odfTable} de
-l'extension \textsf{odfWeave}.}.
-
-Elle permet de transformer les objets de type suivant~:
-
-\begin{itemize}
-\item \texttt{table} à une ou deux dimensions (tri à plat ou tableau
-  croisé obtenu avec les fonctions \rfunc{table}, \rfunc{lprop},
-  \rfunc{cprop}\ldots
-\item \texttt{data.frame}, y compris les tableaux de données ou le
-  résultat de la commande \rfunc{freq}.
-\item \texttt{vector}
-\item \texttt{matrix}
-\end{itemize}
-
 
 Pour générer le document résultat, on doit lancer une session \R
 utilisant comme répertoire de travail celui où se trouve le document
@@ -4636,11 +4617,10 @@ chargement des données et les recodages dans un fichier nommé
 \texttt{recodages.R}, on pourra utiliser le code suivant en début de
 document~:
 
-\begin{verbatim}
-  <<echo=FALSE,results='hide'>>=
-  source("recodages.R")
-  @ 
-\end{verbatim}
+<<echo=TRUE,results='hide',eval=FALSE,prompt=FALSE>>=
+source("recodages.R") 
+@ 
+
 
 Et se contenter dans la suite de générer les tableaux et graphiques
 souhaités.
@@ -5639,8 +5619,8 @@ table(d$fs3)
 
 \begin{solution}{manip_regroup}
 <<>>=
-d$trav.imp2cl[d$trav.imp=="Le plus important" | d$trav.imp=="Aussi important que le reste"] <- "Le plus ou aussi important"
-d$trav.imp2cl[d$trav.imp=="Moins important que le reste" | d$trav.imp=="Peu important"] <- "moins ou peu important"
+d$trav.imp2cl[d$trav.imp == "Le plus important" | d$trav.imp == "Aussi important que le reste"] <- "Le plus ou aussi important"
+d$trav.imp2cl[d$trav.imp == "Moins important que le reste" | d$trav.imp == "Peu important"] <- "moins ou peu important"
 table(d$trav.imp)
 table(d$trav.imp2cl)
 table(d$trav.imp,d$trav.imp2cl)
