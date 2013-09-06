@@ -124,7 +124,7 @@
 \begin{document}
 
 <<initialize,echo=FALSE,results="none",cache=FALSE>>=
-options(width=85)
+options(width=75)
 options(max.print="70")
 options(prompt="R> ")
 opts_chunk$set(fig.path="tmp/",
@@ -1568,49 +1568,16 @@ setwd("/home/julien/projets/R")
 @ 
 
 Sous \textsf{Windows} le chemin du répertoire est souvent un peu plus
-compliqué. Vous pouvez alors utiliser la fonction \rfunc{selectwd} de
-l'extension \questionr\footnote{Sous \textsf{Windows}, si vous utilisez
-  l'interface graphique par défaut, vous pouvez aussi utiliser la
-  fonction \textit{Changer le répertoire courant} du menu
-  \textit{Fichier} } \marqr en tapant simplement~:
+compliqué. Si vous utilisez l'interface graphique par défaut, vous pouvez
+utiliser la fonction \textit{Changer le répertoire courant} du menu 
+\textit{Fichier}. Celle-ci vous permet de sélectionner le répertoire de 
+travail de la session en cours en le sélectionnant via une boîte de dialogue.
 
-<<eval=FALSE>>=
-selectwd()
-@
-
-Une boîte de dialogue devrait alors s'afficher vous permettant de
-sélectionner un répertoire sur votre disque. Sous \textsf{Windows}
-elle devrait ressembler à celle de la figure~\ref{fig_selectwd}
-\vpageref{fig_selectwd}.
-
-\begin{figure}
-  \begin{center}
-    \includegraphics[width=5cm]{img/selectwd.png}
-  \end{center}
-  \caption{Sélection du répertoire de travail avec \rfunc{selectwd}}
-  \label{fig_selectwd}
-\end{figure}
-
-Sélectionnez le répertoire de travail de votre session \R est cliquez
-sur \textit{Ok}\footnote{Sous \textsf{Windows}, si vous ne retrouvez
-  pas votre répertoire \textit{Mes documents}, celui-ci se trouve en
-  général dans le répertoire portant le nom de votre utilisateur situé
-  dans le répertoire \textit{Documents and Settings} du lecteur
-  \verb|{C:|. Par exemple
-  \verb|C:\Documents and Settings\Administrateur\Mes Documents\|}.
-Vous devriez voir s'afficher le message suivant~:
-
-\begin{verbatim}
-Nouveau repertoire de travail : C:/Documents and Settings/Bureau
-Pour automatiser ce changement dans un script, utilisez :
-setwd("C:/Documents and Settings/Bureau")
-\end{verbatim}
-
-Si vous travaillez en ligne de commande dans la console, le répertoire
-de travail a été mis à jour. Si vous travaillez dans un script, il
-peut être intéressant de rajouter la ligne \texttt{setwd} indiquée
-précédemment au début de votre script pour automatiser cette
-opération.
+Si vous utilisez RStudio, Vous pouvez utiliser une des commandes \textit{set 
+working directory} du menu \textit{session} ou, mieux, utiliser les 
+fonctionnalités de gestion de projet qui vous permettent de mémoriser, projet 
+par projet, le répertoire de travail, la liste des fichiers ouverts ainsi que
+différents paramétrages spécifiques.
 
 Une fois le répertoire de travail fixé, on pourra accéder aux fichiers
 qui s'y trouvent directement, en spécifiant seulement leur nom. On
@@ -4109,7 +4076,7 @@ calculer des statistiques simples pondérées\footnote{Les fonctions
 
 On les utilise de la manière suivante~:
 
-<<>>=
+<<wtdmean,warning=FALSE,message=FALSE>>=
 mean(d$age)
 wtd.mean(d$age, weights=d$poids)
 wtd.var(d$age, weights=d$poids)
@@ -4128,7 +4095,7 @@ Pour un tri croisé, il suffit de passer deux variables en paramètres~:
 wtd.table(d$sexe, d$hard.rock, weights=d$poids)
 @ 
 
-Ces fonctions admettent les deux options suivantes~:
+Ces fonctions admettent notamment les deux options suivantes~:
 \begin{description}
 \item[\texttt{na.rm}] si \texttt{TRUE}, on ne conserve que les
   observations sans valeur manquante
@@ -4276,9 +4243,9 @@ doute pas ce qui se fait de plus pratique et de plus simple. On pourra
 quand même donner les conseils suivants~:
 
 \begin{itemize}
-\item utiliser les options de pondération des fonctions
-  usuelles ou les fonctions de l'extension \questionr pour les cas
-  les plus simples~;
+\item utiliser les options de pondération des fonctions usuelles ou les
+  fonctions d'extensions comme \questionr pour les cas les
+  plus simples~;
 \item si on utilise \textsf{survey}, effectuer tous les recodages et
   manipulations sur les données non pondérées autant que possible~;
 \item une fois les recodages effectués, on déclare le \textit{design}
@@ -5384,6 +5351,16 @@ listes de discussion ou le code source du programme.
 
 Les requêtes devront cependant être formulées en anglais.
 
+
+\subsection{Aide en ligne}
+
+Le site \textsf{rdocumentation} propose un accès clair et rapide à la
+documentation de \R et des extensions hébergées sur le CRAN. Il permet
+notamment de rechercher et naviguer facilement entre les pages des différentes
+fonctions~:
+
+\url{http://www.rdocumentation.org/}
+
 \subsection{Ressources officielles}
 
 La documentation officielle de \R est accessible en ligne depuis le
@@ -5393,7 +5370,6 @@ site du projet~:
 
 Les liens de l'entrée \textit{Documentation} du menu de gauche vous
 permettent d'accéder à différentes ressources.
-
 \paragraph{Les manuels} sont des documents complets de présentation de
 certains aspects de \R. Ils sont accessibles en ligne, ou
 téléchargeables au format PDF~:
@@ -5912,7 +5888,7 @@ avec des fichiers issus de Modalisa\footnote{À noter que les fonctions
 \subsection{Installation}
 
 L'installation nécessite d'avoir une connexion
-active à Internet. Depuis la version 0.2-6, l'extension est hébergée
+active à Internet. L'extension est hébergée
 sur le \textsf{CRAN} (\textit{Comprehensive R Archive Network}), le
 réseau officiel de diffusion des extensions de \R. Elle est donc
 installable de manière très simple, comme n'importe quelle autre
@@ -5928,14 +5904,6 @@ L'extension s'utilise alors de manière classique grâce à l'instruction
 <<libquestionr,eval=FALSE>>=
 library(questionr)
 @ 
-
-\begin{remarque}
-  À noter que l'extension n'est disponible que pour les versions les
-  plus récentes de \R. Ainsi, depuis la sortie de la version 2.8, elle
-  n'est plus installable de la manière décrite précédemment pour les
-  versions 2.7 de \R. Il est alors conseillé de mettre son
-  installation de \R à jour.
-\end{remarque}
 
 
 \subsection{Fonctions et utilisation}
