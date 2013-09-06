@@ -19,7 +19,6 @@
 \usepackage[sf,bf]{titlesec}
 \usepackage{listings}
 \usepackage{calc}
-\usepackage{xcolor}
 \usepackage[colorlinks=true,urlcolor=blue,pdfpagelabels]{hyperref}
 \usepackage{ctable}
 \usepackage{amsmath}
@@ -28,8 +27,8 @@
 
 
 
-\definecolor{grisclair}{gray}{0.97}
-\definecolor{grisfonce}{gray}{0.50}
+\definecolor{grisclair}{rgb}{0.97,0.97,0.97}
+\definecolor{grisfonce}{rgb}{0.5,0.5,0.5}
 \definecolor{inputcol}{rgb}{0,0,0.5}
 \definecolor{outputcol}{rgb}{0.5,0,0}
 
