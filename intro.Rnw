@@ -1963,19 +1963,19 @@ déclaré. On n'a plus alors qu'à copier/coller cette chaîne, rajouter
 \texttt{names(d) <- } devant, et modifier un à un les noms des variables.
 
 Si on souhaite seulement modifier le nom d'une variable, on peut
-utiliser la fonction \rfunc{renomme.variable} de \marqr l'extension
+utiliser la fonction \rfunc{rename.variable} de \marqr l'extension
 \questionr. Celle-ci prend en argument le tableau de données, le nom actuel
 de la variable et le nouveau nom. Par exemple, si on veut renommer la
 variable \texttt{bricol} du tableau de données \texttt{d} en
 \texttt{bricolage}~:
 
 <<>>=
-d <- renomme.variable(d, "bricol", "bricolage")
+d <- rename.variable(d, "bricol", "bricolage")
 table(d$bricolage)
 @ 
 
 <<echo=FALSE,results="hide">>=
-d <- renomme.variable(d, "bricolage", "bricol")
+d <- rename.variable(d, "bricolage", "bricol")
 @ 
 
 
@@ -3922,7 +3922,7 @@ ctab
 @ 
 
 Ou bien ponctuellement en passant les mêmes arguments aux fonctions
-\rfunc{print} (pour affichage dans \R) ou \rfunc{copie} (pour export
+\rfunc{print} (pour affichage dans \R) ou \rfunc{copy} (pour export
 vers un logiciel externe)~:
 
 <<>>=
@@ -3955,10 +3955,10 @@ a indépendance entre les lignes et les colonnes du tableau.
 On peut affiner l'interprétation du test en déterminant dans quelle
 case l'écart à l'indépendance est le plus significatif en utilisant
 les \textit{résidus} du test. Ceux-ci sont notamment affichables avec
-la fonction \rfunc{residus} \marqr de \questionr~:
+la fonction \rfunc{chisq.residuals} \marqr de \questionr~:
 
 <<>>=
-residus(tab)
+chisq.residuals(tab)
 @ 
 
 Les cases pour lesquelles l'écart à l'indépendance est significatif
@@ -4253,7 +4253,7 @@ texte ou une application externe.
 
 Les tableaux générés par \R (et plus largement, tous les types
 d'objets) peuvent être exportés pour inclusion dans un traitement de
-texte à l'aide de la fonction \rfunc{copie} \marqr de l'extension
+texte à l'aide de la fonction \rfunc{copy} \marqr de l'extension
 \questionr\footnote{Celle-ci nécessite que l'extension \texttt{R2HTML} soit
   également installée sur le système \textit{via}
   \texttt{install.packages("R2HTML",dep=TRUE)}.}.
@@ -4272,7 +4272,7 @@ tab
 \subsection{Copier/coller vers \textsf{Excel} et \textsf{Word} \textit{via} le presse-papier}
 
 La première possibilité est d'utiliser les options par défaut de
-\rfunc{copie}. Celle-ci va alors transformer le tableau (ou l'objet)
+\rfunc{copy}. Celle-ci va alors transformer le tableau (ou l'objet)
 en \texttt{HTML} et placer le résultat dans le presse papier du
 système. Ceci ne fonctionne malheureusement que sous
 \textsf{Windows}\footnote{En fait cela fonctionne aussi sous
@@ -4281,7 +4281,7 @@ système. Ceci ne fonctionne malheureusement que sous
   mais n'a pas pu être testé.}.
 
 <<>>=
-copie(tab)
+copy(tab)
 @ 
 
 On peut ensuite récupérer le résultat dans une feuille \textsf{Excel} en
@@ -4305,12 +4305,12 @@ L'autre possibilité ne nécessite pas de passer par \textsf{Excel}, et
 fonctionne sous \textsf{Word}, \textsf{OpenOffice} et \textsf{LibreOffice }sur
 toutes les plateformes.
 
-Elle nécessite de passer à la fonction \rfunc{copie} l'option
+Elle nécessite de passer à la fonction \rfunc{copy} l'option
 \texttt{file=TRUE} qui enregistre le contenu de l'objet dans un
 fichier plutôt que de le placer dans le presse-papier~:
 
 <<>>=
-copie(tab, file=TRUE)
+copy(tab, file=TRUE)
 @ 
 
 
@@ -4319,7 +4319,7 @@ Par défaut le résultat est placé dans un fichier nommé
 le nom et l'emplacement avec l'option \texttt{filename}~:
 
 <<eval=FALSE>>=
-copie(tab, file=TRUE, filename="exports/tab1.html")
+copy(tab, file=TRUE, filename="exports/tab1.html")
 @ 
 
 On peut ensuite l'intégrer directement dans \textsf{Word} ou dans
@@ -5294,6 +5294,7 @@ remove.packages("ade4")
 potentiellement utiles pour l'utilisation du logiciel en sciences
 sociales, ainsi que différents jeux de données.
 
+
 \subsection{Installation}
 
 L'installation nécessite d'avoir une connexion
@@ -5545,8 +5546,8 @@ dotchart(table(df$trav.imp))
 library(questionr)
 data(hdv2003)
 d <- hdv2003
-d <- renomme.variable(d, "clso", "classes.sociales")
-d <- renomme.variable(d, "classes.sociales", "clso")
+d <- rename.variable(d, "clso", "classes.sociales")
+d <- rename.variable(d, "classes.sociales", "clso")
 @ 
 \end{solution}
 
