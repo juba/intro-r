@@ -1,4 +1,4 @@
-Ce dépôt contient les sources et le PDF du document *Introduction au logiciel R*.
+Ce dépôt contient les sources et le PDF du document *Introduction à R*.
 
 Pour faire un lien direct vers le PDF, utilisez l'url suivante :
 
