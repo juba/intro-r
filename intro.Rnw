@@ -28,6 +28,7 @@
 
 
 \definecolor{grisclair}{rgb}{0.97,0.97,0.97}
+\definecolor{grisinterm}{rgb}{0.95,0.95,0.95}
 \definecolor{grisfonce}{rgb}{0.5,0.5,0.5}
 \definecolor{inputcol}{rgb}{0,0,0.5}
 \definecolor{outputcol}{rgb}{0.5,0,0}
@@ -87,6 +88,20 @@
     \parpic[l]{\includegraphics[height=0.8cm,keepaspectratio=true]{img/important.png}}}%
 {\end{greyframe}}
 
+\newenvironment{greyverb}%
+{\setlength\fboxsep{10pt}%
+  \setlength{\rightmargin}{\leftmargin}%
+  \raggedright%
+  \begin{lrbox}{\fcolbox}%
+    \begin{minipage}{\linewidth-4\fboxsep}}%
+    {\end{minipage}%
+  \end{lrbox}%
+  \vspace{3ex}%
+  \begin{center}%
+    \fcolorbox{grisinterm}{grisinterm}{\usebox{\fcolbox}}%
+  \end{center}
+  \vspace{3ex}%
+}
 
 %%%% EXERCICES
     
@@ -123,7 +138,7 @@
 \begin{document}
 
 <<initialize,echo=FALSE,results="none",cache=FALSE>>=
-options(width=90)
+options(width=75)
 options(max.print="70")
 options(prompt="R> ")
 opts_chunk$set(fig.path="tmp/",
@@ -133,7 +148,7 @@ opts_chunk$set(fig.path="tmp/",
                prompt=TRUE,
                tidy=TRUE,
                highlight=TRUE,
-               size="footnotesize",
+               #size="footnotesize",
                comment=NA,
                background=".95;.95;.95",
                fig.align="center",
@@ -336,6 +351,7 @@ ressemblant à peu près à ce qui suit\footnotemark~:
 \end{figure}
 
 
+\begin{greyverb}
 \begin{verbatim}
 R version 3.0.1 (2013-05-16) -- "Good Sport"
 Copyright (C) 2013 The R Foundation for Statistical Computing
@@ -347,6 +363,7 @@ Tapez 'license()' ou 'licence()' pour plus de détails.
 
 (...)
 \end{verbatim}
+\end{greyverb}
 
 \noindent
 suivi d'une ligne commençant par le caractère \texttt{>} et sur laquelle
@@ -388,10 +405,11 @@ utilisant les signe \texttt{+}. Imaginons par exemple que nous avons
 malencontreusement tapé sur \texttt{Entrée} alors que nous souhaitions
 calculer \texttt{4*3}:
 
+\begin{greyverb}
 \begin{verbatim}
 4 *
 \end{verbatim}
-
+\end{greyverb}
 
 On peut alors compléter la commande en saisissant simplement
 \texttt{3}~:
@@ -844,9 +862,11 @@ nouvelle fenêtre (vide) apparaît. Nous pouvons désormais y
 saisir des commandes. Par exemple, tapez sur la première ligne la
 commande suivante~:
 
+\begin{greyverb}
 \begin{verbatim}
 2+2
 \end{verbatim} 
+\end{greyverb}
 
 \footnotetext{Les indications données ici concernent l'interface par
   défaut de \R sous \textsf{Windows}. Elles sont très semblables sous
@@ -4703,10 +4723,12 @@ Site officiel de l'extension~:
 des documents suivant différents formats. On pourra ainsi l'utiliser avec du
 \LaTeX, du \textsf{Markdown} ou du \textsf{HTML}.
 
-\textsf{RStudio} propose une interface pratique à \textsf{knitr}\footnotemark.
-On peut ainsi facilement créer un fichier \textit{R Markdown}, \textit{R HTML}
-ou \textit{R Sweave} et, d'un clic, générer des fichiers HTML pour les deux
-premiers formats, ou PDF pour le dernier.
+\textsf{RStudio}\footnote{Pour plus d'informations sur \textsf{RStudio}, voir
+  section~\ref{sec_rstudio} \vpageref{sec_rstudio}.} propose une interface
+pratique à \textsf{knitr}\footnotemark. On peut ainsi facilement créer un
+fichier \textit{R Markdown}, \textit{R HTML} ou \textit{R Sweave} et, d'un
+clic, générer des fichiers HTML pour les deux premiers formats, ou PDF pour le
+dernier.
 
 \footnotetext{\textsf{knitr} peut aussi parfaitement s'utiliser en ligne de
   commande sans passer par \textsf{RStudio}}
@@ -4718,11 +4740,13 @@ Voyons tout de suite un exemple. Dans \textsf{RStudio}, choisissez le menu
 \textit{File}, puis \textit{New}, puis \textit{R Markdown}. Un nouveau
 document s'ouvre. Effacez son contenu et remplacez le par quelque chose comme~:
 
+\begin{greyverb}
 \begin{verbatim}
 Exemple de titre
 ================
 
-Ceci est un paragraphe avec du texte en *italique*, en **gras** et en `police à chasse fixe`.
+Ceci est un paragraphe avec du texte en *italique*, en **gras** et en 
+`police à chasse fixe`.
 
 Ensuite vient un bloc de code R qui affiche du texte :
 
@@ -4744,7 +4768,9 @@ Et on peut, enfin, inclure des graphiques directement :
 ```{r exemplegraph, echo=FALSE}
 plot(iris$Sepal.Width, iris$Sepal.Length, col="red")
 ```
-\end{verbatim}
+\end{verbatim} 
+\end{greyverb}
+
 
 Enregistrez le fichier avec un nom de votre choix suivi de l'extension
 \texttt{.Rmd}, puis cliquez sur le bouton \textit{Knit HTML}. Vous devriez
@@ -4792,10 +4818,12 @@ Ensuite, le document contient plusieurs blocs de code \R. Ceux-ci sont
 délimités par la syntaxe suivante\footnote{Ces délimiteurs seront différents
   pour d'autres formats de documents, comme \textit{Sweave} ou \texttt{Rhtml}.}~:
 
+\begin{greyverb}
 \begin{verbatim}
 ```{r nom_du_bloc, options}
 ```
 \end{verbatim}
+\end{greyverb}
 
 Le bloc commence et se termine par trois quotes inverses suivie, entre
 accolades, du langage utilisé dans le bloc (ici toujours \texttt{r}), du nom
@@ -5618,6 +5646,10 @@ La liste des variables est la suivante~:
 \chapter{Solutions des exercices}
 \label{sec_solutions}
 
+<<r initsoluces, echo=FALSE, results="hide">>=
+opts_chunk$set(size="footnotesize")
+@ 
+
 \begin{solution}{simplec}
 <<>>=
 c(12,13,14,15,16)
@@ -5805,7 +5837,7 @@ table(d$fs3)
 
 
 \begin{solution}{manip_regroup}
-<<>>=
+<<r solmanipregroup1,size="footnotesize">>=
 d$trav.imp2cl[d$trav.imp == "Le plus important" | d$trav.imp == "Aussi important que le reste"] <- "Le plus ou aussi important"
 d$trav.imp2cl[d$trav.imp == "Moins important que le reste" | d$trav.imp == "Peu important"] <- "moins ou peu important"
 table(d$trav.imp)
@@ -5813,7 +5845,7 @@ table(d$trav.imp2cl)
 table(d$trav.imp,d$trav.imp2cl)
 @ 
 
-<<>>=
+<<r solmanipregroup2,size="footnotesize">>=
 d$relig.4cl <- as.character(d$relig)
 d$relig.4cl[d$relig == "Pratiquant regulier" | d$relig == "Pratiquant occasionnel"] <- "Pratiquant"
 d$relig.4cl[d$relig=="NSP ou NVPR"] <- NA
@@ -5825,7 +5857,7 @@ table(d$relig.4cl, d$relig, exclude=NULL)
 \begin{solution}{manip_combine}
   Attention, l'ordre des opérations a toute son importance~!
 
-<<>>=
+<<r solmanipcombine,size="footnotesize">>=
 d$var <- "Autre"
 d$var[d$sexe == "Femme" & d$bricol=="Oui"] <- "Femme faisant du bricolage"
 d$var[d$sexe=="Homme" & d$age > 30] <- "Homme de plus de 30 ans"
