@@ -117,7 +117,7 @@
 \title{Introduction à \includegraphics[width=1.4cm]{img/Rlogo.jpg}}
 \author{Julien Barnier\\ Centre Max Weber\\
   CNRS -- UMR 5283\\ \href{mailto:julien.barnier@ens-lyon.fr}{\texttt{julien.barnier@ens-lyon.fr}}}
-\date{\today{}}
+\date{Version 2.0\\\today{}}
 
 
 \begin{document}
@@ -189,10 +189,12 @@ Ce document est diffusé sous licence \textit{Creative Commons
 
 \url{http://creativecommons.org/licenses/by-nc/2.0/fr/}
 
+\section{Remerciements}
+
 L'auteur tient à remercier Mayeul Kauffmann, Julien Biaudet, Frédérique
 Giraud, et Joël Gombin pour leurs corrections et
 suggestions. Et un remerciement plus particulier à Milan Bouchet-Valat pour sa
-relecture très attentive et ses nombreuses et légitimes remarques.
+relecture très attentive et ses nombreuses et judicieuses remarques.
 
 
 \section{Conventions typographiques}
@@ -263,22 +265,22 @@ Comme rien n'est parfait, on peut également trouver quelques inconvénients~:
 \item le logiciel, la documentation de référence et les principales
   ressources sont en anglais. Il est toutefois parfaitement possible
   d'utiliser \R sans spécialement maîtriser cette langue~;
-\item il n'existe pas encore d'interface graphique pour \R équivalente
-  à celle d'autres logiciels comme \textsf{SPSS} ou
-  \textsf{Modalisa}\footnotemark. \R fonctionne à l'aide de scripts (des petits
-  programmes) édités et exécutés au fur et à mesure de l'analyse, et
-  se rapprocherait davantage de \textsf{SAS} dans son utilisation
-  (mais avec une syntaxe et une philosophie très différentes).
+\item il n'existe pas encore d'interface graphique pour \R équivalente à celle
+  d'autres logiciels comme \textsf{SPSS} ou \textsf{Modalisa}\footnotemark. \R
+  fonctionne à l'aide de scripts (des petits programmes) édités et exécutés au
+  fur et à mesure de l'analyse, et se rapprocherait davantage de \textsf{SAS}
+  dans son utilisation (mais avec une syntaxe et une philosophie très
+  différentes). Ce point, qui peut apparaître comme un gros handicap, s'avère
+  après un temps d'apprentissage être un mode d'utilisation d'une grande
+  souplesse.
+\item comme \R s'apparente davantage à un langage de programmation qu'à un
+  logiciel proprement dite, la courbe d'apprentissage peut être un peu
+  <<~raide~>>, notamment pour ceux n'ayant jamais programmé auparavant.
 \end{itemize}
 
 \footnotetext{Certaines extensions ou logiciels proposent cependant des
   interfaces graphiques plus ou moins généralistes. Voir la
   section~\ref{sec_guis}, \vpageref{sec_guis} }
-
-À noter que ce dernier point, qui peut apparaître comme un gros
-handicap, s'avère après un temps d'apprentissage être un mode
-d'utilisation d'une grande souplesse.
-
 
 \section{Philosophie de \R}
 
@@ -2042,7 +2044,36 @@ d$qualif <- factor(d$qualif, levels=c("Ouvrier specialise", "Ouvrier qualifie", 
 table(d$qualif)                   
 @ 
 
-Par défaut, les valeurs manquantes ne sont pas considérées comme un
+On peut également modifier les niveaux eux-mêmes. Imaginons que l'on souhaite
+créer une nouvelle variable \texttt{qualif.abr} contenant les noms abrégés des
+catégories socioprofessionnelles de \texttt{qualif}. On peut alors procéder
+comme suit~:
+
+<<r factorlabels>>=
+d$qualif.abr <- factor(d$qualif, 
+                   levels=c("Ouvrier specialise", "Ouvrier qualifie", "Employe", "Technicien", 
+"Profession intermediaire", "Cadre",  "Autre"),
+                   labels=c("OS","OQ","Empl","Tech","Interm","Cadre","Autre"))
+table(d$qualif.abr)                   
+@ 
+
+Dans ce qui précède, le paramètre \texttt{levels} de \rfunc{factor} permet de
+spécifier quels sont les niveaux retenus dans le facteur résultat, ainsi que
+leur ordre. Le paramètre \texttt{labels}, lui, permet de modifier les noms de
+ces niveaux dans le facteur résultat. Il est donc capital d'indiquer les noms
+de \texttt{labels} exactement dans le même ordre que les niveaux de
+\texttt{levels}. Pour s'assurer de ne pas avoir commis d'erreur, il est
+recommandé d'effectuer un tableau croisé entre l'ancien et le nouveau facteur~:
+
+<<r factorcrosstabverif>>=
+table(d$qualif, d$qualif.abr)
+@ 
+
+On a donc ici un premier moyen d'effectuer un recodage des modalités d'une
+variable de type facteur. D'autres méthodes existent, elles sont notamment
+détaillées section~\ref{sec_recodages} \vpageref{sec_recodages}.
+
+À noter que par défaut, les valeurs manquantes ne sont pas considérées comme un
 niveau de facteur. On peut cependant les transformer en niveau en
 utilisant la fonction \rfunc{addNA}. Ceci signifie cependant
 qu'elle ne seront plus considérées comme manquantes par \R~:
@@ -2609,6 +2640,7 @@ tapply(d$bricol, d$sexe, freq, total=TRUE)
 
 
 \section{Recodages}
+\label{sec_recodages}
 
 Le recodage de variables est une opération extrêmement fréquente lors
 du traitement d'enquête. Celui-ci utilise soit l'une des formes
@@ -4434,7 +4466,7 @@ dans le fichier de sortie (dans le cas contraire on se retrouve avec
 un fichier vide).
 
 
-\section{Génération automatique de rapports avec \textsf{OpenOffice} ou \textsf{LibreOffice}}
+\section{Génération automatique de documents avec \textsf{OpenOffice} ou \textsf{LibreOffice}}
 
 Les méthodes précédentes permettent d'exporter tableaux et graphiques,
 mais cette opération reste manuelle, un peu laborieuse et répétitive,
@@ -4447,6 +4479,13 @@ document de type traitement de texte, et de procéder ensuite au
 remplacement automatique du code par le résultat sous forme de texte,
 de tableau ou de figure.
 
+À noter qu'\textsf{odfWeave} n'est pas la seule extension proposant ce type de
+fonctionnalités, on citera notamment \textsf{knitr}, présentée
+section~\ref{sec-knitr} \vpageref{sec-knitr}, plus utilisée et plus versatile.
+\textsf{odfWeave} a l'avantage de fournir directement en sortie un document au
+format \textsf{OpenDocument}, mais présente l'inconvénient de devoir saisir le
+code \R dans \textsf{LibreOffice}, sans les facilités d'édition d'un outil
+spécifique à \R, et sans pouvoir exécuter ce code de manière interactive.
 
 \subsection{Prérequis}
 
@@ -4648,19 +4687,158 @@ et notamment au document d'introduction en anglais~:
 
 
 
+\section{Génération automatique de documents avec \textsf{knitr}}
+\label{sec-knitr}
 
-\section{Génération automatique de rapports avec \LaTeX}
+\textsf{knitr} est une extension \R, développée par Yihui Xie, qui permet de
+mélanger du code \R dans des documents de différents formats et de produire en
+retour des documents comportant, à la place du code en question, le résultat de son
+exécution (texte, tableaux, graphiques, etc.).
 
-Des fonctionnalités similaires à celles offertes par l'extension
-\textsf{odfWeave} sont fournies pour \LaTeX{} par des extensions comme
-\textsf{Sweave} ou \textsf{knitr}\footnote{C'est cet outil qui a permis de
-  générer le document que vous avez sous les yeux.}, permettant de générer
-dynamiquement des documents contenant du code \R avec un rendu typographique
-de haute qualité.
+Site officiel de l'extension~:
 
-Comme cette extension nécessite l'apprentissage de \LaTeX, elle
-dépasse le cadre de ce document. 
+\url{http://yihui.name/knitr/}
 
+\textsf{knitr} est extrêmement versatile, et permet d'inclure du code R dans
+des documents suivant différents formats. On pourra ainsi l'utiliser avec du
+\LaTeX, du \textsf{Markdown} ou du \textsf{HTML}.
+
+\textsf{RStudio} propose une interface pratique à \textsf{knitr}\footnotemark.
+On peut ainsi facilement créer un fichier \textit{R Markdown}, \textit{R HTML}
+ou \textit{R Sweave} et, d'un clic, générer des fichiers HTML pour les deux
+premiers formats, ou PDF pour le dernier.
+
+\footnotetext{\textsf{knitr} peut aussi parfaitement s'utiliser en ligne de
+  commande sans passer par \textsf{RStudio}}
+
+
+\subsection{Exemple}
+
+Voyons tout de suite un exemple. Dans \textsf{RStudio}, choisissez le menu
+\textit{File}, puis \textit{New}, puis \textit{R Markdown}. Un nouveau
+document s'ouvre. Effacez son contenu et remplacez le par quelque chose comme~:
+
+\begin{verbatim}
+Exemple de titre
+================
+
+Ceci est un paragraphe avec du texte en *italique*, en **gras** et en `police à chasse fixe`.
+
+Ensuite vient un bloc de code R qui affiche du texte :
+
+```{r exemple1}
+data(iris)
+mean(iris$Sepal.Width)
+```
+
+Grâce à `xtable`, on peut aussi afficher des tableaux avec le code suivant :
+
+```{r exempletab, results='asis'}
+library(xtable)
+tab <- table(iris$Species, cut(iris$Sepal.Width, breaks=3))
+print(xtable(tab), type="html")
+```
+
+Et on peut, enfin, inclure des graphiques directement :
+
+```{r exemplegraph, echo=FALSE}
+plot(iris$Sepal.Width, iris$Sepal.Length, col="red")
+```
+\end{verbatim}
+
+Enregistrez le fichier avec un nom de votre choix suivi de l'extension
+\texttt{.Rmd}, puis cliquez sur le bouton \textit{Knit HTML}. Vous devriez
+voir apparaître une fenêtre ressemblant à la figure~\ref{fig_knitr_html}
+\vpageref{fig_knitr_html}.
+
+\begin{figure}
+  \begin{center}
+    \includegraphics[width=0.95\textwidth]{img/knitr_html_out.png}
+  \end{center}
+  \caption{Résultat de la génération d'un document HTML par \textsf{knitr}}
+  \label{fig_knitr_html}
+\end{figure}
+
+Vous avez ensuite la possibilité d'enregistrer ce fichier HTML, ou même,
+\textit{via} le bouton \textit{Publish}, de le mettre en ligne sur le site
+\textit{Rpubs} (\url{http://rpubs.com}) pour pouvoir le partager facilement.
+
+Si vous n'utilisez pas \textsf{RStudio}, vous pouvez appliquer \textsf{knitr}
+à votre fichier \textit{R Markdown} en lançant R dans le même répertoire et en
+utilisant le code suivant~:
+
+<<r knitrcmdline, eval=FALSE>>=
+library(knitr)
+knit2html("test.Rmd")
+@ 
+
+Le résultat se trouvera dans le fichier \texttt{test.html} du même répertoire.
+
+
+\subsection{Syntaxe}
+
+Dans l'exemple précédent, il faut bien différencier ce qui relève de la
+syntaxe de \textit{Markdown} et ce qui relève de la syntaxe de \textsf{knitr}.
+
+\textit{Markdown} est un langage de balisage permettant de mettre en forme du
+texte en désignant des niveaux de titre, du gras, des listes à puce, etc.
+Ainsi, du texte placé entre deux astérisques sera mis en italique, une ligne
+soulignée par des caractères \texttt{=} sera transformée en titre de niveau 1, etc.
+Dans \textsf{RStudio}, choisissez le menu \textit{Help} puis \textit{Markdown
+  Quick Reference} pour afficher un aperçu des différentes possibilités de
+mise en forme.
+
+Ensuite, le document contient plusieurs blocs de code \R. Ceux-ci sont
+délimités par la syntaxe suivante\footnote{Ces délimiteurs seront différents
+  pour d'autres formats de documents, comme \textit{Sweave} ou \texttt{Rhtml}.}~:
+
+\begin{verbatim}
+```{r nom_du_bloc, options}
+```
+\end{verbatim}
+
+Le bloc commence et se termine par trois quotes inverses suivie, entre
+accolades, du langage utilisé dans le bloc (ici toujours \texttt{r}), du nom
+du bloc (ce qui permet de l'identifier facilement en cas d'erreur), et d'une
+liste d'options éventuelles séparées par des virgules.
+
+Ces options permettent de modifier le comportement du bloc. Par exemple,
+spécifier \texttt{echo=FALSE} fera que le code \R ne sera pas affiché dans le
+document final, \texttt{fig.width=8} modifiera la largeur des images générées
+pour un graphique, etc. Un aperçu des principales options peut être trouvé à
+l'adresse suivante~:
+
+\url{http://rpubs.com/gallery/options}
+
+Et la liste exhaustive se trouve ici~:
+
+\url{http://yihui.name/knitr/options}
+
+\subsection{Aller plus loin}
+
+L'objectif ici était de présenter un aperçu de l'intérêt et des
+possibilités de \textsf{knitr}. Grâce à ce système, le code \R peut être
+intégré directement aux analyses, et le document final contient le résultat de
+l'exécution de ce code. La mise à jour de l'ensemble de ces résultats (en cas de
+modification des données par exemple) peut alors se faire d'un simple clic ou
+d'une seule commande. L'intérêt en terme de reproductibilité des recherches
+est également énorme.
+
+\textsf{knitr} est très versatile, permet de générer des documents dans de
+nombreux formats, et évolue rapidement. L'utilisation de programmes
+auxiliaires comme \textsf{pandoc} permettent même de générer des documents au
+format traitement de texte, par exemple.
+
+Pour aller au-delà de l'exemple donné ici, on trouvera de nombreuses
+ressources en ligne sur les possibilités et l'utilisation de \textsf{knitr}.
+L'extension propose même une démonstration permettant de modifier un fichier
+\textit{R Markdown} et de voir le résultat juste en appuyant sur la touche
+\texttt{F4}. Pour lancer cette démonstration~:
+
+<<r demoknitr,eval=FALSE>>=
+if (!require('shiny')) install.packages('shiny')
+demo('notebook', package = 'knitr')
+@ 
 
 \chapter{Où trouver de l'aide}
 \label{sec_aide}
@@ -4767,7 +4945,7 @@ Les requêtes devront cependant être formulées en anglais.
 
 \subsection{Aide en ligne}
 
-Le site \textsf{rdocumentation} propose un accès clair et rapide à la
+Le site \textsf{R documentation} propose un accès clair et rapide à la
 documentation de \R et des extensions hébergées sur le CRAN. Il permet
 notamment de rechercher et naviguer facilement entre les pages des différentes
 fonctions~:
@@ -5292,7 +5470,8 @@ remove.packages("ade4")
 
 \questionr est une extension pour R comprenant quelques fonctions
 potentiellement utiles pour l'utilisation du logiciel en sciences
-sociales, ainsi que différents jeux de données.
+sociales, ainsi que différents jeux de données. Elle est développée en
+collaboration avec François Briatte.
 
 
 \subsection{Installation}
@@ -5306,6 +5485,13 @@ extension, par un simple~:
 
 <<instquestionr,eval=FALSE>>=
 install.packages("questionr",dep=TRUE)
+@
+
+Si vous souhaitez utiliser la toute dernière version en ligne sur Github, vous
+pouvez utiliser la fonction \rfunc{install\_github}, de l'extension \textsf{devtools}~:
+
+<<instgithubquestionr,eval=FALSE>>=
+install_github("questionr", "juba")
 @
 
 L'extension s'utilise alors de manière classique grâce à l'instruction
@@ -5329,7 +5515,7 @@ est disponible sur le CRAN~:
 
 \url{http://cran.r-project.org/web/packages/questionr/questionr.pdf}
 
-Le même document est également accessible en ligne sur \textsf{rdocumentation}~:
+Le même document est également accessible en ligne sur \textsf{R documentation}~:
 
 \url{http://www.rdocumentation.org/packages/questionr}
 
