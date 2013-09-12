@@ -114,10 +114,10 @@
 \setlength\marginparwidth{40pt}
 %\setcounter{tocdepth}{2}
 
-\title{Introduction à \includegraphics[width=1.4cm]{img/Rlogo.jpg}}
+\title{\Huge{Introduction à \includegraphics[width=1.4cm]{img/Rlogo.jpg}}}
 \author{Julien Barnier\\ Centre Max Weber\\
   CNRS -- UMR 5283\\ \href{mailto:julien.barnier@ens-lyon.fr}{\texttt{julien.barnier@ens-lyon.fr}}}
-\date{Version 2.0\\\today{}}
+\date{Version 2.0\\\today{}\\\vspace{3cm}\includegraphics[width=9cm]{img/xkcd_tech_chart.png}\\\footnotesize\texttt{http://xkcd.com/627/}}
 
 
 \begin{document}
