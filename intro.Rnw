@@ -207,7 +207,7 @@ Ce document est diffusé sous licence \textit{Creative Commons
 \section{Remerciements}
 
 L'auteur tient à remercier Mayeul Kauffmann, Julien Biaudet, Frédérique
-Giraud, et Joël Gombin pour leurs corrections et
+Giraud, Joël Gombin et Joseph Larmarange pour leurs corrections et
 suggestions. Et un remerciement plus particulier à Milan Bouchet-Valat pour sa
 relecture très attentive et ses nombreuses et judicieuses remarques.
 
