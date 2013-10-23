@@ -82,6 +82,10 @@
     \parpic[l]{\includegraphics[height=0.8cm,keepaspectratio=true]{img/astuce.png}}}%
 {\end{greyframe}}
 
+\newenvironment{rstudio}%
+{\begin{greyframe}%
+    \parpic[l]{\includegraphics[height=0.8cm,keepaspectratio=true]{img/rstudio.png}}}%
+{\end{greyframe}}
 
 \newenvironment{important}%
 {\begin{greyframe}%
