@@ -554,11 +554,11 @@ tailles
 \label{explication_crochets}
 On a bien notre suite de quarante tailles, mais on peut remarquer la
 présence de nombres entre crochets au début de chaque ligne
-(\texttt{[1]}, \texttt{[21]} et \texttt{[41]}). En fait ces nombres
+(\texttt{[1]}, \texttt{[18]} et \texttt{[35]}). En fait ces nombres
 entre crochets indiquent la position du premier élément de la ligne
-dans notre vecteur. Ainsi, le 124 en début de deuxième ligne est le
-21ème élément du vecteur, tandis que le 169 de la troisième ligne est
-à la 42ème position.
+dans notre vecteur. Ainsi, le 185 en début de deuxième ligne est le
+18ème élément du vecteur, tandis que le 182 de la troisième ligne est
+à la 35ème position.
 
 On en déduira d'ailleurs que lorsque l'on fait~:
 <<>>=
