@@ -5002,11 +5002,12 @@ votre navigateur.
 
 Si vous souhaitez rechercher quelque chose dans le contenu de l'aide
 directement dans la console, vous pouvez utiliser la fonction
-\rfunc{help.search}, qui renvoie une liste des pages d'aide contenant
-les termes recherchés. Par exemple~:
+\rfunc{help.search} (ou \rfunc{??} qui est équivalente), qui renvoie une liste 
+des pages d'aide contenant les termes recherchés. Par exemple~:
 
 <<help4,eval=FALSE>>=
 help.search("logistic")
+??logistic
 @
 
 \section{Ressources sur le Web}
