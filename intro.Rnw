@@ -536,6 +536,17 @@ foo <- x
 foo
 @
 
+L'opérateur \rfunc{=} est identique à \rfunc{<-}. L'écriture \rfunc{->} est
+égalemen admise. Cependant, dans ce cas, c'est la valeur de l'élément situé à
+gauche qui sera assignée à l'objet situé à droite.
+
+<<>>=
+x = 12
+x
+24 -> y
+y
+@
+
 \begin{remarque}
   \label{rq_noms}
   Les noms d'objets peuvent contenir des lettres, des chiffres (mais
