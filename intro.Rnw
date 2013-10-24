@@ -992,6 +992,17 @@ La plupart du travail sous \R consistera donc à éditer un ou plusieurs
 fichiers de commandes et à envoyer régulièrement les commandes saisies
 à \R en utilisant les raccourcis clavier \textit{ad hoc}. 
 
+\begin{rstudio}
+  Les commandes sont légèrement différentes avec \textsf{RStudio} mais le 
+  principe est le même. Pour créer un nouveau script \R, faire \textit{File > 
+  New > R Script}. Votre nouveau fichier apparaitra dans le quadrant haut-gauche.
+  Pour exécuter une ou plusieurs lignes de code, sélectionnez les lignes en
+  question puis cliquez sur l'icône \textit{Run} ou bien appuyez simultanément
+  sur les touches \texttt{<Ctrl>} et \texttt{<Entrée>}. Pour plus d'astuces 
+  (en anglais) :
+  
+  \url{http://www.rstudio.com/ide/docs/using/source}
+\end{rstudio}
 
 \section{Ajouter des commentaires}
 
