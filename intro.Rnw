@@ -831,14 +831,14 @@ On peut rajouter les fonctions de base suivantes~:
 \begin{rstudio}
   Autre outil bien utile de \textsd{RStudio}, l'auto-complétion. Tapez les 
   premières lettres d'une fonction, par exemple \texttt{me} puis appuyez sur la 
-  touche \textit{tabulation}. \textsd{RStudio} affichera la liste des fonctions
+  touche \texttt{<Tabulation>}. \textsd{RStudio} affichera la liste des fonctions
   dont le nom commence par \texttt{me} ainsi qu'un court descriptif de chacune.
   Un appui sur la touche \textit{Entrée} provoquera la saisie du nom complet de 
   la fonction choisie. Vous pouvez également utiliser l'auto-complétion pour
   retrouver un objet que vous avez créé (par exemple, appuyez sur la touche 
-  \textit{tabulation} après avoir saisi \texttt{mean(t}) ou bien pour retrouver
+  \texttt{<Tabulation>} après avoir saisi \texttt{mean(t}) ou bien pour retrouver
   un argument nommé d'une fonction (par exemple, appuyez sur la touche 
-  \textit{tabulation} après avoir saisi \texttt{mean(taille,}).
+  \texttt{<Tabulation>} après avoir saisi \texttt{mean(taille,}).
 \end{rstudio}
 
 \subsection{Aide sur une fonction}
@@ -978,9 +978,9 @@ possibilités pour soumettre des commandes à \R~:
 \item vous pouvez exécuter la ligne sur laquelle se trouve votre
   curseur en sélectionnant \textit{Éditon} puis \textit{Exécuter la
     ligne ou sélection}, ou plus simplement en appuyant simultanément
-  sur les touches \texttt{Ctrl} et \texttt{R}\footnote{Sous
-    \textsf{Mac OS X}, on utilise les touches \texttt{Pomme} et
-    \texttt{Entrée}.}~;
+  sur les touches \texttt{<Ctrl>} et \texttt{<R>}\footnote{Sous
+    \textsf{Mac OS X}, on utilise les touches \texttt{<Pomme>} et
+    \texttt{<Entrée>}.}~;
 \item vous pouvez sélectionner plusieurs lignes contenant des
   commandes et les exécuter toutes en une seule fois exactement de la
   même manière~;
