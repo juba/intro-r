@@ -335,6 +335,19 @@ sous la main un ordinateur avec une installation récente de \R, quel
 que soit le système d'exploitation que vous utilisez (\textsf{Linux},
 \textsf{Mac OS X} ou \textsf{Windows}).
 
+\begin{rstudio}
+  Le projet \textsf{RStudio} tend à s'imposer comme l'environnement de
+  développement de référence pour \R, d'autant qu'il a l'avantage d'être
+  libre, gratuit et multiplateforme. Son installation est décrite
+  section~\ref{sec_rstudio} \vpageref{sec_rstudio}.
+  
+  Les astuces et informations spécifiques à \textsf{RStudio} seront présentées 
+  tout au long de ce document dans des encadrés similaires à celui-là.
+  
+  \textsf{RStudio} peut tout à fait être utilisé pour découvrir et démarrer
+  avec \R.
+\end{rstudio}
+
 
 \section{L'invite de commandes}
 
