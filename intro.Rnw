@@ -987,10 +987,9 @@ fichiers de commandes et à envoyer régulièrement les commandes saisies
   New > R Script}. Votre nouveau fichier apparaitra dans le quadrant haut-gauche.
   Pour exécuter une ou plusieurs lignes de code, sélectionnez les lignes en
   question puis cliquez sur l'icône \textit{Run} ou bien appuyez simultanément
-  sur les touches \texttt{<Ctrl>} et \texttt{<Entrée>}. Pour plus d'astuces 
-  (en anglais) :
+  sur les touches \texttt{<Ctrl>} et \texttt{<Entrée>}. 
   
-  \url{http://www.rstudio.com/ide/docs/using/source}
+  Pour plus d'astuces (en anglais) : \url{http://www.rstudio.com/ide/docs/using/source}
 \end{rstudio}
 
 \section{Ajouter des commentaires}
