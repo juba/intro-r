@@ -389,6 +389,26 @@ l'\textit{invite de commande} (ou \textit{prompt} en anglais). Elle
 signifie que \R est disponible et en attente de votre prochaine
 commande.
 
+\begin{figure}
+  \begin{center}
+    \includegraphics[width=0.8\textwidth]{img/scr_RStudio.png}
+  \end{center}
+  \caption{L'interface de \textsf{RStudio} sous \textsf{Windows} au démarrage}
+  \label{fig_RStudio}
+\end{figure}
+
+\begin{rstudio}
+  L'interface de \textsf{RStudio} se présente différement (voir 
+  figure~\ref{fig_RStudio}). Elle est divisée en quatre parties. Le quadrant 
+  haut-gauche est dédié aux fichiers sources (scripts). Le quadrant haut-droite
+  fournit des informations sur vos données en mémoire et votre historique. Le
+  quadrant bas-droite vous permet naviguer dans votre répertoire de travail, 
+  affiche l'aide, vos graphiques et les extensions disponibles. Enfin, la 
+  \textit{console} est affichée en bas à gauche. C'est elle qui nous intéresse
+  pour le moment. Nous aborderons les autres quadrants plus loin dans ce 
+  document.
+\end{rstudio}
+
 Nous allons tout de suite lui fournir une première commande~:
 
 <<>>=
