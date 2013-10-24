@@ -1029,10 +1029,9 @@ tard.
 
 \begin{rstudio}
   Avec \textsf{RStudio}, vous pouvez également utiliser les commentaires pour
-  créer des sections au sein de votre script et naviguer plus rapidement. Voir 
-  (en anglais) :
+  créer des sections au sein de votre script et naviguer plus rapidement.
   
-  \url{http://www.rstudio.com/ide/docs/using/code_folding}
+  Voir (en anglais) : \url{http://www.rstudio.com/ide/docs/using/code_folding}
 \end{rstudio}
 
 \section{Tableaux de données}
