@@ -1235,7 +1235,7 @@ head(d$sport)
 tail(d$age,10)
 @ 
 
-A noter que ces fonctions marchent aussi pour afficher les lignes du
+À noter que ces fonctions marchent aussi pour afficher les lignes du
 tableau \texttt{d}~:
 
 <<>>=
