@@ -1039,6 +1039,13 @@ grand chose si on les reprend ne serait-ce que quelques semaines plus
 tard.
 \end{important}
 
+\begin{rstudio}
+  Avec \textsf{RStudio}, vous pouvez également utiliser les commentaires pour
+  créer des sections au sein de votre script et naviguer plus rapidement. Voir 
+  (en anglais) :
+  
+  \url{http://www.rstudio.com/ide/docs/using/code_folding}
+\end{rstudio}
 
 \section{Tableaux de données}
 
