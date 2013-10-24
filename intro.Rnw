@@ -385,7 +385,7 @@ Tapez 'license()' ou 'licence()' pour plus de détails.
 \noindent
 suivi d'une ligne commençant par le caractère \texttt{>} et sur laquelle
 devrait se trouver votre curseur. Cette ligne est appelée
-\textit{l'invite de commande} (ou \textit{prompt} en anglais). Elle
+l'\textit{invite de commande} (ou \textit{prompt} en anglais). Elle
 signifie que \R est disponible et en attente de votre prochaine
 commande.
 
