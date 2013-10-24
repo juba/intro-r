@@ -734,7 +734,7 @@ var(tailles)
 
 Ici, la fonction \rfunc{length} nous renvoie le nombre d'éléments du
 vecteur, la fonction \rfunc{mean} nous donne la moyenne des éléments
-du vecteur, et la fonction \rfunc{var} sa variance.
+du vecteur et la fonction \rfunc{var} sa variance.
 
 \subsection{Arguments}
 
