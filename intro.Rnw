@@ -1621,12 +1621,12 @@ directement dans le répertoire de travail, et on n'indiquera donc que
 le nom du fichier, sans indication de chemin ou de répertoire
 supplémentaire.
 
-\begin{astuce}
+\begin{rstudio}
   Si vous utilisez l'environnement de développement \textsf{RStudio} (voir
   section~\ref{sec_rstudio} \vpageref{sec_rstudio}), vous pouvez vous
   débarasser du problème des répertoires de travail en utilisant sa
   fonctionnalité de gestion de \textit{projets}.
-\end{astuce}
+\end{rstudio}
 
 \section{Import de données depuis un tableur}
 
