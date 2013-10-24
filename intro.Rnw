@@ -783,7 +783,7 @@ d'\textit{argument nommé}.
 
 \begin{important}
   \texttt{NA} signifie \textit{not available}. Cette valeur particulière peut
-  être utilisée pour indiquer à une valeur manquante pour tout type de liste
+  être utilisée pour indiquer une valeur manquante pour tout type de liste
   (nombres, textes, valeurs logique, etc.).
 \end{important}
 
