@@ -436,6 +436,14 @@ opérations arithmétiques de base~:
   réexécuter ou modifier.
 \end{astuce}
 
+\begin{rstudio}
+  Sous \textsf{RStudio}, l'onglet \textit{History} du quadrant haut-droite vous 
+  permet de consulter l'historique des commandes que vous avez transmises à \R.
+  Un double-clic sur une commande la recopiera automatiquement dans la console.
+  Vous pouvez également sélectionner une ou plusieurs commandes puis cliquer sur
+  \textit{To Console}. Voir également (en anglais) : \url{http://www.rstudio.com/ide/docs/using/history}
+\end{rstudio}
+
 Lorsqu'on fournit à \R une commande incomplète, celui-ci nous propose
 de la compléter en nous présentant une invite de commande spéciale
 utilisant les signe \texttt{+}. Imaginons par exemple que nous avons
