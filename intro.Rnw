@@ -782,7 +782,11 @@ Lorsqu'on passe un argument à une fonction de cette manière,
 c'est-à-dire sous la forme \texttt{nom=valeur}, on parle
 d'\textit{argument nommé}.
 
-
+\begin{important}
+  \texttt{NA} signifie \textit{not available}. Cette valeur particulière peut
+  être utilisée pour indiquer à une valeur manquante pour tout type de liste
+  (nombres, textes, valeurs logique, etc.).
+\end{important}
 
 \subsection{Quelques fonctions utiles}
 
