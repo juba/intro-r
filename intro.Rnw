@@ -689,7 +689,17 @@ langage (mais aussi l'un des plus délicats à comprendre et à
 maîtriser). Nous en reparlerons section~\ref{sec_indexation}
 \vpageref{sec_indexation}.
 
-
+\begin{rstudio}
+  Sous \textsf{RStudio}, vous avez du remarquer que ce dernier effectue une 
+  coloration syntaxique. Lorsque vous tapez une commande, les valeurs numériques
+  sont affichées dans une certaine couleur, les valeurs textuelles dans une 
+  autre et les noms des fonctions dans une troisième. De plus, si vous tapez une
+  parenthèse ouvrante, \textsf{RStudio} va créer automatiquement après le 
+  curseur la parenthèse fermante correspondante (de même avec les guillements). 
+  De plus, si vous placez le curseur juste après une parenthèse fermante, la
+  parenthèse ouvrante correspondante sera surlignée, ce qui sera bien pratique
+  lors de la rédaction de commandes complexes.
+\end{rstudio}
 
 \section{Des fonctions}
 
