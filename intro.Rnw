@@ -824,10 +824,10 @@ On peut rajouter les fonctions de base suivantes~:
   dont le nom commence par \texttt{me} ainsi qu'un court descriptif de chacune.
   Un appui sur la touche \textit{Entrée} provoquera la saisie du nom complet de 
   la fonction choisie. Vous pouvez également utiliser l'auto-complétion pour
-  retrouver un objet que vous avez créé (par exemple, appuyez sur la touche 
-  \texttt{<Tabulation>} après avoir saisi \texttt{mean(t}) ou bien pour retrouver
-  un argument nommé d'une fonction (par exemple, appuyez sur la touche 
-  \texttt{<Tabulation>} après avoir saisi \texttt{mean(taille,}).
+  retrouver un objet que vous avez créé \emdash par exemple, appuyez sur la touche 
+  \texttt{<Tabulation>} après avoir saisi \texttt{mean(t} \emdash ou bien pour retrouver
+  un argument nommé d'une fonction \emdash par exemple, appuyez sur la touche 
+  \texttt{<Tabulation>} après avoir saisi \texttt{mean(taille,}.
 \end{rstudio}
 
 \subsection{Aide sur une fonction}
