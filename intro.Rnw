@@ -5390,18 +5390,21 @@ régulièrement. Son seul défaut est d'avoir une interface uniquement anglophon
 Pour avoir un aperçu de l'interface de \textsf{RStudio}, on pourra se référer
 à la page \textit{Screenshots} du site du projet~:
 
-\url{http://www.rstudio.org/screenshots/}
+\url{http://www.rstudio.com/ide/screenshots/}
 
 L'installation de \textsf{RStudio} est très simple, il suffit de se rendre sur
 la page de téléchargement et de sélectionner le fichier correspondant à son
 système d'exploitation :
 
-\url{http://www.rstudio.org/download/desktop}
+\url{http://www.rstudio.com/ide/download/}
 
 L'installation s'effectue ensuite de manière tout à fait classique.
 
+NB : il est préférable d'installer d'abord \R avant de procéder à l'installation de \textsf{RStudio}.
 
+La documentation de \textsf{RStudio} (en anglais) est disponible en ligne à :
 
+\url{http://www.rstudio.com/ide/docs/}
 
 \chapter{Extensions}
 \label{sec_extensions}
