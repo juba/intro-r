@@ -1722,7 +1722,7 @@ utiliser la fonction \textit{Changer le répertoire courant} du menu
 \textit{Fichier}. Celle-ci vous permet de sélectionner le répertoire de 
 travail de la session en cours en le sélectionnant via une boîte de dialogue.
 
-Si vous utilisez RStudio, Vous pouvez utiliser une des commandes \textit{set 
+Si vous utilisez \textsf{RStudio}, Vous pouvez utiliser une des commandes \textit{set 
 working directory} du menu \textit{session} ou, mieux, utiliser les 
 fonctionnalités de gestion de projet qui vous permettent de mémoriser, projet 
 par projet, le répertoire de travail, la liste des fichiers ouverts ainsi que
@@ -1745,10 +1745,13 @@ le nom du fichier, sans indication de chemin ou de répertoire
 supplémentaire.
 
 \begin{rstudio}
-  Si vous utilisez l'environnement de développement \textsf{RStudio} (voir
-  section~\ref{sec_rstudio} \vpageref{sec_rstudio}), vous pouvez vous
-  débarasser du problème des répertoires de travail en utilisant sa
-  fonctionnalité de gestion de \textit{projets}.
+  Si vous utilisez l'environnement de développement \textsf{RStudio}, vous 
+  pouvez vous débarasser du problème des répertoires de travail en utilisant sa
+  fonctionnalité de gestion de \textit{projets}. Les projets sont accessibles
+  en haut à droite de l'écran. Un projet permet de centraliser tout ses 
+  fichiers dans un même répertoire. De plus, il est très facile de basculer 
+  très rapidement d'un projet à un autre, en retrouvrant sa session de travail
+  dans l'était où elle était.
 \end{rstudio}
 
 \section{Import de données depuis un tableur}
