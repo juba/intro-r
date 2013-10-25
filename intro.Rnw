@@ -1582,7 +1582,21 @@ dotchart(sort(table(d$qualif)), main="Niveau de qualification")
 \label{fig_dotchartsort}
 \end{figure}
 
+\begin{astuce}
+  L'agument \texttt{pch}, qui est utilisé par la plupart des graphiques de type 
+  points, permet de spécifier le symbole à utiliser. Il peut prendre soit un
+  nombre entier compris entre 0 et 25, soit un charactère textuel 
+  (voir figure~\ref{fig_pch} \vpageref{fig_pch}).
+\end{astuce}
 
+\begin{figure}
+<<figure_pch, echo=FALSE>>=
+source("pchShow.R")
+pchShow(c("*","+","a","x"),main="", symbolsize=2.5, linewidth=2,fillcolor="palegreen3",symbolcolor="palevioletred3")
+@ 
+\caption{Différentes valeurs possibles pour l'argument \texttt{pch}}
+\label{fig_pch}
+\end{figure}
 
 
 \section{Exercices}
