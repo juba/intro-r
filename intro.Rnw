@@ -3954,7 +3954,23 @@ abline(reg, col="red")
 \label{fig_regcad}
 \end{figure}
 
-
+\begin{astuce}
+  On remarquera que le premier argument passé à la fonction \rfunc{lm} a une 
+  syntaxe un peu particulière. Il s'agit d'une \textit{formule}, utilisée de
+  manière générale dans les modèles statistiques. On indique la variable 
+  d'intérêt à gauche et la variable explicative à droite, les deux étant 
+  séparées par un tilde \~{} (obtenu sous \textsf{Windows} en appuyant 
+  simultanément sur les touches \texttt{<Alt Gr>} et \texttt{<2>}). On 
+  remarquera que les noms des colonnes de notre tableau de données ont été 
+  écrites sans guillemets. Dans le cas présent, nous avons calculé une 
+  régression linéaire simple entre deux variables, d'où l'écriture 
+  \texttt{cadres \~{} dipl.sup}. Si nous avions
+  voulu expliquer une variable \texttt{z} par deux variables \texttt{x} et 
+  \texttt{y}, nous aurions écrit \texttt{z \~{} x + y}. Il est possible de 
+  spécifier des modèles encore plus complexes. Pour un aperçu de la syntaxe des
+  formules sous \R, voir 
+  \url{http://ww2.coastal.edu/kingw/statistics/R-tutorials/formulae.html}.
+\end{astuce}
 
 \section{Une variable quantitative et une variable qualitative}
 
