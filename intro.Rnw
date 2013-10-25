@@ -4034,6 +4034,14 @@ t.test(d$age ~ d$hard.rock)
 Le test est extrêmement significatif. L'intervalle de confiance à
 95~\% de la différence entre les deux moyennes va de 14,5 ans à 21,8 ans.
 
+\begin{important}
+  La valeur affichée pour \textit{p} est de \texttt{1.611e-07}. Cette valeur 
+  peut paraître étrange pour les non avertis. Cela signifie tout simplement
+  1,611 multiplié par 10 à la puissance -7, autrement dit 0,0000001611. Cette
+  manière de représenter un nombre est couramment appelée \textit{notation
+  scientifique}. Voir aussi \url{http://fr.wikipedia.org/wiki/Notation_scientifique}
+\end{important}
+
 Nous sommes cependant allés un peu vite en besogne, car nous avons
 négligé une hypothèse fondamentale du test \textit{t}~: les ensembles
 de valeur comparés doivent suivre approximativement une loi normale et
