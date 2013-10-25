@@ -1976,7 +1976,7 @@ Pour plus d'informations on consultera le manuel \textit{R Data Import/Export}~:
 données. On peut sauver n'importe quel objet créé avec \R et il est possible de
 sauver plusieurs objets dans un même fichier. L'usage est d'utiliser l'extension
 \texttt{.RData} pour les fichiers de données \R. La fonction à utiliser 
-s'appelle tout simplement \rfonc{save}.
+s'appelle tout simplement \rfunc{save}.
 
 Par exemple, si l'on souhaite sauvegarder son tableau de données \texttt{d} 
 ainsi que les objets \texttt{tailles} et \texttt{poids} dans fichier 
