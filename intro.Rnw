@@ -1489,7 +1489,7 @@ summary(d$trav.satisf)
 @ 
 
 Pour obtenir un tableau avec la répartition en pourcentages, on peut
-utiliser la fonction \rfunc{freq} de \marqr l'extension \texttt{questionr}\footnotemark.
+utiliser la fonction \rfunc{freq} de \marqr l'extension \textsf{questionr}\footnotemark.
 
 \footnotetext{
  En l'absence de l'extension \texttt{questionr}, on pourra se rabattre sur la 
