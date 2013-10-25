@@ -4146,6 +4146,14 @@ suivante~:
 table(d$sport, d$qualreg)
 @ 
 
+\begin{astuce}
+  Il est tout à fait possible de croiser trois variables ou plus. Par exemple :
+  
+  <<>>=
+  table(d$sport,d$cuisine,d$sexe)
+  @ 
+\end{astuce}
+
 On n'a cependant que les effectifs, ce qui rend difficile les
 comparaisons. L'extension \questionr \marqr fournit des fonctions
 permettant de calculer les pourcentages lignes, colonnes et totaux
