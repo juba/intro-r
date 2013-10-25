@@ -1208,7 +1208,13 @@ d <- edit(d)
   reproductibles).
 \end{important}
 
-
+\begin{rstudio}
+  Sous \textsf{RStudio}, la liste des objets en mémoire est affichée dans le
+  quadrant haut-droite sous l'onglet \textit{Workspace}. Un clic sur un tableau
+  de données permet d'afficher son contenu sous un onglet dédié dans le quadrant
+  haut-gauche. Cette manière de procéder est plus simple que le recours à la 
+  fonction \rfunc{edit}.
+\end{rstudio}
 
 \subsection{Accéder aux variables}
 
