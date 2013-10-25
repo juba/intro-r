@@ -818,9 +818,9 @@ On peut rajouter les fonctions de base suivantes~:
 \end{center}
 
 \begin{rstudio}
-  Autre outil bien utile de \textsd{RStudio}, l'auto-complétion. Tapez les 
+  Autre outil bien utile de \textsf{RStudio}, l'auto-complétion. Tapez les 
   premières lettres d'une fonction, par exemple \texttt{me} puis appuyez sur la 
-  touche \texttt{<Tabulation>}. \textsd{RStudio} affichera la liste des fonctions
+  touche \texttt{<Tabulation>}. \textsf{RStudio} affichera la liste des fonctions
   dont le nom commence par \texttt{me} ainsi qu'un court descriptif de chacune.
   Un appui sur la touche \textit{Entrée} provoquera la saisie du nom complet de 
   la fonction choisie. Vous pouvez également utiliser l'auto-complétion pour
@@ -859,7 +859,7 @@ ce cas on se reportera aux différentes manières de trouver de l'aide
 décrites dans l'annexe~\ref{sec_aide}, page~\pageref{sec_aide}.
 
 \begin{rstudio}
-  Dans \textsd{RStudio}, les pages d'aide en ligne s'ouvriront dans le quadrant
+  Dans \textsf{RStudio}, les pages d'aide en ligne s'ouvriront dans le quadrant
   bas-droite sous l'onglet \textit{Help}. Un clic sur l'icône en forme de maison
   vous affichera la page d'accueil de l'aide.
 \end{rstudio}
