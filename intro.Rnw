@@ -1296,7 +1296,6 @@ valeurs. Celui-ci peut être généré très facilement avec la fonction
 \rfunc{hist}, comme indiqué figure~\ref{fig_hist1}
   \vpageref{fig_hist1}.
 
-@ 
 \begin{figure}
 <<hist1>>=
 hist(d$heures.tv, main="Nombre d'heures passées devant la télé par jour", xlab="Heures", ylab="Effectif")
