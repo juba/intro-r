@@ -1156,6 +1156,10 @@ de modalités (\textit{levels}). Ici notre variable a deux modalités
 possibles~: \texttt{Homme} et \texttt{Femme}. Ce type de variable est
 décrit plus en détail section~\ref{sec_factor} \vpageref{sec_factor}.
 
+\begin{astuce}
+  La fonction \rfunc{str} peut s'appliquer à n'importe quel type d'objet. C'est 
+  un excellent moyen de connaître la structure d'un objet.
+\end{astuce}
 
 \subsection{Inspection visuelle}
 
