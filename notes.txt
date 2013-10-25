@@ -1,0 +1,2 @@
+Packages R nécessaires pour compiler le document :
+- questionr
