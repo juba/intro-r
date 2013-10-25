@@ -1970,6 +1970,45 @@ Pour plus d'informations on consultera le manuel \textit{R Data Import/Export}~:
 
 \url{http://cran.r-project.org/manuals.html}
 
+\section{Sauver ses données}
+
+\R dispose également de son propre format pour sauvegarder et échanger des 
+données. On peut sauver n'importe quel objet créé avec \R et il est possible de
+sauver plusieurs objets dans un même fichier. L'usage est d'utiliser l'extension
+\texttt{.RData} pour les fichiers de données \R. La fonction à utiliser 
+s'appelle tout simplement \rfonc{save}.
+
+Par exemple, si l'on souhaite sauvegarder son tableau de données \texttt{d} 
+ainsi que les objets \texttt{tailles} et \texttt{poids} dans fichier 
+\texttt{mon_export.RData} :
+
+<<eval=FALSE>>=
+save(d,tailles,poids,file="mon_export.RData")
+@ 
+
+À tout moment, il sera toujours possible de recharger ces données en mémoire à
+l'aide de la fonction \rfunc{load} :
+
+<<eval=FALSE>>=
+load("mon_export.RData")
+@
+
+\begin{important}
+  Si entre temps vous aviez modifié votre tableau \texttt{d}, vos modifications
+  seront perdus. En effet, si lors du chargement de données, un objet du même 
+  nom existe en mémoire, ce dernier sera remplacé par l'objet importé.
+\end{important}
+
+La fonction \rfunc{save.image} est un raccourci pour sauvergarder tous les 
+objets de la session de travail dans le fichier \texttt{.RData} (un fichier un 
+peu étrange car il n'a pas de nom mais juste une extension). Lors de  la 
+fermeture de \R ou de \textsf{RStudio}, il vous sera demandé si vous souhaitez 
+enregistrer votre session. Si vous répondez \textit{Oui}, c'est cette fonction
+\rfunc{save.image} qui sera appliquée.
+
+<<eval=FALSE>>=
+save.image()
+@
 
 \section{Exporter des données}
 
@@ -1985,8 +2024,6 @@ données vers des formats variés.
   \textsf{Stata}~;
 \item \rfunc{write.dbf}, de l'extension \texttt{foreign}, permet
   d'exporter des données au format \textsf{dBase}~;
-\item \rfunc{save} permet d'enregistrer des objets \R sur le disque
-  pour récupération ultérieure ou sur un autre système.
 \end{itemize}
 
 À nouveau, pour plus de détails on se référera aux pages d'aide de ces
