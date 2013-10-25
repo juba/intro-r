@@ -1,2 +1,2 @@
 library(knitr)
-knit("intro.Rnw")
+knit("intro.Rnw",encoding="utf_8")
