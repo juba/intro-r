@@ -2904,7 +2904,7 @@ d$qualif.char[d$qualif.char=="Ouvrier specialise"] <- "Ouvrier"
 @ 
 
 Dans le premier cas, le message d'avertissement indique que toutes les
-modaolités <<~Ouvrier specialise~>> de notre variable
+modalités <<~Ouvrier specialise~>> de notre variable
 \texttt{qualif} ont été remplacées par des valeurs manquantes \texttt{NA}.
 
 Enfin, une variable de type caractères dont les valeurs seraient des
