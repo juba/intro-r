@@ -1285,6 +1285,11 @@ median(d$heures.tv,na.rm=TRUE)
 summary(d$heures.tv)
 @ 
 
+\begin{astuce}
+  La fonction \rfunc{summary} peut-être utilisée sur tout type d'objet, y 
+  compris un tableau de données. Essayez donc \texttt{summary(d)}.
+\end{astuce}
+
 \subsubsection{Histogramme}
 
 Tout cela est bien pratique, mais pour pouvoir observer la
