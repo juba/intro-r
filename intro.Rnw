@@ -1979,18 +1979,18 @@ sauver plusieurs objets dans un même fichier. L'usage est d'utiliser l'extensio
 s'appelle tout simplement \rfunc{save}.
 
 Par exemple, si l'on souhaite sauvegarder son tableau de données \texttt{d} 
-ainsi que les objets \texttt{tailles} et \texttt{poids} dans fichier 
-\texttt{mon_export.RData} :
+ainsi que les objets \texttt{tailles} et \texttt{poids} dans un fichier 
+\texttt{export.RData} :
 
 <<eval=FALSE>>=
-save(d,tailles,poids,file="mon_export.RData")
+save(d,tailles,poids,file="export.RData")
 @ 
 
 À tout moment, il sera toujours possible de recharger ces données en mémoire à
 l'aide de la fonction \rfunc{load} :
 
 <<eval=FALSE>>=
-load("mon_export.RData")
+load("export.RData")
 @
 
 \begin{important}
