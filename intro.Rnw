@@ -4251,6 +4251,17 @@ cramer.v(tab)
 @ 
 
 
+\begin{astuce}
+  Pour un tableau à 2x2 entrées, il est possible de calculer le test exact de
+  Fisher avec la fonction \rfunc{fisher.test}. On peut soit lui passer le 
+  résultat de \rfunc{table}, soit directement les deux variables à croiser.
+  
+  <<>>=
+lprop(table(d$sexe,d$cuisine))
+fisher.test(table(d$sexe,d$cuisine))
+@ 
+\end{astuce}
+
 \subsection{Représentation graphique}
 
 Enfin, on peut obtenir une représentation graphique synthétisant
