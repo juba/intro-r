@@ -1918,6 +1918,28 @@ sont disponibles. On se reportera à la page d'aide de la fonction pour
 plus d'informations. Il est vivement recommandé d'utiliser systématiquement
 l'option \texttt{to.data.frame=TRUE}.
 
+\subsection{\textsf{Stata}}
+
+Les fichiers générés par \textsf{Stata} sont accessibles depuis \R avec
+la fonction \rfunc{read.dta} de l'extension
+\texttt{foreign}.
+
+La syntaxe est également très simple~:
+
+<<eval=FALSE>>=
+donnees <- read.data("fichier.dta", to.data.frame = TRUE)
+@ 
+
+\begin{astuce}
+ L'importation des dates est parfois mal gérées. Dans ces cas là, l'opération
+ suivante peut fonctionner. Sans garantie néanmoins, il est toujours vivement
+ conseillé de vérifier le résultat obtenu !
+ 
+ <<eval=FALSE>>=
+  donnees$date <- as.Date(donnees$Date/(1000*3600*24),origin='1960-01-01')
+ @ 
+\end{astuce}
+
 \subsection{Fichiers \texttt{dbf}}
 
 L'Insee diffuse ses fichiers détails depuis son site Web au format
@@ -1939,7 +1961,7 @@ fonction est détaillée dans la section~\ref{sec_merge}
 
 \R offre de très nombreuses autres possibilités pour accéder aux
 données. Il est ainsi possible d'importer des données depuis d'autres
-applications qui n'ont pas été évoquées (\textsf{Stata},
+applications qui n'ont pas été évoquées (\textsf{Epi Info},
 \textsf{S-Plus}, etc.), de se connecter à un système de base de
 données relationelle type \textsf{MySql}, de lire des données
 \textit{via} \texttt{ODBC} ou des connexions réseau, etc.
