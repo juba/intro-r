@@ -4291,6 +4291,21 @@ les cases blanches sont statistiquement proches de l'hypothèse
 d'indépendance.
 
 
+\begin{figure}
+<<>>=
+barplot(cprop(tab,total=FALSE),
+		main="Pratique du sport selon le niveau de qualification")
+@ 
+\caption{Exemple de barres cumulées }
+\label{fig_barplot_cum}
+\end{figure}
+
+Lorsque l'on s'intéresse principalement aux variations d'une variable selon une
+autre, par exemple ici à la pratique du sport selon le niveau de qualification,
+il peut être intéressant de présenter les pourcentages en colonne sous la forme
+de barres cumulées. Voir figure~\ref{fig_barplot_cum} \vpageref{fig_barplot_cum}.
+
+
 
 \chapter{Données pondérées}
 
