@@ -1910,12 +1910,13 @@ la fonction \textit{Exporter}.
 La syntaxe est également très simple~:
 
 <<eval=FALSE>>=
-donnees <- read.spss("fichier.sav")
+donnees <- read.spss("fichier.sav", to.data.frame = TRUE)
 @ 
 
 Plusieurs options permettant de contrôler l'importation des données
 sont disponibles. On se reportera à la page d'aide de la fonction pour
-plus d'informations.
+plus d'informations. Il est vivement recommandé d'utiliser systématiquement
+l'option \texttt{to.data.frame=TRUE}.
 
 \subsection{Fichiers \texttt{dbf}}
 
