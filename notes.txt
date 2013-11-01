@@ -3,3 +3,4 @@ Packages R nécessaires pour compiler le document :
 - knitr
 - MASS
 - survey
+- R2HTML
