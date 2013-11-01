@@ -4362,6 +4362,7 @@ On les utilise de la manière suivante~:
 
 <<wtdmean,warning=FALSE,message=FALSE,cache=FALSE>>=
 mean(d$age)
+library(questionr)
 wtd.mean(d$age, weights=d$poids)
 wtd.var(d$age, weights=d$poids)
 @ 
