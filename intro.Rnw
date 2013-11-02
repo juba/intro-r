@@ -2847,6 +2847,15 @@ fournis directement à la fonction appelée.
 tapply(d$bricol, d$sexe, freq, total=TRUE)
 @ 
 
+\begin{remarque}
+  La fonction \rfunc{by} est un équivalent (pour les tableaux de données) de
+  \rfunc{tapply}. La présentation des résultats diffère légèrement.
+  
+  <<>>=
+  tapply(d$age, d$sexe, mean)
+  by(d$age, d$sexe, mean)
+  @
+\end{remarque}
 
 
 \section{Recodages}
