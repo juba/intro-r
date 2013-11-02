@@ -4515,7 +4515,7 @@ faire un test du $\chi^2$ sur un tableau croisé pondéré, il faut utiliser
 svychisq(~sexe + clso, dw)
 @ 
 
-Le principe de la fonction \rfunc{svyby} est similaire à celui de \{tapply}
+Le principe de la fonction \rfunc{svyby} est similaire à celui de \rfunc{tapply}
 (voir section \ref{sec_tapply} \vpageref{sec_tapply}). Elle permet de calculer
 des statistiques selon plusieurs sous-groupes définis par un facteur. 
 Par exemple~:
