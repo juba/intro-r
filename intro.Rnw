@@ -203,10 +203,17 @@ dernière version de ce document se trouve à l'adresse~:
 
 \url{http://alea.fr.eu.org/pages/intro-R}
 
-Ce document est diffusé sous licence \textit{Creative Commons
-  Paternité -- Non commercial}~:
+\section{Licence}
 
-\url{http://creativecommons.org/licenses/by-nc/2.0/fr/}
+\parpic[r]{\includegraphics[width=2.5cm]{img/by-nc-sa_eu.eps}}
+%\noindent
+Ce document est diffusé sous licence \textit{Creative Commons
+ Attribution - Pas d’utilisation commerciale - Partage dans les mêmes conditions}~:
+
+%\noindent
+\url{https://creativecommons.org/licenses/by-nc-sa/3.0/fr/}
+
+
 
 \section{Remerciements}
 
