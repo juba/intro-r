@@ -24,7 +24,7 @@
 \usepackage{amsmath}
 \usepackage{pifont}
 \usepackage{lmodern}
-
+\usepackage{epstopdf}
 
 
 \definecolor{grisclair}{rgb}{0.97,0.97,0.97}
