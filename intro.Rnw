@@ -5231,8 +5231,7 @@ directement dans la console, vous pouvez utiliser la fonction
 des pages d'aide contenant les termes recherchés. Par exemple~:
 
 <<help4,eval=FALSE>>=
-help.search("logistic")
-??logistic
+help.search("logistic") # equivalent a ??logistic
 @
 
 \section{Ressources sur le Web}
