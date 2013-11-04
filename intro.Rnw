@@ -4695,6 +4695,15 @@ résultat dans un traitement de texte ou autre avec un simple
 Des possibilités similaires sont offertes par l'interface sous
 \textsf{Mac OS X}, mais avec des formats proposés un peu différents.
 
+\begin{rstudio}
+  Avec \textsf{RStudio}, les commandes d'export sont situées dans le menu
+  \textit{Plots} qui comporte les entrées \textit{Save Plot as image} et
+  \textit{Save Plot as PDF}. Ces mêmes commandes sont accessibles via le 
+  bouton \textit{Export} situé au dessus du graphique dans le quadrant
+  bas-droit. Les options d'export sont plus importantes que celle de l'interface
+  graphique de base, avec notamment le support du format SVG ou encore la 
+  possibilité de modifier la taille du graphique exporté.
+\end{rstudio}
 
 \subsection{Export avec les commandes de \R}
 
