@@ -2071,6 +2071,37 @@ d$qualif <- factor(d$qualif, levels=c("Ouvrier specialise", "Ouvrier qualifie", 
 table(d$qualif)                   
 @ 
 
+\subsubsection{Interface interactive}
+
+L'extension \questionr \marqr propose une interface interactive pour le
+réordonnancement des niveaux d'un facteur. Cette fonction, nommée
+\rfunc{iorder}, vous permet de réordonner les modalités de manière graphique
+et de générer le code R correspondant. 
+
+Dans l'exemple précédant, si vous exécutez~:
+
+<<launchiorder, eval=FALSE>>=
+iorder(d, qualif)
+@ 
+
+\R devrait lancer votre navigateur et afficher une page
+semblable à celle de la figure~\ref{fig_interface_iorder}, \vpageref{fig_interface_iorder}.
+
+\begin{figure}
+  \begin{center}
+    \includegraphics[width=0.65\textwidth]{img/interface_iorder.png}
+  \end{center}
+  \caption{Interface de la commande \texttt{iorder}}
+  \label{fig_interface_iorder}
+\end{figure}
+
+Vous pouvez alors déplacer les modalités par glisser-déposer, vérifier le
+résultat dans l'onglet \textit{Check} et, une fois le résultat satisfaisant,
+récupérer le code généré pour l'inclure dans votre script\footnotemark.
+
+\footnotetext{Le fonctionnement des interfaces interactives de \questionr est
+  décrit plus en détail section~\ref{sec_interfaces}, \vpageref{sec_interfaces}.}
+
 On peut également modifier les niveaux eux-mêmes. Imaginons que l'on souhaite
 créer une nouvelle variable \texttt{qualif.abr} contenant les noms abrégés des
 catégories socioprofessionnelles de \texttt{qualif}. On peut alors procéder
@@ -2817,6 +2848,39 @@ d$age20 <- cut(d$age, c(17,20,40,60,80,93), include.lowest=TRUE, labels=c("<20an
 table(d$age20)
 @ 
 
+\subsubsection{Interface interactive}
+
+\questionr \marqr propose une interface interactive à la fonction
+\texttt{cut}, nommée \rfunc{icut}. Elle s'utilise de la manière suivante~:
+
+<<launchicut,eval=FALSE>>=
+icut(d,age)
+@ 
+
+\R devrait lancer votre navigateur et afficher une page
+semblable à celle de la figure~\ref{fig_interface_icut}, \vpageref{fig_interface_icut}.
+
+\begin{figure}
+  \begin{center}
+    \includegraphics[width=0.95\textwidth]{img/interface_icut.png}
+  \end{center}
+  \caption{Interface de la commande \texttt{icut}}
+  \label{fig_interface_icut}
+\end{figure}
+
+Vous pouvez alors indiquer les limites de vos classes ainsi que quelques
+options complémentaires. Ces limites sont représentées graphiquement sur
+l'histogramme de la variable d'origine.
+
+L'onglet \textit{Check} affiche un tri à plat et un graphique en barres de la
+nouvelle variable.  Une fois le résultat satisfaisant, vous pouvez 
+récupérer le code généré pour l'inclure dans votre script\footnotemark.
+
+\footnotetext{Le fonctionnement des interfaces interactives de \questionr est
+  décrit plus en détail section~\ref{sec_interfaces}, \vpageref{sec_interfaces}.}
+
+\subsubsection{\textsf{quant.cut}}
+
 Enfin, l'extension \questionr \marqr propose une fonction
 \rfunc{quant.cut} permettant de découper une variable numérique en un
 nombre de classes donné ayant des efffectifs semblables. Il suffit de
@@ -2907,6 +2971,34 @@ d$trav.satisf.reg[is.na(d$trav.satisf)] <- "Valeur manquante"
 table(d$trav.satisf.reg)
 @ 
 
+
+\subsubsection{Interface interactive}
+
+\questionr \marqr propose une interface interactive pour le recodage d'une
+variable qualitative (renommage et regroupement de modalités). Cette fonction,
+nommée \rfunc{irec}, s'utilise de la manière suivante~:
+
+<<launchirec,eval=FALSE>>=
+irec(d,qualif)
+@ 
+
+\R devrait lancer votre navigateur et afficher une page
+semblable à celle de la figure~\ref{fig_interface_irec}, \vpageref{fig_interface_irec}.
+
+Vous pouvez alors sélectionner différentes options, et pour chaque ancienne
+modalité, indiquer la nouvelle valeur correspondante. Pour regrouper des
+modalités, il suffit de leur assigner des nouvelles valeurs identiques. Dans
+tous les cas n'hésitez pas à expérimenter, l'interface se contente de générer
+du code R à copier/coller dans votre script mais ne l'exécute pas, et ne
+modifie donc jamais vos données~!\footnotemark
+
+\footnotetext{Le fonctionnement des interfaces interactives de \questionr est
+  décrit plus en détail section~\ref{sec_interfaces}, \vpageref{sec_interfaces}.}
+
+L'onglet \textit{Check} affiche un tri croisé de l'ancienne et de la nouvelle
+variable pour vérifier que le recodage est correct. Une fois le résultat
+satisfaisant, vous pouvez récupérer le code généré dans l'onglet \textit{Code}
+pour l'inclure dans votre script.
 
 
 \subsection{Variables calculées}
@@ -5553,6 +5645,82 @@ est disponible sur le CRAN~:
 Le même document est également accessible en ligne sur \textsf{R documentation}~:
 
 \url{http://www.rdocumentation.org/packages/questionr}
+
+
+\subsection{Interfaces interactives}
+\label{sec_interfaces}
+
+\questionr introduit depuis la version 0.3 des \textit{interfaces
+  interactives}, c'est-à-dire des interfaces dynamiques permettant de générer
+le code R correspondant à des opérations courantes. Ces interfaces sont en
+fait des applications Web\footnote{Applications Web développées grâce au
+  \textit{framework} \textsf{Shiny}~: \url{http://www.rstudio.com/shiny/}.}
+qui s'ouvrent dans le navigateur de l'utilisateur.
+
+L'exemple suivant permettra de mieux comprendre ce dont il s'agit~: après
+installation de \questionr, exécutez le code suivant dans une session \R~:
+
+<<launchirecannexes,eval=FALSE>>=
+library(questionr)
+data(hdv2003)
+irec(hdv2003, sexe)
+@
+
+La dernière commande devrait lancer votre navigateur et afficher une page
+semblable à celle de la figure~\ref{fig_interface_irec}, \vpageref{fig_interface_irec}.
+
+\begin{figure}
+  \begin{center}
+    \includegraphics[width=0.95\textwidth]{img/interface_irec.png}
+  \end{center}
+  \caption{Interface de la commande \texttt{irec}}
+  \label{fig_interface_irec}
+\end{figure}
+
+
+La fonction \rfunc{irec} a pour objet de faciliter le recodage d'une variable
+qualitative. Ici, nous souhaitons recoder la variable \texttt{sexe} du jeu de
+données \texttt{hdv2003}.
+
+L'interface se divise en deux parties~: 
+
+\begin{itemize}
+\item en haut, vous pouvez choisir le nom de
+la nouvelle variable, le style de recodage, et indiquer si vous souhaitez que
+cette nouvelle variable soit convertie en facteur. Puis, dans une deuxième
+zone, des champs de formulaires listent les valeurs de la variable et vous
+permettent de les modifier.
+\item en-dessous se trouvent deux onglets, nommés \textit{Code} et
+  \textit{Check}\footnotemark. Dans l'onglet \textit{Code} se trouve le code
+  \R correspondant aux données remplies dans le formulaire au-dessus. Dans
+  l'onglet \textit{Check} se trouve un tableau croisé de l'ancienne et de la
+  nouvelle variable vous permettant de vérifier que le résultat est bien celui attendu.
+\end{itemize}
+
+\footnotetext{L'interface est uniquement disponible en anglais car il n'y a pas
+  à ce jour de mécanisme pratique de traduction des applications utilisant \textsf{Shiny}.}
+
+Vous remarquerez que le code généré se met à jour automatiquement, au fur et à
+mesure que vous changez les options ou que vous modifiez des valeurs.
+
+
+\begin{important}
+Il est important de bien comprendre que cette interface ne modifie jamais vos
+données et n'exécute pas le code qu'elle génère~! Vous pouvez donc
+expérimenter librement, par contre c'est-à-vous de copier le code généré, de
+l'insérer dans votre script et de l'exécuter.
+\end{important}
+
+Une fois votre recodage terminé, vous pouvez copiez manuellement le code
+généré ou cliquer sur le bouton \textit{Copy code to clipboard} pour récupérer
+ce code et le coller ensuite dans votre fichier script. À noter que lorsque vous
+cliquez sur le bouton \textit{Done, close this interface}, le code généré est
+affiché dans votre session R, vous pouvez donc le récupérer pour votre script
+même si vous avez oublié de le copier auparavant.
+
+Le fonctionnement est le même pour les autres fonctions proposant une
+interface interactive, notamment \texttt{iorder} pour réordonner les niveaux
+d'un facteur ou \texttt{icut} pour découper une variable numérique en classes.
 
 
 \subsection{Le jeu de données \texttt{hdv2003}}
