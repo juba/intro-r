@@ -1,12 +1,12 @@
 build:
-	rm intro.pdf
-	rm intro.tex
+	if [ -a intro.pdf ]; then rm intro.pdf; fi;
+	if [ -a intro.tex ]; then rm intro.tex; fi;
 	R --vanilla < knitr_make.R
 	pdflatex intro.tex
 
 publish: 
-	rm intro.pdf
-	rm intro.tex
+	if [ -a intro.pdf ]; then rm intro.pdf; fi;
+	if [ -a intro.tex ]; then rm intro.tex; fi;
 	R --vanilla < knitr_make.R
 	pdflatex intro.tex
 	pdflatex intro.tex
