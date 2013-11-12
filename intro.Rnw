@@ -1511,7 +1511,7 @@ freq(d$qualif)
 La colonne \texttt{n} donne les effectifs bruts, et la colonne
 \texttt{\%} la répartition en pourcentages. La fonction accepte
 plusieurs paramètres permettant d'afficher les totaux, les pourcentages
-cumulés, de trierselon les effectifs ou de contrôler l'affichage. Par
+cumulés, de trier selon les effectifs ou de contrôler l'affichage. Par
 exemple~:
 
 <<>>=
