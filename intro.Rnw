@@ -4212,6 +4212,7 @@ calculer des statistiques simples pondérées\footnote{Les fonctions
 On les utilise de la manière suivante~:
 
 <<wtdmean,warning=FALSE,message=FALSE,cache=FALSE>>=
+library(questionr)
 mean(d$age)
 wtd.mean(d$age, weights=d$poids)
 wtd.var(d$age, weights=d$poids)
