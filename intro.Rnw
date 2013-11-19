@@ -728,7 +728,7 @@ on fait appel à la fonction nommée \rfunc{c}, on lui passe en
 arguments (entre parenthèses et séparées par des virgules) une série
 de chaînes de caractères, et elle retourne comme résultat un vecteur
 de chaînes de caractères, que nous stockons dans l'objet
-\texttt{tailles}.
+\texttt{reponse}.
 
 Prenons tout de suite d'autres exemples de fonctions courantes~:
 
