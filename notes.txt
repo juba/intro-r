@@ -1,0 +1,6 @@
+Packages R nécessaires pour compiler le document :
+- questionr
+- knitr
+- MASS
+- survey
+- R2HTML
