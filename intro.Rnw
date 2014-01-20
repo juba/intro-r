@@ -24,7 +24,7 @@
 \usepackage{amsmath}
 \usepackage{pifont}
 \usepackage{lmodern}
-%\usepackage{epstopdf}
+\usepackage{epstopdf}
 
 
 \definecolor{grisclair}{rgb}{0.97,0.97,0.97}
@@ -162,7 +162,7 @@ opts_chunk$set(fig.path="tmp/",
                highlight=TRUE,
                #size="footnotesize",
                comment=NA,
-               background=".95;.95;.95",
+               background="0.95;0.95;0.95",
                fig.align="center",
                out.width=".8\\textwidth")
 @
@@ -1951,10 +1951,8 @@ donnees <- read.data("fichier.dta", to.data.frame = TRUE)
  L'importation des dates est parfois mal gérées. Dans ces cas là, l'opération
  suivante peut fonctionner. Sans garantie néanmoins, il est toujours vivement
  conseillé de vérifier le résultat obtenu !
- 
- <<eval=FALSE>>=
-  donnees$date <- as.Date(donnees$Date/(1000*3600*24),origin='1960-01-01')
- @ 
+
+ \texttt{donnees\$date <- as.Date(donnees\$Date/(1000*3600*24), origin='1960-01-01')}
 \end{astuce}
 
 \subsection{Fichiers \texttt{dbf}}
@@ -2895,15 +2893,16 @@ fournis directement à la fonction appelée.
 tapply(d$bricol, d$sexe, freq, total=TRUE)
 @ 
 
-\begin{remarque}
-  La fonction \rfunc{by} est un équivalent (pour les tableaux de données) de
-  \rfunc{tapply}. La présentation des résultats diffère légèrement.
+
+À noter également, la fonction \rfunc{by} est un équivalent (pour les tableaux
+de données) de \rfunc{tapply}. La présentation des résultats diffère
+légèrement.
   
-  <<>>=
-  tapply(d$age, d$sexe, mean)
-  by(d$age, d$sexe, mean)
-  @
-\end{remarque}
+<<>>=
+tapply(d$age, d$sexe, mean)
+by(d$age, d$sexe, mean)
+@
+
 
 
 \section{Recodages}
@@ -4157,7 +4156,7 @@ Le test est extrêmement significatif. L'intervalle de confiance à
   peut paraître étrange pour les non avertis. Cela signifie tout simplement
   1,611 multiplié par 10 à la puissance -7, autrement dit 0,0000001611. Cette
   manière de représenter un nombre est couramment appelée \textit{notation
-  scientifique}. Voir aussi \url{http://fr.wikipedia.org/wiki/Notation_scientifique}
+  scientifique}.
 \end{important}
 
 Nous sommes cependant allés un peu vite en besogne, car nous avons
@@ -4264,13 +4263,12 @@ suivante~:
 table(d$sport, d$qualreg)
 @ 
 
-\begin{astuce}
-  Il est tout à fait possible de croiser trois variables ou plus. Par exemple :
+Il est d'ailleurs tout à fait possible de croiser trois variables ou plus. Par
+exemple~:
   
-  <<>>=
-  table(d$sport,d$cuisine,d$sexe)
-  @ 
-\end{astuce}
+<<>>=
+table(d$sport,d$cuisine,d$sexe)
+@ 
 
 On n'a cependant que les effectifs, ce qui rend difficile les
 comparaisons. L'extension \questionr \marqr fournit des fonctions
@@ -4368,17 +4366,14 @@ d'autres tableaux croisés. On peut pour cela utiliser la fonction
 cramer.v(tab)
 @ 
 
-
-\begin{astuce}
-  Pour un tableau à 2x2 entrées, il est possible de calculer le test exact de
-  Fisher avec la fonction \rfunc{fisher.test}. On peut soit lui passer le 
-  résultat de \rfunc{table}, soit directement les deux variables à croiser.
+Et pour un tableau à 2x2 entrées, il est possible de calculer le test exact de
+Fisher avec la fonction \rfunc{fisher.test}. On peut soit lui passer le
+résultat de \rfunc{table}, soit directement les deux variables à croiser.
   
-  <<>>=
+<<>>=
 lprop(table(d$sexe,d$cuisine))
 fisher.test(table(d$sexe,d$cuisine))
 @ 
-\end{astuce}
 
 \subsection{Représentation graphique}
 
