@@ -4318,7 +4318,7 @@ ctab
 @ 
 
 Ou bien ponctuellement en passant les mêmes arguments aux fonctions
-\rfunc{print} (pour affichage dans \R) ou \rfunc{copy} (pour export
+\rfunc{print} (pour affichage dans \R) ou \rfunc{clipcopy} (pour export
 vers un logiciel externe)~:
 
 <<>>=
@@ -4684,7 +4684,7 @@ texte ou une application externe.
 
 Les tableaux générés par \R (et plus largement, tous les types
 d'objets) peuvent être exportés pour inclusion dans un traitement de
-texte à l'aide de la fonction \rfunc{copy} \marqr de l'extension
+texte à l'aide de la fonction \rfunc{clipcopy} \marqr de l'extension
 \questionr\footnote{Celle-ci nécessite que l'extension \texttt{R2HTML} soit
   également installée sur le système \textit{via}
   \texttt{install.packages("R2HTML",dep=TRUE)}.}.
@@ -4703,7 +4703,7 @@ tab
 \subsection{Copier/coller vers \textsf{Excel} et \textsf{Word} \textit{via} le presse-papier}
 
 La première possibilité est d'utiliser les options par défaut de
-\rfunc{copy}. Celle-ci va alors transformer le tableau (ou l'objet)
+\rfunc{clipcopy}. Celle-ci va alors transformer le tableau (ou l'objet)
 en \texttt{HTML} et placer le résultat dans le presse papier du
 système. Ceci ne fonctionne malheureusement que sous
 \textsf{Windows}\footnote{En fait cela fonctionne aussi sous
@@ -4712,7 +4712,7 @@ système. Ceci ne fonctionne malheureusement que sous
   mais n'a pas pu être testé.}.
 
 <<>>=
-copy(tab)
+clipcopy(tab)
 @ 
 
 On peut ensuite récupérer le résultat dans une feuille \textsf{Excel} en
@@ -4736,12 +4736,12 @@ L'autre possibilité ne nécessite pas de passer par \textsf{Excel}, et
 fonctionne sous \textsf{Word}, \textsf{OpenOffice} et \textsf{LibreOffice }sur
 toutes les plateformes.
 
-Elle nécessite de passer à la fonction \rfunc{copy} l'option
+Elle nécessite de passer à la fonction \rfunc{clipcopy} l'option
 \texttt{file=TRUE} qui enregistre le contenu de l'objet dans un
 fichier plutôt que de le placer dans le presse-papier~:
 
 <<>>=
-copy(tab, file=TRUE)
+clipcopy(tab, file=TRUE)
 @ 
 
 
@@ -4750,7 +4750,7 @@ Par défaut le résultat est placé dans un fichier nommé
 le nom et l'emplacement avec l'option \texttt{filename}~:
 
 <<eval=FALSE>>=
-copy(tab, file=TRUE, filename="exports/tab1.html")
+clipcopy(tab, file=TRUE, filename="exports/tab1.html")
 @ 
 
 On peut ensuite l'intégrer directement dans \textsf{Word} ou dans
