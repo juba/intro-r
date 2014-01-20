@@ -143,8 +143,7 @@
 
 \title{\Huge{Introduction à \includegraphics[width=1.4cm]{img/Rlogo.jpg}}}
 \author{Julien Barnier\\ Centre Max Weber\\
-  \href{mailto:julien.barnier@ens-lyon.fr}{\texttt{julien.barnier@ens-lyon.fr}}\\
-  \vspace{1cm}Et autres contributeurs}
+  \href{mailto:julien.barnier@ens-lyon.fr}{\texttt{julien.barnier@ens-lyon.fr}}}
 \date{Version 2.0\\\today{}\\\vspace{3cm}\includegraphics[width=9cm]{img/xkcd_tech_chart.png}\\\footnotesize\texttt{http://xkcd.com/627/}}
 
 
@@ -909,11 +908,11 @@ c(1:4,8:11)
 
 
 \begin{exo}{sommevect}
-  On a demandé à 4 ménages le revenu du chef de ménage, celui de son
-  conjoint, et le nombre de personnes du ménage~:
+  On a demandé à 4 ménages le revenu des deux conjoints, et le nombre de
+  personnes du ménage~:
 <<eval=FALSE>>=
-chef <- c(1200, 1180, 1750, 2100)
-conjoint <- c(1450, 1870, 1690, 0)
+conjoint1 <- c(1200, 1180, 1750, 2100)
+conjoint2 <- c(1450, 1870, 1690, 0)
 nb.personnes <- c(4, 2, 3, 2)
 @ 
 Calculez le revenu total par personne du ménage.
@@ -921,14 +920,14 @@ Calculez le revenu total par personne du ménage.
 
 \begin{exo}{maxvect}
   Dans l'exercice précédent, calculez le revenu minimum et le revenu
-  maximum parmi ceux du chef de ménage~:
+  maximum parmi ceux du premier conjoint~:
 <<eval=FALSE>>=
-chef <- c(1200, 1180, 1750, 2100)
+conjoint1 <- c(1200, 1180, 1750, 2100)
 @ 
   Recommencer avec les revenus suivants, parmi lesquels l'un des
   enquêtés n'a pas voulu répondre~:
 <<eval=FALSE>>=
-chef.na <- c(1200, 1180, 1750, NA)
+conjoint1.na <- c(1200, 1180, 1750, NA)
 @ 
 \end{exo}
 
@@ -6145,10 +6144,10 @@ c(2,4,6,8)
 
 \begin{solution}{sommevect}
 <<>>=
-chef <- c(1200, 1180, 1750, 2100)
-conjoint <- c(1450, 1870, 1690, 0)
+conjoint1 <- c(1200, 1180, 1750, 2100)
+conjoint2 <- c(1450, 1870, 1690, 0)
 nb.personnes <- c(4, 2, 3, 2)
-(chef + conjoint) / nb.personnes
+(conjoint1 + conjoint2) / nb.personnes
 @ 
 \end{solution}
 
@@ -6156,14 +6155,14 @@ nb.personnes <- c(4, 2, 3, 2)
 
 \begin{solution}{maxvect}
 <<>>=
-chef <- c(1200, 1180, 1750, 2100)
-min(chef)
-max(chef)
-chef.na <- c(1200, 1180, 1750, NA)
-min(chef.na)
-max(chef.na)
-min(chef.na, na.rm=TRUE)
-max(chef.na, na.rm=TRUE)
+conjoint1 <- c(1200, 1180, 1750, 2100)
+min(conjoint1)
+max(conjoint1)
+conjoint1.na <- c(1200, 1180, 1750, NA)
+min(conjoint1.na)
+max(conjoint1.na)
+min(conjoint1.na, na.rm=TRUE)
+max(conjoint1.na, na.rm=TRUE)
 @ 
 \end{solution}
 
