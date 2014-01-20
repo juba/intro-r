@@ -143,7 +143,8 @@
 
 \title{\Huge{Introduction à \includegraphics[width=1.4cm]{img/Rlogo.jpg}}}
 \author{Julien Barnier\\ Centre Max Weber\\
-  CNRS -- UMR 5283\\ \href{mailto:julien.barnier@ens-lyon.fr}{\texttt{julien.barnier@ens-lyon.fr}}}
+  \href{mailto:julien.barnier@ens-lyon.fr}{\texttt{julien.barnier@ens-lyon.fr}}\\
+  \vspace{1cm}Et autres contributeurs}
 \date{Version 2.0\\\today{}\\\vspace{3cm}\includegraphics[width=9cm]{img/xkcd_tech_chart.png}\\\footnotesize\texttt{http://xkcd.com/627/}}
 
 
@@ -219,19 +220,25 @@ dernière version de ce document se trouve à l'adresse~:
 %\noindent
 Ce document est diffusé sous licence \textit{Creative Commons
  Attribution - Pas d’utilisation commerciale - Partage dans les mêmes conditions}~:
+\end{window}
 
 %\noindent
 \url{https://creativecommons.org/licenses/by-nc-sa/3.0/fr/}
-\end{window}
 
 
 \section{Remerciements}
 
 L'auteur tient à remercier Mayeul Kauffmann, Julien Biaudet, Frédérique
-Giraud, Joël Gombin et Joseph Larmarange pour leurs corrections et
-suggestions. Et un remerciement plus particulier à Milan Bouchet-Valat pour sa
-relecture très attentive et ses nombreuses et judicieuses remarques.
+Giraud, Joël Gombin pour leurs corrections et suggestions. Et un remerciement
+plus particulier à Milan Bouchet-Valat pour sa relecture très attentive et ses
+nombreuses et judicieuses remarques.
 
+Joseph Larmarange\footnote{\url{http://joseph.larmarange.net/}} est l'auteur
+de l'ensemble des encadrés concernant \textsf{RStudio} et de nombreuses autres
+corrections et améliorations. Il maintient par ailleurs une autre version de
+ce document, enrichie de chapitres sur différentes méthodes statistiques~:
+
+\url{https://github.com/larmarange/intro-r/tree/CoursM2}
 
 \section{Conventions typographiques}
 
