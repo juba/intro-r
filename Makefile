@@ -1,6 +1,8 @@
+SHELL := /bin/bash
+
 build:
-	if [ -a intro.pdf ]; then rm intro.pdf; fi;
-	if [ -a intro.tex ]; then rm intro.tex; fi;
+	if [ -e intro.pdf ]; then rm intro.pdf; fi
+	if [ -e intro.tex ]; then rm intro.tex; fi
 	R --vanilla < knitr_make.R
 	pdflatex intro.tex
 
