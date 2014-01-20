@@ -24,7 +24,7 @@
 \usepackage{amsmath}
 \usepackage{pifont}
 \usepackage{lmodern}
-\usepackage{epstopdf}
+%\usepackage{epstopdf}
 
 
 \definecolor{grisclair}{rgb}{0.97,0.97,0.97}
@@ -696,7 +696,7 @@ maîtriser). Nous en reparlerons section~\ref{sec_indexation}
 \vpageref{sec_indexation}.
 
 \begin{rstudio}
-  Sous \textsf{RStudio}, vous avez du remarquer que ce dernier effectue une 
+  Sous \textsf{RStudio}, vous avez dû remarquer que ce dernier effectue une 
   coloration syntaxique. Lorsque vous tapez une commande, les valeurs numériques
   sont affichées dans une certaine couleur, les valeurs textuelles dans une 
   autre et les noms des fonctions dans une troisième. De plus, si vous tapez une
@@ -2012,7 +2012,7 @@ load("export.RData")
 
 \begin{important}
   Si entre temps vous aviez modifié votre tableau \texttt{d}, vos modifications
-  seront perdus. En effet, si lors du chargement de données, un objet du même 
+  seront perdues. En effet, si lors du chargement de données, un objet du même 
   nom existe en mémoire, ce dernier sera remplacé par l'objet importé.
 \end{important}
 
@@ -4481,7 +4481,6 @@ On les utilise de la manière suivante~:
 <<wtdmean,warning=FALSE,message=FALSE,cache=FALSE>>=
 library(questionr)
 mean(d$age)
-library(questionr)
 wtd.mean(d$age, weights=d$poids)
 wtd.var(d$age, weights=d$poids)
 @ 
