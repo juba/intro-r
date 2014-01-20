@@ -15,7 +15,7 @@
 \usepackage{verbatim}
 \usepackage{xspace}
 \usepackage{graphicx}
-\usepackage{picins}
+\usepackage{picinpar}
 \usepackage[sf,bf]{titlesec}
 \usepackage{listings}
 \usepackage{calc}
@@ -74,19 +74,25 @@
 
 \newenvironment{remarque}%
 {\begin{greyframe}%
-    \parpic[l]{\includegraphics[height=0.8cm,keepaspectratio=true]{img/note.png}}}%
-{\end{greyframe}}
+    \begin{window}[0,l,{%
+        \includegraphics[height=0.8cm,keepaspectratio=true]{img/note.png}%
+      },{}]}%
+{\end{window}\end{greyframe}}
 
 \newenvironment{astuce}%
 {\begin{greyframe}%
-    \parpic[l]{\includegraphics[height=0.8cm,keepaspectratio=true]{img/astuce.png}}}%
-{\end{greyframe}}
+    \begin{window}[0,l,{%
+        \includegraphics[height=0.8cm,keepaspectratio=true]{img/astuce.png}%
+      },{}]}%
+{\end{window}\end{greyframe}}
 
 
 \newenvironment{important}%
 {\begin{greyframe}%
-    \parpic[l]{\includegraphics[height=0.8cm,keepaspectratio=true]{img/important.png}}}%
-{\end{greyframe}}
+    \begin{window}[0,l,{%
+        \includegraphics[height=0.8cm,keepaspectratio=true]{img/important.png}%
+      },{}]}%
+{\end{window}\end{greyframe}}
 
 \newenvironment{greyverb}%
 {\setlength\fboxsep{10pt}%
@@ -201,14 +207,16 @@ dernière version de ce document se trouve à l'adresse~:
 
 \section{Licence}
 
-\parpic[r]{\includegraphics[width=2.5cm]{img/by-nc-sa_eu.eps}}
+\begin{window}[0,r,{%
+    \includegraphics[width=2.5cm]{img/by-nc-sa_eu.eps}%
+},{}]
 %\noindent
 Ce document est diffusé sous licence \textit{Creative Commons
  Attribution - Pas d’utilisation commerciale - Partage dans les mêmes conditions}~:
 
 %\noindent
 \url{https://creativecommons.org/licenses/by-nc-sa/3.0/fr/}
-
+\end{window}
 
 
 \section{Remerciements}
