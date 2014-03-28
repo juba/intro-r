@@ -1395,11 +1395,13 @@ utiliser la fonction \rfunc{freq} de \marqr l'extension \texttt{questionr}.
 freq(d$qualif)
 @ 
 
-La colonne \texttt{n} donne les effectifs bruts, et la colonne
-\texttt{\%} la répartition en pourcentages. La fonction accepte
-plusieurs paramètres permettant d'afficher les totaux, les pourcentages
-cumulés, de trierselon les effectifs ou de contrôler l'affichage. Par
-exemple~:
+La colonne \texttt{n} donne les effectifs bruts, la colonne \texttt{\%} la
+répartition en pourcentages, et la colonne \texttt{val\%} la répartition en
+pourcentages une fois exclues les valeurs manquantes. 
+
+La fonction accepte plusieurs paramètres permettant d'afficher les totaux, les
+pourcentages cumulés, de trier selon les effectifs ou de contrôler l'affichage.
+Par exemple~:
 
 <<>>=
 freq(d$qualif, cum=TRUE, total=TRUE, sort="inc", digits=2, exclude=NA)
@@ -4036,9 +4038,9 @@ comparaisons. L'extension \questionr \marqr fournit des fonctions
 permettant de calculer les pourcentages lignes, colonnes et totaux
 d'un tableau croisé. 
 
-Les pourcentages lignes s'obtiennent avec la fonction
-\rfunc{lprop}. Celle-ci s'applique au tableau croisé généré par
-\rfunc{table}~:
+Les pourcentages lignes s'obtiennent avec la fonction \rfunc{lprop} de
+l'extension \questionr \marqr. Celle-ci s'applique au tableau croisé
+généré par \rfunc{table}~:
 
 <<>>=
 tab <- table(d$sport, d$qualreg)
