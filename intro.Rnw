@@ -6126,7 +6126,7 @@ opts_chunk$set(size="footnotesize")
 
 \begin{solution}{simplec}
 <<>>=
-c(12,13,14,15,16)
+c(120, 134, 256, 12)
 @ 
 \end{solution}
 
