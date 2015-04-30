@@ -15,7 +15,7 @@
 \usepackage{verbatim}
 \usepackage{xspace}
 \usepackage{graphicx}
-\usepackage{picins}
+\usepackage{picinpar}
 \usepackage[sf,bf]{titlesec}
 \usepackage{listings}
 \usepackage{calc}
@@ -24,7 +24,7 @@
 \usepackage{amsmath}
 \usepackage{pifont}
 \usepackage{lmodern}
-
+\usepackage{epstopdf}
 
 
 \definecolor{grisclair}{rgb}{0.97,0.97,0.97}
@@ -74,19 +74,31 @@
 
 \newenvironment{remarque}%
 {\begin{greyframe}%
-    \parpic[l]{\includegraphics[height=0.8cm,keepaspectratio=true]{img/note.png}}}%
-{\end{greyframe}}
+    \begin{window}[0,l,{%
+        \includegraphics[height=0.8cm,keepaspectratio=true]{img/note.png}%
+      },{}]}%
+{\end{window}\end{greyframe}}
 
 \newenvironment{astuce}%
 {\begin{greyframe}%
-    \parpic[l]{\includegraphics[height=0.8cm,keepaspectratio=true]{img/astuce.png}}}%
-{\end{greyframe}}
+    \begin{window}[0,l,{%
+        \includegraphics[height=0.8cm,keepaspectratio=true]{img/astuce.png}%
+      },{}]}%
+{\end{window}\end{greyframe}}
 
+\newenvironment{rstudio}%
+{\begin{greyframe}%
+    \begin{window}[0,l,{%
+        \includegraphics[height=0.8cm,keepaspectratio=true]{img/rstudio.png}%
+      },{}]}%
+{\end{window}\end{greyframe}}
 
 \newenvironment{important}%
 {\begin{greyframe}%
-    \parpic[l]{\includegraphics[height=0.8cm,keepaspectratio=true]{img/important.png}}}%
-{\end{greyframe}}
+    \begin{window}[0,l,{%
+        \includegraphics[height=0.8cm,keepaspectratio=true]{img/important.png}%
+      },{}]}%
+{\end{window}\end{greyframe}}
 
 \newenvironment{greyverb}%
 {\setlength\fboxsep{10pt}%
@@ -131,8 +143,8 @@
 
 \title{\Huge{Introduction à \includegraphics[width=1.4cm]{img/Rlogo.jpg}}}
 \author{Julien Barnier\\ Centre Max Weber\\
-  CNRS -- UMR 5283\\ \href{mailto:julien.barnier@ens-lyon.fr}{\texttt{julien.barnier@ens-lyon.fr}}}
-\date{Version 2.0\\\today{}\\\vspace{3cm}\includegraphics[width=9cm]{img/xkcd_tech_chart.png}\\\footnotesize\texttt{http://xkcd.com/627/}}
+  \href{mailto:julien.barnier@ens-lyon.fr}{\texttt{julien.barnier@ens-lyon.fr}}}
+\date{Version 2.1\\\today{}\\\vspace{3cm}\includegraphics[width=9cm]{img/xkcd_tech_chart.png}\\\footnotesize\texttt{http://xkcd.com/627/}}
 
 
 \begin{document}
@@ -150,7 +162,7 @@ opts_chunk$set(fig.path="tmp/",
                highlight=TRUE,
                #size="footnotesize",
                comment=NA,
-               background=".95;.95;.95",
+               background="0.95;0.95;0.95",
                fig.align="center",
                out.width=".8\\textwidth")
 @
@@ -201,23 +213,31 @@ dernière version de ce document se trouve à l'adresse~:
 
 \section{Licence}
 
-\parpic[r]{\includegraphics[width=2.5cm]{img/by-nc-sa_eu.eps}}
+\begin{window}[0,r,{%
+    \includegraphics[width=2.5cm]{img/by-nc-sa_eu.eps}%
+},{}]
 %\noindent
 Ce document est diffusé sous licence \textit{Creative Commons
  Attribution - Pas d’utilisation commerciale - Partage dans les mêmes conditions}~:
+\end{window}
 
 %\noindent
 \url{https://creativecommons.org/licenses/by-nc-sa/3.0/fr/}
 
 
-
 \section{Remerciements}
 
 L'auteur tient à remercier Mayeul Kauffmann, Julien Biaudet, Frédérique
-Giraud, Joël Gombin et Joseph Larmarange pour leurs corrections et
-suggestions. Et un remerciement plus particulier à Milan Bouchet-Valat pour sa
-relecture très attentive et ses nombreuses et judicieuses remarques.
+Giraud, Joël Gombin pour leurs corrections et suggestions. Et un remerciement
+plus particulier à Milan Bouchet-Valat pour sa relecture très attentive et ses
+nombreuses et judicieuses remarques.
 
+Joseph Larmarange\footnote{\url{http://joseph.larmarange.net/}} est l'auteur
+de l'ensemble des encadrés concernant \textsf{RStudio} et de nombreuses autres
+corrections et améliorations. Il maintient par ailleurs une autre version de
+ce document, enrichie de chapitres sur différentes méthodes statistiques~:
+
+\url{https://github.com/larmarange/intro-r/tree/CoursM2}
 
 \section{Conventions typographiques}
 
@@ -338,6 +358,19 @@ sous la main un ordinateur avec une installation récente de \R, quel
 que soit le système d'exploitation que vous utilisez (\textsf{Linux},
 \textsf{Mac OS X} ou \textsf{Windows}).
 
+\begin{rstudio}
+  Le projet \textsf{RStudio} tend à s'imposer comme l'environnement de
+  développement de référence pour \R, d'autant qu'il a l'avantage d'être
+  libre, gratuit et multiplateforme. Son installation est décrite
+  section~\ref{sec_rstudio} \vpageref{sec_rstudio}.
+  
+  Les astuces et informations spécifiques à \textsf{RStudio} seront présentées 
+  tout au long de ce document dans des encadrés similaires à celui-là.
+  
+  \textsf{RStudio} peut tout à fait être utilisé pour découvrir et démarrer
+  avec \R.
+\end{rstudio}
+
 
 \section{L'invite de commandes}
 
@@ -375,9 +408,29 @@ Tapez 'license()' ou 'licence()' pour plus de détails.
 \noindent
 suivi d'une ligne commençant par le caractère \texttt{>} et sur laquelle
 devrait se trouver votre curseur. Cette ligne est appelée
-\textit{l'invite de commande} (ou \textit{prompt} en anglais). Elle
+l'\textit{invite de commande} (ou \textit{prompt} en anglais). Elle
 signifie que \R est disponible et en attente de votre prochaine
 commande.
+
+\begin{figure}
+  \begin{center}
+    \includegraphics[width=0.8\textwidth]{img/scr_RStudio.png}
+  \end{center}
+  \caption{L'interface de \textsf{RStudio} sous \textsf{Windows} au démarrage}
+  \label{fig_RStudio}
+\end{figure}
+
+\begin{rstudio}
+  L'interface de \textsf{RStudio} se présente différement (voir 
+  figure~\ref{fig_RStudio}). Elle est divisée en quatre parties. Le quadrant 
+  haut-gauche est dédié aux fichiers sources (scripts). Le quadrant haut-droite
+  fournit des informations sur vos données en mémoire et votre historique. Le
+  quadrant bas-droite vous permet naviguer dans votre répertoire de travail, 
+  affiche l'aide, vos graphiques et les extensions disponibles. Enfin, la 
+  \textit{console} est affichée en bas à gauche. C'est elle qui nous intéresse
+  pour le moment. Nous aborderons les autres quadrants plus loin dans ce 
+  document.
+\end{rstudio}
 
 Nous allons tout de suite lui fournir une première commande~:
 
@@ -405,6 +458,14 @@ opérations arithmétiques de base~:
   des commandes tapées précédemment, que vous pouvez alors facilement
   réexécuter ou modifier.
 \end{astuce}
+
+\begin{rstudio}
+  Sous \textsf{RStudio}, l'onglet \textit{History} du quadrant haut-droite vous 
+  permet de consulter l'historique des commandes que vous avez transmises à \R.
+  Un double-clic sur une commande la recopiera automatiquement dans la console.
+  Vous pouvez également sélectionner une ou plusieurs commandes puis cliquer sur
+  \textit{To Console}. Voir également (en anglais) : \url{http://www.rstudio.com/ide/docs/using/history}
+\end{rstudio}
 
 Lorsqu'on fournit à \R une commande incomplète, celui-ci nous propose
 de la compléter en nous présentant une invite de commande spéciale
@@ -640,7 +701,17 @@ langage (mais aussi l'un des plus délicats à comprendre et à
 maîtriser). Nous en reparlerons section~\ref{sec_indexation}
 \vpageref{sec_indexation}.
 
-
+\begin{rstudio}
+  Sous \textsf{RStudio}, vous avez dû remarquer que ce dernier effectue une 
+  coloration syntaxique. Lorsque vous tapez une commande, les valeurs numériques
+  sont affichées dans une certaine couleur, les valeurs textuelles dans une 
+  autre et les noms des fonctions dans une troisième. De plus, si vous tapez une
+  parenthèse ouvrante, \textsf{RStudio} va créer automatiquement après le 
+  curseur la parenthèse fermante correspondante (de même avec les guillements). 
+  De plus, si vous placez le curseur juste après une parenthèse fermante, la
+  parenthèse ouvrante correspondante sera surlignée, ce qui sera bien pratique
+  lors de la rédaction de commandes complexes.
+\end{rstudio}
 
 \section{Des fonctions}
 
@@ -673,7 +744,7 @@ on fait appel à la fonction nommée \rfunc{c}, on lui passe en
 arguments (entre parenthèses et séparées par des virgules) une série
 de chaînes de caractères, et elle retourne comme résultat un vecteur
 de chaînes de caractères, que nous stockons dans l'objet
-\texttt{tailles}.
+\texttt{reponse}.
 
 Prenons tout de suite d'autres exemples de fonctions courantes~:
 
@@ -686,7 +757,7 @@ var(tailles)
 
 Ici, la fonction \rfunc{length} nous renvoie le nombre d'éléments du
 vecteur, la fonction \rfunc{mean} nous donne la moyenne des éléments
-du vecteur, et la fonction \rfunc{var} sa variance.
+du vecteur et la fonction \rfunc{var} sa variance.
 
 \subsection{Arguments}
 
@@ -733,7 +804,11 @@ Lorsqu'on passe un argument à une fonction de cette manière,
 c'est-à-dire sous la forme \texttt{nom=valeur}, on parle
 d'\textit{argument nommé}.
 
-
+\begin{important}
+  \texttt{NA} signifie \textit{not available}. Cette valeur particulière peut
+  être utilisée pour indiquer une valeur manquante pour tout type de liste
+  (nombres, textes, valeurs logique, etc.).
+\end{important}
 
 \subsection{Quelques fonctions utiles}
 
@@ -765,6 +840,19 @@ On peut rajouter les fonctions de base suivantes~:
   \end{tabular}
 \end{center}
 
+\begin{rstudio}
+  Autre outil bien utile de \textsf{RStudio}, l'auto-complétion. Tapez les 
+  premières lettres d'une fonction, par exemple \texttt{me} puis appuyez sur la 
+  touche \texttt{<Tabulation>}. \textsf{RStudio} affichera la liste des fonctions
+  dont le nom commence par \texttt{me} ainsi qu'un court descriptif de chacune.
+  Un appui sur la touche \textit{Entrée} provoquera la saisie du nom complet de 
+  la fonction choisie. Vous pouvez également utiliser l'auto-complétion pour
+  retrouver un objet que vous avez créé --- par exemple, appuyez sur la touche 
+  \texttt{<Tabulation>} après avoir saisi \texttt{mean(t} --- ou bien pour retrouver
+  un argument nommé d'une fonction --- par exemple, appuyez sur la touche 
+  \texttt{<Tabulation>} après avoir saisi \texttt{mean(taille,}.
+\end{rstudio}
+
 \subsection{Aide sur une fonction}
 
 Il est très fréquent de ne plus se rappeler quels sont les paramètres
@@ -793,6 +881,11 @@ pas connaître le nom de la fonction effectuant une tâche donnée. Dans
 ce cas on se reportera aux différentes manières de trouver de l'aide
 décrites dans l'annexe~\ref{sec_aide}, page~\pageref{sec_aide}.
 
+\begin{rstudio}
+  Dans \textsf{RStudio}, les pages d'aide en ligne s'ouvriront dans le quadrant
+  bas-droite sous l'onglet \textit{Help}. Un clic sur l'icône en forme de maison
+  vous affichera la page d'accueil de l'aide.
+\end{rstudio}
 
 \section{Exercices}
 
@@ -815,11 +908,11 @@ c(1:4,8:11)
 
 
 \begin{exo}{sommevect}
-  On a demandé à 4 ménages le revenu du chef de ménage, celui de son
-  conjoint, et le nombre de personnes du ménage~:
+  On a demandé à 4 ménages le revenu des deux conjoints, et le nombre de
+  personnes du ménage~:
 <<eval=FALSE>>=
-chef <- c(1200, 1180, 1750, 2100)
-conjoint <- c(1450, 1870, 1690, 0)
+conjoint1 <- c(1200, 1180, 1750, 2100)
+conjoint2 <- c(1450, 1870, 1690, 0)
 nb.personnes <- c(4, 2, 3, 2)
 @ 
 Calculez le revenu total par personne du ménage.
@@ -827,14 +920,14 @@ Calculez le revenu total par personne du ménage.
 
 \begin{exo}{maxvect}
   Dans l'exercice précédent, calculez le revenu minimum et le revenu
-  maximum parmi ceux du chef de ménage~:
+  maximum parmi ceux du premier conjoint~:
 <<eval=FALSE>>=
-chef <- c(1200, 1180, 1750, 2100)
+conjoint1 <- c(1200, 1180, 1750, 2100)
 @ 
   Recommencer avec les revenus suivants, parmi lesquels l'un des
   enquêtés n'a pas voulu répondre~:
 <<eval=FALSE>>=
-chef.na <- c(1200, 1180, 1750, NA)
+conjoint1.na <- c(1200, 1180, 1750, NA)
 @ 
 \end{exo}
 
@@ -897,9 +990,9 @@ possibilités pour soumettre des commandes à \R~:
 \item vous pouvez exécuter la ligne sur laquelle se trouve votre
   curseur en sélectionnant \textit{Éditon} puis \textit{Exécuter la
     ligne ou sélection}, ou plus simplement en appuyant simultanément
-  sur les touches \texttt{Ctrl} et \texttt{R}\footnote{Sous
-    \textsf{Mac OS X}, on utilise les touches \texttt{Pomme} et
-    \texttt{Entrée}.}~;
+  sur les touches \texttt{<Ctrl>} et \texttt{<R>}\footnote{Sous
+    \textsf{Mac OS X}, on utilise les touches \texttt{<Pomme>} et
+    \texttt{<Entrée>}.}~;
 \item vous pouvez sélectionner plusieurs lignes contenant des
   commandes et les exécuter toutes en une seule fois exactement de la
   même manière~;
@@ -911,6 +1004,16 @@ La plupart du travail sous \R consistera donc à éditer un ou plusieurs
 fichiers de commandes et à envoyer régulièrement les commandes saisies
 à \R en utilisant les raccourcis clavier \textit{ad hoc}. 
 
+\begin{rstudio}
+  Les commandes sont légèrement différentes avec \textsf{RStudio} mais le 
+  principe est le même. Pour créer un nouveau script \R, faire \textit{File > 
+  New > R Script}. Votre nouveau fichier apparaitra dans le quadrant haut-gauche.
+  Pour exécuter une ou plusieurs lignes de code, sélectionnez les lignes en
+  question puis cliquez sur l'icône \textit{Run} ou bien appuyez simultanément
+  sur les touches \texttt{<Ctrl>} et \texttt{<Entrée>}. 
+  
+  Pour plus d'astuces (en anglais) : \url{http://www.rstudio.com/ide/docs/using/source}
+\end{rstudio}
 
 \section{Ajouter des commentaires}
 
@@ -947,6 +1050,12 @@ grand chose si on les reprend ne serait-ce que quelques semaines plus
 tard.
 \end{important}
 
+\begin{rstudio}
+  Avec \textsf{RStudio}, vous pouvez également utiliser les commentaires pour
+  créer des sections au sein de votre script et naviguer plus rapidement.
+  
+  Voir (en anglais) : \url{http://www.rstudio.com/ide/docs/using/code_folding}
+\end{rstudio}
 
 \section{Tableaux de données}
 
@@ -1070,6 +1179,10 @@ de modalités (\textit{levels}). Ici notre variable a deux modalités
 possibles~: \texttt{Homme} et \texttt{Femme}. Ce type de variable est
 décrit plus en détail section~\ref{sec_factor} \vpageref{sec_factor}.
 
+\begin{astuce}
+  La fonction \rfunc{str} peut s'appliquer à n'importe quel type d'objet. C'est 
+  un excellent moyen de connaître la structure d'un objet.
+\end{astuce}
 
 \subsection{Inspection visuelle}
 
@@ -1118,7 +1231,13 @@ d <- edit(d)
   reproductibles).
 \end{important}
 
-
+\begin{rstudio}
+  Sous \textsf{RStudio}, la liste des objets en mémoire est affichée dans le
+  quadrant haut-droite sous l'onglet \textit{Workspace}. Un clic sur un tableau
+  de données permet d'afficher son contenu sous un onglet dédié dans le quadrant
+  haut-gauche. Cette manière de procéder est plus simple que le recours à la 
+  fonction \rfunc{edit}.
+\end{rstudio}
 
 \subsection{Accéder aux variables}
 
@@ -1149,7 +1268,7 @@ head(d$sport)
 tail(d$age,10)
 @ 
 
-A noter que ces fonctions marchent aussi pour afficher les lignes du
+À noter que ces fonctions marchent aussi pour afficher les lignes du
 tableau \texttt{d}~:
 
 <<>>=
@@ -1189,6 +1308,11 @@ median(d$heures.tv,na.rm=TRUE)
 summary(d$heures.tv)
 @ 
 
+\begin{astuce}
+  La fonction \rfunc{summary} peut-être utilisée sur tout type d'objet, y 
+  compris un tableau de données. Essayez donc \texttt{summary(d)}.
+\end{astuce}
+
 \subsubsection{Histogramme}
 
 Tout cela est bien pratique, mais pour pouvoir observer la
@@ -1200,7 +1324,6 @@ valeurs. Celui-ci peut être généré très facilement avec la fonction
 \rfunc{hist}, comme indiqué figure~\ref{fig_hist1}
   \vpageref{fig_hist1}.
 
-@ 
 \begin{figure}
 <<hist1>>=
 hist(d$heures.tv, main="Nombre d'heures passées devant la télé par jour", xlab="Heures", ylab="Effectif")
@@ -1389,19 +1512,23 @@ summary(d$trav.satisf)
 @ 
 
 Pour obtenir un tableau avec la répartition en pourcentages, on peut
-utiliser la fonction \rfunc{freq} de \marqr l'extension \texttt{questionr}.
+utiliser la fonction \rfunc{freq} de \marqr l'extension \textsf{questionr}\footnotemark.
+
+\footnotetext{
+ En l'absence de l'extension \texttt{questionr}, on pourra se rabattre sur la 
+ fonction \rfunc{prop.table} avec la commande suivante : 
+ \texttt{prop.table(table(d\$qualif))}. 
+}
 
 <<>>=
 freq(d$qualif)
 @ 
 
-La colonne \texttt{n} donne les effectifs bruts, la colonne \texttt{\%} la
-répartition en pourcentages, et la colonne \texttt{val\%} la répartition en
-pourcentages une fois exclues les valeurs manquantes. 
-
-La fonction accepte plusieurs paramètres permettant d'afficher les totaux, les
-pourcentages cumulés, de trier selon les effectifs ou de contrôler l'affichage.
-Par exemple~:
+La colonne \texttt{n} donne les effectifs bruts, et la colonne
+\texttt{\%} la répartition en pourcentages. La fonction accepte
+plusieurs paramètres permettant d'afficher les totaux, les pourcentages
+cumulés, de trier selon les effectifs ou de contrôler l'affichage. Par
+exemple~:
 
 <<>>=
 freq(d$qualif, cum=TRUE, total=TRUE, sort="inc", digits=2, exclude=NA)
@@ -1478,7 +1605,21 @@ dotchart(sort(table(d$qualif)), main="Niveau de qualification")
 \label{fig_dotchartsort}
 \end{figure}
 
+\begin{astuce}
+  L'agument \texttt{pch}, qui est utilisé par la plupart des graphiques de type 
+  points, permet de spécifier le symbole à utiliser. Il peut prendre soit un
+  nombre entier compris entre 0 et 25, soit un charactère textuel 
+  (voir figure~\ref{fig_pch} \vpageref{fig_pch}).
+\end{astuce}
 
+\begin{figure}
+<<figure_pch, echo=FALSE>>=
+source("pchShow.R")
+pchShow(c("*","+","a","x"),main="", symbolsize=2.5, linewidth=2,fillcolor="palegreen3",symbolcolor="palevioletred3")
+@ 
+\caption{Différentes valeurs possibles pour l'argument \texttt{pch}}
+\label{fig_pch}
+\end{figure}
 
 
 \section{Exercices}
@@ -1604,7 +1745,7 @@ utiliser la fonction \textit{Changer le répertoire courant} du menu
 \textit{Fichier}. Celle-ci vous permet de sélectionner le répertoire de 
 travail de la session en cours en le sélectionnant via une boîte de dialogue.
 
-Si vous utilisez RStudio, Vous pouvez utiliser une des commandes \textit{set 
+Si vous utilisez \textsf{RStudio}, Vous pouvez utiliser une des commandes \textit{set 
 working directory} du menu \textit{session} ou, mieux, utiliser les 
 fonctionnalités de gestion de projet qui vous permettent de mémoriser, projet 
 par projet, le répertoire de travail, la liste des fichiers ouverts ainsi que
@@ -1626,12 +1767,15 @@ directement dans le répertoire de travail, et on n'indiquera donc que
 le nom du fichier, sans indication de chemin ou de répertoire
 supplémentaire.
 
-\begin{astuce}
-  Si vous utilisez l'environnement de développement \textsf{RStudio} (voir
-  section~\ref{sec_rstudio} \vpageref{sec_rstudio}), vous pouvez vous
-  débarasser du problème des répertoires de travail en utilisant sa
-  fonctionnalité de gestion de \textit{projets}.
-\end{astuce}
+\begin{rstudio}
+  Si vous utilisez l'environnement de développement \textsf{RStudio}, vous 
+  pouvez vous débarasser du problème des répertoires de travail en utilisant sa
+  fonctionnalité de gestion de \textit{projets}. Les projets sont accessibles
+  en haut à droite de l'écran. Un projet permet de centraliser tout ses 
+  fichiers dans un même répertoire. De plus, il est très facile de basculer 
+  très rapidement d'un projet à un autre, en retrouvrant sa session de travail
+  dans l'était où elle était.
+\end{rstudio}
 
 \section{Import de données depuis un tableur}
 
@@ -1789,12 +1933,33 @@ la fonction \textit{Exporter}.
 La syntaxe est également très simple~:
 
 <<eval=FALSE>>=
-donnees <- read.spss("fichier.sav")
+donnees <- read.spss("fichier.sav", to.data.frame = TRUE)
 @ 
 
 Plusieurs options permettant de contrôler l'importation des données
 sont disponibles. On se reportera à la page d'aide de la fonction pour
-plus d'informations.
+plus d'informations. Il est vivement recommandé d'utiliser systématiquement
+l'option \texttt{to.data.frame=TRUE}.
+
+\subsection{\textsf{Stata}}
+
+Les fichiers générés par \textsf{Stata} sont accessibles depuis \R avec
+la fonction \rfunc{read.dta} de l'extension
+\texttt{foreign}.
+
+La syntaxe est également très simple~:
+
+<<eval=FALSE>>=
+donnees <- read.data("fichier.dta", to.data.frame = TRUE)
+@ 
+
+\begin{astuce}
+ L'importation des dates est parfois mal gérées. Dans ces cas là, l'opération
+ suivante peut fonctionner. Sans garantie néanmoins, il est toujours vivement
+ conseillé de vérifier le résultat obtenu !
+
+ \texttt{donnees\$date <- as.Date(donnees\$Date/(1000*3600*24), origin='1960-01-01')}
+\end{astuce}
 
 \subsection{Fichiers \texttt{dbf}}
 
@@ -1817,7 +1982,7 @@ fonction est détaillée dans la section~\ref{sec_merge}
 
 \R offre de très nombreuses autres possibilités pour accéder aux
 données. Il est ainsi possible d'importer des données depuis d'autres
-applications qui n'ont pas été évoquées (\textsf{Stata},
+applications qui n'ont pas été évoquées (\textsf{Epi Info},
 \textsf{S-Plus}, etc.), de se connecter à un système de base de
 données relationelle type \textsf{MySql}, de lire des données
 \textit{via} \texttt{ODBC} ou des connexions réseau, etc.
@@ -1826,6 +1991,45 @@ Pour plus d'informations on consultera le manuel \textit{R Data Import/Export}~:
 
 \url{http://cran.r-project.org/manuals.html}
 
+\section{Sauver ses données}
+
+\R dispose également de son propre format pour sauvegarder et échanger des 
+données. On peut sauver n'importe quel objet créé avec \R et il est possible de
+sauver plusieurs objets dans un même fichier. L'usage est d'utiliser l'extension
+\texttt{.RData} pour les fichiers de données \R. La fonction à utiliser 
+s'appelle tout simplement \rfunc{save}.
+
+Par exemple, si l'on souhaite sauvegarder son tableau de données \texttt{d} 
+ainsi que les objets \texttt{tailles} et \texttt{poids} dans un fichier 
+\texttt{export.RData} :
+
+<<eval=FALSE>>=
+save(d,tailles,poids,file="export.RData")
+@ 
+
+À tout moment, il sera toujours possible de recharger ces données en mémoire à
+l'aide de la fonction \rfunc{load} :
+
+<<eval=FALSE>>=
+load("export.RData")
+@
+
+\begin{important}
+  Si entre temps vous aviez modifié votre tableau \texttt{d}, vos modifications
+  seront perdues. En effet, si lors du chargement de données, un objet du même 
+  nom existe en mémoire, ce dernier sera remplacé par l'objet importé.
+\end{important}
+
+La fonction \rfunc{save.image} est un raccourci pour sauvergarder tous les 
+objets de la session de travail dans le fichier \texttt{.RData} (un fichier un 
+peu étrange car il n'a pas de nom mais juste une extension). Lors de  la 
+fermeture de \R ou de \textsf{RStudio}, il vous sera demandé si vous souhaitez 
+enregistrer votre session. Si vous répondez \textit{Oui}, c'est cette fonction
+\rfunc{save.image} qui sera appliquée.
+
+<<eval=FALSE>>=
+save.image()
+@
 
 \section{Exporter des données}
 
@@ -1841,8 +2045,6 @@ données vers des formats variés.
   \textsf{Stata}~;
 \item \rfunc{write.dbf}, de l'extension \texttt{foreign}, permet
   d'exporter des données au format \textsf{dBase}~;
-\item \rfunc{save} permet d'enregistrer des objets \R sur le disque
-  pour récupération ultérieure ou sur un autre système.
 \end{itemize}
 
 À nouveau, pour plus de détails on se référera aux pages d'aide de ces
@@ -2698,6 +2900,16 @@ tapply(d$bricol, d$sexe, freq, total=TRUE)
 @ 
 
 
+À noter également, la fonction \rfunc{by} est un équivalent (pour les tableaux
+de données) de \rfunc{tapply}. La présentation des résultats diffère
+légèrement.
+  
+<<>>=
+tapply(d$age, d$sexe, mean)
+by(d$age, d$sexe, mean)
+@
+
+
 
 \section{Recodages}
 \label{sec_recodages}
@@ -2754,7 +2966,7 @@ d$qualif.char[d$qualif.char=="Ouvrier specialise"] <- "Ouvrier"
 @ 
 
 Dans le premier cas, le message d'avertissement indique que toutes les
-modaolités <<~Ouvrier specialise~>> de notre variable
+modalités <<~Ouvrier specialise~>> de notre variable
 \texttt{qualif} ont été remplacées par des valeurs manquantes \texttt{NA}.
 
 Enfin, une variable de type caractères dont les valeurs seraient des
@@ -3865,7 +4077,23 @@ abline(reg, col="red")
 \label{fig_regcad}
 \end{figure}
 
-
+\begin{astuce}
+  On remarquera que le premier argument passé à la fonction \rfunc{lm} a une 
+  syntaxe un peu particulière. Il s'agit d'une \textit{formule}, utilisée de
+  manière générale dans les modèles statistiques. On indique la variable 
+  d'intérêt à gauche et la variable explicative à droite, les deux étant 
+  séparées par un tilde \~{} (obtenu sous \textsf{Windows} en appuyant 
+  simultanément sur les touches \texttt{<Alt Gr>} et \texttt{<2>}). On 
+  remarquera que les noms des colonnes de notre tableau de données ont été 
+  écrites sans guillemets. Dans le cas présent, nous avons calculé une 
+  régression linéaire simple entre deux variables, d'où l'écriture 
+  \texttt{cadres \~{} dipl.sup}. Si nous avions
+  voulu expliquer une variable \texttt{z} par deux variables \texttt{x} et 
+  \texttt{y}, nous aurions écrit \texttt{z \~{} x + y}. Il est possible de 
+  spécifier des modèles encore plus complexes. Pour un aperçu de la syntaxe des
+  formules sous \R, voir 
+  \url{http://ww2.coastal.edu/kingw/statistics/R-tutorials/formulae.html}.
+\end{astuce}
 
 \section{Une variable quantitative et une variable qualitative}
 
@@ -3928,6 +4156,14 @@ t.test(d$age ~ d$hard.rock)
 
 Le test est extrêmement significatif. L'intervalle de confiance à
 95~\% de la différence entre les deux moyennes va de 14,5 ans à 21,8 ans.
+
+\begin{important}
+  La valeur affichée pour \textit{p} est de \texttt{1.611e-07}. Cette valeur 
+  peut paraître étrange pour les non avertis. Cela signifie tout simplement
+  1,611 multiplié par 10 à la puissance -7, autrement dit 0,0000001611. Cette
+  manière de représenter un nombre est couramment appelée \textit{notation
+  scientifique}.
+\end{important}
 
 Nous sommes cependant allés un peu vite en besogne, car nous avons
 négligé une hypothèse fondamentale du test \textit{t}~: les ensembles
@@ -4033,14 +4269,21 @@ suivante~:
 table(d$sport, d$qualreg)
 @ 
 
+Il est d'ailleurs tout à fait possible de croiser trois variables ou plus. Par
+exemple~:
+  
+<<>>=
+table(d$sport,d$cuisine,d$sexe)
+@ 
+
 On n'a cependant que les effectifs, ce qui rend difficile les
 comparaisons. L'extension \questionr \marqr fournit des fonctions
 permettant de calculer les pourcentages lignes, colonnes et totaux
 d'un tableau croisé. 
 
-Les pourcentages lignes s'obtiennent avec la fonction \rfunc{lprop} de
-l'extension \questionr \marqr. Celle-ci s'applique au tableau croisé
-généré par \rfunc{table}~:
+Les pourcentages lignes s'obtiennent avec la fonction
+\rfunc{lprop}. Celle-ci s'applique au tableau croisé généré par
+\rfunc{table}~:
 
 <<>>=
 tab <- table(d$sport, d$qualreg)
@@ -4075,7 +4318,7 @@ ctab
 @ 
 
 Ou bien ponctuellement en passant les mêmes arguments aux fonctions
-\rfunc{print} (pour affichage dans \R) ou \rfunc{copy} (pour export
+\rfunc{print} (pour affichage dans \R) ou \rfunc{clipcopy} (pour export
 vers un logiciel externe)~:
 
 <<>>=
@@ -4129,6 +4372,14 @@ d'autres tableaux croisés. On peut pour cela utiliser la fonction
 cramer.v(tab)
 @ 
 
+Et pour un tableau à 2x2 entrées, il est possible de calculer le test exact de
+Fisher avec la fonction \rfunc{fisher.test}. On peut soit lui passer le
+résultat de \rfunc{table}, soit directement les deux variables à croiser.
+  
+<<>>=
+lprop(table(d$sexe,d$cuisine))
+fisher.test(table(d$sexe,d$cuisine))
+@ 
 
 \subsection{Représentation graphique}
 
@@ -4157,6 +4408,21 @@ correspond au résidu du test du $\chi^2$ correspondant~: les cases en
 rouge sont sous-représentées, les cases en bleu sur-représentées, et
 les cases blanches sont statistiquement proches de l'hypothèse
 d'indépendance.
+
+
+\begin{figure}
+<<>>=
+barplot(cprop(tab,total=FALSE),
+		main="Pratique du sport selon le niveau de qualification")
+@ 
+\caption{Exemple de barres cumulées }
+\label{fig_barplot_cum}
+\end{figure}
+
+Lorsque l'on s'intéresse principalement aux variations d'une variable selon une
+autre, par exemple ici à la pratique du sport selon le niveau de qualification,
+il peut être intéressant de présenter les pourcentages en colonne sous la forme
+de barres cumulées. Voir figure~\ref{fig_barplot_cum} \vpageref{fig_barplot_cum}.
 
 
 
@@ -4299,12 +4565,14 @@ statistiques en tenant compte de la pondération. On citera notamment~:
 \begin{description}
 \item[\rfunc{svymean}, \rfunc{svyvar}, \rfunc{svytotal}] statistiques univariées 
 \item[\rfunc{svytable}] tableaux croisés
+\item[\rfunc{svychisq}] test du $\chi^2$
+\item[\rfunc{svyby}] statistiques selon un facteur
 \item[\rfunc{svyglm}] modèles linéaires généralisés
 \item[\rfunc{svyplot}, \rfunc{svyhist}, \rfunc{svyboxplot}] fonctions graphiques
 \end{description}
 
-D'autres fonctions sont disponibles, comme \texttt{svyratio} ou
-\texttt{svyby}, mais elles ne seront pas abordées ici.
+
+D'autres fonctions sont disponibles, comme \texttt{svyratio}, mais elles ne seront pas abordées ici.
 
 Pour ne rien arranger, ces fonctions prennent leurs arguments sous
 forme de formules, c'est-à-dire pas de la manière habituelle. En
@@ -4357,6 +4625,15 @@ faire un test du $\chi^2$ sur un tableau croisé pondéré, il faut utiliser
 svychisq(~sexe + clso, dw)
 @ 
 
+Le principe de la fonction \rfunc{svyby} est similaire à celui de \rfunc{tapply}
+(voir section \ref{sec_tapply} \vpageref{sec_tapply}). Elle permet de calculer
+des statistiques selon plusieurs sous-groupes définis par un facteur. 
+Par exemple~:
+
+<<>>=
+svyby(~age, ~sexe, dw, svymean)
+@
+
 Enfin, \textsf{survey} est également capable de produire des
 graphiques à partir des données pondérées. Des exemples sont donnés
 figure~\ref{fig_surveyplot} \vpageref{fig_surveyplot}.
@@ -4407,7 +4684,7 @@ texte ou une application externe.
 
 Les tableaux générés par \R (et plus largement, tous les types
 d'objets) peuvent être exportés pour inclusion dans un traitement de
-texte à l'aide de la fonction \rfunc{copy} \marqr de l'extension
+texte à l'aide de la fonction \rfunc{clipcopy} \marqr de l'extension
 \questionr\footnote{Celle-ci nécessite que l'extension \texttt{R2HTML} soit
   également installée sur le système \textit{via}
   \texttt{install.packages("R2HTML",dep=TRUE)}.}.
@@ -4426,7 +4703,7 @@ tab
 \subsection{Copier/coller vers \textsf{Excel} et \textsf{Word} \textit{via} le presse-papier}
 
 La première possibilité est d'utiliser les options par défaut de
-\rfunc{copy}. Celle-ci va alors transformer le tableau (ou l'objet)
+\rfunc{clipcopy}. Celle-ci va alors transformer le tableau (ou l'objet)
 en \texttt{HTML} et placer le résultat dans le presse papier du
 système. Ceci ne fonctionne malheureusement que sous
 \textsf{Windows}\footnote{En fait cela fonctionne aussi sous
@@ -4435,7 +4712,7 @@ système. Ceci ne fonctionne malheureusement que sous
   mais n'a pas pu être testé.}.
 
 <<>>=
-copy(tab)
+clipcopy(tab)
 @ 
 
 On peut ensuite récupérer le résultat dans une feuille \textsf{Excel} en
@@ -4459,12 +4736,12 @@ L'autre possibilité ne nécessite pas de passer par \textsf{Excel}, et
 fonctionne sous \textsf{Word}, \textsf{OpenOffice} et \textsf{LibreOffice }sur
 toutes les plateformes.
 
-Elle nécessite de passer à la fonction \rfunc{copy} l'option
+Elle nécessite de passer à la fonction \rfunc{clipcopy} l'option
 \texttt{file=TRUE} qui enregistre le contenu de l'objet dans un
 fichier plutôt que de le placer dans le presse-papier~:
 
 <<>>=
-copy(tab, file=TRUE)
+clipcopy(tab, file=TRUE)
 @ 
 
 
@@ -4473,7 +4750,7 @@ Par défaut le résultat est placé dans un fichier nommé
 le nom et l'emplacement avec l'option \texttt{filename}~:
 
 <<eval=FALSE>>=
-copy(tab, file=TRUE, filename="exports/tab1.html")
+clipcopy(tab, file=TRUE, filename="exports/tab1.html")
 @ 
 
 On peut ensuite l'intégrer directement dans \textsf{Word} ou dans
@@ -4521,6 +4798,15 @@ résultat dans un traitement de texte ou autre avec un simple
 Des possibilités similaires sont offertes par l'interface sous
 \textsf{Mac OS X}, mais avec des formats proposés un peu différents.
 
+\begin{rstudio}
+  Avec \textsf{RStudio}, les commandes d'export sont situées dans le menu
+  \textit{Plots} qui comporte les entrées \textit{Save Plot as image} et
+  \textit{Save Plot as PDF}. Ces mêmes commandes sont accessibles via le 
+  bouton \textit{Export} situé au dessus du graphique dans le quadrant
+  bas-droit. Les options d'export sont plus importantes que celle de l'interface
+  graphique de base, avec notamment le support du format SVG ou encore la 
+  possibilité de modifier la taille du graphique exporté.
+\end{rstudio}
 
 \subsection{Export avec les commandes de \R}
 
@@ -5044,12 +5330,19 @@ votre navigateur.
 
 Si vous souhaitez rechercher quelque chose dans le contenu de l'aide
 directement dans la console, vous pouvez utiliser la fonction
-\rfunc{help.search}, qui renvoie une liste des pages d'aide contenant
-les termes recherchés. Par exemple~:
+\rfunc{help.search} (ou \rfunc{??} qui est équivalente), qui renvoie une liste 
+des pages d'aide contenant les termes recherchés. Par exemple~:
 
 <<help4,eval=FALSE>>=
-help.search("logistic")
+help.search("logistic") # equivalent a ??logistic
 @
+
+	
+\begin{rstudio}
+  Dans \textsf{RStudio}, les pages d'aide en ligne s'ouvriront dans le quadrant
+  bas-droite sous l'onglet \textit{Help}. Un clic sur l'icône en forme de maison
+  vous affichera la page d'accueil de l'aide.
+\end{rstudio}
 
 \section{Ressources sur le Web}
 
@@ -5475,18 +5768,21 @@ régulièrement. Son seul défaut est d'avoir une interface uniquement anglophon
 Pour avoir un aperçu de l'interface de \textsf{RStudio}, on pourra se référer
 à la page \textit{Screenshots} du site du projet~:
 
-\url{http://www.rstudio.org/screenshots/}
+\url{http://www.rstudio.com/ide/screenshots/}
 
 L'installation de \textsf{RStudio} est très simple, il suffit de se rendre sur
 la page de téléchargement et de sélectionner le fichier correspondant à son
 système d'exploitation :
 
-\url{http://www.rstudio.org/download/desktop}
+\url{http://www.rstudio.com/ide/download/}
 
 L'installation s'effectue ensuite de manière tout à fait classique.
 
+NB : il est préférable d'installer d'abord \R avant de procéder à l'installation de \textsf{RStudio}.
 
+La documentation de \textsf{RStudio} (en anglais) est disponible en ligne à :
 
+\url{http://www.rstudio.com/ide/docs/}
 
 \chapter{Extensions}
 \label{sec_extensions}
@@ -5848,10 +6144,10 @@ c(2,4,6,8)
 
 \begin{solution}{sommevect}
 <<>>=
-chef <- c(1200, 1180, 1750, 2100)
-conjoint <- c(1450, 1870, 1690, 0)
+conjoint1 <- c(1200, 1180, 1750, 2100)
+conjoint2 <- c(1450, 1870, 1690, 0)
 nb.personnes <- c(4, 2, 3, 2)
-(chef + conjoint) / nb.personnes
+(conjoint1 + conjoint2) / nb.personnes
 @ 
 \end{solution}
 
@@ -5859,14 +6155,14 @@ nb.personnes <- c(4, 2, 3, 2)
 
 \begin{solution}{maxvect}
 <<>>=
-chef <- c(1200, 1180, 1750, 2100)
-min(chef)
-max(chef)
-chef.na <- c(1200, 1180, 1750, NA)
-min(chef.na)
-max(chef.na)
-min(chef.na, na.rm=TRUE)
-max(chef.na, na.rm=TRUE)
+conjoint1 <- c(1200, 1180, 1750, 2100)
+min(conjoint1)
+max(conjoint1)
+conjoint1.na <- c(1200, 1180, 1750, NA)
+min(conjoint1.na)
+max(conjoint1.na)
+min(conjoint1.na, na.rm=TRUE)
+max(conjoint1.na, na.rm=TRUE)
 @ 
 \end{solution}
 

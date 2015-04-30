@@ -2,7 +2,7 @@ tmp/
 .Rproj.user
 .Rhistory
 cache/
-intro.Rproj
+*.Rproj
 intro.aux
 intro.idx
 intro.ilg
@@ -14,3 +14,4 @@ intro.tex
 intro.toc
 texput.log
 temp.html
+*~
