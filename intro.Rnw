@@ -897,14 +897,21 @@ c(120, 134, 256, 12)
 @ 
 \end{exo}
 
-\begin{exo}{genseq}
-  Générez les vecteurs suivants chacun de deux manières différentes~:
+\begin{exo}{simplec2}
+  Construire le vecteur suivant~: 
 <<echo=FALSE>>=
-1:4
-c(1:4,8:11)
-1:4*2
+1:9
 @ 
+
+  À partir de ce premier vecteur, générer les deux vecteurs suivants :
+  
+<<echo=FALSE>>=
+1:9 + 100
+1:9 * 2
+@ 
+  
 \end{exo}
+
 
 
 \begin{exo}{sommevect}
@@ -6130,14 +6137,11 @@ c(120, 134, 256, 12)
 @ 
 \end{solution}
 
-\begin{solution}{genseq}
+\begin{solution}{simplec2}
 <<>>=
-c(1,2,3,4)
-1:4
-c(1,2,3,4,8,9,10,11)
-c(1:4, 8:11)
-c(2,4,6,8)
-1:4 * 2
+1:9
+1:9 + 100
+1:9 * 2
 @ 
 \end{solution}
 
