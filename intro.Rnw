@@ -4350,7 +4350,7 @@ d'autres tableaux croisés. On peut pour cela utiliser la fonction
 cramer.v(tab)
 @
 
-Et pour un tableau à 2x2 entrées, il est possible de calculer le test exact de
+Et pour un tableau à $2 \times 2$ entrées, il est possible de calculer le test exact de
 Fisher avec la fonction \rfunc{fisher.test}. On peut soit lui passer le
 résultat de \rfunc{table}, soit directement les deux variables à croiser.
 
@@ -5095,23 +5095,6 @@ help.search("logistic") # equivalent a ??logistic
 De nombreuses ressources existent en ligne, mais la plupart sont en
 anglais.
 
-
-\subsection{Moteur de recherche}
-
-Le fait que le logiciel s'appelle \R ne facilite malheureusement pas
-les recherches sur le Web\ldots La solution à ce problème a été
-trouvée grâce à la constitution d'un moteur de recherche \textit{ad
-  hoc} à partir de Google, nommé \textsf{Rseek}~:
-
-\url{http://www.rseek.org/}
-
-Les requêtes saisies dans \textsf{Rseek} sont exécutées dans des
-corpus prédéfinis liés à \R, notamment les documents et manuels, les
-listes de discussion ou le code source du programme.
-
-Les requêtes devront cependant être formulées en anglais.
-
-
 \subsection{Aide en ligne}
 
 Le site \textsf{R documentation} propose un accès clair et rapide à la
@@ -5167,13 +5150,6 @@ Mais il existe également une FAQ dédiée aux questions liées à
   décrite précédemment.
 \end{astuce}
 
-\paragraph{Le Wiki} est un site dont les pages sont éditées par les
-utilisateurs, à la manière de \textit{Wikipédia}. N'importe quel
-visiteur du site peut ainsi rajouter ou modifier des informations sur
-tel aspect de l'utilisation du logiciel~:
-
-\url{http://wiki.r-project.org/}
-
 \paragraph{R-announce} est la liste de diffusion électronique
 officielle du projet. Elle ne comporte qu'un nombre réduit de messages
 (quelques-uns par mois tout au plus) et diffuse les annonces
@@ -5184,7 +5160,7 @@ suivante~:
 \url{https://stat.ethz.ch/mailman/listinfo/r-announce}
 
 
-\paragraph{R Journal} est la <<~revue~>> officielle du projet \R, qui
+\paragraph{R Journal} est la revue officielle du projet \R, qui
 a succédé début 2009 à la lettre de nouvelles \textit{R News}. Elle
 paraît entre deux et cinq fois par an et contient des informations sur
 les nouvelles versions du logiciel, des articles présentant des
@@ -5211,14 +5187,6 @@ et s'appuyant sur des méthodes statistiques relativement simples~:
 
 \url{http://cran.r-project.org/doc/contrib/Verzani-SimpleR.pdf}
 
-Pour les utilisateurs déjà habitués à \textsf{SAS} ou \textsf{SPSS},
-le livre \textit{R for SAS and SPSS Users} et le document gratuit qui
-en est tiré peuvent être de bonnes ressources, tout comme le site Web
-\textit{Quick-R}~:
-
-\url{http://rforsasandspssusers.com/}
-
-\url{http://www.statmethods.net/}
 
 \subsection{Revue}
 
@@ -5274,6 +5242,23 @@ l'auteur est normalien et docteur en mathématiques\ldots
 \url{http://zoonek2.free.fr/UNIX/48_R_2004/all.html}
 
 
+\subsection{Cours en ligne}
+
+De nombreux cours en ligne existent désormais pour l'apprentissage de \R ou de méthodes statistiques en utilisant \R.
+
+Le site \textit{France Université Numérique} propose plusieurs cours en français, dont un sur l'analyse de données multidimensionnelles :
+
+\url{https://www.fun-mooc.fr/}
+
+En anglais, on trouvera des ressources sur \R sur les principales plateformes de MOOCs. On pourra citer par exemple les cours de la spécialisation \textit{Data science} sur Coursera :
+
+\url{https://www.coursera.org/specializations/jhu-data-science}
+
+Par ailleurs, \textit{Swirl} est une extension qui propose des cours <<~interactifs~>> directement intégrés à \R :
+
+\url{http://swirlstats.com/students.html}
+
+
 \section{Où poser des questions}
 
 La communauté des utilisateurs de \R est très active et en général
@@ -5293,7 +5278,7 @@ Une liste de discussion a été créée spécialement pour permettre aide
 et échanges autour de l'utilisation de \R en sciences sociales. Elle
 est hébergée par le CRU et on peut s'y abonner à l'adresse suivante~:
 
-\url{https://listes.cru.fr/sympa/subscribe/r-soc}
+\url{https://groupes.renater.fr/sympa/subscribe/r-soc}
 
 Grâce aux services offerts par le site \texttt{gmane.org}, la liste
 est également disponible sous d'autres formes (forum Web, blog,
@@ -5336,7 +5321,7 @@ forum avant de poser une question, pour voir si la réponse ne s'y
 trouverait pas déjà.
 
 
-\subsection{Canaux IRC (chat)}
+\subsection{Canal IRC (chat)}
 
 L'IRC, ou \textit{Internet Relay Chat} est le vénérable ancêtre
 toujours très actif des messageries instantanées actuelles. Un canal (en
@@ -5344,7 +5329,7 @@ anglais) est notamment dédié aux échanges autour de \R (\texttt{\#R}).
 
 Si vous avez déjà l'habitude d'utiliser IRC, il vous suffit de pointer
 votre client préféré sur \textsf{Freenode} (\texttt{irc.freenode.net})
-puis de rejoindre l'un des canaux en question.
+puis de rejoindre le canal en question.
 
 Sinon, le plus simple est certainement d'utiliser l'interface Web de
 Mibbit, accessible à l'adresse~:
@@ -5471,10 +5456,7 @@ L'interface par défaut sous \textsf{Windows} est celle présentée
 figure~\ref{fig_RGui} \vpageref{fig_RGui}. Il en existe d'autres,
 plus ou moins sophistiquées, qui vont de la simple coloration
 syntaxique à des interfaces plus complètes se rapprochant de modèles
-du type \textsf{SPSS}. Une liste des projets en cours est disponible
-sur la page suivante~:
-
-\url{http://www.sciviews.org/_rgui/} (en anglais)
+du type \textsf{SPSS}.
 
 On pourra notamment regarder l'extension \textsf{R Commander}, qui propose une
 interface graphique intégrée à \R pour certaines fonctions de traitement et
@@ -5487,7 +5469,7 @@ assez complète et des fonctions d'export de résultats~:
 
 \url{http://rkward.sf.net/}
 
-Par ailleurs, le projet \textsf{RStudio} tend à s'imposer comme l'environnement de
+Cependant, le projet \textsf{RStudio} tend à s'imposer comme l'environnement de
 développement de référence pour \textsf{R}, d'autant qu'il a l'avantage d'être
 libre, gratuit et multiplateforme. Son installation est décrite
 section~\ref{sec_rstudio} \vpageref{sec_rstudio}.
@@ -5640,10 +5622,10 @@ remove.packages("ade4")
 \section{L'extension \questionr}
 \label{sec_questionr}
 
-\questionr est une extension pour R comprenant quelques fonctions
+\questionr est une extension pour \R comprenant quelques fonctions
 potentiellement utiles pour l'utilisation du logiciel en sciences
 sociales, ainsi que différents jeux de données. Elle est développée en
-collaboration avec François Briatte.
+collaboration avec François Briatte et Joseph Larmarange.
 
 
 \subsection{Installation}
@@ -5663,7 +5645,7 @@ Si vous souhaitez utiliser la toute dernière version en ligne sur Github, vous
 pouvez utiliser la fonction \rfunc{install\_github}, de l'extension \textsf{devtools}~:
 
 <<instgithubquestionr,eval=FALSE>>=
-install_github("questionr", "juba")
+install_github("juba/questionr")
 @
 
 L'extension s'utilise alors de manière classique grâce à l'instruction
