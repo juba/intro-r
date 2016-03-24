@@ -2275,14 +2275,15 @@ réordonnancement des niveaux d'un facteur. Cette fonction, nommée
 \rfunc{iorder}, vous permet de réordonner les modalités de manière graphique
 et de générer le code R correspondant. 
 
-Dans l'exemple précédant, si vous exécutez~:
+Vous pouvez lancer \rfunc{iorder} directement depuis un script ou la console. Dans l'exemple précédent, vous pouvez exécuter :
 
 <<launchiorder, eval=FALSE>>=
-iorder(d, qualif)
+iorder(d$qualif)
 @ 
 
-\R devrait lancer votre navigateur et afficher une page
-semblable à celle de la figure~\ref{fig_interface_iorder}, \vpageref{fig_interface_iorder}.
+Avec une version récente de RStudio, vous pouvez également sélectionner le menu \textit{Addins}, puis choisir \textit{Levels ordering}.
+
+Dans les deux cas, une interface semblable à celle de la figure~\ref{fig_interface_iorder}, \vpageref{fig_interface_iorder} devrait s'afficher soit directement dans RStudio, soit dans votre navigateur Web.
 
 \begin{figure}
   \begin{center}
@@ -2292,9 +2293,9 @@ semblable à celle de la figure~\ref{fig_interface_iorder}, \vpageref{fig_interf
   \label{fig_interface_iorder}
 \end{figure}
 
-Vous pouvez alors déplacer les modalités par glisser-déposer, vérifier le
-résultat dans l'onglet \textit{Check} et, une fois le résultat satisfaisant,
-récupérer le code généré pour l'inclure dans votre script\footnotemark.
+Vous pouvez alors choisir la variable à réordonner dans l'onglet \textit{Variable et paramètres}, déplacer les modalités par glisser-déposer dans l'onglet \textit{Réordonner}, et vérifier le
+résultat dans l'onglet \textit{Code et résultat}. Une fois le résultat satisfaisant,
+cliquez sur \textit{Done} : si vous êtes sous RStudio le code généré sera directement inséré dans votre script actuel à l'emplacement du curseur. Sinon, ce code sera affiché dans la console et vous pourrez le copier/coller pour l'inclure dans votre script\footnotemark.
 
 \footnotetext{Le fonctionnement des interfaces interactives de \questionr est
   décrit plus en détail section~\ref{sec_interfaces}, \vpageref{sec_interfaces}.}
@@ -3058,13 +3059,13 @@ table(d$age20)
 \subsubsection{Interface interactive}
 
 \questionr \marqr propose une interface interactive à la fonction
-\texttt{cut}, nommée \rfunc{icut}. Elle s'utilise de la manière suivante~:
+\texttt{cut}, nommée \rfunc{icut}. Elle s'utilise soit dans RStudio via le menu \textit{Addins}, puis \textit{Variable cutting}, soit depuis la console ou un script de la manière suivante~:
 
 <<launchicut,eval=FALSE>>=
-icut(d,age)
+icut(d$age)
 @ 
 
-\R devrait lancer votre navigateur et afficher une page
+\R devrait alors afficher une interface
 semblable à celle de la figure~\ref{fig_interface_icut}, \vpageref{fig_interface_icut}.
 
 \begin{figure}
@@ -3075,13 +3076,10 @@ semblable à celle de la figure~\ref{fig_interface_icut}, \vpageref{fig_interfac
   \label{fig_interface_icut}
 \end{figure}
 
-Vous pouvez alors indiquer les limites de vos classes ainsi que quelques
-options complémentaires. Ces limites sont représentées graphiquement sur
-l'histogramme de la variable d'origine.
-
-L'onglet \textit{Check} affiche un tri à plat et un graphique en barres de la
-nouvelle variable.  Une fois le résultat satisfaisant, vous pouvez 
-récupérer le code généré pour l'inclure dans votre script\footnotemark.
+Vous pouvez alors choisir la variable à découper dans l'onglet \textit{Variable et paramètres},   indiquer les limites de vos classes ainsi que quelques
+options complémentaires dans l'onglet \textit{Découpage en classes}, et vérifier le
+résultat dans l'onglet \textit{Code et résultat}. Une fois le résultat satisfaisant,
+cliquez sur \textit{Done} : si vous êtes sous RStudio le code généré sera directement inséré dans votre script actuel à l'emplacement du curseur. Sinon, ce code sera affiché dans la console et vous pourrez le copier/coller pour l'inclure dans votre script\footnotemark.
 
 \footnotetext{Le fonctionnement des interfaces interactives de \questionr est
   décrit plus en détail section~\ref{sec_interfaces}, \vpageref{sec_interfaces}.}
@@ -3183,29 +3181,23 @@ table(d$trav.satisf.reg)
 
 \questionr \marqr propose une interface interactive pour le recodage d'une
 variable qualitative (renommage et regroupement de modalités). Cette fonction,
-nommée \rfunc{irec}, s'utilise de la manière suivante~:
+nommée \rfunc{irec}, s'utilise depuis RStudio via le menu \textit{Addins}, puis \textit{Levels recoding}, soit depuis la console de la manière suivante~:
 
 <<launchirec,eval=FALSE>>=
-irec(d,qualif)
+irec(d$qualif)
 @ 
 
-\R devrait lancer votre navigateur et afficher une page
-semblable à celle de la figure~\ref{fig_interface_irec}, \vpageref{fig_interface_irec}.
+Dans les deux cas, une interface semblable à celle de la figure~\ref{fig_interface_irec}, \vpageref{fig_interface_irec} devrait s'afficher soit directement dans RStudio, soit dans votre navigateur Web.
 
 Vous pouvez alors sélectionner différentes options, et pour chaque ancienne
 modalité, indiquer la nouvelle valeur correspondante. Pour regrouper des
 modalités, il suffit de leur assigner des nouvelles valeurs identiques. Dans
 tous les cas n'hésitez pas à expérimenter, l'interface se contente de générer
-du code R à copier/coller dans votre script mais ne l'exécute pas, et ne
+du code R mais ne l'exécute pas, et ne
 modifie donc jamais vos données~!\footnotemark
 
 \footnotetext{Le fonctionnement des interfaces interactives de \questionr est
   décrit plus en détail section~\ref{sec_interfaces}, \vpageref{sec_interfaces}.}
-
-L'onglet \textit{Check} affiche un tri croisé de l'ancienne et de la nouvelle
-variable pour vérifier que le recodage est correct. Une fois le résultat
-satisfaisant, vous pouvez récupérer le code généré dans l'onglet \textit{Code}
-pour l'inclure dans votre script.
 
 
 \subsection{Variables calculées}
@@ -5947,7 +5939,7 @@ Le même document est également accessible en ligne sur \textsf{R documentation
 le code R correspondant à des opérations courantes. Ces interfaces sont en
 fait des applications Web\footnote{Applications Web développées grâce au
   \textit{framework} \textsf{Shiny}~: \url{http://www.rstudio.com/shiny/}.}
-qui s'ouvrent dans le navigateur de l'utilisateur.
+qui s'ouvrent soit directement dans RStudio, soit dans le navigateur Web de l'utilisateur.
 
 L'exemple suivant permettra de mieux comprendre ce dont il s'agit~: après
 installation de \questionr, exécutez le code suivant dans une session \R~:
@@ -5955,11 +5947,16 @@ installation de \questionr, exécutez le code suivant dans une session \R~:
 <<launchirecannexes,eval=FALSE>>=
 library(questionr)
 data(hdv2003)
-irec(hdv2003, sexe)
 @
 
-La dernière commande devrait lancer votre navigateur et afficher une page
-semblable à celle de la figure~\ref{fig_interface_irec}, \vpageref{fig_interface_irec}.
+À partir de là, vous pouvez soit aller dans le menu \textit{Addins} et choisir \textit{Levels recoding}, soit exécuter le code suivant dans la console :
+
+<<launchirecannexes2,eval=FALSE>>=
+irec(hdv2003$sexe)
+@
+
+
+Une interface semblable à celle de la figure~\ref{fig_interface_irec}, \vpageref{fig_interface_irec} devrait alors s'afficher soit directement dans RStudio, soit dans votre navigateur Web.
 
 \begin{figure}
   \begin{center}
@@ -5974,23 +5971,15 @@ La fonction \rfunc{irec} a pour objet de faciliter le recodage d'une variable
 qualitative. Ici, nous souhaitons recoder la variable \texttt{sexe} du jeu de
 données \texttt{hdv2003}.
 
-L'interface se divise en deux parties~: 
+L'interface se divise en trois onglet~: 
 
 \begin{itemize}
-\item en haut, vous pouvez choisir le nom de
-la nouvelle variable, le style de recodage, et indiquer si vous souhaitez que
-cette nouvelle variable soit convertie en facteur. Puis, dans une deuxième
-zone, des champs de formulaires listent les valeurs de la variable et vous
-permettent de les modifier.
-\item en-dessous se trouvent deux onglets, nommés \textit{Code} et
-  \textit{Check}\footnotemark. Dans l'onglet \textit{Code} se trouve le code
-  \R correspondant aux données remplies dans le formulaire au-dessus. Dans
-  l'onglet \textit{Check} se trouve un tableau croisé de l'ancienne et de la
-  nouvelle variable vous permettant de vérifier que le résultat est bien celui attendu.
+\item dans l'onglet \textit{Variable et paramètres}, vous pouvez sélectionner la variable à recoder, choisir le nom de la nouvelle variable, le style de recodage, et indiquer si vous souhaitez que
+cette nouvelle variable soit convertie en facteur. 
+\item dans l'onglet \textit{Recodages}, des champs de formulaires listent les valeurs de la variable et vous permettent de les modifier.
+\item enfin, dans l'onglet \textit{Code et résultat}, vous trouverez à la fois le code
+  \R correspondant aux données remplies dans le formulaire précédent, ainsi qu'un tableau croisé de l'ancienne et de la nouvelle variable vous permettant de vérifier que le résultat est bien celui attendu.
 \end{itemize}
-
-\footnotetext{L'interface est uniquement disponible en anglais car il n'y a pas
-  à ce jour de mécanisme pratique de traduction des applications utilisant \textsf{Shiny}.}
 
 Vous remarquerez que le code généré se met à jour automatiquement, au fur et à
 mesure que vous changez les options ou que vous modifiez des valeurs.
@@ -6003,12 +5992,7 @@ expérimenter librement, par contre c'est-à-vous de copier le code généré, d
 l'insérer dans votre script et de l'exécuter.
 \end{important}
 
-Une fois votre recodage terminé, vous pouvez copiez manuellement le code
-généré ou cliquer sur le bouton \textit{Copy code to clipboard} pour récupérer
-ce code et le coller ensuite dans votre fichier script. À noter que lorsque vous
-cliquez sur le bouton \textit{Done, close this interface}, le code généré est
-affiché dans votre session R, vous pouvez donc le récupérer pour votre script
-même si vous avez oublié de le copier auparavant.
+Une fois votre recodage terminé, cliquez sur le bouton \textit{Done}. Si vous êtes sous RStudio, le code R généré est alors directement inséré dans votre script, à l'emplacement actuel du curseur. Sinon, il est affiché dans la console et vous pouvez donc le copier/coller pour l'inclure dans votre script. À noter que vous devez alors exécuter le code vous-mêmes si vous souhaitez que votre recodage soit appliqué.
 
 Le fonctionnement est le même pour les autres fonctions proposant une
 interface interactive, notamment \texttt{iorder} pour réordonner les niveaux
