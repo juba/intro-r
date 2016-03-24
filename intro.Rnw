@@ -1586,14 +1586,12 @@ plot(table(d$freres.soeurs), main="Nombre de frères, soeurs, demi-frères et de
 Pour les autres types de variables qualitatives, on privilégiera les
 diagrammes de Cleveland, obtenus avec la fonction \rfunc{dotchart}. On doit
 appliquer cette fonction au tri à plat de la variable, obtenu avec la fonction
-\rfunc{table}\footnote{Pour des raisons liées au fonctionnement interne de la
-  fonction \rfunc{dotchart}, on doit l'appliquer à la transposition du tri à
-  plat obtenu, d'où l'appel à la fonction \rfunc{t}.}. Le résultat se trouve
+\rfunc{table}. Le résultat se trouve
 figure~\ref{fig_dotchart} \vpageref{fig_dotchart}.
 
 \begin{figure}
-<<>>=
-dotchart(t(table(d$clso)), main="Sentiment d'appartenance à une classe sociale", pch=19)
+<<warning=FALSE>>=
+dotchart(table(d$clso), main="Sentiment d'appartenance à une classe sociale", pch=19)
 @
 \caption{Exemple de diagramme de Cleveland}
 \label{fig_dotchart}
@@ -1605,7 +1603,7 @@ préférable d'ordonner le tri à plat obtenu à l'aide de la fonction
 \rfunc{sort} (voir figure~\ref{fig_dotchartsort} \vpageref{fig_dotchartsort}).
 
 \begin{figure}
-<<>>=
+<<warning=FALSE>>=
 dotchart(sort(table(d$qualif)), main="Niveau de qualification")
 @
 \caption{Exemple de diagramme de Cleveland ordonné}
