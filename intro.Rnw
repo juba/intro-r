@@ -1904,29 +1904,13 @@ en argument~:
 donnees <- read.xport("fichier.xpt")
 @ 
 
-En ce qui concerne les fichiers au format \textsf{SAS} natif, il
-existe des fonctions permettant de les importer, mais elles
-nécessitent d'avoir une installation de \textsf{SAS} fonctionnelle sur
-sa machine (il s'agit des fonctions \rfunc{read.ssd} de l'extension
-\textsf{foreign}, et \rfunc{sas.get} de l'extension \textsf{Hmisc}).
-
-Si on ne dispose que des fichiers au format \textsf{SAS} natif, le
-plus simple est d'utiliser l'application \textsf{SAS System Viewer},
-qui permet de lire des fichiers \textsf{SAS} natif, de les visualiser
-et de les enregistrer dans un format texte. Cette application est
-téléchargeable gratuitement, mais ne fonctionne que sous
-\textsf{Windows}\footnote{Ou sous \textsf{Linux} et \textsf{Mac OS X}
-  avec \textsf{wine}.}~:
-
-\url{http://www.sas.com/apps/demosdownloads/setupcat.jsp?cat=SAS+System+Viewer}
-
-Une fois le fichier de données au format \textsf{SAS} natif ouvert on
-peut l'enregistrer au format texte tabulé. L'import dans \R se fait
-alors avec la commande suivante :
+En ce qui concerne les fichiers au format \textsf{SAS} natif, on pourra utiliser la fonction \rfunc{read\_sas} de l'extension \texttt{haven}. Celle-ci est capable de lire directement les fichiers au format \texttt{sas7bdat} et \texttt{sas7bcat} :
 
 <<eval=FALSE>>=
-donnees <- read.delim("fichier.txt", na.strings=".")
-@
+library(haven)
+donnees <- read_sas("fichier.sas7bdat")
+@ 
+
 
 
 \subsection{\textsf{SPSS}}
@@ -1947,6 +1931,8 @@ Plusieurs options permettant de contrôler l'importation des données
 sont disponibles. On se reportera à la page d'aide de la fonction pour
 plus d'informations. Il est vivement recommandé d'utiliser systématiquement
 l'option \texttt{to.data.frame=TRUE}.
+
+Une alternative est fournie par l'extension \texttt{haven} et ses fonctions \rfunc{read\_por} et \rfunc{read\_sav}.
 
 \subsection{\textsf{Stata}}
 
