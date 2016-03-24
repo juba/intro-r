@@ -116,8 +116,8 @@
 }
 
 %%%% EXERCICES
-    
-\newcounter{ex} 
+
+\newcounter{ex}
 \renewcommand\theex{\thechapter.\arabic{ex}}
 
 \newenvironment{exo}[1]{%
@@ -177,7 +177,7 @@ opts_chunk$set(fig.path="tmp/",
 \maketitle
 \thispagestyle{empty}
 
-\pagestyle{fancy} 
+\pagestyle{fancy}
 \renewcommand{\chaptermark}[1]{\markboth{#1}{}}
 \renewcommand{\sectionmark}[1]{\markright{\thesection.\ #1}}
 \fancyhead{}
@@ -363,10 +363,10 @@ que soit le système d'exploitation que vous utilisez (\textsf{Linux},
   développement de référence pour \R, d'autant qu'il a l'avantage d'être
   libre, gratuit et multiplateforme. Son installation est décrite
   section~\ref{sec_rstudio} \vpageref{sec_rstudio}.
-  
-  Les astuces et informations spécifiques à \textsf{RStudio} seront présentées 
+
+  Les astuces et informations spécifiques à \textsf{RStudio} seront présentées
   tout au long de ce document dans des encadrés similaires à celui-là.
-  
+
   \textsf{RStudio} peut tout à fait être utilisé pour découvrir et démarrer
   avec \R.
 \end{rstudio}
@@ -421,21 +421,21 @@ commande.
 \end{figure}
 
 \begin{rstudio}
-  L'interface de \textsf{RStudio} se présente différement (voir 
-  figure~\ref{fig_RStudio}). Elle est divisée en quatre parties. Le quadrant 
+  L'interface de \textsf{RStudio} se présente différement (voir
+  figure~\ref{fig_RStudio}). Elle est divisée en quatre parties. Le quadrant
   haut-gauche est dédié aux fichiers sources (scripts). Le quadrant haut-droite
   fournit des informations sur vos données en mémoire et votre historique. Le
-  quadrant bas-droite vous permet naviguer dans votre répertoire de travail, 
-  affiche l'aide, vos graphiques et les extensions disponibles. Enfin, la 
+  quadrant bas-droite vous permet naviguer dans votre répertoire de travail,
+  affiche l'aide, vos graphiques et les extensions disponibles. Enfin, la
   \textit{console} est affichée en bas à gauche. C'est elle qui nous intéresse
-  pour le moment. Nous aborderons les autres quadrants plus loin dans ce 
+  pour le moment. Nous aborderons les autres quadrants plus loin dans ce
   document.
 \end{rstudio}
 
 Nous allons tout de suite lui fournir une première commande~:
 
 <<>>=
-2 + 3  
+2 + 3
 @
 
 Bien, nous savons désormais que \R sait faire les additions à un
@@ -460,7 +460,7 @@ opérations arithmétiques de base~:
 \end{astuce}
 
 \begin{rstudio}
-  Sous \textsf{RStudio}, l'onglet \textit{History} du quadrant haut-droite vous 
+  Sous \textsf{RStudio}, l'onglet \textit{History} du quadrant haut-droite vous
   permet de consulter l'historique des commandes que vous avez transmises à \R.
   Un double-clic sur une commande la recopiera automatiquement dans la console.
   Vous pouvez également sélectionner une ou plusieurs commandes puis cliquer sur
@@ -482,10 +482,10 @@ calculer \texttt{4*3}:
 On peut alors compléter la commande en saisissant simplement
 \texttt{3}~:
 
-<<incomp2,eval=TRUE,prompt=TRUE,tidy=FALSE>>=    
+<<incomp2,eval=TRUE,prompt=TRUE,tidy=FALSE>>=
 4 *
 3
-@ 
+@
 
 \begin{astuce}
   Pour des commandes plus complexes, il arrive parfois qu'on se
@@ -501,11 +501,11 @@ lorsque l'on saisit les commandes dans \R. Les trois commandes
 suivantes sont donc équivalentes, mais on privilégie en général la
 deuxième pour des raisons de lisibilité du code.
 
-<<espaces,eval=FALSE,prompt=TRUE,tidy=FALSE>>=  
+<<espaces,eval=FALSE,prompt=TRUE,tidy=FALSE>>=
 10+2
 10 + 2
 10       +       2
-@ 
+@
 
 
 
@@ -569,7 +569,7 @@ foo
   différents. On évitera également d'utiliser des caractères accentués
   dans les noms d'objets, et comme les espaces ne sont pas autorisés
   on pourra les remplacer par un point ou un tiret bas.
-  
+
 Enfin, signalons que certains noms courts sont réservés par \R pour
 son usage interne et doivent être évités. On citera notamment
 \texttt{c, q, t, C, D, F, I, T, max, min}\ldots
@@ -609,9 +609,9 @@ Dans le cas où notre vecteur serait beaucoup plus grand, et
 comporterait par exemple 40 tailles, on aurait le résultat suivant~:
 
 <<echo=FALSE>>=
-tailles <- c(144, 168, 179, 175, 182, 188, 167, 152, 163, 145, 176, 155, 
-156, 164, 167, 155, 157, 185, 155, 169, 124, 178, 182, 195, 151, 
-185, 159, 156, 184, 172, 156, 160, 183, 148, 182, 126, 177, 159, 
+tailles <- c(144, 168, 179, 175, 182, 188, 167, 152, 163, 145, 176, 155,
+156, 164, 167, 155, 157, 185, 155, 169, 124, 178, 182, 195, 151,
+185, 159, 156, 184, 172, 156, 160, 183, 148, 182, 126, 177, 159,
 143, 161, 180, 169, 159, 185, 160)
 @
 
@@ -662,7 +662,7 @@ imc
   soit utiliser un vecteur et un chiffre (dans des opérations du type
   \texttt{v * 2} ou \texttt{v + 10}), soit à utiliser des vecteurs de
   même longueur (dans des opérations du type \texttt{u + v}).
-  
+
   Si on utilise des vecteurs de longueur différentes, on peut avoir
   quelques surprises\footnotemark.
 \end{remarque}
@@ -702,12 +702,12 @@ maîtriser). Nous en reparlerons section~\ref{sec_indexation}
 \vpageref{sec_indexation}.
 
 \begin{rstudio}
-  Sous \textsf{RStudio}, vous avez dû remarquer que ce dernier effectue une 
+  Sous \textsf{RStudio}, vous avez dû remarquer que ce dernier effectue une
   coloration syntaxique. Lorsque vous tapez une commande, les valeurs numériques
-  sont affichées dans une certaine couleur, les valeurs textuelles dans une 
+  sont affichées dans une certaine couleur, les valeurs textuelles dans une
   autre et les noms des fonctions dans une troisième. De plus, si vous tapez une
-  parenthèse ouvrante, \textsf{RStudio} va créer automatiquement après le 
-  curseur la parenthèse fermante correspondante (de même avec les guillements). 
+  parenthèse ouvrante, \textsf{RStudio} va créer automatiquement après le
+  curseur la parenthèse fermante correspondante (de même avec les guillements).
   De plus, si vous placez le curseur juste après une parenthèse fermante, la
   parenthèse ouvrante correspondante sera surlignée, ce qui sera bien pratique
   lors de la rédaction de commandes complexes.
@@ -771,7 +771,7 @@ Reprenons l'exemple des tailles précédent~:
 
 <<>>=
 tailles <- c(167, 192, 173, 174, 172, 167, 171, 185, 163, 170)
-@ 
+@
 
 Imaginons que le deuxième enquêté n'ait pas voulu nous répondre. Nous
 avons alors dans notre vecteur une valeur manquante. Celle-ci est
@@ -785,7 +785,7 @@ Recalculons notre taille moyenne~:
 
 <<>>=
 mean(tailles)
-@ 
+@
 
 Et oui, par défaut, \R renvoie \texttt{NA} pour un grand nombre de
 calculs (dont la moyenne) lorsque les données comportent une valeur
@@ -794,7 +794,7 @@ un paramètre supplémentaire à la fonction \rfunc{mean}, nommé \texttt{na.rm}
 
 <<>>=
 mean(tailles, na.rm=TRUE)
-@ 
+@
 
 Positionner le paramètre \texttt{na.rm} à \texttt{TRUE} (vrai) indique
 à la fonction \rfunc{mean} de ne pas tenir compte des valeurs
@@ -841,15 +841,15 @@ On peut rajouter les fonctions de base suivantes~:
 \end{center}
 
 \begin{rstudio}
-  Autre outil bien utile de \textsf{RStudio}, l'auto-complétion. Tapez les 
-  premières lettres d'une fonction, par exemple \texttt{me} puis appuyez sur la 
+  Autre outil bien utile de \textsf{RStudio}, l'auto-complétion. Tapez les
+  premières lettres d'une fonction, par exemple \texttt{me} puis appuyez sur la
   touche \texttt{<Tabulation>}. \textsf{RStudio} affichera la liste des fonctions
   dont le nom commence par \texttt{me} ainsi qu'un court descriptif de chacune.
-  Un appui sur la touche \textit{Entrée} provoquera la saisie du nom complet de 
+  Un appui sur la touche \textit{Entrée} provoquera la saisie du nom complet de
   la fonction choisie. Vous pouvez également utiliser l'auto-complétion pour
-  retrouver un objet que vous avez créé --- par exemple, appuyez sur la touche 
+  retrouver un objet que vous avez créé --- par exemple, appuyez sur la touche
   \texttt{<Tabulation>} après avoir saisi \texttt{mean(t} --- ou bien pour retrouver
-  un argument nommé d'une fonction --- par exemple, appuyez sur la touche 
+  un argument nommé d'une fonction --- par exemple, appuyez sur la touche
   \texttt{<Tabulation>} après avoir saisi \texttt{mean(taille,}.
 \end{rstudio}
 
@@ -863,7 +863,7 @@ fonction)~:
 
 <<eval=FALSE>>=
 help("fonction")
-@ 
+@
 
 Ou, de manière équivalente, \texttt{?fonction}\footnote{L'utilisation
   du raccourci \texttt{?fonction} ne fonctionne pas pour certains
@@ -891,25 +891,25 @@ décrites dans l'annexe~\ref{sec_aide}, page~\pageref{sec_aide}.
 
 
 \begin{exo}{simplec}
-  Construire le vecteur suivant~: 
+  Construire le vecteur suivant~:
 <<echo=FALSE>>=
 c(120, 134, 256, 12)
-@ 
+@
 \end{exo}
 
 \begin{exo}{simplec2}
-  Construire le vecteur suivant~: 
+  Construire le vecteur suivant~:
 <<echo=FALSE>>=
 1:9
-@ 
+@
 
   À partir de ce premier vecteur, générer les deux vecteurs suivants :
-  
+
 <<echo=FALSE>>=
 1:9 + 100
 1:9 * 2
-@ 
-  
+@
+
 \end{exo}
 
 
@@ -921,7 +921,7 @@ c(120, 134, 256, 12)
 conjoint1 <- c(1200, 1180, 1750, 2100)
 conjoint2 <- c(1450, 1870, 1690, 0)
 nb.personnes <- c(4, 2, 3, 2)
-@ 
+@
 Calculez le revenu total par personne du ménage.
 \end{exo}
 
@@ -930,12 +930,12 @@ Calculez le revenu total par personne du ménage.
   maximum parmi ceux du premier conjoint~:
 <<eval=FALSE>>=
 conjoint1 <- c(1200, 1180, 1750, 2100)
-@ 
+@
   Recommencer avec les revenus suivants, parmi lesquels l'un des
   enquêtés n'a pas voulu répondre~:
 <<eval=FALSE>>=
 conjoint1.na <- c(1200, 1180, 1750, NA)
-@ 
+@
 \end{exo}
 
 
@@ -972,7 +972,7 @@ commande suivante~:
 \begin{greyverb}
 \begin{verbatim}
 2+2
-\end{verbatim} 
+\end{verbatim}
 \end{greyverb}
 
 \footnotetext{Les indications données ici concernent l'interface par
@@ -986,7 +986,7 @@ suivantes ont dû faire leur apparition~:
 
 <<exec,tidy=FALSE>>=
 2+2
-@ 
+@
 
 Voici donc comment soumettre rapidement à \R les commandes saisies dans
 votre fichier. Vous pouvez désormais l'enregistrer, l'ouvrir plus
@@ -1009,16 +1009,16 @@ possibilités pour soumettre des commandes à \R~:
 
 La plupart du travail sous \R consistera donc à éditer un ou plusieurs
 fichiers de commandes et à envoyer régulièrement les commandes saisies
-à \R en utilisant les raccourcis clavier \textit{ad hoc}. 
+à \R en utilisant les raccourcis clavier \textit{ad hoc}.
 
 \begin{rstudio}
-  Les commandes sont légèrement différentes avec \textsf{RStudio} mais le 
-  principe est le même. Pour créer un nouveau script \R, faire \textit{File > 
+  Les commandes sont légèrement différentes avec \textsf{RStudio} mais le
+  principe est le même. Pour créer un nouveau script \R, faire \textit{File >
   New > R Script}. Votre nouveau fichier apparaitra dans le quadrant haut-gauche.
   Pour exécuter une ou plusieurs lignes de code, sélectionnez les lignes en
   question puis cliquez sur l'icône \textit{Run} ou bien appuyez simultanément
-  sur les touches \texttt{<Ctrl>} et \texttt{<Entrée>}. 
-  
+  sur les touches \texttt{<Ctrl>} et \texttt{<Entrée>}.
+
   Pour plus d'astuces (en anglais) : \url{http://www.rstudio.com/ide/docs/using/source}
 \end{rstudio}
 
@@ -1041,7 +1041,7 @@ débuter par \texttt{\#\#}~:
 <<commentaire1,prompt=FALSE,eval=FALSE,tidy=FALSE>>=
 ## Tableau croisé de la CSP par le nombre de livres lus
 ## Attention au nombre de non réponses !
-@ 
+@
 
 On peut aussi créer des commentaires pour une ligne en cours~:
 
@@ -1060,7 +1060,7 @@ tard.
 \begin{rstudio}
   Avec \textsf{RStudio}, vous pouvez également utiliser les commentaires pour
   créer des sections au sein de votre script et naviguer plus rapidement.
-  
+
   Voir (en anglais) : \url{http://www.rstudio.com/ide/docs/using/code_folding}
 \end{rstudio}
 
@@ -1081,14 +1081,14 @@ Pour pouvoir utiliser ces données, il faut d'abord charger l'extension
 
 <<>>=
 library(questionr)
-@ 
+@
 
 Puis indiquer à \R que nous souhaitons accéder au jeu de données à
 l'aide de la commande \rfunc{data}~:
 
 <<>>=
 data(hdv2003)
-@ 
+@
 
 Bien. Et maintenant, elles sont où mes données ? Et bien elles se
 trouvent dans un objet nommé \texttt{hdv2003} désormais accessible
@@ -1096,7 +1096,7 @@ directement. Essayons de taper son nom à l'invite de commande~:
 
 <<eval=FALSE>>=
 hdv2003
-@ 
+@
 
 Le résultat (non reproduit ici) ne ressemble pas forcément à
 grand-chose\ldots Il faut se rappeler que par défaut, lorsqu'on lui
@@ -1114,7 +1114,7 @@ appelés des \textit{data frames}, ou tableaux de données. Ils peuvent
 
 <<>>=
 d <- hdv2003
-@  
+@
 
 va entraîner la copie de l'ensemble de nos données dans un nouvel
 objet nommé \texttt{d}, ce qui peut paraître parfaitement inutile mais
@@ -1134,7 +1134,7 @@ library(questionr)
 ## Jeu de données hdv2003
 data(hdv2003)
 d <- hdv2003
-@ 
+@
 
 
 \section{Inspecter les données}
@@ -1156,14 +1156,14 @@ que nous avons bien 2000 lignes et 20 colonnes~:
 nrow(d)
 ncol(d)
 dim(d)
-@ 
+@
 
 La fonction \rfunc{names} donne les noms des colonnes de notre
 tableau, c'est-à-dire les noms des variables~:
 
 <<>>=
 names(d)
-@ 
+@
 
 La fonction \rfunc{str} est plus complète. Elle liste les différentes
 variables, indique leur type et donne le cas échéant des informations
@@ -1172,7 +1172,7 @@ par cette variable~:
 
 <<>>=
 str(d)
-@ 
+@
 
 La première ligne nous informe qu'il s'agit bien d'un tableau de
 données avec 2000 observations et 20 variables. Vient ensuite la liste
@@ -1187,7 +1187,7 @@ possibles~: \texttt{Homme} et \texttt{Femme}. Ce type de variable est
 décrit plus en détail section~\ref{sec_factor} \vpageref{sec_factor}.
 
 \begin{astuce}
-  La fonction \rfunc{str} peut s'appliquer à n'importe quel type d'objet. C'est 
+  La fonction \rfunc{str} peut s'appliquer à n'importe quel type d'objet. C'est
   un excellent moyen de connaître la structure d'un objet.
 \end{astuce}
 
@@ -1206,7 +1206,7 @@ sous la forme d'une fenêtre de type tableur, \textit{via} la fonction \rfunc{ed
 
 <<eval=FALSE>>=
 edit(d)
-@ 
+@
 
 La fenêtre qui s'affiche permet de naviguer dans le tableau, et même
 d'éditer le contenu des cases et donc de modifier les données. Lorsque
@@ -1218,7 +1218,7 @@ un nouveau tableau~:
 
 <<eval=FALSE>>=
 d.modif <- edit(d)
-@  
+@
 
 ou en remplaçant directement le contenu de \texttt{d}\footnote{Dans ce
   cas on peut utiliser la fonction \rfunc{fix} sous la forme
@@ -1226,7 +1226,7 @@ ou en remplaçant directement le contenu de \texttt{d}\footnote{Dans ce
 
 <<eval=FALSE>>=
 d <- edit(d)
-@  
+@
 
 \begin{important}
   La fonction \rfunc{edit} peut être utile pour un avoir un aperçu
@@ -1242,7 +1242,7 @@ d <- edit(d)
   Sous \textsf{RStudio}, la liste des objets en mémoire est affichée dans le
   quadrant haut-droite sous l'onglet \textit{Workspace}. Un clic sur un tableau
   de données permet d'afficher son contenu sous un onglet dédié dans le quadrant
-  haut-gauche. Cette manière de procéder est plus simple que le recours à la 
+  haut-gauche. Cette manière de procéder est plus simple que le recours à la
   fonction \rfunc{edit}.
 \end{rstudio}
 
@@ -1259,7 +1259,7 @@ l'opérateur \rfunc{\$}, suivi du nom de la variable, comme ceci~:
 
 <<>>=
 d$sexe
-@ 
+@
 
 On constate alors que \R a bien accédé au contenu de notre variable
 \texttt{sexe} du tableau \texttt{d} et a affiché son contenu,
@@ -1273,14 +1273,14 @@ par la variable. On peut leur passer en argument le nombre d'éléments
 <<>>=
 head(d$sport)
 tail(d$age,10)
-@ 
+@
 
 À noter que ces fonctions marchent aussi pour afficher les lignes du
 tableau \texttt{d}~:
 
 <<>>=
 head(d,2)
-@ 
+@
 
 
 \section{Analyser une variable}
@@ -1303,7 +1303,7 @@ sd(d$heures.tv, na.rm=TRUE)
 min(d$heures.tv, na.rm=TRUE)
 max(d$heures.tv, na.rm=TRUE)
 range(d$heures.tv, na.rm=TRUE)
-@ 
+@
 
 On peut lui ajouter la fonction \rfunc{median}, qui donne la valeur
 médiane, et le très utile \rfunc{summary} qui donne toutes ces
@@ -1313,10 +1313,10 @@ premier et troisième quartiles et le nombre de valeurs manquantes (\texttt{NA})
 <<>>=
 median(d$heures.tv,na.rm=TRUE)
 summary(d$heures.tv)
-@ 
+@
 
 \begin{astuce}
-  La fonction \rfunc{summary} peut-être utilisée sur tout type d'objet, y 
+  La fonction \rfunc{summary} peut-être utilisée sur tout type d'objet, y
   compris un tableau de données. Essayez donc \texttt{summary(d)}.
 \end{astuce}
 
@@ -1334,7 +1334,7 @@ valeurs. Celui-ci peut être généré très facilement avec la fonction
 \begin{figure}
 <<hist1>>=
 hist(d$heures.tv, main="Nombre d'heures passées devant la télé par jour", xlab="Heures", ylab="Effectif")
-@ 
+@
 \caption{Exemple d'histogramme}
 \label{fig_hist1}
 \end{figure}
@@ -1369,7 +1369,7 @@ et figure~\ref{fig_hist3} \vpageref{fig_hist3}.
 <<>>=
 hist(d$heures.tv, main="Heures de télé en 7 classes", breaks=7,
      xlab="Heures", ylab="Proportion", probability=TRUE, col="orange")
-@ 
+@
 \caption{Un autre exemple d'histogramme}
 \label{fig_hist2}
 \end{figure}
@@ -1378,7 +1378,7 @@ hist(d$heures.tv, main="Heures de télé en 7 classes", breaks=7,
 <<>>=
 hist(d$heures.tv, main="Heures de télé avec classes spécifiées", breaks=c(0,1,4,9,12),
      xlab="Heures", ylab="Proportion", col="red")
-@ 
+@
 \caption{Encore un autre exemple d'histogramme}
 \label{fig_hist3}
 \end{figure}
@@ -1400,7 +1400,7 @@ exemple figure~\ref{fig_boxplot1} \vpageref{fig_boxplot1}.
 \begin{figure}
 <<>>=
 boxplot(d$heures.tv, main="Nombre d'heures passées devant la télé par jour", ylab="Heures")
-@ 
+@
 \caption{Exemple de boîte à moustaches}
 \label{fig_boxplot1}
 \end{figure}
@@ -1434,7 +1434,7 @@ abline(h = Q1 - 1.5 * (Q3 - Q1), col = "darkgreen")
 text(1.35, Q1 - 1.5 * (Q3 - Q1) + 0.15, "Q1 -1.5 h", col = "darkgreen", lty=2)
 abline(h = Q3 + 1.5 * (Q3 - Q1), col = "darkgreen")
 text(1.35, Q3 + 1.5 * (Q3 - Q1) + 0.15, "Q3 +1.5 h", col = "darkgreen", lty=2)
-@ 
+@
 \caption{Interprétation d'une boîte à moustaches}
 \label{fig_boxplot2}
 \end{figure}
@@ -1459,7 +1459,7 @@ figure~\ref{fig_boxplotrug} \vpageref{fig_boxplotrug}.
 boxplot(d$heures.tv, main="Nombre d'heures passées devant la télé par
 jour", ylab="Heures")
 rug(d$heures.tv, side=2)
-@ 
+@
 \caption{Boîte à moustaches avec représentation des valeurs}
 \label{fig_boxplotrug}
 \end{figure}
@@ -1476,7 +1476,7 @@ donne les effectifs de chaque modalité de la variable.
 
 <<>>=
 table(d$sexe)
-@ 
+@
 
 La tableau précédent nous indique que parmi nos enquêtés on trouve 899
 hommes et 1101 femmes.
@@ -1488,7 +1488,7 @@ selon les effectifs à l'aide de la fonction \rfunc{sort}.
 table(d$occup)
 sort(table(d$occup))
 sort(table(d$occup), decreasing=TRUE)
-@ 
+@
 
 
 
@@ -1509,27 +1509,27 @@ On peut donc utiliser~:
 
 <<>>=
 table(d$trav.satisf, useNA="ifany")
-@ 
+@
 
 L'utilisation de \rfunc{summary} permet également l'affichage du tri à plat et
 du nombre de non-réponses~:
 
 <<>>=
 summary(d$trav.satisf)
-@ 
+@
 
 Pour obtenir un tableau avec la répartition en pourcentages, on peut
 utiliser la fonction \rfunc{freq} de \marqr l'extension \textsf{questionr}\footnotemark.
 
 \footnotetext{
- En l'absence de l'extension \texttt{questionr}, on pourra se rabattre sur la 
- fonction \rfunc{prop.table} avec la commande suivante : 
- \texttt{prop.table(table(d\$qualif))}. 
+ En l'absence de l'extension \texttt{questionr}, on pourra se rabattre sur la
+ fonction \rfunc{prop.table} avec la commande suivante :
+ \texttt{prop.table(table(d\$qualif))}.
 }
 
 <<>>=
 freq(d$qualif)
-@ 
+@
 
 La colonne \texttt{n} donne les effectifs bruts, et la colonne
 \texttt{\%} la répartition en pourcentages. La fonction accepte
@@ -1539,7 +1539,7 @@ exemple~:
 
 <<>>=
 freq(d$qualif, cum=TRUE, total=TRUE, sort="inc", digits=2, exclude=NA)
-@ 
+@
 
 La colonne \texttt{\%cum} indique ici le pourcentage cumulé, ce qui
 est ici une très mauvaise idée puisque pour ce type de variable cela
@@ -1577,7 +1577,7 @@ demi-s\oe{}urs est un bon exemple, indiqué figure~\ref{fig_barplot}
 \begin{figure}
 <<>>=
 plot(table(d$freres.soeurs), main="Nombre de frères, soeurs, demi-frères et demi-soeurs", ylab="Effectif")
-@ 
+@
 \caption{Exemple de diagramme en bâtons}
 \label{fig_barplot}
 \end{figure}
@@ -1594,7 +1594,7 @@ figure~\ref{fig_dotchart} \vpageref{fig_dotchart}.
 \begin{figure}
 <<>>=
 dotchart(t(table(d$clso)), main="Sentiment d'appartenance à une classe sociale", pch=19)
-@ 
+@
 \caption{Exemple de diagramme de Cleveland}
 \label{fig_dotchart}
 \end{figure}
@@ -1602,20 +1602,20 @@ dotchart(t(table(d$clso)), main="Sentiment d'appartenance à une classe sociale"
 
 Quand la variable comprend un grand nombre de modalités, il est
 préférable d'ordonner le tri à plat obtenu à l'aide de la fonction
-\rfunc{sort} (voir figure~\ref{fig_dotchartsort} \vpageref{fig_dotchartsort}). 
+\rfunc{sort} (voir figure~\ref{fig_dotchartsort} \vpageref{fig_dotchartsort}).
 
 \begin{figure}
 <<>>=
 dotchart(sort(table(d$qualif)), main="Niveau de qualification")
-@ 
+@
 \caption{Exemple de diagramme de Cleveland ordonné}
 \label{fig_dotchartsort}
 \end{figure}
 
 \begin{astuce}
-  L'agument \texttt{pch}, qui est utilisé par la plupart des graphiques de type 
+  L'agument \texttt{pch}, qui est utilisé par la plupart des graphiques de type
   points, permet de spécifier le symbole à utiliser. Il peut prendre soit un
-  nombre entier compris entre 0 et 25, soit un charactère textuel 
+  nombre entier compris entre 0 et 25, soit un charactère textuel
   (voir figure~\ref{fig_pch} \vpageref{fig_pch}).
 \end{astuce}
 
@@ -1623,7 +1623,7 @@ dotchart(sort(table(d$qualif)), main="Niveau de qualification")
 <<figure_pch, echo=FALSE>>=
 source("pchShow.R")
 pchShow(c("*","+","a","x"),main="", symbolsize=2.5, linewidth=2,fillcolor="palegreen3",symbolcolor="palevioletred3")
-@ 
+@
 \caption{Différentes valeurs possibles pour l'argument \texttt{pch}}
 \label{fig_pch}
 \end{figure}
@@ -1647,10 +1647,10 @@ pchShow(c("*","+","a","x"),main="", symbolsize=2.5, linewidth=2,fillcolor="paleg
   ans mais seulement 24, et le second individu n'est pas un homme mais
   une femme. Corrigez les erreurs et stockez les données corrigées
   dans un objet nommé \texttt{df.ok}.
-  
+
   Affichez ensuite les 4 premières lignes de \texttt{df.ok} pour
   vérifier que les modifications ont bien été prises en compte.
-  
+
 \end{exo}
 
 \begin{exo}{varquanti}
@@ -1668,13 +1668,13 @@ pchShow(c("*","+","a","x"),main="", symbolsize=2.5, linewidth=2,fillcolor="paleg
   leur travail (variable \texttt{trav.imp}). Faites un tri à plat des
   effectifs des modalités de cette variable avec la commande
   \rfunc{table}. Y'a-t-il des valeurs manquantes~?
- 
+
   Faites un tri à plat affichant à la fois les effectifs et les
   pourcentages de chaque modalité.
-  
+
   Représentez graphiquement les effectifs des modalités à l'aide d'un
   diagramme de Cleveland.
-  
+
 \end{exo}
 
 
@@ -1724,7 +1724,7 @@ fichier à importer, ici \texttt{fichier.txt}~:
 
 <<eval=FALSE>>=
 donnees <- read.table("fichier.txt")
-@ 
+@
 
 Cependant, ceci ne fonctionnera que si le fichier se trouve dans le
 \textit{répertoire de travail} de \R. De quoi s'agit-il~? Tout simplement du
@@ -1736,7 +1736,7 @@ quel est le répertoire de travail actuel, on peut utiliser la fonction
 
 <<>>=
 getwd()
-@ 
+@
 
 Si on veut modifier le répertoire de travail, on utilise
 \rfunc{setwd} en lui indiquant le chemin complet. Par exemple sous
@@ -1744,17 +1744,17 @@ Si on veut modifier le répertoire de travail, on utilise
 
 <<eval=FALSE>>=
 setwd("/home/julien/projets/R")
-@ 
+@
 
 Sous \textsf{Windows} le chemin du répertoire est souvent un peu plus
 compliqué. Si vous utilisez l'interface graphique par défaut, vous pouvez
-utiliser la fonction \textit{Changer le répertoire courant} du menu 
-\textit{Fichier}. Celle-ci vous permet de sélectionner le répertoire de 
+utiliser la fonction \textit{Changer le répertoire courant} du menu
+\textit{Fichier}. Celle-ci vous permet de sélectionner le répertoire de
 travail de la session en cours en le sélectionnant via une boîte de dialogue.
 
-Si vous utilisez \textsf{RStudio}, Vous pouvez utiliser une des commandes \textit{set 
-working directory} du menu \textit{session} ou, mieux, utiliser les 
-fonctionnalités de gestion de projet qui vous permettent de mémoriser, projet 
+Si vous utilisez \textsf{RStudio}, Vous pouvez utiliser une des commandes \textit{set
+working directory} du menu \textit{session} ou, mieux, utiliser les
+fonctionnalités de gestion de projet qui vous permettent de mémoriser, projet
 par projet, le répertoire de travail, la liste des fichiers ouverts ainsi que
 différents paramétrages spécifiques.
 
@@ -1767,7 +1767,7 @@ pourra alors accéder aux fichiers qui s'y trouvent de la manière suivante~:
 
 <<eval=FALSE>>=
 donnees <- read.table("donnees/fichier.txt")
-@ 
+@
 
 Dans ce qui suit on supposera que les fichiers à importer se trouvent
 directement dans le répertoire de travail, et on n'indiquera donc que
@@ -1775,11 +1775,11 @@ le nom du fichier, sans indication de chemin ou de répertoire
 supplémentaire.
 
 \begin{rstudio}
-  Si vous utilisez l'environnement de développement \textsf{RStudio}, vous 
+  Si vous utilisez l'environnement de développement \textsf{RStudio}, vous
   pouvez vous débarasser du problème des répertoires de travail en utilisant sa
   fonctionnalité de gestion de \textit{projets}. Les projets sont accessibles
-  en haut à droite de l'écran. Un projet permet de centraliser tout ses 
-  fichiers dans un même répertoire. De plus, il est très facile de basculer 
+  en haut à droite de l'écran. Un projet permet de centraliser tout ses
+  fichiers dans un même répertoire. De plus, il est très facile de basculer
   très rapidement d'un projet à un autre, en retrouvrant sa session de travail
   dans l'était où elle était.
 \end{rstudio}
@@ -1812,13 +1812,13 @@ fonction \rfunc{read.delim2}, de la manière suivante~:
 
 <<eval=FALSE>>=
 donnees <- read.delim2("fichier.txt")
-@ 
+@
 
 Dans le second cas, on utilise \rfunc{read.csv2}, de la même manière~:
 
 <<eval=FALSE>>=
 donnees <- read.csv2("fichier.csv")
-@ 
+@
 
 \subsection{Depuis \textsf{OpenOffice} ou \textsf{LibreOffice}}
 
@@ -1834,7 +1834,7 @@ On importe ensuite les données dans \R à l'aide de la fonction
 
 <<eval=FALSE>>=
 read.csv("fichier.csv", dec=",")
-@ 
+@
 
 
 \subsection{Autres sources / en cas de problèmes}
@@ -1885,7 +1885,7 @@ nécessaire de charger en mémoire avant utilisation avec l'instruction~:
 
 <<eval=FALSE>>=
 library(foreign)
-@ 
+@
 
 
 \subsection{\textsf{SAS}}
@@ -1902,14 +1902,14 @@ en argument~:
 
 <<eval=FALSE>>=
 donnees <- read.xport("fichier.xpt")
-@ 
+@
 
 En ce qui concerne les fichiers au format \textsf{SAS} natif, on pourra utiliser la fonction \rfunc{read\_sas} de l'extension \texttt{haven}. Celle-ci est capable de lire directement les fichiers au format \texttt{sas7bdat} et \texttt{sas7bcat} :
 
 <<eval=FALSE>>=
 library(haven)
 donnees <- read_sas("fichier.sas7bdat")
-@ 
+@
 
 
 
@@ -1925,7 +1925,7 @@ La syntaxe est également très simple~:
 
 <<eval=FALSE>>=
 donnees <- read.spss("fichier.sav", to.data.frame = TRUE)
-@ 
+@
 
 Plusieurs options permettant de contrôler l'importation des données
 sont disponibles. On se reportera à la page d'aide de la fonction pour
@@ -1944,7 +1944,7 @@ La syntaxe est également très simple~:
 
 <<eval=FALSE>>=
 donnees <- read.data("fichier.dta", to.data.frame = TRUE)
-@ 
+@
 
 \begin{astuce}
  L'importation des dates est parfois mal gérées. Dans ces cas là, l'opération
@@ -1962,7 +1962,7 @@ dans \R avec la fonction \rfunc{read.dbf} de l'extension \texttt{foreign}.
 
 <<eval=FALSE>>=
 donnees <- read.dbf("fichier.dbf")
-@ 
+@
 
 La principale limitation des fichiers \texttt{dbf} est de ne pas gérer
 plus de 256 colonnes. Les tables des enquêtes de l'Insee sont donc
@@ -1986,19 +1986,19 @@ Pour plus d'informations on consultera le manuel \textit{R Data Import/Export}~:
 
 \section{Sauver ses données}
 
-\R dispose également de son propre format pour sauvegarder et échanger des 
+\R dispose également de son propre format pour sauvegarder et échanger des
 données. On peut sauver n'importe quel objet créé avec \R et il est possible de
 sauver plusieurs objets dans un même fichier. L'usage est d'utiliser l'extension
-\texttt{.RData} pour les fichiers de données \R. La fonction à utiliser 
+\texttt{.RData} pour les fichiers de données \R. La fonction à utiliser
 s'appelle tout simplement \rfunc{save}.
 
-Par exemple, si l'on souhaite sauvegarder son tableau de données \texttt{d} 
-ainsi que les objets \texttt{tailles} et \texttt{poids} dans un fichier 
+Par exemple, si l'on souhaite sauvegarder son tableau de données \texttt{d}
+ainsi que les objets \texttt{tailles} et \texttt{poids} dans un fichier
 \texttt{export.RData} :
 
 <<eval=FALSE>>=
 save(d,tailles,poids,file="export.RData")
-@ 
+@
 
 À tout moment, il sera toujours possible de recharger ces données en mémoire à
 l'aide de la fonction \rfunc{load} :
@@ -2009,14 +2009,14 @@ load("export.RData")
 
 \begin{important}
   Si entre temps vous aviez modifié votre tableau \texttt{d}, vos modifications
-  seront perdues. En effet, si lors du chargement de données, un objet du même 
+  seront perdues. En effet, si lors du chargement de données, un objet du même
   nom existe en mémoire, ce dernier sera remplacé par l'objet importé.
 \end{important}
 
-La fonction \rfunc{save.image} est un raccourci pour sauvergarder tous les 
-objets de la session de travail dans le fichier \texttt{.RData} (un fichier un 
-peu étrange car il n'a pas de nom mais juste une extension). Lors de  la 
-fermeture de \R ou de \textsf{RStudio}, il vous sera demandé si vous souhaitez 
+La fonction \rfunc{save.image} est un raccourci pour sauvergarder tous les
+objets de la session de travail dans le fichier \texttt{.RData} (un fichier un
+peu étrange car il n'a pas de nom mais juste une extension). Lors de  la
+fermeture de \R ou de \textsf{RStudio}, il vous sera demandé si vous souhaitez
 enregistrer votre session. Si vous répondez \textit{Oui}, c'est cette fonction
 \rfunc{save.image} qui sera appliquée.
 
@@ -2049,7 +2049,7 @@ fonctions et au manuel \textit{R Data Import/Export}.
   Saisissez quelques données fictives dans une application de type
   tableur, enregistrez-les dans un format texte et importez-les dans
   \R.
-  
+
   Vérifiez que l'importation s'est bien déroulée.
 \end{exo}
 
@@ -2057,12 +2057,12 @@ fonctions et au manuel \textit{R Data Import/Export}.
   L'adresse suivante permet de télécharger un fichier au format
   \textsf{dBase} contenant une partie des données de l'enquête
   \textit{EPCV Vie associative} de l'INSEE (2002)~:
-  
+
   \url{http://telechargement.insee.fr/fichiersdetail/epcv1002/dbase/epcv1002_BENEVOLAT_dbase.zip}
-  
+
   Téléchargez le fichier, décompressez-le et importez les données dans \R.
-\end{exo}  
- 
+\end{exo}
+
 
 
 \chapter{Manipulation de données}
@@ -2089,14 +2089,14 @@ décrit dans l'annexe~\ref{sec_hdv2003}, page~\pageref{sec_hdv2003}.
 library(questionr)
 data(hdv2003)
 d <- hdv2003
-@ 
+@
 
 Mais aussi sur le jeu de données tiré du recensement 1999, décrit
 \vpageref{sec_rp99}~:
 
 <<>>=
 data(rp99)
-@ 
+@
 
 
 
@@ -2119,7 +2119,7 @@ On peut considérer qu'il existe quatre type de variables dans \R~:
 \end{itemize}
 
 Pour connaître le type d'une variable donnée, on peut utiliser la
-fonction \rfunc{class}. 
+fonction \rfunc{class}.
 
 
 \begin{center}
@@ -2140,7 +2140,7 @@ class(d$age)
 class(d$sexe)
 class(c(TRUE,TRUE,FALSE))
 
-@ 
+@
 
 La fonction \rfunc{str} permet également d'avoir un listing de toutes
 les variables d'un tableau de données et indique le type de chacune
@@ -2159,7 +2159,7 @@ l'aide de la fonction \rfunc{names}~:
 
 <<>>=
 names(d)
-@ 
+@
 
 Cette fonction peut également être utilisée pour renommer l'ensemble
 des variables. Si par exemple on souhaitait passer les noms de toutes
@@ -2167,13 +2167,13 @@ les variables en majuscules, on pourrait faire~:
 
 <<>>=
 d.maj <- d
-names(d.maj) <- c("ID", "AGE", "SEXE", "NIVETUD", "POIDS", "OCCUP", "QUALIF", 
-"FRERES.SOEURS", "CLSO", "RELIG", "TRAV.IMP", "TRAV.SATISF", 
-"HARD.ROCK", "LECTURE.BD", "PECHE.CHASSE", "CUISINE", "BRICOL", 
+names(d.maj) <- c("ID", "AGE", "SEXE", "NIVETUD", "POIDS", "OCCUP", "QUALIF",
+"FRERES.SOEURS", "CLSO", "RELIG", "TRAV.IMP", "TRAV.SATISF",
+"HARD.ROCK", "LECTURE.BD", "PECHE.CHASSE", "CUISINE", "BRICOL",
 "CINEMA", "SPORT", "HEURES.TV")
 summary(d.maj$SEXE)
 
-@ 
+@
 
 Ce type de renommage peut être utile lorsqu'on souhaite passer en
 revue tous les noms de variables d'un fichier importé pour les
@@ -2182,7 +2182,7 @@ forcément passionant, on peut utiliser la fonction \rfunc{dput}~:
 
 <<>>=
 dput(names(d))
-@ 
+@
 
 On obtient en résultat la liste des variables sous forme de vecteur
 déclaré. On n'a plus alors qu'à copier/coller cette chaîne, rajouter
@@ -2198,11 +2198,11 @@ variable \texttt{bricol} du tableau de données \texttt{d} en
 <<>>=
 d <- rename.variable(d, "bricol", "bricolage")
 table(d$bricolage)
-@ 
+@
 
 <<echo=FALSE,results="hide">>=
 d <- rename.variable(d, "bricolage", "bricol")
-@ 
+@
 
 
 \subsection{Facteurs}
@@ -2219,7 +2219,7 @@ possibles est donnée par la fonction \rfunc{levels}~:
 
 <<>>=
 levels(d$sexe)
-@ 
+@
 
 Si on veut modifier la valeur du sexe du premier individu de notre
 tableau de données avec une valeur différente, on obient un message
@@ -2228,11 +2228,11 @@ d'erreur et une valeur manquante est utilisée à la place~:
 <<>>=
 d$sexe[1] <- "Chihuahua"
 d$sexe[1]
-@ 
+@
 
 <<results="hide",echo=FALSE>>=
 d <- hdv2003
-@ 
+@
 
 
 On peut très facilement créer un facteur à partir d'une variable de
@@ -2241,7 +2241,7 @@ type caractères avec la commande \rfunc{factor}~:
 <<>>=
 v <- factor(c("H","H","F","H"))
 v
-@ 
+@
 
 Par défaut, les niveaux d'un facteur nouvellement créés sont
 l'ensemble des valeurs de la variable caractères, ordonnées par ordre
@@ -2250,7 +2250,7 @@ utilise des fonctions comme \rfunc{table}, par exemple~:
 
 <<>>=
 table(v)
-@ 
+@
 
 On peut modifier cet ordre au moment de la création du facteur en
 utilisant l'option \texttt{levels}~:
@@ -2258,28 +2258,28 @@ utilisant l'option \texttt{levels}~:
 <<>>=
 v <- factor(c("H","H","F","H"), levels=c("H","F"))
 table(v)
-@ 
+@
 
 On peut aussi modifier l'ordre des niveaux d'une variable déjà existante~:
 
 <<>>=
-d$qualif <- factor(d$qualif, levels=c("Ouvrier specialise", "Ouvrier qualifie", "Employe", "Technicien", 
+d$qualif <- factor(d$qualif, levels=c("Ouvrier specialise", "Ouvrier qualifie", "Employe", "Technicien",
 "Profession intermediaire", "Cadre",  "Autre"))
-table(d$qualif)                   
-@ 
+table(d$qualif)
+@
 
 \subsubsection{Interface interactive}
 
 L'extension \questionr \marqr propose une interface interactive pour le
 réordonnancement des niveaux d'un facteur. Cette fonction, nommée
 \rfunc{iorder}, vous permet de réordonner les modalités de manière graphique
-et de générer le code R correspondant. 
+et de générer le code R correspondant.
 
 Vous pouvez lancer \rfunc{iorder} directement depuis un script ou la console. Dans l'exemple précédent, vous pouvez exécuter :
 
 <<launchiorder, eval=FALSE>>=
 iorder(d$qualif)
-@ 
+@
 
 Avec une version récente de RStudio, vous pouvez également sélectionner le menu \textit{Addins}, puis choisir \textit{Levels ordering}.
 
@@ -2306,12 +2306,12 @@ catégories socioprofessionnelles de \texttt{qualif}. On peut alors procéder
 comme suit~:
 
 <<r factorlabels>>=
-d$qualif.abr <- factor(d$qualif, 
-                   levels=c("Ouvrier specialise", "Ouvrier qualifie", "Employe", "Technicien", 
+d$qualif.abr <- factor(d$qualif,
+                   levels=c("Ouvrier specialise", "Ouvrier qualifie", "Employe", "Technicien",
 "Profession intermediaire", "Cadre",  "Autre"),
                    labels=c("OS","OQ","Empl","Tech","Interm","Cadre","Autre"))
-table(d$qualif.abr)                   
-@ 
+table(d$qualif.abr)
+@
 
 Dans ce qui précède, le paramètre \texttt{levels} de \rfunc{factor} permet de
 spécifier quels sont les niveaux retenus dans le facteur résultat, ainsi que
@@ -2323,7 +2323,7 @@ recommandé d'effectuer un tableau croisé entre l'ancien et le nouveau facteur~
 
 <<r factorcrosstabverif>>=
 table(d$qualif, d$qualif.abr)
-@ 
+@
 
 On a donc ici un premier moyen d'effectuer un recodage des modalités d'une
 variable de type facteur. D'autres méthodes existent, elles sont notamment
@@ -2337,7 +2337,7 @@ qu'elle ne seront plus considérées comme manquantes par \R~:
 <<>>=
 summary(d$trav.satisf)
 summary(addNA(d$trav.satisf))
-@ 
+@
 
 
 
@@ -2366,26 +2366,26 @@ Soit le vecteur suivant~:
 
 <<>>=
 v <- c("a","b","c","d","e","f","g")
-@ 
+@
 
 Si on souhaite le premier élément du vecteur, on peut faire~:
 
 <<>>=
 v[1]
-@ 
+@
 
 Si on souhaite les trois premiers éléments ou les éléments 2, 6 et 7~:
 
 <<>>=
 v[1:3]
 v[c(2,6,7)]
-@ 
+@
 
 Si on veut le dernier élément~:
 
 <<>>=
 v[length(v)]
-@ 
+@
 
 Dans le cas de matrices ou de tableaux de données, l'indexation prend
 deux arguments séparés par une virgule~: le premier concerne les
@@ -2395,13 +2395,13 @@ du tableau de données \texttt{d}~:
 
 <<>>=
 d[3,5]
-@ 
+@
 
 On peut également indiquer des vecteurs~:
 
 <<>>=
 d[1:3,1:2]
-@ 
+@
 
 Si on laisse l'un des deux critères vides, on sélectionne
 l'intégralité des lignes ou des colonnes. Ainsi si l'on veut seulement
@@ -2410,7 +2410,7 @@ la cinquième colonne ou les deux premières lignes~:
 <<>>=
 d[,5]
 d[1:2,]
-@ 
+@
 
 Enfin, si on préfixe les arguments avec le signe <<~\texttt{-}~>>, ceci
 signifie <<~tous les éléments sauf ceux indiqués~>>. Si par exemple on
@@ -2419,7 +2419,7 @@ veut tous les éléments de \texttt{v} sauf le premier~:
 
 <<>>=
 v[-1]
-@ 
+@
 
 Bien sûr, tous ces critères se combinent et on peut stocker le
 résultat dans un nouvel objet. Dans cet exemple \texttt{d2} contiendra
@@ -2428,7 +2428,7 @@ et 8.
 
 <<>>=
 d2 <- d[1:3, -c(2,6,8)]
-@ 
+@
 
 
 \subsection{Indexation par nom}
@@ -2441,7 +2441,7 @@ deux fonctions suivantes sont équivalentes\footnotemark~:
 <<>>=
 d$clso
 d[,"clso"]
-@ 
+@
 
 \footnotetext{Une différence entre les deux est que \texttt{\$} admet une
   correspondance partielle du nom de variable, si celle-ci est unique. Ainsi,
@@ -2454,7 +2454,7 @@ et récupérer un <<~sous-tableau~>> de données~:
 
 <<>>=
 d2 <- d[,c("id","sexe","age")]
-@ 
+@
 
 Les noms peuvent également être utilisés pour les observations
 (lignes) d'un tableau de données si celles-ci ont été munies d'un nom
@@ -2465,13 +2465,13 @@ jeu de données \texttt{rp99} le nom des communes correspondantes~:
 
 <<>>=
 row.names(rp99) <- rp99$nom
-@ 
+@
 
 On peut alors accéder directement aux communes en donnant leur nom~:
 
 <<>>=
 rp99[c("VILLEURBANNE","OULLINS"),]
-@ 
+@
 
 Par contre il n'est pas possible d'utiliser directement l'opérateur
 <<~\texttt{-}~>> comme pour l'indexation directe. Pour exclure une colunne en
@@ -2481,7 +2481,7 @@ peut ainsi faire~:
 
 <<>>=
 d2 <- d[, names(d) != "qualif"]
-@ 
+@
 
 Pour sélectionner toutes les colonnes sauf celle qui s'appelle
 \texttt{qualif}.
@@ -2513,7 +2513,7 @@ Voyons tout de suite un exemple~:
 
 <<>>=
 d$sexe == "Homme"
-@ 
+@
 
 Que s'est-il passé~? Nous avons fourni à \R une condition qui signifie
 <<~la valeur de la variable \texttt{sexe} vaut "Homme"~>>. Et il nous
@@ -2526,7 +2526,7 @@ Prenons un autre exemple. On n'affichera cette fois que les premiers
 <<>>=
 head(d$age)
 head(d$age>40)
-@ 
+@
 
 On voit bien ici qu'à chaque élément du vecteur \texttt{d\$age} dont la
 valeur est supérieure à 40 correspond un élément \texttt{TRUE} dans le
@@ -2551,20 +2551,20 @@ exemples. Supposons que je veuille déterminer quels sont dans mon
 
 <<>>=
 d$sexe=="Homme" & d$qualif=="Ouvrier specialise"
-@ 
+@
 
 Si je souhaite identifier les personnes qui bricolent ou qui font la
 cuisine~:
 
 <<>>=
 d$bricol=="Oui" | d$cuisine=="Oui"
-@ 
+@
 
 Si je souhaite isoler les femmes qui ont entre 20 et 34 ans~:
 
 <<>>=
 d$sexe=="Femme" & d$age>=20 & d$age <=34
-@ 
+@
 
 Si je souhaite récupérer les enquêtés qui ne sont pas cadres, on peut
 utiliser l'une des deux formes suivantes~:
@@ -2572,7 +2572,7 @@ utiliser l'une des deux formes suivantes~:
 <<>>=
 d$qualif != "Cadre"
 !(d$qualif == "Cadre")
-@ 
+@
 
 
 
@@ -2582,7 +2582,7 @@ identifie les femmes qui sont soit cadre, soit employée~:
 
 <<>>=
 d$sexe=="Femme" & (d$qualif=="Employe" | d$qualif=="Cadre")
-@ 
+@
 
 L'opérateur \rfunc{\%in\%} peut être très utile~: il teste si une
 valeur fait partie des éléments d'un vecteur. Ainsi on pourrait
@@ -2590,7 +2590,7 @@ remplacer la condition précédente par~:
 
 <<>>=
 d$sexe=="Femme" & d$qualif %in% c("Employe", "Cadre")
-@ 
+@
 
 Enfin, signalons qu'on peut utiliser les fonctions \rfunc{table} ou
 \rfunc{summary} pour avoir une idée du résultat de notre condition~:
@@ -2599,7 +2599,7 @@ Enfin, signalons qu'on peut utiliser les fonctions \rfunc{table} ou
 table(d$sexe)
 table(d$sexe == "Homme")
 summary(d$sexe == "Homme")
-@ 
+@
 
 
 
@@ -2614,7 +2614,7 @@ Ainsi, si on fait~:
 
 <<>>=
 dh <- d[d$sexe == "Homme", ]
-@ 
+@
 
 On obtiendra un nouveau tableau de données comportant l'ensemble des
 variables de \texttt{d}, mais seulement les observations pour
@@ -2627,7 +2627,7 @@ variables dont le nom commence par \texttt{a} ou \texttt{s}~:
 
 <<>>=
 d[, substr(names(d),0,1) %in% c("a", "s")]
-@ 
+@
 
 On peut évidemment combiner les différents type
 d'indexation. L'exemple suivant sélectionne les femmes de plus de 40
@@ -2635,7 +2635,7 @@ ans et ne conserve que les variables \texttt{qualif} et \texttt{bricol}.
 
 <<>>=
 d2 <- d[d$sexe=="Femme" & d$age > 40, c("qualif", "bricol")]
-@ 
+@
 
 \subsubsection{Valeurs manquantes dans les conditions}
 
@@ -2648,7 +2648,7 @@ aussi être à son tour une valeur manquante.
 v <- c(1:5,NA)
 v
 v > 3
-@ 
+@
 
 On voit que le test \texttt{NA > 3} ne renvoie ni vrai ni faux, mais
 \texttt{NA}.
@@ -2658,7 +2658,7 @@ valeurs manquantes~:
 
 <<>>=
 summary(d$trav.satisf=="Satisfaction")
-@ 
+@
 
 Une autre conséquence importante de ce comportement est qu'on ne peut
 pas utiliser l'opérateur \texttt{== NA} pour tester la présence de
@@ -2672,7 +2672,7 @@ v <- c(1, NA)
 v
 v == NA
 is.na(v)
-@ 
+@
 
 Pour compliquer encore un peu le tout, lorsqu'on utilise une condition pour
 l'indexation, si la condition renvoie \texttt{NA}, \R ne sélectionne pas
@@ -2701,7 +2701,7 @@ v <- 1:5
 v
 v[1] <- 3
 v
-@ 
+@
 
 Cette fois, au lieu d'utiliser quelque chose comme \texttt{x <- v[1]},
 qui aurait placé la valeur du premier élément de \texttt{v} dans
@@ -2714,7 +2714,7 @@ différents types d'indexation évoqués précédemment~:
 
 <<>>=
 d[257, "sexe"] <- "Homme"
-@ 
+@
 
 Enfin on peut modifier plusieurs éléments d'un seul coup soit en
 fournissant un vecteur, soit en profitant du mécanisme de
@@ -2724,7 +2724,7 @@ recyclage. Les deux commandes suivantes sont ainsi rigoureusement
 <<>>=
 d[c(257,438,889), "sexe"] <- c("Homme", "Homme", "Homme")
 d[c(257,438,889), "sexe"] <- "Homme"
-@ 
+@
 
 On commence à voir comment l'utilisation de l'indexation par
 conditions et de l'assignation va nous permettre de faire des recodages.
@@ -2732,7 +2732,7 @@ conditions et de l'assignation va nous permettre de faire des recodages.
 <<>>=
 d$age[d$age >= 20 & d$age <= 30] <- "20-30 ans"
 d$age[is.na(d$age)] <- "Inconnu"
-@ 
+@
 
 
 
@@ -2740,7 +2740,7 @@ d$age[is.na(d$age)] <- "Inconnu"
 
 <<echo=FALSE, results="hide">>=
 d <- hdv2003
-@ 
+@
 
 
 \subsection{Par indexation}
@@ -2758,7 +2758,7 @@ df <- d[d$sexe=="Femme",]
 table(d$sexe)
 dim(dh)
 dim(df)
-@ 
+@
 
 On a à partir de là trois tableaux de données, \texttt{d} comportant la
 population totale, \texttt{dh} seulement les hommes et \texttt{df}
@@ -2769,7 +2769,7 @@ On peut évidemment combiner plusieurs critères~:
 <<>>=
 dh.25 <- d[d$sexe=="Homme" & d$age <=25, ]
 dim(dh.25)
-@ 
+@
 
 \label{sec_souspopNA}
 Si on utilise directement l'indexation, il convient cependant d'être
@@ -2782,7 +2782,7 @@ correspondante est conservée par l'indexation~:
 summary(d$trav.satisf)
 d.satisf <- d[d$trav.satisf=="Satisfaction", ]
 dim(d.satisf)
-@ 
+@
 
 Comme on le voit, ici \texttt{d.satisf} contient les individus ayant
 la modalité \textit{Satisfaction} mais aussi ceux ayant une valeur
@@ -2793,7 +2793,7 @@ la condition, soit exclure explicitement les \texttt{NA} de la manière suivante
 <<>>=
 d.satisf <- d[d$trav.satisf=="Satisfaction" & !is.na(d$trav.satisf), ]
 dim(d.satisf)
-@ 
+@
 
 C'est notamment pour cette raison qu'on préfèrera le plus souvent
 utiliser la fonction \rfunc{subset}.
@@ -2818,7 +2818,7 @@ Reprenons tout de suite un exemple déjà vu~:
 <<>>=
 dh <- subset(d, sexe=="Homme")
 df <- subset(d, sexe=="Femme")
-@ 
+@
 
 L'utilisation de \rfunc{subset} présente plusieurs avantages. Le
 premier est d'économiser quelques touches. On n'est en effet pas
@@ -2828,7 +2828,7 @@ les lignes. Ainsi les deux commandes suivantes sont équivalentes~:
 <<>>=
 dh <- subset(d, d$sexe=="Homme")
 dh <- subset(d, sexe=="Homme")
-@ 
+@
 
 Le second avantage est que \rfunc{subset} s'occupe du problème des
 valeurs manquantes évoquées précédemment et les exclut de lui-même,
@@ -2840,7 +2840,7 @@ d.satisf <- d[d$trav.satisf=="Satisfaction", ]
 dim(d.satisf)
 d.satisf <- subset(d, trav.satisf=="Satisfaction")
 dim(d.satisf)
-@ 
+@
 
 Enfin, l'utilisation de l'argument \texttt{select} est simplifié pour
 l'expression de condition sur les colonnes. On peut ainsi spécifier
@@ -2850,7 +2850,7 @@ l'opérateur d'exclusion \texttt{-}~:
 <<>>=
 d2 <- subset(d, select=c(sexe, sport))
 d2 <- subset(d, age > 25, select=-c(id, age, bricol))
-@ 
+@
 
 \subsection{Fonction \rfunc{tapply}}
 \label{sec_tapply}
@@ -2871,7 +2871,7 @@ correspondant à un même niveau du facteur. Vite, un exemple~!
 
 <<>>=
 tapply(d$age, d$sexe, mean)
-@ 
+@
 
 Qu'est-ce que ça signifie~? Ici \rfunc{tapply} a sélectionné toutes
 les observations correspondant à <<~Homme~>>, puis appliqué la
@@ -2884,20 +2884,20 @@ On peut fournir à peu près n'importe quelle fonction à \rfunc{tapply}~:
 
 <<>>=
 tapply(d$bricol, d$sexe, freq)
-@ 
+@
 
 Les arguments supplémentaires fournis à \rfunc{tapply} sont en fait
 fournis directement à la fonction appelée.
 
 <<>>=
 tapply(d$bricol, d$sexe, freq, total=TRUE)
-@ 
+@
 
 
 À noter également, la fonction \rfunc{by} est un équivalent (pour les tableaux
 de données) de \rfunc{tapply}. La présentation des résultats diffère
 légèrement.
-  
+
 <<>>=
 tapply(d$age, d$sexe, mean)
 by(d$age, d$sexe, mean)
@@ -2911,7 +2911,7 @@ by(d$age, d$sexe, mean)
 Le recodage de variables est une opération extrêmement fréquente lors
 du traitement d'enquête. Celui-ci utilise soit l'une des formes
 d'indexation décrites précédemment, soit des fonctions \textit{ad hoc}
-de \R. 
+de \R.
 
 On passe ici en revue différents types de recodage parmi les plus
 courants. Les exemples s'appuient, comme précédemment, sur l'extrait
@@ -2920,7 +2920,7 @@ de l'enquête \textit{Histoire de vie}~:
 <<>>=
 data(hdv2003)
 d <- hdv2003
-@ 
+@
 
 \subsection{Convertir une variable}
 
@@ -2935,7 +2935,7 @@ ce cas il suffit de faire appel à la fonction \rfunc{factor}~:
 <<>>=
 d$fs.fac <- factor(d$freres.soeurs)
 levels(d$fs.fac)
-@ 
+@
 
 La conversion d'une variable caractères en facteur se fait de la même
 manière.
@@ -2946,7 +2946,7 @@ caractères peut se faire à l'aide de la fonction \rfunc{as.character}~:
 <<>>=
 d$fs.char <- as.character(d$freres.soeurs)
 d$qualif.char <- as.character(d$qualif)
-@ 
+@
 
 La conversion d'un facteur en caractères est fréquemment utilisé lors des
 recodages du fait qu'il est impossible d'ajouter de nouvelles modalités à un
@@ -2957,7 +2957,7 @@ génère un message d'avertissement, tandis que les deux autres fonctionnent~:
 d$qualif[d$qualif=="Ouvrier specialise"] <- "Ouvrier"
 d$qualif.char <- as.character(d$qualif)
 d$qualif.char[d$qualif.char=="Ouvrier specialise"] <- "Ouvrier"
-@ 
+@
 
 Dans le premier cas, le message d'avertissement indique que toutes les
 modalités <<~Ouvrier specialise~>> de notre variable
@@ -2971,7 +2971,7 @@ caractère~:
 
 <<>>=
 d$fs.num <- as.numeric(as.character(d$fs.fac))
-@ 
+@
 
 
 
@@ -3004,7 +3004,7 @@ nouvelle variable nommée \texttt{age5cl}~:
 <<>>=
 d$age5cl <- cut(d$age, 5)
 table(d$age5cl)
-@ 
+@
 
 Par défaut \R nous a bien créé cinq classes d'amplitudes égales. La
 première classe va de 16,9 à 32,2 ans (en fait de 17 à 32), etc.
@@ -3016,7 +3016,7 @@ découpage souhaité, par tranches de 20 ans~:
 <<>>=
 d$age20 <- cut(d$age, c(0,20,40,60,80,100))
 table(d$age20)
-@ 
+@
 
 On aurait pu tenir compte des âges extrêmes pour la première et la
 dernière valeur~:
@@ -3025,7 +3025,7 @@ dernière valeur~:
 range(d$age)
 d$age20 <- cut(d$age, c(17,20,40,60,80,93))
 table(d$age20)
-@ 
+@
 
 Les symboles dans les noms attribués aux classes ont leur importance~:
 \texttt{(} signifie que la frontière de la classe est exclue, tandis
@@ -3043,7 +3043,7 @@ d$age20 <- cut(d$age, c(16,20,40,60,80,93))
 table(d$age20)
 d$age20 <- cut(d$age, c(17,20,40,60,80,93), include.lowest=TRUE)
 table(d$age20)
-@ 
+@
 
 On peut également modifier le sens des intervalles avec l'option
 \texttt{right=FALSE}, et indiquer manuellement les noms des modalités
@@ -3054,7 +3054,7 @@ d$age20 <- cut(d$age, c(16,20,40,60,80,93), right=FALSE, include.lowest=TRUE)
 table(d$age20)
 d$age20 <- cut(d$age, c(17,20,40,60,80,93), include.lowest=TRUE, labels=c("<20ans", "21-40 ans", "41-60ans", "61-80ans", ">80ans"))
 table(d$age20)
-@ 
+@
 
 \subsubsection{Interface interactive}
 
@@ -3063,7 +3063,7 @@ table(d$age20)
 
 <<launchicut,eval=FALSE>>=
 icut(d$age)
-@ 
+@
 
 \R devrait alors afficher une interface
 semblable à celle de la figure~\ref{fig_interface_icut}, \vpageref{fig_interface_icut}.
@@ -3094,7 +3094,7 @@ lui passer le nombre de classes en argument~:
 <<>>=
 d$age6cl <- quant.cut(d$age, 6)
 table(d$age6cl)
-@ 
+@
 
 \rfunc{quant.cut} admet les mêmes autres options que \rfunc{cut}
 (\texttt{include.lowest, right, labels}\ldots).
@@ -3118,7 +3118,7 @@ d$qualif.reg[d$qualif=="Technicien"] <- "Intermediaire"
 d$qualif.reg[d$qualif=="Cadre"] <- "Cadre"
 d$qualif.reg[d$qualif=="Autre"] <- "Autre"
 table(d$qualif.reg)
-@ 
+@
 
 On aurait pu représenter ce recodage de manière plus compacte,
 notamment en commençant par copier le contenu de \texttt{qualif} dans
@@ -3135,7 +3135,7 @@ d$qualif.reg[d$qualif=="Ouvrier qualifie"] <- "Ouvrier"
 d$qualif.reg[d$qualif=="Profession intermediaire"] <- "Intermediaire"
 d$qualif.reg[d$qualif=="Technicien"] <- "Intermediaire"
 table(d$qualif.reg)
-@ 
+@
 
 On peut faire une version encore plus compacte en utilisant
 l'opérateur logique \textit{ou} (\rfunc{|})~:
@@ -3145,7 +3145,7 @@ d$qualif.reg <- as.character(d$qualif)
 d$qualif.reg[d$qualif=="Ouvrier specialise" | d$qualif=="Ouvrier qualifie"] <- "Ouvrier"
 d$qualif.reg[d$qualif=="Profession intermediaire" | d$qualif=="Technicien"] <- "Intermediaire"
 table(d$qualif.reg)
-@ 
+@
 
 Enfin, pour terminer ce petit tour d'horizon, on peut également
 remplacer l'opérateur \rfunc{|} par \rfunc{\%in\%}, qui peut parfois
@@ -3156,7 +3156,7 @@ d$qualif.reg <- as.character(d$qualif)
 d$qualif.reg[d$qualif %in% c("Ouvrier specialise", "Ouvrier qualifie")] <- "Ouvrier"
 d$qualif.reg[d$qualif %in% c("Profession intermediaire", "Technicien")] <- "Intermediaire"
 table(d$qualif.reg)
-@ 
+@
 
 Dans tous les cas le résultat obtenu est une variable de type
 \textit{caractère}. On pourra la convertir en \textit{facteur} par un
@@ -3164,7 +3164,7 @@ simple~:
 
 <<>>=
 d$qualif.reg <- factor(d$qualif.reg)
-@ 
+@
 
 Si on souhaite recoder les valeurs manquantes, il suffit de faire
 appel à la fonction \rfunc{is.na}~:
@@ -3174,7 +3174,7 @@ table(d$trav.satisf)
 d$trav.satisf.reg <- as.character(d$trav.satisf)
 d$trav.satisf.reg[is.na(d$trav.satisf)] <- "Valeur manquante"
 table(d$trav.satisf.reg)
-@ 
+@
 
 
 \subsubsection{Interface interactive}
@@ -3185,7 +3185,7 @@ nommée \rfunc{irec}, s'utilise depuis RStudio via le menu \textit{Addins}, puis
 
 <<launchirec,eval=FALSE>>=
 irec(d$qualif)
-@ 
+@
 
 Dans les deux cas, une interface semblable à celle de la figure~\ref{fig_interface_irec}, \vpageref{fig_interface_irec} devrait s'afficher soit directement dans RStudio, soit dans votre navigateur Web.
 
@@ -3206,7 +3206,7 @@ La création d'une variable numérique à partir de calculs sur une ou
 plusieurs autres variables numériques se fait très simplement.
 
 Supposons que l'on souhaite calculer une variable indiquant l'écart
-entre le nombre d'heures passées à regarder la télévision et 
+entre le nombre d'heures passées à regarder la télévision et
 la moyenne globale de cette variable. On pourrait alors faire~:
 
 <<>>=
@@ -3215,7 +3215,7 @@ mean(d$heures.tv, na.rm=TRUE)
 d$ecart.heures.tv <- d$heures.tv - mean(d$heures.tv, na.rm=TRUE)
 range(d$ecart.heures.tv, na.rm=TRUE)
 mean(d$ecart.heures.tv, na.rm=TRUE)
-@ 
+@
 
 Autre exemple tiré du jeu de données \texttt{rp99}~: si on souhaite
 calculer le pourcentage d'actifs dans chaque commune, on peut diviser
@@ -3224,7 +3224,7 @@ la population active \texttt{pop.act} par la population totale
 
 <<>>=
 rp99$part.actifs <- rp99$pop.act / rp99$pop.tot * 100
-@ 
+@
 
 
 
@@ -3243,7 +3243,7 @@ d$act.manuelles[d$cuisine=="Oui" & d$bricol=="Non"] <- "Cuisine seulement"
 d$act.manuelles[d$cuisine=="Non" & d$bricol=="Oui"] <- "Bricolage seulement"
 d$act.manuelles[d$cuisine=="Non" & d$bricol=="Non"] <- "Ni cuisine ni bricolage"
 table(d$act.manuelles)
-@ 
+@
 
 On peut également combiner variables qualitatives et variables quantitatives~:
 
@@ -3254,7 +3254,7 @@ d$age.sexe[d$sexe=="Homme" & d$age >= 40] <- "Homme plus de 40 ans"
 d$age.sexe[d$sexe=="Femme" & d$age < 40] <- "Femme moins de 40 ans"
 d$age.sexe[d$sexe=="Femme" & d$age >= 40] <- "Femme plus de 40 ans"
 table(d$age.sexe)
-@ 
+@
 
 Les combinaisons de variables un peu complexes nécessitent parfois un
 petit travail de réflexion. En particulier, l'ordre des commandes de
@@ -3272,28 +3272,28 @@ considère que le fait d'aller au cinéma <<~pèse~>> 10, celui de pêcher
 ou chasser vaut 30 et celui de faire du sport vaut 20. On pourrait
 alors calculer notre score de la manière suivante~:
 
- 
+
 <<>>=
 d$score.ext <- 0
 d$score.ext[d$cinema=="Oui"] <- d$score.ext[d$cinema=="Oui"] + 10
 d$score.ext[d$peche.chasse=="Oui"] <- d$score.ext[d$peche.chasse=="Oui"] + 30
 d$score.ext[d$sport=="Oui"] <- d$score.ext[d$sport=="Oui"] + 20
 table(d$score.ext)
-@ 
+@
 
 Cette notation étant un peu lourde, on peut l'alléger un peu en
 utilisant la fonction \rfunc{ifelse}. Celle-ci prend en argument une
 condition et deux valeurs. Si la condition est vraie elle retourne la
 première valeur, sinon elle retourne la seconde.
 
- 
+
 <<>>=
 d$score.ext <- 0
 d$score.ext <- ifelse(d$cinema=="Oui", 10, 0) +
                ifelse(d$peche.chasse=="Oui", 30, 0) +
                ifelse(d$sport=="Oui", 20, 0)
 table(d$score.ext)
-@ 
+@
 
 
 
@@ -3312,7 +3312,7 @@ nombre de valeurs manquantes dans la variable recodée avec
 
 Par exemple~:
 
- 
+
 <<>>=
 d$act.manuelles <- NA
 d$act.manuelles[d$cuisine=="Oui" & d$bricol=="Oui"] <- "Cuisine et Bricolage"
@@ -3321,17 +3321,17 @@ d$act.manuelles[d$cuisine=="Non" & d$bricol=="Oui"] <- "Bricolage seulement"
 d$act.manuelles[d$cuisine=="Non" & d$bricol=="Non"] <- "Ni cuisine ni bricolage"
 table(d$act.manuelles, d$cuisine)
 table(d$act.manuelles, d$bricol)
-@ 
+@
 
 \section{Tri de tables}
 
 On a déjà évoqué l'existence de la fonction \rfunc{sort}, qui permet
 de trier les éléments d'un vecteur.
 
- 
+
 <<>>=
 sort(c(2,5,6,1,8))
-@ 
+@
 
 On peut appliquer cette fonction à une variable, mais celle-ci ne
 permet que d'ordonner les valeurs de cette variable, et pas l'ensemble
@@ -3342,10 +3342,10 @@ ces valeurs.
 
 Un exemple pour comprendre~:
 
- 
+
 <<>>=
 order(c(15,20,10))
-@ 
+@
 
 Le résultat renvoyé signifie que la plus petite valeur est la valeur
 située en 3ème position, suivie de celle en 1ère position et de celle
@@ -3353,28 +3353,28 @@ en 2ème position. Tout cela ne paraît pas passionnant à première vue,
 mais si on mélange ce résultat avec un peu d'indexation directe, ça
 devient intéressant\ldots
 
- 
+
 <<>>=
 order(d$age)
-@ 
+@
 
 Ce que cette fonction renvoie, c'est l'ordre dans lequel on doit
 placer les éléments de \texttt{age}, et donc par extension les lignes
 de \texttt{d}, pour que la variable soit triée par ordre
 croissant. Par conséquent, si on fait~:
 
- 
+
 <<>>=
 d.tri <- d[order(d$age),]
-@ 
+@
 
 Alors on a trié les lignes de \texttt{d} par ordre d'âge croissant~!
 Et si on fait un petit~:
 
- 
+
 <<>>=
 head(d.tri, 3)
-@ 
+@
 
 On a les caractéristiques des trois enquêtés les plus jeunes.
 
@@ -3382,10 +3382,10 @@ On peut évidemment trier par ordre décroissant en utilisant l'option
 \texttt{decreasing=TRUE}. On peut donc afficher les caractéristiques
 des trois individus les plus âgés avec~:
 
- 
+
 <<eval=FALSE>>=
 head(d[order(d$age, decreasing=TRUE),], 3)
-@ 
+@
 
 
 
@@ -3405,17 +3405,17 @@ unique tableau.
 Nous allons simuler artificiellement une telle situation en créant deux
 tables à partir de l'extrait de l'enquête \textit{Histoire de vie}~:
 
- 
+
 <<>>=
 data(hdv2003)
 d <- hdv2003
 dim(d)
 d1 <- subset(d, select=c("id","age","sexe"))
-dim(d1)             
+dim(d1)
 d2 <- subset(d, select=c("id","clso"))
-dim(d2)             
+dim(d2)
 
-@ 
+@
 
 On a donc deux tableaux de données, \texttt{d1} et \texttt{d2},
 comportant chacun 2000 lignes et respectivement 3 et 2
@@ -3469,27 +3469,27 @@ tableaux côte à côte en regroupant leurs
 colonnes\footnote{L'équivalent de \rfunc{cbind} pour les lignes
   s'appelle \rfunc{rbind}.}.
 
- 
+
 <<>>=
 cbind(d1,d2)
-@ 
+@
 
 À part le fait qu'on a une colonne \texttt{id} en double, le résultat
 semble satisfaisant. À première vue seulement. Imaginons maintenant
 que nous avons travaillé sur \texttt{d1} et \texttt{d2}, et que nous
 avons ordonné les lignes de \texttt{d1} selon l'âge des enquêtés~:
 
- 
+
 <<>>=
 d1 <- d1[order(d1$age),]
-@ 
+@
 
 Répétons l'opération de collage~:
 
- 
+
 <<>>=
 cbind(d1,d2)
-@ 
+@
 
 Que constate-t-on~? La présence de la variable \texttt{id} en double
 nous permet de voir que les identifiants ne coïncident plus~! En
@@ -3516,7 +3516,7 @@ les colonnes en double et en regroupant les lignes selon leurs identifiants~:
 <<dcomplet>>=
 d.complet <- merge(d1,d2, by="id")
 head(d.complet)
-@ 
+@
 
 Ici l'utilisation de la fonction est plutôt simple car nous sommes
 dans le cas de figure idéal~: les lignes correspondent parfaitement et
@@ -3701,7 +3701,7 @@ autant de fois que nécessaires~:
 
 Il ne s'agit pas ici de manipulation de données à proprement parler,
 mais plutôt d'une conséquence de ce qui a été vu précédemment~: à
-mesure que recodages et traitements divers s'accumulent, votre script 
+mesure que recodages et traitements divers s'accumulent, votre script
 \R risque de devenir rapidement très long et pas très pratique à éditer.
 
 Il est très courant de répartir son travail entre différents fichiers,
@@ -3754,19 +3754,19 @@ fichiers scripts séparés. Créons alors un fichier nommé
 lignes suivantes~:
 
 
-<<orga2,eval=FALSE,prompt=FALSE>>=  
+<<orga2,eval=FALSE,prompt=FALSE>>=
 ## IMPORT DES DONNÉES
 
 d1 <- read.dbf("tab1.dbf")
 d2 <- read.dbf("tab2.dbf")
 
 d <- merge(d1, d2, by="id")
-@ 
+@
 
 
 Créons également un fichier \texttt{recodages.R} avec le contenu suivant~:
 
-<<orga3,eval=FALSE,prompt=FALSE>>=  
+<<orga3,eval=FALSE,prompt=FALSE>>=
 ## RECODAGES
 
 d$tx.chomage <- as.numeric(d$tx.chomage)
@@ -3775,7 +3775,7 @@ d$pcs[d$pcs == "Ouvrier qualifie"] <- "Ouvrier"
 d$pcs[d$pcs == "Ouvrier specialise"] <- "Ouvrier"
 
 d$age5cl <- cut(d$age, 5)
-@ 
+@
 
 
 Dès lors, si nous rajoutons les appels à la fonction \rfunc{source}
@@ -3783,7 +3783,7 @@ qui vont bien, le fichier suivant sera strictement équivalent à notre
 fichier de départ~:
 
 
-<<orga4,eval=FALSE,prompt=FALSE>>=  
+<<orga4,eval=FALSE,prompt=FALSE>>=
 library(questionr)
 library(foreign)
 
@@ -3835,16 +3835,16 @@ sur les données.
   \texttt{hdv2003} en \texttt{classes.sociales}, puis la renommer en
   \texttt{clso}.
 \end{exo}
-  
+
 
 \begin{exo}{manip_factor}
   Réordonner les niveaux du facteur \texttt{clso} pour que son tri
   à plat s'affiche de la manière suivante~:
-  
+
 <<echo=FALSE>>=
 tmp <- factor(d$clso, levels=c("Non", "Ne sait pas", "Oui"))
-table(tmp)              
-@ 
+table(tmp)
+@
 \end{exo}
 
 
@@ -3903,7 +3903,7 @@ table(tmp)
   Recodez la variable \texttt{trav.imp} en \texttt{trav.imp2cl} pour
   obtenir les modalités <<~Le plus ou aussi important~>> et <<~moins
   ou peu important~>>. Vérifiez avec des tris à plat et un tableau croisé.
-  
+
   Recodez la variable \texttt{relig} en \texttt{relig.4cl} en
   regroupant les modalités <<~Pratiquant regulier~>> et <<~Pratiquant
   occasionnel~>> en une seule modalité <<~Pratiquant~>>, et en
@@ -3946,7 +3946,7 @@ fournis avec l'extension \questionr \marqr et tiré de l'enquête
 data(hdv2003)
 d <- hdv2003
 data(rp99)
-@ 
+@
 
 
 \section{Deux variables quantitatives}
@@ -3959,7 +3959,7 @@ la télévision selon l'âge  (figure~\ref{fig_tvage} \vpageref{fig_tvage}).
 \begin{figure}
 <<>>=
 plot(d$age, d$heures.tv)
-@ 
+@
 \caption{Nombre d'heures de télévision selon l'âge}
 \label{fig_tvage}
 \end{figure}
@@ -3972,7 +3972,7 @@ semi-transparents  (figure~\ref{fig_tvagealpha} \vpageref{fig_tvagealpha}).
 \begin{figure}
 <<>>=
 plot(d$age, d$heures.tv, pch=19, col=rgb(1,0,0,0.1))
-@ 
+@
 \caption{Nombre d'heures de télévision selon l'âge avec semi-transparence}
 \label{fig_tvagealpha}
 \end{figure}
@@ -3996,7 +3996,7 @@ library(MASS)
 tmp <- d[,c("age","heures.tv")]
 tmp <- tmp[complete.cases(tmp),]
 filled.contour(kde2d(tmp$age,tmp$heures.tv),color=terrain.colors)
-@ 
+@
 \caption{Représentation de l'estimation de densité locale}
 \label{fig_filledcontour}
 \end{figure}
@@ -4009,7 +4009,7 @@ fonction \rfunc{cor}~:
 
 <<>>=
 cor(d$age, d$heures.tv, use="complete.obs")
-@ 
+@
 
 L'option \texttt{use} permet d'éliminer les observations pour
 lesquelles l'une des deux valeurs est manquante. Le c\oe{}fficient de
@@ -4026,7 +4026,7 @@ beaucoup plus à une relation de type linéaire.
 \begin{figure}
 <<>>=
 plot(rp99$dipl.sup, rp99$cadres,  ylab="Part des cadres", xlab="Part des diplomês du supérieur")
-@ 
+@
 \caption{Proportion de cadres et proportion de diplômés du supérieur}
 \label{fig_cadresup}
 \end{figure}
@@ -4035,7 +4035,7 @@ Calculons le coefficient de corrélation~:
 
 <<>>=
 cor(rp99$dipl.sup, rp99$cadres)
-@ 
+@
 
 C'est beaucoup plus proche de 1. On peut alors effectuer une
 régression linéaire complète en utilisant la fonction \rfunc{lm}~:
@@ -4043,7 +4043,7 @@ régression linéaire complète en utilisant la fonction \rfunc{lm}~:
 <<>>=
 reg <- lm(cadres ~ dipl.sup, data=rp99)
 summary(reg)
-@ 
+@
 
 
 Le résultat montre que les c\oe{}fficients sont significativement
@@ -4056,27 +4056,27 @@ représenter la droite de régression à l'aide de la fonction
 <<>>=
 plot(rp99$dipl.sup, rp99$cadres, ylab="Part des cadres", xlab="Part des diplômés du supérieur")
 abline(reg, col="red")
-@ 
+@
 \caption{Régression de la proportion de cadres par celle de diplômés
   du supérieur}
 \label{fig_regcad}
 \end{figure}
 
 \begin{astuce}
-  On remarquera que le premier argument passé à la fonction \rfunc{lm} a une 
+  On remarquera que le premier argument passé à la fonction \rfunc{lm} a une
   syntaxe un peu particulière. Il s'agit d'une \textit{formule}, utilisée de
-  manière générale dans les modèles statistiques. On indique la variable 
-  d'intérêt à gauche et la variable explicative à droite, les deux étant 
-  séparées par un tilde \~{} (obtenu sous \textsf{Windows} en appuyant 
-  simultanément sur les touches \texttt{<Alt Gr>} et \texttt{<2>}). On 
-  remarquera que les noms des colonnes de notre tableau de données ont été 
-  écrites sans guillemets. Dans le cas présent, nous avons calculé une 
-  régression linéaire simple entre deux variables, d'où l'écriture 
+  manière générale dans les modèles statistiques. On indique la variable
+  d'intérêt à gauche et la variable explicative à droite, les deux étant
+  séparées par un tilde \~{} (obtenu sous \textsf{Windows} en appuyant
+  simultanément sur les touches \texttt{<Alt Gr>} et \texttt{<2>}). On
+  remarquera que les noms des colonnes de notre tableau de données ont été
+  écrites sans guillemets. Dans le cas présent, nous avons calculé une
+  régression linéaire simple entre deux variables, d'où l'écriture
   \texttt{cadres \~{} dipl.sup}. Si nous avions
-  voulu expliquer une variable \texttt{z} par deux variables \texttt{x} et 
-  \texttt{y}, nous aurions écrit \texttt{z \~{} x + y}. Il est possible de 
+  voulu expliquer une variable \texttt{z} par deux variables \texttt{x} et
+  \texttt{y}, nous aurions écrit \texttt{z \~{} x + y}. Il est possible de
   spécifier des modèles encore plus complexes. Pour un aperçu de la syntaxe des
-  formules sous \R, voir 
+  formules sous \R, voir
   \url{http://ww2.coastal.edu/kingw/statistics/R-tutorials/formulae.html}.
 \end{astuce}
 
@@ -4103,7 +4103,7 @@ figure~\ref{fig_boxplotage} \vpageref{fig_boxplotage}.
 d.hard <- subset(d, hard.rock=="Oui")
 d.non.hard <- subset(d, hard.rock=="Non")
 boxplot(d.hard$age, d.non.hard$age)
-@ 
+@
 \caption{\textit{Boxplot} de la répartition des âges (sous-populations)}
 \label{fig_boxplotage}
 \end{figure}
@@ -4116,7 +4116,7 @@ utiliser directement la version de \rfunc{boxplot} prenant une
 \begin{figure}
 <<>>=
 boxplot(age ~ hard.rock, data=d)
-@ 
+@
 \caption{\textit{Boxplot} de la répartition des âges (formule)}
 \label{fig_boxplotageb}
 \end{figure}
@@ -4129,7 +4129,7 @@ fonction \rfunc{tapply}\footnote{Fonction décrite
 
 <<>>=
 tapply(d$age, d$hard.rock, mean)
-@ 
+@
 
 L'écart est très important. Est-il statistiquement significatif~? Pour
 cela on peut faire un test \textit{t} de comparaison de moyennes à
@@ -4137,13 +4137,13 @@ l'aide de la fonction \rfunc{t.test}~:
 
 <<>>=
 t.test(d$age ~ d$hard.rock)
-@ 
+@
 
 Le test est extrêmement significatif. L'intervalle de confiance à
 95~\% de la différence entre les deux moyennes va de 14,5 ans à 21,8 ans.
 
 \begin{important}
-  La valeur affichée pour \textit{p} est de \texttt{1.611e-07}. Cette valeur 
+  La valeur affichée pour \textit{p} est de \texttt{1.611e-07}. Cette valeur
   peut paraître étrange pour les non avertis. Cela signifie tout simplement
   1,611 multiplié par 10 à la puissance -7, autrement dit 0,0000001611. Cette
   manière de représenter un nombre est couramment appelée \textit{notation
@@ -4166,7 +4166,7 @@ figure~\ref{fig_histnorm} \vpageref{fig_histnorm}.
 par(mfrow=c(1,2))
 hist(d$age[d$hard.rock=="Oui"], main="Hard rock", col="red")
 hist(d$age[d$hard.rock=="Non"], main="Sans hard rock", col="red")
-@ 
+@
 \caption{Distribution des âges pour appréciation de la normalité}
 \label{fig_histnorm}
 \end{figure}
@@ -4181,23 +4181,23 @@ peut utiliser le test de normalité de Shapiro-Wilk avec la fonction
 <<>>=
 shapiro.test(d$age[d$hard.rock=="Oui"])
 shapiro.test(d$age[d$hard.rock=="Non"])
-@ 
+@
 
 Visiblement, le test estime que les distributions ne sont pas
 suffisamment proches de la normalité dans les deux cas.
 
-Et concernant l'égalité des variances~? 
+Et concernant l'égalité des variances~?
 
 <<>>=
 tapply(d$age, d$hard.rock, var)
-@ 
+@
 
 L'écart n'a pas l'air négligeable. On peut le vérifier avec le test
 fourni par la fonction \rfunc{var.test}~:
 
 <<>>=
 var.test(d$age ~ d$hard.rock)
-@ 
+@
 
 La différence est très significative. En toute rigueur le test
 \textit{t} n'aurait donc pas pu être utilisé.
@@ -4213,7 +4213,7 @@ compare pas des différences de moyennes mais des différences de
 médianes~:
 <<>>=
 wilcox.test(d$age ~ d$hard.rock)
-@ 
+@
 
 Ouf~! La différence est hautement significative\footnote{Ce test peut
   également fournir un intervalle de confiance avec l'option
@@ -4245,26 +4245,26 @@ d$qualreg[d$qualif %in% c("Ouvrier specialise", "Ouvrier qualifie")] <- "Ouvrier
 d$qualreg[d$qualif %in% c("Profession intermediaire", "Technicien")] <- "Intermediaire"
 table(d$qualreg)
 table(d$sport)
-@ 
+@
 
 Le tableau croisé des deux variables s'obtient de la manière
 suivante~:
 
 <<>>=
 table(d$sport, d$qualreg)
-@ 
+@
 
 Il est d'ailleurs tout à fait possible de croiser trois variables ou plus. Par
 exemple~:
-  
+
 <<>>=
 table(d$sport,d$cuisine,d$sexe)
-@ 
+@
 
 On n'a cependant que les effectifs, ce qui rend difficile les
 comparaisons. L'extension \questionr \marqr fournit des fonctions
 permettant de calculer les pourcentages lignes, colonnes et totaux
-d'un tableau croisé. 
+d'un tableau croisé.
 
 Les pourcentages lignes s'obtiennent avec la fonction
 \rfunc{lprop}. Celle-ci s'applique au tableau croisé généré par
@@ -4273,7 +4273,7 @@ Les pourcentages lignes s'obtiennent avec la fonction
 <<>>=
 tab <- table(d$sport, d$qualreg)
 lprop(tab)
-@ 
+@
 
 Les pourcentages ligne ne nous intéressent guère ici. On ne cherche
 pas à voir quelle est la proportion de cadres parmi ceux qui pratiquent
@@ -4283,7 +4283,7 @@ avec la fonction \rfunc{cprop}~:
 
 <<>>=
 cprop(tab)
-@ 
+@
 
 Dans l'ensemble, le pourcentage de personnes ayant pratiqué un sport
 est de 35,6~\%. Mais cette proportion varie fortement d'une catégorie
@@ -4300,7 +4300,7 @@ de la génération du tableau, et dans ce cas elle sera utilisée par défaut~:
 <<>>=
 ctab <- cprop(tab, digits=2, percent=TRUE)
 ctab
-@ 
+@
 
 Ou bien ponctuellement en passant les mêmes arguments aux fonctions
 \rfunc{print} (pour affichage dans \R) ou \rfunc{clipcopy} (pour export
@@ -4309,7 +4309,7 @@ vers un logiciel externe)~:
 <<>>=
 ctab <- cprop(tab)
 print(ctab, percent=TRUE)
-@ 
+@
 
 
 \subsection{\texorpdfstring{$\chi^2$}{X\texttwosuperior} et dérivés}
@@ -4328,10 +4328,10 @@ tableau croisé obtenu avec \rfunc{table}\footnote{On peut aussi
 
 <<>>=
 chisq.test(tab)
-@ 
+@
 
 Le test est hautement significatif, on ne peut pas considérer qu'il y
-a indépendance entre les lignes et les colonnes du tableau. 
+a indépendance entre les lignes et les colonnes du tableau.
 
 On peut affiner l'interprétation du test en déterminant dans quelle
 case l'écart à l'indépendance est le plus significatif en utilisant
@@ -4340,7 +4340,7 @@ la fonction \rfunc{chisq.residuals} \marqr de \questionr~:
 
 <<>>=
 chisq.residuals(tab)
-@ 
+@
 
 Les cases pour lesquelles l'écart à l'indépendance est significatif
 ont un résidu dont la valeur est supérieure à 2 ou inférieure à
@@ -4355,16 +4355,16 @@ d'autres tableaux croisés. On peut pour cela utiliser la fonction
 
 <<>>=
 cramer.v(tab)
-@ 
+@
 
 Et pour un tableau à 2x2 entrées, il est possible de calculer le test exact de
 Fisher avec la fonction \rfunc{fisher.test}. On peut soit lui passer le
 résultat de \rfunc{table}, soit directement les deux variables à croiser.
-  
+
 <<>>=
 lprop(table(d$sexe,d$cuisine))
 fisher.test(table(d$sexe,d$cuisine))
-@ 
+@
 
 \subsection{Représentation graphique}
 
@@ -4376,7 +4376,7 @@ indiqué figure~\ref{fig_mosaicplot} \vpageref{fig_mosaicplot}.
 \begin{figure}
 <<>>=
 mosaicplot(qualreg ~ sport, data=d, shade=TRUE, main="Graphe en mosaïque")
-@ 
+@
 \caption{Exemple de graphe en mosaïque}
 \label{fig_mosaicplot}
 \end{figure}
@@ -4399,7 +4399,7 @@ d'indépendance.
 <<>>=
 barplot(cprop(tab,total=FALSE),
 		main="Pratique du sport selon le niveau de qualification")
-@ 
+@
 \caption{Exemple de barres cumulées }
 \label{fig_barplot_cum}
 \end{figure}
@@ -4430,7 +4430,7 @@ elle n'a ici à proprement parler aucun sens.}.
 data(hdv2003)
 d <- hdv2003
 range(d$poids)
-@ 
+@
 
 
 \section{Options de certaines fonctions}
@@ -4469,20 +4469,20 @@ library(questionr)
 mean(d$age)
 wtd.mean(d$age, weights=d$poids)
 wtd.var(d$age, weights=d$poids)
-@ 
+@
 
 Pour les tris à plat, on utilise la fonction \rfunc{wtd.table} à
 laquelle on passe la variable en paramètre~:
 
 <<>>=
 wtd.table(d$sexe, weights=d$poids)
-@ 
+@
 
 Pour un tri croisé, il suffit de passer deux variables en paramètres~:
 
 <<>>=
 wtd.table(d$sexe, d$hard.rock, weights=d$poids)
-@ 
+@
 
 Ces fonctions admettent notamment les deux options suivantes~:
 \begin{description}
@@ -4511,7 +4511,7 @@ plupart des autres~:
 
 <<eval=FALSE>>=
 install.packages("survey",dep=TRUE)
-@ 
+@
 
 Le site officiel (en anglais) comporte beaucoup d'informations, mais
 pas forcément très accessibles~:
@@ -4528,7 +4528,7 @@ pondération déjà calculée. Ceci se fait à l'aide de la fonction
 <<>>=
 library(survey)
 dw <- svydesign(ids=~1,data=d,weights=~d$poids)
-@ 
+@
 
 Cette fonction crée un nouvel objet, que nous avons nommé
 \texttt{dw}. Cet objet n'est pas à proprement parler un tableau de
@@ -4541,14 +4541,14 @@ On peut cependant retrouver le contenu de \texttt{d} depuis
 <<>>=
 mean(d$age)
 mean(dw$variables$age)
-@ 
+@
 
 Lorsque notre \textit{design} est déclaré, on peut lui appliquer une
 série de fonctions permettant d'effectuer diverses opérations
 statistiques en tenant compte de la pondération. On citera notamment~:
 
 \begin{description}
-\item[\rfunc{svymean}, \rfunc{svyvar}, \rfunc{svytotal}] statistiques univariées 
+\item[\rfunc{svymean}, \rfunc{svyvar}, \rfunc{svytotal}] statistiques univariées
 \item[\rfunc{svytable}] tableaux croisés
 \item[\rfunc{svychisq}] test du $\chi^2$
 \item[\rfunc{svyby}] statistiques selon un facteur
@@ -4572,7 +4572,7 @@ svyvar(~heures.tv, dw, na.rm=TRUE)
 svytable(~sexe, dw)
 svytable(~sexe+clso, dw)
 
-@ 
+@
 
 En particulier, les tris à plat se déclarent en passant comme argument
 le nom de la variable précédé d'un symbole \texttt{\~}, tandis que les
@@ -4587,7 +4587,7 @@ tab <- svytable(~sexe+clso, dw)
 tab
 lprop(tab)
 svychisq(~sexe + clso, dw)
-@ 
+@
 
 Les fonctions \rfunc{lprop} et \rfunc{cprop} de \questionr
 \marqr sont donc tout à fait compatibles avec l'utilisation de
@@ -4598,7 +4598,7 @@ tri à plat obtenu avec \rfunc{svytable}~:
 <<>>=
 tab <- svytable(~peche.chasse, dw)
 freq(tab, total=TRUE)
-@ 
+@
 
 Par contre, il \textbf{ne faut pas} utiliser \rfunc{chisq.test} sur un tableau
 généré par \rfunc{svytable}. Les effectifs étant extrapolés à partir de la
@@ -4608,11 +4608,11 @@ faire un test du $\chi^2$ sur un tableau croisé pondéré, il faut utiliser
 
 <<>>=
 svychisq(~sexe + clso, dw)
-@ 
+@
 
 Le principe de la fonction \rfunc{svyby} est similaire à celui de \rfunc{tapply}
 (voir section \ref{sec_tapply} \vpageref{sec_tapply}). Elle permet de calculer
-des statistiques selon plusieurs sous-groupes définis par un facteur. 
+des statistiques selon plusieurs sous-groupes définis par un facteur.
 Par exemple~:
 
 <<>>=
@@ -4630,7 +4630,7 @@ svyplot(~age+heures.tv,dw,col="red",main="Bubble plot")
 svyhist(~heures.tv, dw, col="peachpuff", main="Histogramme")
 svyboxplot(age~1,dw,main="Boxplot simple", ylab="Âge")
 svyboxplot(age~sexe,dw,main="Boxplot double", ylab="Âge", xlab="Sexe")
-@ 
+@
 \caption{Fonctions graphiques de l'extension \textsf{survey}}
 \label{fig_surveyplot}
 \end{figure}
@@ -4682,7 +4682,7 @@ suivant, placé dans un objet nommé \texttt{tab}~:
 data(hdv2003)
 tab <- table(hdv2003$sexe,hdv2003$bricol)
 tab
-@ 
+@
 
 
 \subsection{Copier/coller vers \textsf{Excel} et \textsf{Word} \textit{via} le presse-papier}
@@ -4698,7 +4698,7 @@ système. Ceci ne fonctionne malheureusement que sous
 
 <<>>=
 clipcopy(tab)
-@ 
+@
 
 On peut ensuite récupérer le résultat dans une feuille \textsf{Excel} en
 effectuant un simple \textit{Coller}.
@@ -4706,7 +4706,7 @@ effectuant un simple \textit{Coller}.
 \begin{center}
   \includegraphics[width=6cm]{img/copie_tableau_excel.png}
 \end{center}
-  
+
 On peut ensuite sélectionner le tableau sous \textsf{Excel}, le copier
 et le coller dans \textsf{Word}~:
 
@@ -4727,7 +4727,7 @@ fichier plutôt que de le placer dans le presse-papier~:
 
 <<>>=
 clipcopy(tab, file=TRUE)
-@ 
+@
 
 
 Par défaut le résultat est placé dans un fichier nommé
@@ -4736,7 +4736,7 @@ le nom et l'emplacement avec l'option \texttt{filename}~:
 
 <<eval=FALSE>>=
 clipcopy(tab, file=TRUE, filename="exports/tab1.html")
-@ 
+@
 
 On peut ensuite l'intégrer directement dans \textsf{Word} ou dans
 \textsf{OpenOffice} en utilisant le menu \textit{Insertion} puis
@@ -4786,10 +4786,10 @@ Des possibilités similaires sont offertes par l'interface sous
 \begin{rstudio}
   Avec \textsf{RStudio}, les commandes d'export sont situées dans le menu
   \textit{Plots} qui comporte les entrées \textit{Save Plot as image} et
-  \textit{Save Plot as PDF}. Ces mêmes commandes sont accessibles via le 
+  \textit{Save Plot as PDF}. Ces mêmes commandes sont accessibles via le
   bouton \textit{Export} situé au dessus du graphique dans le quadrant
   bas-droit. Les options d'export sont plus importantes que celle de l'interface
-  graphique de base, avec notamment le support du format SVG ou encore la 
+  graphique de base, avec notamment le support du format SVG ou encore la
   possibilité de modifier la taille du graphique exporté.
 \end{rstudio}
 
@@ -4809,7 +4809,7 @@ fichier (option \texttt{file}). Par exemple~:
 <<devcopy,eval=FALSE>>=
 boxplot(rnorm(100))
 dev.print(device=png, file="export.png", width=600)
-@ 
+@
 
 Les formats de sortie possibles varient selon les plateformes, mais
 on retrouve partout les formats bitmap \textsf{bmp}, \textsf{jpeg},
@@ -4819,7 +4819,7 @@ votre installation de \R est disponible dans la page d'aide de \texttt{Devices}~
 
 <<helpdevices,eval=FALSE,tidy=FALSE>>=
 ?Devices
-@ 
+@
 
 L'autre possibilité est de rediriger directement la sortie graphique
 dans un fichier, avant d'exécuter la commande générant la figure. On
@@ -4851,7 +4851,7 @@ pdf(file="out.pdf", width=9, height=9, pointsize=10)
 plot(rnorm(150))
 dev.off()
 
-@ 
+@
 
 Il est nécessaire de faire un appel à la fonction \rfunc{dev.off}
 après génération du graphique pour que le résultat soit bien écrit
@@ -4859,45 +4859,41 @@ dans le fichier de sortie (dans le cas contraire on se retrouve avec
 un fichier vide).
 
 
-\section{Génération automatique de documents avec \textsf{knitr}}
-\label{sec-knitr}
+\section{Génération automatique de documents avec \textsf{RMarkdown}}
+\label{sec-rmarkdown}
 
-\textsf{knitr} est une extension \R, développée par Yihui Xie, qui permet de
-mélanger du code \R dans des documents de différents formats et de produire en
+\textsf{R Markdown} est une extension \R, développée par RStudio, qui permet de
+mélanger du code \R dans des documents au format \texttt{Markdown} et de produire en
 retour des documents comportant, à la place du code en question, le résultat de son
 exécution (texte, tableaux, graphiques, etc.).
 
 Site officiel de l'extension~:
 
-\url{http://yihui.name/knitr/}
+\url{http://rmarkdown.rstudio.com/}
 
-\textsf{knitr} est extrêmement versatile, et permet d'inclure du code R dans
-des documents suivant différents formats. On pourra ainsi l'utiliser avec du
-\LaTeX, du \textsf{Markdown} ou du \textsf{HTML}.
-
-\textsf{RStudio}\footnote{Pour plus d'informations sur \textsf{RStudio}, voir
+\textsf{R Markdown} est extrêmement versatile. À partir d'un format de balisage léger, il permet d'inclure du code R et de
+générer des documents dans différents formats, notamment HTML, PDF\footnote{Sous réserve d'avoir une installation fonctionnelle de \LaTeX{}} ou traitement de texte.
+À noter que \textsf{RStudio}\footnote{Pour plus d'informations sur \textsf{RStudio}, voir
   section~\ref{sec_rstudio} \vpageref{sec_rstudio}.} propose une interface
-pratique à \textsf{knitr}\footnotemark. On peut ainsi facilement créer un
-fichier \textit{R Markdown}, \textit{R HTML} ou \textit{R Sweave} et, d'un
-clic, générer des fichiers HTML pour les deux premiers formats, ou PDF pour le
-dernier.
-
-\footnotetext{\textsf{knitr} peut aussi parfaitement s'utiliser en ligne de
-  commande sans passer par \textsf{RStudio}}
+pratique à \textsf{R Markdown}, mais qu'on peut aussi parfaitement l'utiliser en ligne de
+  commande sans passer par \textsf{RStudio}.
 
 
 \subsection{Exemple}
 
 Voyons tout de suite un exemple. Dans \textsf{RStudio}, choisissez le menu
-\textit{File}, puis \textit{New}, puis \textit{R Markdown}. Un nouveau
-document s'ouvre. Effacez son contenu et remplacez le par quelque chose comme~:
+\textit{File}, puis \textit{New file}, puis \textit{R Markdown...}. Une boîte dialogue vous permet alors d'indiquer un titre, un auteur et un format de sortie\footnote{Le format de sortie peut être modifié par la suite à tout moment}. Un nouveau document s'ouvre. Effacez son contenu et remplacez le par quelque chose comme~:
 
 \begin{greyverb}
 \begin{verbatim}
-Exemple de titre
-================
+---
+title: "Test"
+output: html_document
+---
 
-Ceci est un paragraphe avec du texte en *italique*, en **gras** et en 
+# Exemple de titre
+
+Ceci est un paragraphe avec du texte en *italique*, en **gras** et en
 `police à chasse fixe`.
 
 Ensuite vient un bloc de code R qui affiche du texte :
@@ -4907,12 +4903,12 @@ data(iris)
 mean(iris$Sepal.Width)
 ```
 
-Grâce à `xtable`, on peut aussi afficher des tableaux avec le code suivant :
+Grâce à `kable`, on peut aussi afficher des tableaux avec le code suivant :
 
-```{r exempletab, results='asis'}
-library(xtable)
+```{r exempletab}
+library(knitr)
 tab <- table(iris$Species, cut(iris$Sepal.Width, breaks=3))
-print(xtable(tab), type="html")
+kable(tab)
 ```
 
 Et on peut, enfin, inclure des graphiques directement :
@@ -4920,7 +4916,7 @@ Et on peut, enfin, inclure des graphiques directement :
 ```{r exemplegraph, echo=FALSE}
 plot(iris$Sepal.Width, iris$Sepal.Length, col="red")
 ```
-\end{verbatim} 
+\end{verbatim}
 \end{greyverb}
 
 
@@ -4933,7 +4929,7 @@ voir apparaître une fenêtre ressemblant à la figure~\ref{fig_knitr_html}
   \begin{center}
     \includegraphics[width=0.95\textwidth]{img/knitr_html_out.png}
   \end{center}
-  \caption{Résultat de la génération d'un document HTML par \textsf{knitr}}
+  \caption{Résultat de la génération d'un document HTML par \textsf{R Markdown}}
   \label{fig_knitr_html}
 \end{figure}
 
@@ -4941,14 +4937,13 @@ Vous avez ensuite la possibilité d'enregistrer ce fichier HTML, ou même,
 \textit{via} le bouton \textit{Publish}, de le mettre en ligne sur le site
 \textit{Rpubs} (\url{http://rpubs.com}) pour pouvoir le partager facilement.
 
-Si vous n'utilisez pas \textsf{RStudio}, vous pouvez appliquer \textsf{knitr}
-à votre fichier \textit{R Markdown} en lançant R dans le même répertoire et en
+Si vous n'utilisez pas \textsf{RStudio}, vous pouvez compiler votre fichier \textsf{R Markdown} en lançant R dans le même répertoire et en
 utilisant le code suivant~:
 
 <<r knitrcmdline, eval=FALSE>>=
-library(knitr)
-knit2html("test.Rmd")
-@ 
+library(rmarkdown)
+render("test.Rmd")
+@
 
 Le résultat se trouvera dans le fichier \texttt{test.html} du même répertoire.
 
@@ -4961,14 +4956,13 @@ syntaxe de \textit{Markdown} et ce qui relève de la syntaxe de \textsf{knitr}.
 \textit{Markdown} est un langage de balisage permettant de mettre en forme du
 texte en désignant des niveaux de titre, du gras, des listes à puce, etc.
 Ainsi, du texte placé entre deux astérisques sera mis en italique, une ligne
-soulignée par des caractères \texttt{=} sera transformée en titre de niveau 1, etc.
+précédée d'un dièse \texttt{\#} sera transformée en titre de niveau 1, etc.
 Dans \textsf{RStudio}, choisissez le menu \textit{Help} puis \textit{Markdown
   Quick Reference} pour afficher un aperçu des différentes possibilités de
 mise en forme.
 
 Ensuite, le document contient plusieurs blocs de code \R. Ceux-ci sont
-délimités par la syntaxe suivante\footnote{Ces délimiteurs seront différents
-  pour d'autres formats de documents, comme \textit{Sweave} ou \texttt{Rhtml}.}~:
+délimités par la syntaxe suivante~:
 
 \begin{greyverb}
 \begin{verbatim}
@@ -4977,7 +4971,7 @@ délimités par la syntaxe suivante\footnote{Ces délimiteurs seront différents
 \end{verbatim}
 \end{greyverb}
 
-Le bloc commence et se termine par trois quotes inverses suivie, entre
+Le bloc commence et se termine par trois quotes inverses suivies, entre
 accolades, du langage utilisé dans le bloc (ici toujours \texttt{r}), du nom
 du bloc (ce qui permet de l'identifier facilement en cas d'erreur), et d'une
 liste d'options éventuelles séparées par des virgules.
@@ -4997,17 +4991,12 @@ Et la liste exhaustive se trouve ici~:
 \subsection{Aller plus loin}
 
 L'objectif ici était de présenter un aperçu de l'intérêt et des
-possibilités de \textsf{knitr}. Grâce à ce système, le code \R peut être
+possibilités de \textsf{R Markdown}. Grâce à ce système, le code \R peut être
 intégré directement aux analyses, et le document final contient le résultat de
 l'exécution de ce code. La mise à jour de l'ensemble de ces résultats (en cas de
 modification des données par exemple) peut alors se faire d'un simple clic ou
 d'une seule commande. L'intérêt en terme de reproductibilité des recherches
 est également énorme.
-
-\textsf{knitr} est très versatile, permet de générer des documents dans de
-nombreux formats, et évolue rapidement. L'utilisation de programmes
-auxiliaires comme \textsf{pandoc} permettent même de générer des documents au
-format traitement de texte, par exemple.
 
 Pour aller au-delà de l'exemple donné ici, on trouvera de nombreuses
 ressources en ligne sur les possibilités et l'utilisation de \textsf{knitr}.
@@ -5018,7 +5007,7 @@ L'extension propose même une démonstration permettant de modifier un fichier
 <<r demoknitr,eval=FALSE>>=
 if (!require('shiny')) install.packages('shiny')
 demo('notebook', package = 'knitr')
-@ 
+@
 
 \chapter{Où trouver de l'aide}
 \label{sec_aide}
@@ -5094,14 +5083,14 @@ votre navigateur.
 
 Si vous souhaitez rechercher quelque chose dans le contenu de l'aide
 directement dans la console, vous pouvez utiliser la fonction
-\rfunc{help.search} (ou \rfunc{??} qui est équivalente), qui renvoie une liste 
+\rfunc{help.search} (ou \rfunc{??} qui est équivalente), qui renvoie une liste
 des pages d'aide contenant les termes recherchés. Par exemple~:
 
 <<help4,eval=FALSE>>=
 help.search("logistic") # equivalent a ??logistic
 @
 
-	
+
 \begin{rstudio}
   Dans \textsf{RStudio}, les pages d'aide en ligne s'ouvriront dans le quadrant
   bas-droite sous l'onglet \textit{Help}. Un clic sur l'icône en forme de maison
@@ -5238,7 +5227,7 @@ en est tiré peuvent être de bonnes ressources, tout comme le site Web
 
 \url{http://www.statmethods.net/}
 
-\subsection{Revue} 
+\subsection{Revue}
 
 La revue \textit{Journal of Statistical Software} est une revue
 électronique anglophone, dont les articles sont en accès libre, et qui
@@ -5604,9 +5593,9 @@ L'installation d'une extension se fait par la fonction
 \rfunc{install.packages}, à qui on fournit le nom de l'extension. Ici
 on souhaite installer l'extension \textsf{ade4}~:
 
-<<instpack,eval=FALSE>>=  
+<<instpack,eval=FALSE>>=
 install.packages("ade4", dep=TRUE)
-@ 
+@
 
 L'option \texttt{dep=TRUE} indique à \R de télécharger et d'installer
 également toutes les extensions dont l'extension choisie dépend
@@ -5622,7 +5611,7 @@ console ou un fichier script avec la commande~:
 
 <<library,eval=FALSE>>=
 library(ade4)
-@ 
+@
 
 À partir de là, on peut utiliser les fonctions de l'extension,
 consulter leur page d'aide en ligne, accéder aux jeux de données
@@ -5633,7 +5622,7 @@ commande suffit~:
 
 <<updatepack,eval=FALSE>>=
 update.packages()
-@ 
+@
 
 
 Si on souhaite désinstaller une extension précédemment installée, on
@@ -5641,7 +5630,7 @@ peut utiliser la fonction \rfunc{remove.packages}~:
 
 <<removepack,eval=FALSE>>=
 remove.packages("ade4")
-@ 
+@
 
 
 \begin{important}
@@ -5689,7 +5678,7 @@ L'extension s'utilise alors de manière classique grâce à l'instruction
 
 <<libquestionr,eval=FALSE>>=
 library(questionr)
-@ 
+@
 
 
 \subsection{Fonctions et utilisation}
@@ -5750,11 +5739,11 @@ La fonction \rfunc{irec} a pour objet de faciliter le recodage d'une variable
 qualitative. Ici, nous souhaitons recoder la variable \texttt{sexe} du jeu de
 données \texttt{hdv2003}.
 
-L'interface se divise en trois onglet~: 
+L'interface se divise en trois onglet~:
 
 \begin{itemize}
 \item dans l'onglet \textit{Variable et paramètres}, vous pouvez sélectionner la variable à recoder, choisir le nom de la nouvelle variable, le style de recodage, et indiquer si vous souhaitez que
-cette nouvelle variable soit convertie en facteur. 
+cette nouvelle variable soit convertie en facteur.
 \item dans l'onglet \textit{Recodages}, des champs de formulaires listent les valeurs de la variable et vous permettent de les modifier.
 \item enfin, dans l'onglet \textit{Code et résultat}, vous trouverez à la fois le code
   \R correspondant aux données remplies dans le formulaire précédent, ainsi qu'un tableau croisé de l'ancienne et de la nouvelle variable vous permettant de vérifier que le résultat est bien celui attendu.
@@ -5782,7 +5771,7 @@ d'un facteur ou \texttt{icut} pour découper une variable numérique en classes.
 \label{sec_hdv2003}
 
 L'extension \questionr contient plusieurs jeux de données
-(\textit{dataset}) destinés à l'apprentissage de \R. 
+(\textit{dataset}) destinés à l'apprentissage de \R.
 
 \texttt{hdv2003} est un extrait comportant 2000 individus et 20
 variables provenant de l'enquête \textit{Histoire de Vie} réalisée par
@@ -5804,17 +5793,17 @@ liste des variables est la suivante~:
     \texttt{poids} & Variable de pondération\footnotemark \\
     \texttt{age} & Âge \\
     \texttt{sexe} & Sexe \\
-    \texttt{nivetud} & Niveau d'études atteint \\    
-    \texttt{occup} & Occupation actuelle \\    
-    \texttt{qualif} & Qualification de l'emploi actuel \\        
+    \texttt{nivetud} & Niveau d'études atteint \\
+    \texttt{occup} & Occupation actuelle \\
+    \texttt{qualif} & Qualification de l'emploi actuel \\
     \texttt{freres.soeurs} & Nombre total de frères, s\oe{}urs,
-    demi-frères et demi-s\oe{}urs \\        
+    demi-frères et demi-s\oe{}urs \\
     \texttt{clso} & Sentiment d'appartenance à une classe sociale \\
     \texttt{relig} & Pratique et croyance religieuse \\
     \texttt{trav.imp} & Importance accordée au travail \\
     \texttt{trav.satisf} & Satisfaction ou insatisfaction au travail \\
     \texttt{hard.rock} & Ecoute du Hard rock ou assimilés \\
-    \texttt{lecture.bd} & Lecture de bandes dessinées \\    
+    \texttt{lecture.bd} & Lecture de bandes dessinées \\
     \texttt{peche.chasse} & Pêche ou chasse pour le plaisir au cours
     des 12 derniers mois \\
     \texttt{cuisine} & Cuisine pour le plaisir au cours
@@ -5852,23 +5841,23 @@ La liste des variables est la suivante~:
     \texttt{code} & Code de la commune \\
     \texttt{pop.act} & Population active \\
     \texttt{pop.tot} & Population totale \\
-    \texttt{pop15} & Population des 15 ans et plus \\    
-    \texttt{nb.rp} & Nombre de résidences principales \\    
+    \texttt{pop15} & Population des 15 ans et plus \\
+    \texttt{nb.rp} & Nombre de résidences principales \\
     \texttt{agric} & Part des agriculteurs dans la population active \\
     \texttt{artis} & Part des artisans, commerçants et chefs d'entreprises \\
-    \texttt{cadres} & Part des cadres \\    
+    \texttt{cadres} & Part des cadres \\
     \texttt{interm} & Part des professions intermédiaires \\
     \texttt{empl} & Part des employés \\
-    \texttt{ouvr} & Part des ouvriers \\    
+    \texttt{ouvr} & Part des ouvriers \\
     \texttt{retr} & Part des retraités \\
     \texttt{tx.chom} & Part des chômeurs \\
-    \texttt{etud} & Part des étudiants\\    
+    \texttt{etud} & Part des étudiants\\
     \texttt{dipl.sup} & Part des diplômés du supérieur \\
     \texttt{dipl.aucun} &  Part des personnes sans diplôme\\
-    \texttt{proprio} &  Part des propriétaires parmi les résidences principales\\    
+    \texttt{proprio} &  Part des propriétaires parmi les résidences principales\\
     \texttt{hlm} &  Part des logements HLM parmi les résidences principales\\
     \texttt{locataire} &  Part des locataires parmi les résidences principales\\
-    \texttt{maison} &  Part des maisons parmi les résidences principales \\    
+    \texttt{maison} &  Part des maisons parmi les résidences principales \\
   \end{tabular}
 \end{center}
 
@@ -5878,12 +5867,12 @@ La liste des variables est la suivante~:
 
 <<r initsoluces, echo=FALSE, results="hide">>=
 opts_chunk$set(size="footnotesize")
-@ 
+@
 
 \begin{solution}{simplec}
 <<>>=
 c(120, 134, 256, 12)
-@ 
+@
 \end{solution}
 
 \begin{solution}{simplec2}
@@ -5891,7 +5880,7 @@ c(120, 134, 256, 12)
 1:9
 1:9 + 100
 1:9 * 2
-@ 
+@
 \end{solution}
 
 
@@ -5901,7 +5890,7 @@ conjoint1 <- c(1200, 1180, 1750, 2100)
 conjoint2 <- c(1450, 1870, 1690, 0)
 nb.personnes <- c(4, 2, 3, 2)
 (conjoint1 + conjoint2) / nb.personnes
-@ 
+@
 \end{solution}
 
 
@@ -5916,7 +5905,7 @@ min(conjoint1.na)
 max(conjoint1.na)
 min(conjoint1.na, na.rm=TRUE)
 max(conjoint1.na, na.rm=TRUE)
-@ 
+@
 \end{solution}
 
 
@@ -5926,14 +5915,14 @@ library(questionr)
 data(hdv2003)
 df <- hdv2003
 str(df)
-@ 
+@
 \end{solution}
 
 \begin{solution}{editdf}
 Utilisez la fonction suivante et corrigez manuellement les erreurs~:
 <<eval=FALSE>>=
 df.ok <- edit(df)
-@ 
+@
 Attention à ne pas utiliser la fonction \texttt{fix} dans ce cas,
 celle-ci modifierait directement le contenu de \texttt{df}.
 
@@ -5941,7 +5930,7 @@ Puis utilisez la fonction \texttt{head}~:
 
 <<eval=FALSE>>=
 head(df.ok, 4)
-@ 
+@
 
 \end{solution}
 
@@ -5952,8 +5941,8 @@ summary(df$age)
 hist(df$age, breaks=10, main="Répartition des âges", xlab="Âge", ylab="Effectif")
 boxplot(df$age)
 plot(table(df$age), main="Répartition des âges", xlab="Âge", ylab="Effectif")
-@ 
-  
+@
+
 \end{solution}
 
 \begin{solution}{varquali}
@@ -5964,14 +5953,14 @@ summary(df$trav.imp)
 freq(df$trav.imp)
 dotchart(table(df$trav.imp))
 
-@ 
+@
 
 \end{solution}
 
 \begin{solution}{import_tableur}
   Utilisez la fonction \texttt{read.table} ou l'un de ses dérivés, en
   fonction du tableur utilisé et du format d'enregistrement.
-  
+
   Pour vérifier que l'importation s'est bien passée, on peut utiliser
   les fonctions \texttt{str}, \texttt{dim}, éventuellement
   \texttt{edit} et faire quelques tris à plat.
@@ -5993,14 +5982,14 @@ data(hdv2003)
 d <- hdv2003
 d <- rename.variable(d, "clso", "classes.sociales")
 d <- rename.variable(d, "classes.sociales", "clso")
-@ 
+@
 \end{solution}
 
 \begin{solution}{manip_factor}
 <<>>=
 d$clso <- factor(d$clso, levels=c("Non", "Ne sait pas", "Oui"))
-table(d$clso)     
-@ 
+table(d$clso)
+@
 \end{solution}
 
 
@@ -6011,8 +6000,8 @@ d$lecture.bd[12:30]
 d[c(5,12), c(4,8)]
 longueur <- length(d$age)
 tail(d$age,4)
-@ 
- 
+@
+
 \end{solution}
 
 \begin{solution}{manip_souspop}
@@ -6022,7 +6011,7 @@ subset(d, occup!="Chômeur", select=-cinema)
 subset(d, age >= 45 & hard.rock=="Oui", select=id)
 subset(d, sexe == "Femme" & age >= 25 & age <= 40 & sport == "Non")
 subset(d, sexe == "Homme" & freres.soeurs >= 2 & freres.soeurs <= 4 & (cuisine=="Oui" | bricol=="Oui") )
-@ 
+@
 
 \end{solution}
 
@@ -6033,8 +6022,8 @@ d.bd.non <- subset(d, lecture.bd=="Non")
 mean(d.bd.oui$heures.tv)
 mean(d.bd.non$heures.tv,na.rm=TRUE)
 tapply(d$heures.tv,d$lecture.bd,mean,na.rm=TRUE)
-@ 
-  
+@
+
 \end{solution}
 
 
@@ -6044,9 +6033,9 @@ d$fs.char <- as.character(d$freres.soeurs)
 d$fs.fac <- factor(d$fs.char)
 d$fs.num <- as.numeric(as.character(d$fs.char))
 table(d$fs.num == d$freres.soeurs)
-@ 
+@
 
-  
+
 \end{solution}
 
 
@@ -6058,7 +6047,7 @@ d$fs2 <- cut(d$freres.soeurs, breaks=c(0,2,4,19), include.lowest=TRUE, labels=c(
 table(d$fs2)
 d$fs3 <- quant.cut(d$freres.soeurs, 3)
 table(d$fs3)
-@ 
+@
 
 \end{solution}
 
@@ -6070,14 +6059,14 @@ d$trav.imp2cl[d$trav.imp == "Moins important que le reste" | d$trav.imp == "Peu 
 table(d$trav.imp)
 table(d$trav.imp2cl)
 table(d$trav.imp,d$trav.imp2cl)
-@ 
+@
 
 <<r solmanipregroup2,size="footnotesize">>=
 d$relig.4cl <- as.character(d$relig)
 d$relig.4cl[d$relig == "Pratiquant regulier" | d$relig == "Pratiquant occasionnel"] <- "Pratiquant"
 d$relig.4cl[d$relig=="NSP ou NVPR"] <- NA
 table(d$relig.4cl, d$relig, exclude=NULL)
-@ 
+@
 
 \end{solution}
 
@@ -6095,7 +6084,7 @@ table(d$var, d$bricol)
 table(d$var, d$lecture.bd)
 table(d$var, d$age > 30)
 table(d$var, d$age > 40)
-@ 
+@
 
 \end{solution}
 
@@ -6106,9 +6095,9 @@ d.ord <- d[order(d$freres.soeurs), ]
 d.ord <- d[order(d$heures.tv, decreasing=TRUE), c("sexe","heures.tv")]
 head(d.ord,10)
 
-@ 
+@
 
-  
+
 \end{solution}
 
 
