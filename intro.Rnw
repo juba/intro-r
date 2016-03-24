@@ -3708,8 +3708,7 @@ permet de lire le contenu d'un fichier de script et d'exécuter son
 contenu.
 
 Prenons tout de suite un exemple. La plupart des scripts \R commencent
-par charger les extensions utiles, par définir le répertoire de
-travail à l'aide de \rfunc{setwd}, à importer les données, à effectuer
+par charger les extensions utiles, importer les données, effectuer
 manipulations, traitements et recodages, puis à mettre en oeuvre les
 analyses. Prenons le fichier fictif suivant~:
 
@@ -3717,12 +3716,10 @@ analyses. Prenons le fichier fictif suivant~:
 library(questionr)
 library(foreign)
 
-setwd("/home/julien/r/projet")
-
 ## IMPORT DES DONNÉES
 
-d1 <- read.dbf("tab1.dbf")
-d2 <- read.dbf("tab2.dbf")
+d1 <- read.dbf("data/tab1.dbf")
+d2 <- read.dbf("data/tab2.dbf")
 
 d <- merge(d1, d2, by="id")
 
@@ -3755,8 +3752,8 @@ lignes suivantes~:
 <<orga2,eval=FALSE,prompt=FALSE>>=
 ## IMPORT DES DONNÉES
 
-d1 <- read.dbf("tab1.dbf")
-d2 <- read.dbf("tab2.dbf")
+d1 <- read.dbf("data/tab1.dbf")
+d2 <- read.dbf("data/tab2.dbf")
 
 d <- merge(d1, d2, by="id")
 @
@@ -3784,8 +3781,6 @@ fichier de départ~:
 <<orga4,eval=FALSE,prompt=FALSE>>=
 library(questionr)
 library(foreign)
-
-setwd("/home/julien/r/projet")
 
 source("import.R")
 source("recodages.R")
