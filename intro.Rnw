@@ -144,7 +144,7 @@
 \title{\Huge{Introduction à \includegraphics[width=1.4cm]{img/Rlogo.jpg}}}
 \author{Julien Barnier\\ Centre Max Weber\\
   \href{mailto:julien.barnier@ens-lyon.fr}{\texttt{julien.barnier@ens-lyon.fr}}}
-\date{Version 2.1\\\today{}\\\vspace{3cm}\includegraphics[width=9cm]{img/xkcd_tech_chart.png}\\\footnotesize\texttt{http://xkcd.com/627/}}
+\date{Version 2.1.1\\\today{}\\\vspace{3cm}\includegraphics[width=9cm]{img/xkcd_tech_chart.png}\\\footnotesize\texttt{http://xkcd.com/627/}}
 
 
 \begin{document}
@@ -393,8 +393,8 @@ ressemblant à peu près à ce qui suit\footnotemark~:
 
 \begin{greyverb}
 \begin{verbatim}
-R version 3.2.0 (2015-04-16) -- "Full of Ingredients"
-Copyright (C) 2015 The R Foundation for Statistical Computing
+R version 3.2.4 (2016-03-10) -- "Very Secure Dishes"
+Copyright (C) 2016 The R Foundation for Statistical Computing
 Platform: x86_64-pc-linux-gnu (64-bit)
 
 R est un logiciel libre livré sans AUCUNE GARANTIE.
