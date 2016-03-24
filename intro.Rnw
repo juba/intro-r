@@ -144,7 +144,7 @@
 \title{\Huge{Introduction à \includegraphics[width=1.4cm]{img/Rlogo.jpg}}}
 \author{Julien Barnier\\ Centre Max Weber\\
   \href{mailto:julien.barnier@ens-lyon.fr}{\texttt{julien.barnier@ens-lyon.fr}}}
-\date{Version 2.1.1\\\today{}\\\vspace{3cm}\includegraphics[width=9cm]{img/xkcd_tech_chart.png}\\\footnotesize\texttt{http://xkcd.com/627/}}
+\date{Version 2.2\\\today{}\\\vspace{3cm}\includegraphics[width=9cm]{img/xkcd_tech_chart.png}\\\footnotesize\texttt{http://xkcd.com/627/}}
 
 
 \begin{document}
