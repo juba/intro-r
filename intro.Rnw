@@ -298,7 +298,7 @@ L'utilisation de \R présente plusieurs avantages~:
 \item c'est un logiciel avec d'excellentes capacités graphiques.
 \end{itemize}
 
-\footnotetext{Il en existe actuellement plus de 6500, disponibles sur le
+\footnotetext{Il en existe actuellement plus de 8000, disponibles sur le
   \textit{Comprehensive R Archive Network} (CRAN)~: \url{http://cran.r-project.org/}}
 
 Comme rien n'est parfait, on peut également trouver quelques inconvénients~:
