@@ -1014,7 +1014,7 @@ fichiers de commandes et à envoyer régulièrement les commandes saisies
 \begin{rstudio}
   Les commandes sont légèrement différentes avec \textsf{RStudio} mais le
   principe est le même. Pour créer un nouveau script \R, faire \textit{File >
-  New > R Script}. Votre nouveau fichier apparaitra dans le quadrant haut-gauche.
+  New file > R Script}. Votre nouveau fichier apparaitra dans le quadrant haut-gauche.
   Pour exécuter une ou plusieurs lignes de code, sélectionnez les lignes en
   question puis cliquez sur l'icône \textit{Run} ou bien appuyez simultanément
   sur les touches \texttt{<Ctrl>} et \texttt{<Entrée>}.
@@ -2855,7 +2855,7 @@ d2 <- subset(d, age > 25, select=-c(id, age, bricol))
 
 \begin{remarque}
   Cette section documente une fonction qui peut être très utile, mais
-  pas forcément indispensable au départ.
+  pas forcément indispensable au départ. Vous pouvez donc passer directement à la suite si vous le souhaitez.
 \end{remarque}
 
 La fonction \rfunc{tapply} n'est qu'indirectement liée à la notion de
