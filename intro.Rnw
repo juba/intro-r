@@ -416,7 +416,7 @@ commande.
   \begin{center}
     \includegraphics[width=0.8\textwidth]{img/scr_RStudio.png}
   \end{center}
-  \caption{L'interface de \textsf{RStudio} sous \textsf{Windows} au démarrage}
+  \caption{L'interface de \textsf{RStudio} au démarrage}
   \label{fig_RStudio}
 \end{figure}
 
