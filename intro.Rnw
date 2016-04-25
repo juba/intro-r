@@ -5250,6 +5250,11 @@ Le site \textit{France Université Numérique} propose plusieurs cours en franç
 
 \url{https://www.fun-mooc.fr/}
 
+Le site \textit{Datacamp} propose une formation en ligne en français gratuite,
+basée sur la pratique :
+
+\url{https://www.datacamp.com/courses/introduction-a-r/}
+
 En anglais, on trouvera des ressources sur \R sur les principales plateformes de MOOCs. On pourra citer par exemple les cours de la spécialisation \textit{Data science} sur Coursera :
 
 \url{https://www.coursera.org/specializations/jhu-data-science}
