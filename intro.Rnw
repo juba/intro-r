@@ -3057,7 +3057,8 @@ table(d$age20)
 \subsubsection{Interface interactive}
 
 \questionr \marqr propose une interface interactive à la fonction
-\texttt{cut}, nommée \rfunc{icut}. Elle s'utilise soit dans RStudio via le menu \textit{Addins}, puis \textit{Variable cutting}, soit depuis la console ou un script de la manière suivante~:
+\texttt{cut}, nommée \rfunc{icut}. Elle s'utilise soit dans RStudio via le
+menu \textit{Addins}, puis \textit{Numeric range dividing}, soit depuis la console ou un script de la manière suivante~:
 
 <<launchicut,eval=FALSE>>=
 icut(d$age)
