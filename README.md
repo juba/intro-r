@@ -1,4 +1,5 @@
-**Important :** ce document est désormais obsolète et ne sera plus mis à jour. Une version modernisée est disponible à l'adresse : [https://juba.github.io/tidyverse/](https://juba.github.io/tidyverse/).
+:warning: **Important :** ce document est désormais obsolète et ne sera plus mis à jour. Une version modernisée est disponible à l'adresse : [https://juba.github.io/tidyverse/](https://juba.github.io/tidyverse/).
+
 
 Ce dépôt contient les sources et le PDF du document *Introduction à R*.
 
