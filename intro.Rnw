@@ -144,7 +144,7 @@
 \title{\Huge{Introduction à \includegraphics[width=1.4cm]{img/Rlogo.jpg}}}
 \author{Julien Barnier\\ Centre Max Weber\\
   \href{mailto:julien.barnier@ens-lyon.fr}{\texttt{julien.barnier@ens-lyon.fr}}}
-\date{Version 2.2\\\today{}\\\vspace{3cm}\includegraphics[width=9cm]{img/xkcd_tech_chart.png}\\\footnotesize\texttt{http://xkcd.com/627/}}
+\date{Version 2.2 (OBSOLÈTE)\\\today{}\\\vspace{1cm}\textbf{Attention~:} ce document est désormais obsolète et ne sera plus mis à jour. Une version modernisée est disponible à l'adresse~: \url{https://juba.github.io/tidyverse/}\\\vspace{2cm}\includegraphics[width=9cm]{img/xkcd_tech_chart.png}\\\footnotesize\texttt{http://xkcd.com/627/}}
 
 
 \begin{document}
@@ -196,8 +196,11 @@ opts_chunk$set(fig.path="tmp/",
 
 \chapter{Introduction}
 
-
 \section{À propos de ce document}
+
+\begin{important}
+Ce document est désormais obsolète et ne sera plus mis à jour. Une version modernisée est disponible à l'adresse~: \url{https://juba.github.io/tidyverse/}
+\end{important}
 
 Ce document a pour objet de fournir une introduction à l'utilisation
 du logiciel libre de traitement de données et d'analyse statistiques \R.
